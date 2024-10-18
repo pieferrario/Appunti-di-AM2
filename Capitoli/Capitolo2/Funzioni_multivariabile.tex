@@ -551,12 +551,13 @@ Poiché esistono infinite direzioni, esistono altrettante derivate direzionali. 
 \begin{definition} \label{Def: Derivate parziali}
     Si dicono \textbf{derivate parziali} le $n$ derivate in $x_0$ lungo un versore della base canonica e le si indica con
     \begin{equation}
-        \frac{\partial{f}}{\partial{e_i}}\ \text{con}\ e_i \in \left\{e_1,\dots, e_n\right\}
-    \end{equation} 
+        \frac{\partial{f}}{\partial{x_i}}
+    \end{equation}
+    dove con $x_i$ si mette in evidenza il fatto che la direzione sia privilegiata.
 \end{definition}
 La definizione di derivata parziale è dunque un caso particolare della derivata direzionale. La definizione di quest'ultima può essere rimodellata sulla prima così:
 \begin{equation}
-    \frac{\partial{f}}{\partial{e_i}}=\lim_{t \to 0}{\frac{f(x_0^1, \dots, x_0^i+t, \dots, x_0^n)-f(x_0^1, \dots, x_0^i, \dots, x_0^n)}{t}}
+    \frac{\partial{f}}{\partial{x_i}}=\lim_{t \to 0}{\frac{f(x_0^1, \dots, x_0^i+t, \dots, x_0^n)-f(x_0^1, \dots, x_0^i, \dots, x_0^n)}{t}}
 \end{equation}
 Definite le direzioni privilegiate e le derivate parziali, si può ora formalizzare il concetto di derivabilità in un punto.
 \begin{definition} \label{Def: Derivabilità}
@@ -662,7 +663,7 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
         \item $f$ è derivabile in $x_0$ e $\nu=\nabla f(x_0)$
         \item $f$ è derivabile in ogni direzione in $x_0$ e vale la \textit{formula del gradiente}
             \begin{equation} \label{Eq:Formula gradiente}
-                \frac{\partial{f}}{\partial{v}}(x_0)= \langle \nabla f(x_0), \nu\rangle
+                \frac{\partial{f}}{\partial{v}}(x_0)= \langle \nabla f(x_0), v\rangle
             \end{equation}
     \end{enumerate}
     \begin{proof}
@@ -684,19 +685,19 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
         \end{equation}
         Si dimostri ora la seconda tesi, cioè che 
         \begin{equation}
-            \nu=(\nu_1, \dots, \nu_n)= \nabla f(x_0) = \left(\frac{\partial{f}}{\partial{e_1}}{(x_0)}, \dots, \frac{\partial{f}}{\partial{e_n}}{(x_0)}\right)
+            \nu=(\nu_1, \dots, \nu_n)= \nabla f(x_0) = \left(\frac{\partial{f}}{\partial{x_1}}{(x_0)}, \dots, \frac{\partial{f}}{\partial{x_n}}{(x_0)}\right)
         \end{equation}
         Sia $i \in [1, n]$ fissato. La definizione di derivata parziale è
         \begin{equation}
             \begin{aligned}
-               \frac{\partial{f}}{\partial{e_i}}(x_0)&=\lim_{t \to 0}{\frac{f(x_0+te_i)-f(x_0)}{t}}=\lim_{t \to 0}{\frac{f(x_0+te_i)-f(x_0)-t\nu_i+t\nu_i}{t}}=\\
+               \frac{\partial{f}}{\partial{x_i}}(x_0)&=\lim_{t \to 0}{\frac{f(x_0+te_i)-f(x_0)}{t}}=\lim_{t \to 0}{\frac{f(x_0+te_i)-f(x_0)-t\nu_i+t\nu_i}{t}}=\\
                &=\lim_{t \to 0}{\frac{f(x_0+te_i)-f(x_0)-t\nu_i}{t} \frac{|t|}{|t|}}+\lim_{t \to 0}{\frac{t\nu_i}{t}}\overset{\substack{\text{Diff. sul}\\\text{primo}}}{=} \nu_i
             \end{aligned}
         \end{equation}
-        Di conseguenza, poiché $\forall\ \nu_i$, $\nu_i=\frac{\partial{f}}{\partial{e_i}}(x_0)$, se $f$ è differenziabile in $x_0$ allora è anche derivabile in $x_0$ e $\nabla f(x_0)$ coincide con il vettore $\nu$.\\
-        Infine, si dimostri il terzo fatto, cioè che, presa $f$ differenziabile allora essa è derivabile in ogni direzione e vali
+        Di conseguenza, poiché $\forall\ \nu_i$, $\nu_i=\frac{\partial{f}}{\partial{x_i}}(x_0)$, se $f$ è differenziabile in $x_0$ allora è anche derivabile in $x_0$ e $\nabla f(x_0)$ coincide con il vettore $\nu$.\\
+        Infine, si dimostri il terzo fatto, cioè che, presa $f$ differenziabile allora essa è derivabile in ogni direzione e vale
         \begin{equation}
-            \frac{\partial{f}}{\partial{v}}(x_0)=\langle \nabla f(x_0), \nu\rangle
+            \frac{\partial{f}}{\partial{v}}(x_0)=\langle \nabla f(x_0), v\rangle
         \end{equation}
         Si parta dalla definizione di differenziabilità con $h=tv$, con $v$ direzione.
         \begin{equation}
@@ -800,7 +801,7 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
     Se poi $f$ è derivabile in $A$ e le sue derivate parziali sono continue in $A$, allora $f$ è detta di \textbf{classe $C^1$ in $A$} e lo si indica con $f \in C^1(A)$.\\
     \begin{oss}
         Operando una sintesi tra i risultati ottenuti dalla proposizione \ref{Prop: Diff-Der-Cont}, dal teorema del differenziale totale (\ref{Teo: Differenziale totale}) e dalla definizione appena fornita, si può osservare che
-        \begin{equation}
+        \begin{equation} \label{Eq: Relazione C^1 -> diff -> C^0}
             f \in C^1(A) \Rightarrow f\ \text{differenziabile in}\ A \Rightarrow f \in C^{0}(A)
         \end{equation}
     \end{oss} 
@@ -967,7 +968,7 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
         \end{equation}
         cioè che 
         \begin{equation}
-            \lim_{h\to 0}{\frac{\langle H_f(x_0+\theta h)h, h \rangle - \langle H_f(x_0)h, h \rangle}{|h^2|}}=0
+            \lim_{h\to 0}{\frac{\langle H_f(x_0+\theta h)h, h \rangle - \langle H_f(x_0)h, h \rangle}{|h|^2}}=0
         \end{equation}
         Si sfrutti innanzitutto il seguente lemma.
         \begin{lemma}
@@ -984,9 +985,9 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
         In particolare si verifica che
         \begin{equation}
             \begin{aligned}
-                &\frac{|\langle H_f(x_0+\theta h)h, h \rangle - \langle H_f(x_0)h, h\rangle|}{|h^2|}\leq\\
-                &\overset{\substack{\text{Prop.}\\\text{prod.}\\ \text{scal.}}}{\leq}\frac{|\langle [H_f(x_0+\theta h)-H_f(x_0)]h, h \rangle|}{|h^2|} \leq\\
-                &\overset{\substack{\text{Cauchy}\\\text{Schwarz}}}{\leq} \frac{|[H_f(x_0+\theta h)-H_f(x_0)]h|\ |h|}{|h^2|} \leq\\
+                &\frac{|\langle H_f(x_0+\theta h)h, h \rangle - \langle H_f(x_0)h, h\rangle|}{|h|^2}\leq\\
+                &\overset{\substack{\text{Prop.}\\\text{prod.}\\ \text{scal.}}}{\leq}\frac{|\langle [H_f(x_0+\theta h)-H_f(x_0)]h, h \rangle|}{|h|^2} \leq\\
+                &\overset{\substack{\text{Cauchy}\\\text{Schwarz}}}{\leq} \frac{|[H_f(x_0+\theta h)-H_f(x_0)]h|\ |h|}{|h|^2} \leq\\
                 &\overset{\substack{\text{Cauchy}\\\text{Schwarz}}}{\leq} \frac{|H_f(x_0+\theta h)-H_f(x_0)|\ |h|}{|h|} =\\
                 &\overset{f \in C^2(A)}{=}|H_f(x_0+\theta h)-H_f(x_0)| \overset{h \to 0}{\to} 0
             \end{aligned}
@@ -1084,8 +1085,8 @@ Inoltre, una forma quadratica può essere detta:
 \paragraph{Classificazione dei punti critici} Sia $x_0 \in A$ un punto critico per $f:A \subseteq \mathbb{R}^n\to \mathbb{R}$. Allora il polinomio di Taylor con resto di Peano al secondo ordine è
 \begin{equation}
     \begin{aligned}
-        f(x_0+h)&=f(x_0)+ \langle \nabla f(x_0), h\rangle+ \frac{1}{2}\langle H_f(x_0)h,h \rangle +o(|h^2|)=\\ 
-        &= f(x_0)+ \frac{1}{2}\langle H_f(x_0)h,h \rangle + o(|h^2|)
+        f(x_0+h)&=f(x_0)+ \langle \nabla f(x_0), h\rangle+ \frac{1}{2}\langle H_f(x_0)h,h \rangle +o(|h|^2)=\\ 
+        &= f(x_0)+ \frac{1}{2}\langle H_f(x_0)h,h \rangle + o(|h|^2)
     \end{aligned}
 \end{equation} 
 Quindi, per poter fornire dei criteri di classificazione dei punti critici occorre studiare il segno della forma quadratica indotta da $H_f$.
@@ -1100,13 +1101,148 @@ Quindi, per poter fornire dei criteri di classificazione dei punti critici occor
         \langle H_f(x_0)h, h \rangle \underset{(\geq)}{>} 0
     \end{equation}
 \end{proposition}
+\begin{theorem} [Condizione necessaria del II ordine] \label{Teo: Condizione necessaria del secondo ordine}
+Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $f$. Sia poi $f \in C^2(A)$. Se $x_0$ è massimo (minimo) relativo, allora $H_f(x_0)$ è semidefinita negativa (positiva).
+\begin{proof}
+    Sia $x_0$ un punto di massimo relativo per $f$ , sia $v \in \mathbb{R}^n$ direzione fissata. Si definisca allora
+    \begin{equation}
+    F(t)=f(x_0+tv)
+    \end{equation}
+    Siccome $A$ è aperto, $F$ è definita su un certo $\left(-\delta, \delta\right)$ con $\delta>0$. Per ipotesi su $f$, $F$ ha un massimo relativo in $t=0$ ed è di classe $C^2(-\delta, +\delta)$.\\
+    Per l'equazione \eqref{Eq: Premessa al teo Lagrange}, si ottiene che
+    \begin{equation}
+        F''(t)= \langle H_f(x_0+tv)v, v \rangle 
+    \end{equation}
+    da cui, per condizione necessaria sulle funzioni di una variabile, segue che
+    \begin{equation}
+        F''(0)= \langle (x_0)v, v \rangle \leq 0
+    \end{equation}
+    cioè che $H_f(x_0)$ è semidefinita negativa.\\
+    La dimostrazione del caso in cui $x_0$ è minimo relativo per $f$ è del tutto analoga.
+\end{proof}
+\end{theorem}
+\begin{lemma} \label{Lemma: FQ di matrice simmetrica è compresa tra i suoi autovalori max e min}
+        Se, presa $A \in \mathbb{M}_{n,n}$ simmetrica e detti $\lambda_1 \leq \lambda_2 \leq \lambda_n$ i suoi autovalori, si ha $\langle Ax, x \rangle$, allora $\lambda_1 |x| \leq \langle Ax, x \rangle \leq \lambda_n |x|$
+\end{lemma}
 \begin{theorem}[Condizione sufficiente del II ordine] \label{Teo: Condizione sufficiente del secondo ordine}
     Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $f \in C^2(A)$. Sia poi $x_0$ un punto critico per $f$. Allora, 
     \begin{itemize}
-        \item Se $H_f(x_0)$ è definita positiva (negativa), allora $x_0$ è un massimo (minimo) relativo.
+        \item Se $H_f(x_0)$ è definita positiva (negativa), allora $x_0$ è un minimo (massimo) relativo.
         \item Se $H_f(x_0)$ è indefinita, allora $x_0$ è un punto di sella.
     \end{itemize}
+    \begin{proof}
+        Si consideri il caso in cui $H_f(x_0)$ sia definita positiva e si mostri che $x_0$ è un punto di minimo per $f$\\
+        Si può osservare che, essendo $H_f \in C^2(A)$, allora essa è simmetrica per il teorema \ref{Teo: Schwarz} e vale dunque il lemma \ref{Lemma: FQ di matrice simmetrica è compresa tra i suoi autovalori max e min}. Pertanto, indicato con $\lambda_{min}>0$ il minor autovalore di $H_f$, si ha che
+        \begin{equation}
+            \langle H_f(x_0)h,h \rangle \geq \lambda_{min} |h|^2\ \forall h \in \mathbb{R}^n
+        \end{equation}
+        Si scriva quindi lo sviluppo di Taylor con resto di Peano al secondo ordine in $f(x_0)$.
+        \begin{equation}
+        \begin{aligned}
+            f(x_0+h)-f(x_0)&= \langle \nabla f(x_0), h \rangle + \frac{1}{2}\langle H_f(x_0h, h\rangle + o(|h|^2)=\\
+            &\overset{f'(x_0)=0}{=} \frac{1}{2}\langle H_f(x_0)h, h\rangle + o(|h|^2) \geq \\
+            &\overset{\text{Lemma}\ \ref{Lemma: FQ di matrice simmetrica è compresa tra i suoi autovalori max e min}}{\geq} \frac{1}{2} \lambda_{min}|h|^2+o(|h|^2)
+        \end{aligned}
+        \end{equation}
+        Poiché scopo della dimostrazione è mostrare che $f(x_0+h)-f(x_0) \geq 0\ \forall h \in \mathbb{R}^n$, occorre provare che $o(|h|^2)$ sia trascurabile.
+        \begin{equation}
+            f(x_0+h)- f(x_0) \geq \frac{1}{2}\lambda_{min} |h|^2 \left( 1 + \frac{o(|h|^2}{\tfrac{1}{2}\lambda_{min}|h|^2}\right)
+        \end{equation}
+        ma, per definizione di o-piccolo vale il seguente fatto:
+        \begin{equation}
+            \exists\ \sigma >0\ \text{tale che, se}\ |h|<\sigma\ \text{allora}\ \frac{o(|h|^2}{\tfrac{1}{2}\lambda_{min} |h|^2} < \frac{1}{2}
+        \end{equation}
+        dove $\sigma=\frac{1}{2}$ è una costante arbitraria in $(0,1)$.
+        Per tale disuguaglianza, allora, 
+        \begin{equation}
+        \begin{aligned}
+            f(x_0+h)-f(x_0)&\geq \frac{1}{2}\lambda_{min} |h|^2 \left( 1 + \frac{o(|h|^2}{\tfrac{1}{2}\lambda_{min}|h|^2}\right) \geq \\
+            &\geq \frac{1}{2}\lambda_{min}|h|^2(1-\frac{1}{2})=\frac{1}{4}\lambda_{min}|h|^2 >0
+            \end{aligned}
+        \end{equation}
+        purché $|h|< \sigma$. In tal caso la definizione di minimo è soddisfatta.\\
+        La dimostrazione per $H_f(x_0)$ definita negativa è analoga.\\
+    Si dimostri ora il punto 2.\\
+    Se $H_f(x_0)$ è indefinita, allora non soddisfa le ipotesi della condizione necessaria del secondo ordine (teorema \ref{Teo: Condizione necessaria del secondo ordine}), cioè non è né massimo né minimo. Quindi, essendo per ipotesi critico, deve essere una sella.
+    \end{proof}
+    \begin{oss}
+        Se vale $f(x_0+h)-f(x_0) \gtrless 0$, $x_0$ si dice minimo (massimo) forte.
+    \end{oss}
     \begin{oss}
         Si noti che non è possibile concludere niente previa indagine nel caso in cui $H_f$ sia semidefinita.
     \end{oss}
+\end{theorem}
+    \paragraph{Metodo delle restrizioni} Come accennato, se $H_f(x_0)$ è semidefinita, non è possibile caratterizzare il punto critico. Si mostri allora un metodo per farlo tramite esempio.
+    \begin{example}
+        Sia $f(x,y)=x^4-y^4$. Allora il punto $(0,0)$ è critico e si ha che
+        \begin{equation*}
+            H_f(0,0)=\begin{pmatrix}
+                0 & 0\\
+                0 & 0
+            \end{pmatrix}
+        \end{equation*}
+        con $f(0,0)=0$. Si può osservare, però che:
+        \begin{equation*}
+            \begin{aligned}
+                &f(x, 0) > 0\ \forall x \neq 0\\
+                &f(0,y) < 0 \ \forall y \neq 0
+            \end{aligned}
+        \end{equation*}
+        Pertanto $(0,0)$ è un punto di sella, giacché non è né un massimo né un minimo.
+    \end{example}
+    Può capitare, però, di non trovare restrizioni di quel genere, allora bisogna ricorrere allo studio del segno di
+    \begin{equation*}
+        f(x)-f(x_0)
+    \end{equation*}
+\section{Funzioni a valori vettoriali}
+\begin{definition} \label{Def: Funzioni a valori vettoriali}
+    Siano $n,\ m \in \mathbb{N}$ e sia $A \subseteq \mathbb{R}^n$. Allora si dice che una funzione $f$ è \textbf{a valori vettoriali} se è così definita:
+    \begin{equation}
+    \begin{aligned}
+        f:A \subseteq \mathbb{R}^n &\to \mathbb{R}^m\\
+        (x_1, \dots, x_n) &\mapsto (f_1(x_1, \dots, x_n), \dots, f_n(x_1, \dots, x_n))
+    \end{aligned}
+    \end{equation}
+\begin{oss}
+    Si noti che limiti, continuità e derivabilità vanno estese ad un ragionamento componente per componente.
+\end{oss}
+\begin{oss}
+    Se la dimensione del dominio e del codominio è la medesima, si parla di \textit{campo vettoriale}.
+\end{oss}
+\end{definition}
+\begin{definition} \label{Def: Derivabilità di f. vettoriali}
+    Si dice che $f:A \subseteq \mathbb{R}^n \to \mathbb{R}^m$ è \textbf{derivabile} in $x_0 \in A$ se ciascuna $f_i$ con $i=1, \dots, n$ è ivi derivabile.
+\end{definition}
+\begin{definition} \label{Def: Matrice Jacobiana}
+    Se $f$ è derivabile in $x_0$, si dice \textbf{matrice jacobiana} di $f$ in $x_0$ la matrice $J_f \in \mathbb{M}_{m,n}$ definita da
+    \begin{equation} \label{Eq: Matrice Jacobiana}
+        J_f(x_0)=\begin{pmatrix}
+            \frac{\partial{f_1}}{\partial{x_1}}(x_0) & \frac{\partial{f_1}}{\partial{x_2}}(x_0)& \dots & \frac{\partial{f_1}}{\partial{x_n}}(x_0)\\
+            \frac{\partial{f_2}}{\partial{x_1}}(x_0)& \frac{\partial{f_2}}{\partial{x_2}}(x_0)& \dots & \frac{\partial{f_2}}{\partial{x_n}}(x_0)\\
+            \vdots & \vdots & \ddots & \vdots\\
+            \frac{\partial{f_n}}{\partial{x_1}}(x_0) & \frac{\partial{f_n}}{x_2}(x_0)& \dots & \frac{\partial{f_n}}{\partial{x_n}}(x_0)
+        \end{pmatrix}
+        =
+        \begin{pmatrix}
+            \nabla f_1 (x_0)\\
+            \nabla f_2(x_0)\\
+            \vdots\\
+            \nabla f_n(x_0)
+        \end{pmatrix}
+    \end{equation}
+\end{definition}
+\begin{definition} \label{Def: Differenziabilità di f. vettoriali}
+    Una funzione $f$ si dice \textbf{differenziabile} in $x_0 \in A$ se
+    \begin{equation}
+        \lim_{h \to 0}{\frac{f(x_0+h)-f(x_0)-J_f(x_0)h}{|h|}}=0
+    \end{equation}
+\end{definition}
+\begin{theorem} \label{Teo: Derivata composta di f. vettoriali}
+Siano $g: B \subseteq \mathbb{R}^k \to A \subseteq R^n$ e $f: A \subseteq \mathbb{R}^n \to \mathbb{R}^m$ e le si assuma di classe $C^1$. Allora, $h=f \circ g: B \to \mathbb{R^m}$ è ben definita su $B$, è di classe $C^1(B)$ e vale:
+\begin{equation}
+    J_h(y) \in \mathbb{M}_{m,n}\ \text{tale che}\ J_h(y)=J_f(g(y)) J_g(y)\ \forall\ y \in B
+\end{equation}
+\begin{oss}
+    Essendo di classe $C^1$, $h$ è differenziabile, in accordo con i ragionamenti già svolti nell'equazione \eqref{Eq: Relazione C^1 -> diff -> C^0}.
+\end{oss}
 \end{theorem}
