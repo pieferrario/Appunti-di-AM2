@@ -1,0 +1,59 @@
+\documentclass[a4paper]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{titling}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+\usepackage{graphicx, float}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{hyperref}
+
+\theoremstyle{plain}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definizione}
+\newtheorem{theorem}{Teorema} 
+\newtheorem{example}{Esempio}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollario}
+\newtheorem{proposition}{Proposizione}
+
+\newenvironment{oss}
+{\par\indent\small{\textbf{Osservazione}}}
+{\par}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+\begin{document}
+\frontmatter
+\pagestyle{empty}
+\vspace*{\fill}
+\begin{center}
+	{\large \textsc{Appunti di}}\\
+	\vspace*{0.4cm}
+	{\Huge \textsc{Analisi Matematica 2}}\\
+	\vspace*{0.6cm}
+	{\large per il corso di Ingegneria Matematica}\\
+	\vspace*{0.4cm}
+	{\large {di Pietro Ferrario}}\\
+	\vspace*{1cm}
+	Politecnico di Milano\\
+	A.A. 2024/2025
+\end{center}
+\vspace*{\fill}
+\cleardoublepage
+\tableofcontents
+\mainmatter
+\pagestyle{plain}
+\input{Capitoli/Capitolo1/Curve.tex}\cleardoublepage
+\input{Capitoli/Capitolo2/Funzioni_multivariabile.tex}\cleardoublepage
+
+\end{document}
