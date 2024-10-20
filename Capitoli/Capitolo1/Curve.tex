@@ -7,7 +7,7 @@ Il parametro di tali funzioni è convenzionalmente $t$. Esse possono essere rapp
 \begin{equation}
     \varphi(t)=(\varphi_1(t), \varphi_2(t), \dots, \varphi_n(t)) \text{ con }\varphi_i:I \to \mathbb{R}
 \end{equation}
-Analogamente, è possibile utilizzare le \textbf{equazioni parametriche della curva}, cioè:\\
+Analogamente, è possibile utilizzare le \textbf{equazioni parametriche della curva}, cioè:
 \begin{equation}
    \begin{cases}
      x_1=\varphi_1(t)\\
@@ -80,19 +80,19 @@ Da ciò si può osservare come, \textit{in primis}, la definizione di $I$ sia fo
 Fatte tali premesse, si passi ad analizzare alcune proprietà delle curve.
 \begin{definition}
     Una curva $\varphi:[a,b]\to\mathbb{R}^n$ si dice \textbf{chiusa} se $\varphi(a)=\varphi(b)$.
+\end{definition}
 \begin{oss}
     Si noti a tal proposito che la curva in figura 1.3 non è chiusa, mentre quella in figura 1.2 sì.
 \end{oss}
-\end{definition}
 \begin{definition}
     Una curva $\varphi:[a,b] \to \mathbb{R}^n$ si dice \textbf{semplice} se, $\forall$ $ t_1, t_2 \in [a,b]$ distinti di cui almeno uno \textit{interno} all'intervallo, risulta $\varphi(t_1)\neq\varphi(t_2)$.
+\end{definition}
     \begin{oss}
         In altre parole, affinché $\varphi$ sia semplice, essa non deve autointersecarsi, se non, al più, negli estremi.
     \end{oss}
     \begin{oss}
         La curva in figura 1.2 è semplice.
     \end{oss}
-\end{definition}
 \begin{definition}
     Una curva $\varphi:[a,b] \to \mathbb{R}^n$ si dice \textbf{regolare} se l'applicazione $\varphi$ è di classe $C^1$ in $[a,b]$ e se, $\forall t \in (a,b)$ il vettore $\varphi'(t)$ è diverso dal vettore nullo.
 \end{definition}
@@ -103,13 +103,13 @@ Si definisce allora $\varphi'(t_0)=(\varphi_1'(t_0), \dots, \varphi_n'(t_0))$ \t
     \begin{equation}
         T(t_0)=\frac{\varphi'(t_0)}{|\varphi'(t_0)|}
     \end{equation}
+\end{definition}
     \begin{oss}
         Data questa informazione, può diventare utile valutare direttamente $|\varphi'(t)|$ per stabilire la regolarità di una curva. Tale quantità è talvolta definita \textbf{velocità scalare}.
     \end{oss}
     \begin{oss}
         Una curva regolare è priva di cuspidi o punti angolosi.
     \end{oss}
-\end{definition}
 \begin{example}
     Si valuti ora la seguente curva: $\varphi(t)=(t^3, t^2)$ con $t \in [-1, 1]$.
     Rispetto alle proprietà elencate, si può affermare che:
@@ -178,12 +178,14 @@ Tuttavia si può anche osservare che la curva può essere vista come l'unione di
     \begin{itemize}
         \item Se $[\theta_0, \theta_1] \subseteq [0, 2\pi]$ allora la curva è semplice se $\nexists$ $\theta_i, \theta_j \in (0,2\pi)$ tali che $\varrho(\theta_i)=\varrho(\theta_j)=0$
     \end{itemize}
+\newpage
 \section{Curve equivalenti}
 \begin{definition}
     Due curve $\varphi: I\to \mathbb{R}^n$ e $\psi:J\to \mathbb{R}^n$ si dicono \textbf{equivalenti} se $\exists$ $\eta:I\to J$ di classe $C^1(I)$ suriettiva e tale che $\eta'(t) \neq 0$ $\forall$ $t \in I$ per cui si abbia
     \begin{equation}
         \varphi(t)=\psi(\eta(t)) \text{ } \forall \text{ } t \in I
     \end{equation}
+\end{definition}
 \begin{oss}
     $\eta$ è detta \textbf{cambio di parametro ammissibile}. 
 \end{oss}
@@ -216,7 +218,6 @@ Tuttavia si può anche osservare che la curva può essere vista come l'unione di
         \varphi(t)=\psi(\eta(t))=\chi(\zeta(\eta(t))) \text{ cioè } \varphi\sim\chi
     \end{equation}
 \end{oss}
-\end{definition}
 \begin{definition}
     L'applicazione $\eta$ che permette di passare dalla rappresentazione parametrica di $\varphi$ a quella di $\psi$ è detta anche \textbf{$C^1$ diffeomorfismo}.
 \end{definition}
@@ -292,9 +293,10 @@ Sia $\varphi: [a,b] \to \mathbb{R}^n$ una curva di classe $C^1$. Allora essa è 
 Si desideri ora sviluppare un sistema di riferimento intrinseco ad una curva $\varphi:[a, b] \to \mathbb{R}^n$ regolare e tale che $\varphi'(t)$ ed il versore tangente $T$ siano ben definiti su $(a, b)$.
 \begin{definition}
     Si definisce l'\textbf{ascissa curvilinea} o parametro d'arco $s=s(t)$ come
-    \begin{equation*}
+    \begin{equation}
         s(t)=\int_a^t{\left\lvert \varphi'(\tau) \right\rvert d\tau}
-    \end{equation*}
+    \end{equation}
+    \end{definition}
     \begin{oss}
         $s:[a,b] \to [0, L(\varphi)=L]$ è una parametrizzazione della curva regolare $\varphi$. Inoltre, $s'(t)=|\varphi'(t)| \neq 0$ su $(a,b)$.
     \end{oss} 
@@ -305,7 +307,7 @@ Si desideri ora sviluppare un sistema di riferimento intrinseco ad una curva $\v
         \end{equation}
         Ciò mostra come il vettore tangente a $\psi$ sia in ogni punto un versore tangente $T(s)$
     \end{oss}
-\end{definition}
+
 \paragraph*{Prodotto scalare in $\mathbb{R}^n$}
 Siano $\underline{v}=(v_1, \dots, v_n)$ e $\underline{w}=(w_1, \dots, w_n)$ vettori di $\mathbb{R}^n$. Allora
 \begin{equation}
@@ -330,6 +332,7 @@ Siano $\underline{v}=(v_1, v_2, v_3)$ e $\underline{w}=(w_1, w_2, w_3)$ vettori 
 \end{lemma}
 \begin{proposition}
     Sia $w:I\to\mathbb{R}^3$ derivabile e tale che $\exists$ $c>0$ per cui $|w(t)|=c$ $\forall$ $t \in I$. Allora $w'(t) \perp w(t)$.
+\end{proposition}
     \begin{proof}
         Affinché i due vettori siano ortogonali, occorre che il loro prodotto scalare sia nullo. Pertanto, poiché per ipotesi $|w(t)|=c$
         \begin{equation}
@@ -340,7 +343,6 @@ Siano $\underline{v}=(v_1, v_2, v_3)$ e $\underline{w}=(w_1, w_2, w_3)$ vettori 
             \frac{d}{dt}{\langle w(t), w(t)\rangle}\overset{\substack{\text{Prop.} \\ \text{prod. scal.} }}{=}2 \langle w'(t), w(t) \rangle = \frac{d c^2}{dt}=0
         \end{equation}
     \end{proof}
-\end{proposition}
 \begin{oss}
     La curva $\psi:[c,d] \to \mathbb{R}^3$ parametrizzata con ascissa curvilinea è tale che $|\psi'(s)|=1$. Di conseguenza, per la proposizione, $\psi''(s) \perp \psi'(s)$ e, nella fattispecie, $T'(s) \perp T (s)$.  
 \end{oss}
@@ -375,6 +377,7 @@ Siano $\underline{v}=(v_1, v_2, v_3)$ e $\underline{w}=(w_1, w_2, w_3)$ vettori 
         \left\{N(s), B(s)\right\}
     \end{equation}
 \end{definition}
+\newpage
 \begin{definition}
     Si dice \textbf{piano rettificato} per $\psi$ in $\psi(s)$ il piano generato da
     \begin{equation}
@@ -396,6 +399,7 @@ Siano $\underline{v}=(v_1, v_2, v_3)$ e $\underline{w}=(w_1, w_2, w_3)$ vettori 
             B'(s)=\tau(s)N(s)
         \end{cases}
     \end{equation}
+    \end{theorem}
     \begin{proof}
         Si parta dalla prima equazione: 
         \begin{equation}
@@ -428,7 +432,6 @@ Siano $\underline{v}=(v_1, v_2, v_3)$ e $\underline{w}=(w_1, w_2, w_3)$ vettori 
             \end{aligned}
         \end{equation}
     \end{proof}
-\end{theorem}
 \begin{oss}
     Risolvendo il sistema di equazioni differenziali, si potrebbe mostrare come valga anche l'implicazione inversa.
 \end{oss}
@@ -480,6 +483,7 @@ Pertanto è possibile osservare che se una generica $\psi:[a,b]\to \mathbb{R}^3$
 \end{definition}
 \begin{theorem}[Invarianza per equivalenza di curve]
     L'integrale curvilineo di prima specie è invariante per equivalenza di curve.
+\end{theorem}
     \begin{proof}
         Si ricordino innanzitutto le ipotesi:\\
         \indent $\varphi:[a,b]\to \mathbb{R}^n$ regolare, parametrizzazione di $\gamma$.\\
@@ -546,9 +550,9 @@ Pertanto è possibile osservare che se una generica $\psi:[a,b]\to \mathbb{R}^3$
             \end{aligned}
         \end{equation}
     \end{oss}
-\end{theorem}
 \begin{corollary}
     La lunghezza di una curva regolare a tratti è invariante per equivalenza.
+    \end{corollary}
     \begin{proof}
         La dimostrazione del corollario discende dalla dimostrazione precedente, in cui $f \equiv 1$.
         Infatti si avrebbe:
@@ -563,4 +567,3 @@ Pertanto è possibile osservare che se una generica $\psi:[a,b]\to \mathbb{R}^3$
         \end{equation}
         è proprio l'area sottesa da $f\Big|_{\gamma}$
     \end{oss}
-\end{corollary}

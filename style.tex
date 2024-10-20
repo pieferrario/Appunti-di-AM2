@@ -1,0 +1,138 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{titling}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+\usepackage{graphicx, float}
+\usepackage{subcaption}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{mdframed} % Pacchetto per le cornici
+\usepackage{xcolor}   % Pacchetto per la gestione dei colori
+
+% Colore per il background delle cornici
+\definecolor{grey245}{RGB}{245,245,245}
+
+% Teoremi e definizioni
+\theoremstyle{plain}
+\newtheorem{theorem}{\textsc{Teorema}}[chapter] 
+\newtheorem{lemma}[theorem]{\textsc{Lemma}}
+\newtheorem{corollary}[theorem]{\textsc{Corollario}}
+\newtheorem{proposition}[theorem]{\textsc{Proposizione}}
+
+\theoremstyle{definition}
+\newtheorem{definition}{\textsc{Definizione}}[chapter]  
+\newtheorem{example}{\textsc{Esempio}}[chapter] 
+
+
+%Cornice teorema
+\newmdenv[skipabove=6pt,
+skipbelow=6pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=purple,
+backgroundcolor=purple!0,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=0pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=2pt,
+innerbottommargin=2pt]{theoremBox}
+
+%Cornice definizione
+\newmdenv[skipabove=6pt,
+skipbelow=6pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=blue,
+backgroundcolor=blue!0,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=0pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=2pt,
+innerbottommargin=2pt]{definitionBox}
+
+%Cornice proposizione
+\newmdenv[skipabove=6pt,
+skipbelow=6pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=teal,
+backgroundcolor=teal!0,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=0pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=2pt,
+innerbottommargin=2pt]{propositionBox}
+
+%Cornice lemma
+\newmdenv[skipabove=6pt,
+skipbelow=6pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=orange,
+backgroundcolor=orange!0,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=0pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=2pt,
+innerbottommargin=2pt]{lemmaBox}
+
+%Cornice corollario
+\newmdenv[skipabove=6pt,
+skipbelow=6pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=green,
+backgroundcolor=green!0,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=0pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=2pt,
+innerbottommargin=2pt]{corollaryBox}
+
+
+% Definizione degli ambienti con cornici senza cambiare i nomi
+\let\oldtheorem\theorem
+\renewenvironment{theorem}{\begin{theoremBox}\oldtheorem}{\end{theoremBox}}
+\let\oldlemma\lemma
+\renewenvironment{lemma}{\begin{lemmaBox}\oldlemma}{\end{lemmaBox}}
+\let\oldcorollary\corollary
+\renewenvironment{corollary}{\begin{corollaryBox}\oldcorollary}{\end{corollaryBox}}
+\let\oldproposition\proposition
+\renewenvironment{proposition}{\begin{propositionBox}\oldproposition}{\end{propositionBox}}
+\let\olddefinition\definition
+\renewenvironment{definition}{\begin{definitionBox}\olddefinition}{\end{definitionBox}}
+
+% Ambiente per osservazioni
+\newenvironment{oss}
+{\par\indent\small{\textbf{Osservazione}}}
+{\par}
+
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}

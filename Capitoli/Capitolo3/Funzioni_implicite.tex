@@ -1,1 +1,242 @@
 \chapter{Funzioni implicite}
+Può spesso capitare di avere a che fare con insiemi di $\mathbb{R}^2$ descritti da
+\begin{equation} \label{Eq: Insieme implicito}
+    F(x,y)=0 
+\end{equation}
+e detti \textbf{impliciti}.\\
+L'obiettivo del capitolo è quello di trovare le condizioni sotto le quali la \eqref{Eq: Insieme implicito} permetta di associare ad $x$ un unico valore di $y$ come funzione di $x$,  arrivando a determinare le condizioni di esistenza di un intervallo $I \subseteq \mathbb{R}^n$ e di una funzione $f: I \to \mathbb{R}$ tale che
+\begin{equation} \label{Eq: Scopo capitolo 3}
+    F(x, f(x))=0 \qquad \forall\ x \in I
+\end{equation}
+Prima di procedere nella trattazione, si forniscano alcune definizioni di base utili nel corso del capitolo.
+\begin{definition} \label{Def: Funzione implicita}
+    Siano $I \subseteq \mathbb{R}^2,\ J \subseteq \mathbb{R}$ tali che
+    \begin{equation}
+        \forall\ x\in I\ \exists!\ y \in J\ \text{tale che}\ F(x,y)=0
+    \end{equation}
+    Allora si dice che l'equazione $F(x,y)=0$ \textbf{definisce implicitamente} una funzione $f: I \to J$.
+\end{definition}
+\begin{definition} \label{Def: Insieme degli zeri}
+    Si dice \textbf{insieme degli zeri} della funzione $F$ l'insieme $Z(F)$ così definito:
+    \begin{equation} \label{Eq: Insieme degli zeri}
+        Z(F)=\left\{(x,y) \in I \mid F(x, y)=0 \right\}
+    \end{equation}
+\end{definition}
+\begin{definition}
+    Sia $Z(F)$ definito come nella \eqref{Eq: Insieme degli zeri} e sia $P=(\overline{x}, \overline{y}) \in Z(F)$. Se $\nabla F(\overline{x}, \overline{y}= \neq 0$, si dice che $P$ è un \textbf{punto regolare} di $Z(F)$. Altrimenti $P$ è un \textbf{punto singolare}.
+\end{definition}
+\section{Teorema del Dini}
+Il teorema del Dini, che verrà affrontato di seguito, fornisce le condizioni sotto le quali l'equazione $F(x,y)=0$ esprime $y$ in funzione di $x$ per certi valori delle variabili $x$, $y$.
+\newpage
+\begin{theorem}[Teorema del Dini] \label{Teo: Teorema del Dini}
+    Sia $F: A \subseteq \mathbb{R}^2 \to \mathbb{R}$, $A$ aperto, una funzione continua in A e tale che
+    \begin{equation}
+    \exists\ \frac{\partial{F}}{\partial{y}} \in A 
+    \end{equation}
+    ed essa sia ivi continua. Inoltre, preso $(x_0, y_0) \in A$, se 
+    \begin{equation}
+    (x_0, y_0) \in Z(F) \quad \text{e} \quad \frac{\partial{F}}{\partial{y}}(x_0, y_0) \neq 0
+    \end{equation}
+    Allora, l'equazione
+    \begin{equation}
+        F(x, y)=0
+    \end{equation}
+    definisce implicitamente un'unica funzione
+    \begin{equation}
+        g: (x_0-\delta, x_0+\delta) \to (y_0 - \sigma, y_0+\sigma)
+    \end{equation}
+    tale che 
+    \begin{equation} \label{Eq: Tesi Dini}
+     y=g(x) \iff
+        \begin{cases}
+            F(x, y)=0\\
+            x \in (x_0-\delta, x_0+\delta)\\
+            y \in (y_0 - \sigma, y_0+\sigma)
+        \end{cases} 
+    \end{equation}
+    Inoltre $g$ è continua in $(x_0-\delta, x_0+\delta)$ e $g(x_0)=y_0$
+\end{theorem}
+\begin{proof}
+        Si supponga $\frac{\partial{F}}{\partial{y}}(x_0,y_0) > 0$. Poiché per ipotesi essa è anche continua, per permanenza del segno si ha che $\exists\ \sigma > 0$ tale che
+        \begin{equation}
+            \frac{\partial{F}}{\partial{y}}(x,y) > 0 \quad \forall\ (x,y) \in [x_0-\sigma, x_0+\sigma]\times [y_0 - \sigma, y_0+\sigma]
+        \end{equation}
+       Sia $x_0$ fissato. Definita $\eta(y)=F(x_0, y)$ si ha che
+       \begin{equation}
+           \eta'(y)=\frac{\partial{F}}{\partial{y}}(x_0, y) >0 \quad \forall\ y \in [y_0 - \sigma, y_0+\sigma]
+       \end{equation}
+       Pertanto $\eta(y)$ è continua, strettamente crescente e nulla in $y_0$. Quindi
+       \begin{equation}
+       \begin{aligned}
+           &\eta(y_0-\sigma)=F(x_0, y_0-\sigma)<0\\
+           &\eta(y_0+\sigma)=F(x_0, y_0+\sigma)>0
+       \end{aligned}
+       \end{equation}
+       Allora, per permanenza del segno su $F$, $\exists\ \delta>0,\ \delta \leq \sigma$ tale che 
+       \begin{equation}
+           F(x, y_0-\sigma) < 0 < F(x, y_0+\sigma) \quad \forall x \in [x_0-\delta, x_0+\delta]
+       \end{equation}
+       Dunque, per ogni $\overline{x} \in [x_0-\delta, x_0+\delta]$ fissato, la funzione $h_{\overline{x}}(y)=F(\overline{x}, y)$ è monotona, strettamente crescente, di segno opposto agli estremi di $[y_0 - \sigma, y_0+\sigma]$. Quindi, per il teorema dei valori intermedi, si sa che $\forall \overline{x} \in [x_0-\delta, x_0+\delta]$ esiste un unico $\overline{y} \in [y_0-\sigma, y_0+sigma]$ tale che 
+       \begin{equation}
+           F(\overline{x}, \overline{y})=0
+       \end{equation}
+       Allora, definito $\overline{y}=g(\overline{x})$ si ha, per costruzione, la dimostrazione di \eqref{Eq: Tesi Dini} e di $g(x_0)=y_0$.\\
+       Rimane da mostrare la continuità di $g$. Si dicano allora $U=(x_0-\delta, x_0+\delta)$ e $V=(y_0-\sigma, y_0+\sigma)$ e si mostri che
+       \begin{equation}
+           \forall\ \varepsilon > 0\ \exists\ \xi > 0\ \text{tale che, se}\ |x-\overline{x}|< \xi\ \text{allora}\ |g(x)-g(\overline{x})| < \varepsilon
+       \end{equation}
+       Per quanto dedotto prima, cioè $F(\overline{x}, g(\overline{x}))=0$ e $\frac{\partial{F}}{\partial{y}}>0$, si sa che 
+       \begin{equation}
+           F(\overline{x}, g(\overline{x})-\varepsilon)<0<F(\overline{x}, g(\overline{x})+\varepsilon)
+       \end{equation}
+       In maniera analoga, per permanenza del segno, si ha che per ogni $x \in (\overline{x}-\xi, \overline{x}+\xi)$ vale
+       \begin{equation}
+           F(x, g(\overline{x})-\varepsilon)<0<F(x, g(\overline{x})+\varepsilon)
+       \end{equation}
+       Poiché infine $F(x, g(x))=0\ \forall\ x \in (x-\xi, x+\xi)$ e $F$ è crescente in tutti i punti considerati,
+       \begin{equation}
+           g(\overline{x})- \varepsilon < g(x) < g(\overline{x})+\varepsilon
+       \end{equation}
+       cioè $g$ continua in $\overline{x}$.
+       \end{proof}
+
+\begin{oss}
+    Il teorema offre solo una condizione sufficiente, infatti, prendendo $G(x,y)=(F(x,y))^2 \Rightarrow Z(G)=Z(F)$ ma $\nabla G \big|_{Z(G)}=0$
+\end{oss}
+\begin{theorem}[Derivata delle funzioni implicite]
+Siano le ipotesi del Dini con in aggiunta $F \in C^1(A)$, allora anche $g \in C^1(U)$ e la derivata $g'$ vale
+\begin{equation}
+    g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \quad \forall\ x \in U
+\end{equation}
+\end{theorem}
+\begin{proof}
+Sia $(\xi, \eta) \in \left[(x, g(x)), (x+h, g(x+h)) \right]$.
+Si scriva il teorema di Lagrange per $F$.
+\begin{equation}
+    F(x+h, g(x+h))-F(x, g(x)) =\langle \nabla F (\xi, \eta), (h, (g(x+h)-g(x))) \rangle
+\end{equation}
+Svolgendo il prodotto scalare e sfruttando le ipotesi del Dini si ha che
+\begin{equation}
+    F(x+h, g(x+h))-F(x, g(x))= \frac{\partial {F}}{\partial{x}}(\xi, \eta) h + \frac{\partial {F}}{\partial{y}}(\xi, \eta) (g(x+h)-g(x))=0
+\end{equation}
+    Da ciò quindi si ottiene che
+    \begin{equation}
+        \lim_{h \to 0}{\frac{g(x+h)-g(x)}{h}}=\lim_{h \to 0}{-\frac{\frac{\partial {F}}{\partial{x}}(\xi, \eta)}{\frac{\partial {F}}{\partial{y}}(\xi, \eta)}}
+    \end{equation}
+Essendo $F \in C^1$ ne consegue che $g$ è derivabile in $U$ e, essendo continue per ipotesi le derivate parziali, si ha proprio che
+\begin{equation}
+    g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \quad \forall\ x \in U
+\end{equation}
+\end{proof}
+\begin{corollary}
+    Valgano le ipotesi del teorema del Dini con, in aggiunta, $F \in C^k(A),\ k \in \mathbb{N}$. Allora $g \in C^k(U)$.
+\end{corollary}
+\begin{proof}
+    Si svolga la dimostrazione per induzione.
+    Nel caso base in cui $k=0$, ciò è vero per quanto visto. Stesso dicasi per $k=1$. Allora si supponga l'enunciato vero per $k-1$ e si provi che è vero per $k$, preso $k>2$.\\
+    Se $F \in C^k(A)$, allora $F \in C^{k-1}$ e, per ipotesi induttiva, $g \in C^{k-1}(U)$. Allora, 
+    \begin{equation}
+         g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \in C^{k-1}
+    \end{equation}
+    cioè, $g \in C^k(U)$
+\end{proof}
+È possibile, tali premesse calcolare anche la derivata seconda di $g$. Infatti gli ultimi due risultati permettono di calcolare la derivata prima di $g$ e garantiscono che se $F \in C^2(A)$, allora $g \in C^2(U)$, quindi si formalizzi il calcolo della derivata seconda di $g$.
+\begin{theorem}[Derivata seconda delle funzioni implicite]
+Sia $F \in C^2(A)$. Allora $g \in C^2(U)$ e
+\begin{equation}
+    g''(x)= \left(\frac{-F_{xx}F_{y}^2+2F_{xy}F_xF_y-F_{yy}F_x^2}{F_y^3}\right)(x, g(x))
+\end{equation}
+\end{theorem}
+\begin{proof}
+Essendo $F$ di classe $C^2$, e sapendo che $F(x,g(x))=0$, si derivi a destra e sinistra.
+\begin{equation}
+    \frac{\partial{F}}{\partial{x}}(x, g(x))+\left(\frac{\partial{F}}{\partial{y}}(x, g(x)\right)g'(x)=0
+\end{equation}
+Derivando un'altra volta si scopre che
+\begin{equation}
+    \frac{\partial^2{F}}{\partial{x^2}}(x, g(x))+ 2 \frac{\partial^2{F}}{\partial{x}\partial{y}}(x, g(x))g'(x) + \frac{\partial^2{F}}{\partial{y^2}}(x, g(x))(g'(x))^2+ \frac{\partial{F}}{\partial{y}}g''(x) =0
+\end{equation}
+e quindi, esplicitando $g''$
+\begin{equation}
+\begin{aligned}
+    g''(x)&= \left(\frac{-F_{xx}-2F_{xy}g'(x)- F_{yy}g'(x)^2}{F_y}\right)(x, g(x))=\\
+    &\overset{g'(x)=-\tfrac{F_x}{F_y}}{=} \left(\frac{-F_{xx}F_{y}^2+2F_{xy}F_xF_y-F_{yy}F_x^2}{F_y^3}\right)(x, g(x))
+\end{aligned}
+\end{equation}
+\end{proof}
+\begin{oss}
+    Se $F \in C^2(A)$ la condizione sufficiente affinché un punto $x_0$ sia massimo per $g$ è che
+    \begin{equation}
+        \begin{aligned}
+            &g'(x_0)=0 \Rightarrow\ F_x(x_0, g(x_0))=0\\
+            &g''(x_0)<0 \Rightarrow\ -\frac{F_{xx}(x_0, g(x_0))}{F_y} < 0
+        \end{aligned}
+    \end{equation}
+\end{oss}
+\begin{example}
+    Si mostri un esempio pratico sulle applicazioni dei teoremi visti.\\
+    Sia $F(x,y)=x \log y - y \cos x$. Si mostri che $F\left(\tfrac{\pi}{2}, 1\right)$ definisce implicitamente un'unica funzione $g \in C^\infty$ tale che $y=g(x)$ e se ne determini lo sviluppo di Taylor al secondo ordine. 
+    \begin{enumerate}
+        \item Si controlli che $F\left(\tfrac{\pi}{2}, 1\right)=0$.\\
+        Ciò è vero, poiché $F\left(\tfrac{\pi}{2}, 1\right)=\tfrac{\pi}{2} \log 1 - \cos\left(\tfrac{\pi}{2}\right)=0$.
+        \item Si osservi che, siccome $F \in C^\infty$, se esiste una $g$, deve essere anch'essa di classe $C^\infty$.
+        \item Si verifichi che $F_y(\tfrac{\pi}{2}, 1) \neq 0$.\\
+        $\nabla F(x, y) = (\log y + y \sin{x}, \tfrac{x}{y}- \cos{x}) \Rightarrow F_y(\tfrac{\pi}{2},1)=\tfrac{\pi}{2}$
+        \item Verificate tali condizioni, per il teorema del Dini, esiste una $g(x)=y$ tale che $g(\tfrac{\pi}{2})=1$. Per calcolarne lo sviluppo occorre ricavare mediante le formule ottenute prima $g'(\tfrac{\pi}{2})$ e $g''(\tfrac{\pi}{2})$.
+        \item Infine, $g(x)=g(\tfrac{\pi}{2}) + g'(\tfrac{\pi}{2})(x-\tfrac{\pi}{2})+ \tfrac{g''(\tfrac{\pi}{2})}{2}(x-\tfrac{\pi}{2})^2+ o((x-\tfrac{\pi}{2})^2)$
+    \end{enumerate}
+\end{example}
+\begin{theorem}[Ortogonalità del gradiente alle curve di livello] \label{Teo: Ortogonalità del gradiente alle curve di livello}
+    Sia $F: A \subseteq \mathbb{R}^2 \to \mathbb{R}$ tale che $F \in C^1(A)$ e $Z(F)= \left\{(x,y) \in A \mid F(x,y)=0\right\}$. Supponendo $(x_0,y_0) \in Z(F)$ e $\nabla F \neq (0,0) \in Z(F)$, si ottiene che $\nabla F(x_0,y_0) \perp Z(F)$ in $(x_0, y_0)$. Preso $\mathcal{L}_a$ insieme di livello $a$ e considerata $G(x,y)=F(x,y)-a$, il teorema vale sugli insiemi di livello in generale.
+\end{theorem}
+\begin{proof}
+    Per il teorema del Dini, $Z(F)$ in un intorno di $(x_0, y_0)$ è il grafico di una funzione implicita $g: (x_0- \delta, x_0+ \delta) \to \mathbb{R}$. In particolare esso è il sostegno della curva parametrica $\gamma = (x, g(x))$. Il versore tangente di $\gamma$ è dunque definito da
+    \begin{equation}
+        T(x)= \frac{1, g'(x)}{\sqrt{1+g'(x)^2}} \qquad x \in (x_0- \delta, x_0+ \delta)
+    \end{equation}
+    Calcolando per tali valori di $x$ il prodotto scalare tra il gradiente ed il versore tangente si ha che
+    \begin{equation}
+        \langle \nabla F (x, g(x)), T(x) \rangle= \frac{F_x(x, g(x)) + F_y(x, g(x))g'(x)}{\sqrt{1+g'(x)^2}}=\frac{F'(x, g(x))}{\sqrt{1+g'(x)^2}}=0
+    \end{equation}
+    cioè la tesi.
+\end{proof}
+\section{Ottimizzazione vincolata}
+Dopo aver descritto le funzioni implicite, può essere utile capire come queste possano essere massimizzate o minimizzate lungo un determinato vincolo. Si proceda allora ad introdurre e definire diversi concetti.
+\clearpage
+\begin{definition} \label{Def: Vincolo di uguaglianza}
+Sia F una funzione di classe $C^1$. Si dice \textbf{vincolo di uguaglianza} un insieme $V \subseteq \mathbb{R}^n$ della forma
+\begin{equation}
+    V= \left\{(x_1, \dots, x_n) \in \mathbb{R}^n \mid F(x_1, \dots, x_n)=0 \right\}
+\end{equation}
+\end{definition}
+Presa dunque una funzione $f:A\subseteq \mathbb{R}^n \to \mathbb{R}$ con $V \subseteq A$, occorre verificare l'esistenza ed eventualmente determinare $\min_{V}{f}$ e $\max_{V}{f}$.
+In particolare, si affronterà il caso con $n=2$.
+\begin{definition} \label{Def: Estremi vincolati}
+    Un punto $(x_0, y_0) \in V= Z(F)$ con $F \in C^1$ è detto \textbf{punto di massimo (minimo) relativo vincolato} per $f$ su $Z(F)$ se esiste $\delta>0$ tale che 
+    \begin{equation}
+        f(x,y) \underset{(\geq)}{\leq} f(x_0, y_0) \quad \forall\ (x, y) \in B_\delta(x_0, y_0) \cap Z(F)
+    \end{equation}
+    In tal caso $(x_0, y_0)$ è detto \textbf{estremo relativo vincolato}.\\
+    Poi, $(x_0, y_0)$ è detto \textbf{punto di massimo (minimo) assoluto} per $f$ su $Z(F)$ se vale
+    \begin{equation}
+        f(x, y) \underset{(\geq)}{\leq} f(x_0, y_0) \quad \forall\ (x, y) \in Z(F)
+    \end{equation}
+    Infine, i valori nei punti di massimo (minimo) sono detti \textbf{massimo (minimo)} della funzione.
+\end{definition}
+\begin{definition} \label{Punto critico vincolato}
+    Siano $f \in C^1,\ F \in C^1$ definite come sopra e sia $(x_0, y_0) \in Z(F)$. Indicato con $\tau$ il versore tangente a $Z(F)$ in $(x_0, y_0)$, si dice che $(x_0, y_0)$ è un \textbf{punto critico vincolato} per $f$ su $Z(F)$ se la sua \textbf{derivata tangenziale} al vincolo di $f$ in tale punto è nulla, cioè:
+    \begin{equation} \label{Eq: Derivata tangenziale}
+        \frac{\partial{F}}{\partial \tau}(x_0, y_0)=0 
+    \end{equation}
+\end{definition}
+%\paragraph{Determinare gli estremi vincolati lungo un vincolo esplicitabile}
+%È possibile sviluppare dei metodi per individuare eventuali estremi vincolati. Si prenda in considerazione il caso in cui il vincolo sia dato da una curva o l'unione di un numero finito di grafici di funzioni di una variabile.
+%\subparagraph{$V$ è una curva parametrica.} Sia $V$ un vincolo dato come curva parametrica della forma $(x(t), y(t)),\ t \in I=[a,b]$ con $V \in C^1$. In tal caso $F \big|_V$ è data da $h(t)=f(x(t), y(t) \in C^1$. Quindi ci si è ricondotti al caso di funzioni in una variabile. Si può dunque notare che se $(x(t_0), y(t_0)$ è un estremo relativo vincolato per $f$ su $V$, è noto che $h'(t_0)=0$.\\Inoltre, poiché $h'(t_0)= \langle \nabla f(x(t), y(t)), (x'(t), y'(t)) \rangle \big|_{t_0}=0$, si può affermare che $\nabla f(x(t), y(t)) \perp (x'(t), y'(t))$
+\begin{theorem}[Moltiplicatore di Lagrange] \label{Teo: Moltiplicatore di Lagrange}
+Siano $A \subseteq \mathbb{R}^2$ aperto, $f: A \to \mathbb{R}$ e $F: A \to \mathbb{R}$ tali che entrambe siano di classe $C^1$. Siano poi $Z(F)= \left\{ (x,y) \in A \mid F(x,y)=0\right\}$ e $(x_0,y_0)$ un punto regolare di $Z(F)$. Allora se $(x_0, y_0)$ è un estremo relativo vincolato per $f$ su $Z(F)$, si ha che
+\begin{enumerate}
+    \item $(x_0, y_0)$ è un punto critico vincolato per $f$ su $Z(F)$
+    \item  $\exists\ \lambda_0 \in \mathbb{R}$, detta \textbf{moltiplicatore di Lagrange} tale che $\nabla f(x_0, y_0)= \lambda_0 \nabla F(x_0, y_0)$
+    \item $(x_0, y_0)$ è un punto critico libero della Lagrangiana $\mathcal{L}(x, y, \lambda)=f(x,y)- \lambda F(x, y)$
+\end{enumerate}
+\end{theorem}
