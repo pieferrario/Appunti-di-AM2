@@ -32,6 +32,7 @@ Tramite la definizione di norma si può ottenere la definizione di \textbf{dista
     \begin{equation}
         B_\delta(x_0)=\left\{x \in \mathbb{R}^n \ \mid \ d(x, x_0) < \delta \right\}
     \end{equation}
+    \end{definition}
     \begin{oss}
         Si noti che con \textit{aperta} si intende dire che nell'intorno sferico non sono presenti elementi tali che $d(x, y)=\delta$.
     \end{oss}
@@ -41,7 +42,6 @@ Tramite la definizione di norma si può ottenere la definizione di \textbf{dista
             B_1(x_0, y_0)= \{(x,y) \in \mathbb{R}^2 \ \mid \ \sqrt{(x-x_0)^2+(y-y_0)^2}< 1\}
         \end{equation*}
     \end{example}
-\end{definition}
 \begin{definition}
     Siano $E \subseteq \mathbb{R}^n$ e $x_0 \in \mathbb{R}^n$. Allora $x_0$ è detto \textbf{punto interno} per $E$ se 
     \begin{equation}
@@ -153,10 +153,10 @@ Tramite la definizione di norma si può ottenere la definizione di \textbf{dista
     \begin{equation}
         [x,y] \subseteq E
     \end{equation}
+    \end{definition}
     \begin{oss}
         Un insieme convesso è per definizione connesso per archi.
     \end{oss}
-\end{definition}
 \begin{definition}
     Un insieme $E \subseteq \mathbb{R}^n$ si dice \textbf{stellato} rispetto ad un punto $x_0$ di E se per ogni $x$ di $E$ si ha che
     \begin{equation}
@@ -194,13 +194,13 @@ Tramite la definizione di norma si può ottenere la definizione di \textbf{dista
     \begin{equation}
         |x_k| \overset{k\to+\infty}{\to} \infty
     \end{equation}
+    \end{definition}
     \begin{oss}
         Si osservi che è sufficiente che la norma di una sola componente di $x_k$ diverga affinché la successione sia divergente.
         \begin{example}
             Presa come successione $x_k=\left(\frac{1}{k}, k\right)$, poiché la sua seconda componente è divergente per $k \to \infty$, anche la successione lo è.
         \end{example}
     \end{oss}
-\end{definition}
 \begin{definition} \label{Def: Punto di accumulazione}
     Sia $E \subseteq \mathbb{R}^n$ e sia $x_0 \in \mathbb{R}^n$. Si dice che $x_0$ è \textbf{punto di accumulazione} per $E$ se
     \begin{equation}
@@ -212,10 +212,10 @@ Tramite la definizione di norma si può ottenere la definizione di \textbf{dista
 \end{definition}
 \begin{theorem}[Heine-Borel] \label{Teo: Heine Borel}
     Un insieme $K$ è compatto se e solo se è chiuso e limitato.
+\end{theorem}
     \begin{oss}
         Un insieme $C \subseteq \mathbb{R}^n$ è chiuso se e solo se per ogni successione di elementi in $C$ convergente si ha che il limite di tale successione è contenuto in $C$.
     \end{oss}
-\end{theorem}
 
 %%  INTRODUZIONE FUNZIONI IN PIU VARIABILI
 
@@ -226,7 +226,7 @@ Si cominci prima da alcune definizioni di carattere generale.
     Si dice \textbf{dominio} di una funzione $f$ di $n$ variabili il più grande sottoinsieme di $\mathbb{R}^n$ su cui $f$ è definita. Esso viene indicato con $\text{dom}(f)$.
 \end{definition}
 \begin{definition}
-    Sia $f: \Omega \subseteq \mathbb{R}^n \to \mathbb{R}$. Si dice \textbf{grafico} di $f$ il sottoinsieme di $mathbb{R}^{n+1}$
+    Sia $f: \Omega \subseteq \mathbb{R}^n \to \mathbb{R}$. Si dice \textbf{grafico} di $f$ il sottoinsieme di $\mathbb{R}^{n+1}$
     \begin{equation}
         G(f)= \left\{(x_1, \dots, x_n, x_{n+1}) \in \Omega \times \mathbb{R} \mid x_{n+1}=f(x)\right\}
     \end{equation}
@@ -272,13 +272,13 @@ Si cominci prima da alcune definizioni di carattere generale.
     \begin{equation}
         f(x_k)\to \ell
     \end{equation}
+    \end{definition}
     \begin{oss}
         La definizione è analoga per i casi in cui $\ell$ sia infinito.
     \end{oss}
     \begin{oss}
         Stando alla definizione \ref{Def: Punto di accumulazione}, l'ipotesi di di $x_0$ punto di accumulazione garantisce l'esistenza di almeno una successione convergente.
     \end{oss}
-\end{definition}
 \begin{definition}[Limiti all'infinito] \label{Def: Limiti all'infinito}
     Sia $f:\Omega \to \mathbb{R}$. Allora, 
     \begin{equation}
@@ -430,7 +430,8 @@ Si sfruttino ora le nozioni apprese sui limiti per definire la continuità di un
     ovvero, in termini di $\varepsilon$ e $\delta$, se
     \begin{equation}
         \forall \varepsilon > 0 \  \exists \delta>0 \text{ tale che se } x \in B_\delta(x_0) \cap E, \ |f(x)-f(x_0)|< \varepsilon
-    \end{equation} 
+    \end{equation}
+    \end{definition}
     \begin{oss}
         Se f non è definita in $x_0$ ma esiste il limite $\ell$ di $f(x)$ per $x \to x_0$, è possibile definire il \textbf{prolungamento di continuità} per $f$ in $x_0$ come:
         \begin{equation}
@@ -443,7 +444,6 @@ Si sfruttino ora le nozioni apprese sui limiti per definire la continuità di un
     \begin{oss}
         Rientrano tra le funzioni continue somme, prodotti, quozienti (ben definiti) di polinomi
     \end{oss}
-\end{definition}
 \vspace*{\baselineskip}
 Si noti che anche per funzioni in più variabili continue vale un analogo del teorema di \textbf{permanenza del segno}, che afferma che, se $f$ è definita in $B_\delta(x_0)$ ed è continua in $x_0$ con $f(x_0) \gtrless 0$, allora esiste $B_\delta'(x_0)$ con $\delta' \leq \delta$ su cui il segno viene mantenuto.
 \begin{definition}
@@ -469,20 +469,20 @@ In tal caso, $f(x_0)$ è detto \textbf{valore minimo} di $f$ su $X$
     \begin{equation}
     \min_{x \in K}{f(x)}= f(x_m) \leq f(x) \leq f(x_M) = \max_{x \in K}{f(x)}    
     \end{equation}
+\end{theorem}
     \begin{oss}
         Una possibile notazione di min e max è $ \min_{K}{f}$ e $\max_{K}{f}$.
     \end{oss}
-\end{theorem}
 \begin{theorem}[Valori intermedi] \label{Teo: Valori intermedi}
     Sia $D \subseteq \mathbb{R}^n$ un dominio connesso (cioè la chiusura di un aperto connesso) e limitato. Allora $D$ è compatto per il teorema \ref{Teo: Heine Borel}.
     Sia poi $f:D \to \mathbb{R}$ continua su $D$. Allora $f$ assume su $D$ tutti i valori compresi tra $\min_{D}{f}$ e $\max_{D}{f}$ cioè
     \begin{equation}
         f(D)=\left[ \min_{D}{f}, \max_{D}{f}\right]
     \end{equation}
+\end{theorem}
     \begin{oss}
         Se $D$ non è limitato, si ragiona su $\sup_{D}{f}$ e $\inf_{D}{f}$ anziché in termini di massimo e minimo.
     \end{oss}
-\end{theorem}
 \begin{corollary}[Teorema degli zeri] \label{Teo: Teorema degli zeri}
     Sia $f$ tale da rispettare le ipotesi del teorema \ref{Teo: Valori intermedi}. Siano poi $x_0, x_1 \in D$ tali che 
     \begin{equation}
@@ -508,13 +508,13 @@ Il teorema appena enunciato offre un metodo per verificare l'uniforme continuit�
 \end{definition}
 \begin{proposition}
     Le funzioni lipschitziane su $E$ sono uniformemente continue.
+\end{proposition}
     \begin{proof}
         Si applichi ad una funzione lipschitziana la definizione di uniforme continuità con 
         \begin{equation}
             \delta= \frac{\varepsilon}{L}
         \end{equation}
     \end{proof}
-\end{proposition}
 Se il discorso sulla continuità dovesse riguardare una funzione a valori vettoriali $f: \mathbb{R}^n \to \mathbb{R}^m$ con $m>1$ anziché scalari, le definizioni di limite e continuità rimangono valide a patto che le condizioni siano verificate componente per componente, cioè
 \begin{equation}
     \lim_{x \to x_0}{f(x)}=\ell \in \mathbb{R}^m \iff \lim_{x \to x_0}{f_i(x)}=\ell_i\ \forall i=1, \dots, m
@@ -535,6 +535,7 @@ Fatto ciò, si può iniziare a parlare effettivamente di derivate direzionali, o
     \begin{equation}
         \frac{\partial{f}}{\partial{v}}(x_0)
     \end{equation}
+    \end{definition}
 \begin{oss}
     È possibile mostrare l'equivalenza di questa definizione con quella delle funzioni in una variabile. Infatti, definita una generica
     \begin{equation}
@@ -545,7 +546,6 @@ Fatto ciò, si può iniziare a parlare effettivamente di derivate direzionali, o
         \frac{\partial{f}}{\partial{v}}(x_0) = \lim_{t \to 0}{\frac{f(x_0+tv)-f(x_0)}{t}} = \lim_{t \to 0}{\frac{g(t+0)-g(0)}{t}}=g'(0)
     \end{equation}
 \end{oss}
-\end{definition}
 \subsection{Derivate parziali}
 Poiché esistono infinite direzioni, esistono altrettante derivate direzionali. Tra queste, dunque, occorre evidenziare $n$ direzioni privilegiate, ovvero i versori della base canonica $\mathcal{C}=\left\{e_1,\dots, e_n\right\}$. Lungo tali direzioni si hanno quindi le \textit{derivate parziali}.
 \begin{definition} \label{Def: Derivate parziali}
@@ -645,6 +645,7 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
     \begin{equation}
         x_{n+1}= f(x_0)+ \langle \nabla f(x_0), x-x_0 \rangle
     \end{equation}
+\end{definition}
  \begin{oss}
     In $\mathbb{R}^2$, preso come punto $(x_0, y_0)$ allora il piano tangente ha equazione
     \begin{equation}
@@ -655,7 +656,6 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
         \left(-\frac{\partial f}{\partial x}{(x_0, y_0)}, -\frac{\partial f}{\partial y}{(x_0, y_0)},1\right)
     \end{equation}
  \end{oss}
-\end{definition}
 \begin{proposition} \label{Prop: Diff-Der-Cont}
     Sia $f:A \to \mathbb{R}$ differenziabile in $x_0 \in A$. Allora:
     \begin{enumerate}
@@ -666,6 +666,7 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
                 \frac{\partial{f}}{\partial{v}}(x_0)= \langle \nabla f(x_0), v\rangle
             \end{equation}
     \end{enumerate}
+\end{proposition}
     \begin{proof}
         Si dimostri il primo fatto. La tesi è
         \begin{equation}
@@ -716,7 +717,6 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
             \end{aligned}
         \end{equation}
     \end{proof}
-\end{proposition}
 \begin{proposition}[Direzioni di massima e minima crescita] \label{Prop: Interpretazione geometrica del gradiente}
     Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$. Se $f$ è differenziabile e $\nabla f(x_0) \neq 0$, allora
     \begin{equation}
@@ -725,6 +725,7 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
             &\min_{v \in \mathbb{R}^n,\ |v|=1}{\frac{\partial f}{\partial v}{(x_0)}}=\frac{\partial f}{\partial v_m}(x_0)=-|\nabla f(x_0)|\ \text{con}\ v_m= -v_M
         \end{aligned}
     \end{equation}
+    \end{proposition}
     \begin{proof}
         Poiché $f$ è differenziabile, si può sfruttare la formula del gradiente. Inoltre, applicando anche la disuguaglianza di Cauchy-Schwarz è possibile dire che
        \begin{equation}
@@ -740,9 +741,9 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
        \end{equation}
        Il discorso è analogo nel caso $v=v_m$.
     \end{proof}
-\end{proposition}
 \begin{theorem}[Differenziale totale] \label{Teo: Differenziale totale}
     Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$. Se $f$ è derivabile in $A$ e se le derivate parziali $f_{x_i}$ sono continue in $x_0$ $\forall i=1, \dots, n$, allora $f$ è differenziabile in $x_0$.
+\end{theorem}
     \begin{proof}
         Senza perdita di generalità, si dimostri il teorema in dimensione $n=2$. Occorre mostrare che $f(x,y)$ è differenziabile in $(x_0, y_0)$, cioè
         \begin{equation} \label{Eq: Difftot 1}
@@ -795,17 +796,16 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
             \frac{|f(x_0+h, y_0+k)-f(x_0, y_0)-f_x(x_0, y_0)h-f_y(x_0, y_0)k}{\sqrt{h^2+k^2}} \overset{(h,k)\to(0,0)}{\to} (0,0)
         \end{equation}
     \end{proof}
-\end{theorem}
 \begin{definition} \label{Def:C0 e C1}
     Si dice che $f:A \subseteq \mathbb{R}^n\to \mathbb{R}$ è di \textbf{classe $C^0$ in $A$} e lo si indica con $f \in C^0(A)$ se è continua su $A$.\\
-    Se poi $f$ è derivabile in $A$ e le sue derivate parziali sono continue in $A$, allora $f$ è detta di \textbf{classe $C^1$ in $A$} e lo si indica con $f \in C^1(A)$.\\
+    Se poi $f$ è derivabile in $A$ e le sue derivate parziali sono continue in $A$, allora $f$ è detta di \textbf{classe $C^1$ in $A$} e lo si indica con $f \in C^1(A)$.
+\end{definition}
     \begin{oss}
         Operando una sintesi tra i risultati ottenuti dalla proposizione \ref{Prop: Diff-Der-Cont}, dal teorema del differenziale totale (\ref{Teo: Differenziale totale}) e dalla definizione appena fornita, si può osservare che
         \begin{equation} \label{Eq: Relazione C^1 -> diff -> C^0}
             f \in C^1(A) \Rightarrow f\ \text{differenziabile in}\ A \Rightarrow f \in C^{0}(A)
         \end{equation}
     \end{oss} 
-\end{definition}
 \subsection{Derivate successive}
 Terminata questa prima trattazione sulle derivate direzionali e la differenziabilità, si può progredire nel discorso introducendo le derivate successive.
 \begin{definition}
@@ -831,6 +831,7 @@ Inoltre, di norma la matrice hessiana non è simmetrica. Tuttavia, è possibile 
     \begin{equation}
         f_{x_ix_j}=f_{x_jx_i}
     \end{equation}
+\end{theorem}
     \begin{example}
         Si consideri $f(x, y)=x e^x$. Allora, $\nabla f(x,y)=(e^y, xe^y)$.
         Pertanto, calcolandone le derivate parziali seconde si ottiene
@@ -867,7 +868,6 @@ Inoltre, di norma la matrice hessiana non è simmetrica. Tuttavia, è possibile 
         \end{equation*}
         Si può infatti osservare che la funzione $f$ cambia segno, cioè $f(x,y)=-f(y,x)$. Perciò le due derivate miste, che per tale asimmetria sono discontinue in $(0,0)$, non coincidono, come previsto dal teorema di Schwarz.
     \end{example}
-\end{theorem}
 Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come segue.
 \begin{definition} \label{Def: Ck}
     Sia $f:A \subseteq \mathbb{R}^n\to \mathbb{R}$ tale che abbia derivate parziali continue di ordine $k \in \mathbb{N}$ in $A$, allora, si dice che $f$ è di \textbf{classe $C^k(A)$} e lo si indica con $f \in C^k(A)$.
@@ -885,10 +885,10 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
     \begin{equation}
         (f \circ x)'(t_0)= \langle \nabla f(x(t_0)), x'(t_0) \rangle \label{Eq: Derivata composta 1}
     \end{equation}
+\end{theorem}
 \begin{oss}
     L'ipotesi $x(I) \subseteq A$ serve a garantire una composizione ben definita.
 \end{oss}
-\end{theorem}
 \begin{theorem}[Derivata della funzione composta 2] \label{Teo: Derivata composta 2}
     Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x: B \subseteq \mathbb{R}^k \to \mathbb{R}^n$ con $B$ aperto. Sia poi $F(y)=f(x(y))=(f \circ x): B \to \mathbb{R}$ con $y \in B$. Se $x_1 \dots x_n$ sono derivabili parzialmente (o $C^1$ o differenziabili) rispetto ad una certa $y_j$ fissata, e $f$ è differenziabile in $x(y_0) \in A$, allora $F$ è derivabile parzialmente (o $C^1$ o differenziabile) rispetto a $y_j$ e vale 
     \begin{equation} \label{Eq: Derivata composta 2}
@@ -903,6 +903,7 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
             &F''(t)=\langle H_f(x_0+th)h, h \rangle 
         \end{aligned}
     \end{equation}
+\end{proposition}
     \begin{proof}
         Per dimostrare il primo fatto bisogna osservare che si è calcolata la derivata di una funzione composta secondo la formula \eqref{Eq: Derivata composta 2}.\\
         Si dimostri ora la seconda equazione.
@@ -914,25 +915,25 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
             \end{aligned}
         \end{equation}
     \end{proof}
-\end{proposition}
 \begin{theorem}[Lagrange] \label{Teo: Lagrange}
-    Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ tale che $f \in C^1(A)$. Siano $x_0$ e $x_0+h \in A$ tali che $[x_0, x_0+h] \subseteq A$. Allora, $\exists\ \theta \in [0,1]$ tale che
+    Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ tale che $f \in C^1(A)$. Siano $x_0$ e $x_0+h \in A$ tali che $[x_0, x_0+h] \subseteq A$. Allora, $\exists\ \theta \in (0,1)$ tale che
     \begin{equation}
         f(x_0+h)-f(x_0)= \langle \nabla f(x_0+ \theta h), h \rangle
     \end{equation}
+\end{theorem}
     \begin{proof}
-        Sia $F$ definita come nella proposizione \ref{Prop: Premessa al teo Lagrange}. Allora il risultato discende dal teorema di Lagrange in una dimensione. Infatti, essendo $F$ derivabile in $[0,1]$ si ha che
+        Sia $F$ definita come nella proposizione \ref{Prop: Premessa al teo Lagrange}. Allora il risultato discende dal teorema di Lagrange in una dimensione. Infatti, essendo $F$ derivabile in $A$ si ha che
         \begin{equation}
             F(1)-F(0)=f(x_0+h)-f(x_0)\overset{\text{Lag 1-d}}{=}F'(\theta)\overset{\eqref{Eq: Premessa al teo Lagrange}}{=}\langle \nabla f(x_0+ \theta h), h \rangle
         \end{equation}
-        per un qualche $\theta \in [0,1]$.
+        per un qualche $\theta \in (0,1)$.
     \end{proof} 
-\end{theorem}
 \begin{theorem}[Formula di Taylor con resto di Lagrange al II ordine] \label{Teo: Taylor con resto di Lagrange}
-    Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ tale che $f\in C^2(A)$ e siano $x_0,\ x_0+h \in A$ tali che $[x_0, x_0+h] \subseteq A$. Allora, $\exists\ \theta \in [0,1]$ tale che
+    Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ tale che $f\in C^2(A)$ e siano $x_0,\ x_0+h \in A$ tali che $[x_0, x_0+h] \subseteq A$. Allora, $\exists\ \theta \in (0,1)$ tale che
     \begin{equation}
         f(x_0+h)=f(x_0)+ \langle \nabla f(x_0), h \rangle + \frac{1}{2}\langle H_f(x_0+\theta h),h \rangle 
     \end{equation} 
+\end{theorem}
     \begin{proof}
         Si parta dal ricordare la struttura della formula di Taylor con resto di Lagrange per funzioni in una variabile:
         \begin{equation}
@@ -955,12 +956,12 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
             f(x_0+h)= f(x_0)+\langle \nabla f(x_0), h \rangle + \frac{1}{2}\langle H_f(x_0+ \theta h)h, h\rangle
         \end{equation}
     \end{proof}
-\end{theorem}
 \begin{theorem}[Formula di Taylor con resto di Peano al II ordine] \label{Teo: Taylor con resto di Peano}
     Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ tale che $f \in C^2(A)$ e siano $x_0,\ x_0+h \in A$ tali che $[x_0, x_0+h] \subseteq A$. Allora, 
     \begin{equation}
         f(x_0+h)=f(x_0)+\langle \nabla f(x_0), h \rangle+ \frac{1}{2} \langle H_f(x_0)h, h\rangle + o(|h|^2),\ h \to 0 \label{Eq: Taylor con resto di Peano}
     \end{equation}
+\end{theorem}
     \begin{proof}
         A partire dal teorema \ref{Teo: Taylor con resto di Lagrange}, si mostri che 
         \begin{equation}
@@ -993,7 +994,6 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
             \end{aligned}
         \end{equation}
     \end{proof}
-\end{theorem}
 \subsection{Ottimizzazione libera (su aperti)}
 \begin{definition} \label{Def: Max e min relativo}
     Sia $f:E \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in E$. Allora $x_0$ è detto \textbf{punto di massimo relativo (minimo relativo)} se
@@ -1007,6 +1007,7 @@ Sia $f:A \subseteq \mathbb{R}^n  \to \mathbb{R}$ e $x_0 \in \mathring{A}$. Se $x
 \begin{equation}
     \nabla f(x_0)=0
 \end{equation}
+\end{theorem}
 \begin{proof}
     Senza perdita di generalità si supponga di avere $x_0$ massimo relativo. Allora bisogna mostrare
     \begin{equation}
@@ -1025,7 +1026,6 @@ Sia $f:A \subseteq \mathbb{R}^n  \to \mathbb{R}$ e $x_0 \in \mathring{A}$. Se $x
         0=g_i'(0)=\frac{\partial f}{\partial x_i}(x_0)\ \forall\ i=1, \dots, n
     \end{equation}
 \end{proof}
-\end{theorem}
 \begin{definition} \label{Def: Insieme dei punti critici}
     Sia $A$ aperto e $f: A \subseteq \mathbb{R}^n  \to \mathbb{R}$ allora si dice \textbf{insieme dei punti critici} l'insieme definito da
     \begin{equation}
@@ -1038,6 +1038,7 @@ Sia $f:A \subseteq \mathbb{R}^n  \to \mathbb{R}$ e $x_0 \in \mathring{A}$. Se $x
         \forall\ B_\delta(x_0)\ \exists\ x,y \in B_\delta(x_0)\ \text{tale che}\ f(x)>f(x_0)>f(y)
     \end{equation} 
 \end{definition}
+\newpage
 \begin{example}
     Si facciano esempi di punti critici.
     \begin{figure}[H]
@@ -1103,6 +1104,7 @@ Quindi, per poter fornire dei criteri di classificazione dei punti critici occor
 \end{proposition}
 \begin{theorem} [Condizione necessaria del II ordine] \label{Teo: Condizione necessaria del secondo ordine}
 Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $f$. Sia poi $f \in C^2(A)$. Se $x_0$ è massimo (minimo) relativo, allora $H_f(x_0)$ è semidefinita negativa (positiva).
+\end{theorem}
 \begin{proof}
     Sia $x_0$ un punto di massimo relativo per $f$ , sia $v \in \mathbb{R}^n$ direzione fissata. Si definisca allora
     \begin{equation}
@@ -1120,7 +1122,6 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
     cioè che $H_f(x_0)$ è semidefinita negativa.\\
     La dimostrazione del caso in cui $x_0$ è minimo relativo per $f$ è del tutto analoga.
 \end{proof}
-\end{theorem}
 \begin{lemma} \label{Lemma: FQ di matrice simmetrica è compresa tra i suoi autovalori max e min}
         Se, presa $A \in \mathbb{M}_{n,n}$ simmetrica e detti $\lambda_1 \leq \lambda_2 \leq \lambda_n$ i suoi autovalori, si ha $\langle Ax, x \rangle$, allora $\lambda_1 |x| \leq \langle Ax, x \rangle \leq \lambda_n |x|$
 \end{lemma}
@@ -1130,6 +1131,7 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
         \item Se $H_f(x_0)$ è definita positiva (negativa), allora $x_0$ è un minimo (massimo) relativo.
         \item Se $H_f(x_0)$ è indefinita, allora $x_0$ è un punto di sella.
     \end{itemize}
+\end{theorem}
     \begin{proof}
         Si consideri il caso in cui $H_f(x_0)$ sia definita positiva e si mostri che $x_0$ è un punto di minimo per $f$\\
         Si può osservare che, essendo $H_f \in C^2(A)$, allora essa è simmetrica per il teorema \ref{Teo: Schwarz} e vale dunque il lemma \ref{Lemma: FQ di matrice simmetrica è compresa tra i suoi autovalori max e min}. Pertanto, indicato con $\lambda_{min}>0$ il minor autovalore di $H_f$, si ha che
@@ -1171,7 +1173,6 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
     \begin{oss}
         Si noti che non è possibile concludere niente previa indagine nel caso in cui $H_f$ sia semidefinita.
     \end{oss}
-\end{theorem}
     \paragraph{Metodo delle restrizioni} Come accennato, se $H_f(x_0)$ è semidefinita, non è possibile caratterizzare il punto critico. Si mostri allora un metodo per farlo tramite esempio.
     \begin{example}
         Sia $f(x,y)=x^4-y^4$. Allora il punto $(0,0)$ è critico e si ha che
@@ -1203,13 +1204,13 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
         (x_1, \dots, x_n) &\mapsto (f_1(x_1, \dots, x_n), \dots, f_n(x_1, \dots, x_n))
     \end{aligned}
     \end{equation}
+\end{definition}
 \begin{oss}
     Si noti che limiti, continuità e derivabilità vanno estese ad un ragionamento componente per componente.
 \end{oss}
 \begin{oss}
     Se la dimensione del dominio e del codominio è la medesima, si parla di \textit{campo vettoriale}.
 \end{oss}
-\end{definition}
 \begin{definition} \label{Def: Derivabilità di f. vettoriali}
     Si dice che $f:A \subseteq \mathbb{R}^n \to \mathbb{R}^m$ è \textbf{derivabile} in $x_0 \in A$ se ciascuna $f_i$ con $i=1, \dots, n$ è ivi derivabile.
 \end{definition}
@@ -1242,7 +1243,7 @@ Siano $g: B \subseteq \mathbb{R}^k \to A \subseteq R^n$ e $f: A \subseteq \mathb
 \begin{equation}
     J_h(y) \in \mathbb{M}_{m,n}\ \text{tale che}\ J_h(y)=J_f(g(y)) J_g(y)\ \forall\ y \in B
 \end{equation}
+\end{theorem}
 \begin{oss}
     Essendo di classe $C^1$, $h$ è differenziabile, in accordo con i ragionamenti già svolti nell'equazione \eqref{Eq: Relazione C^1 -> diff -> C^0}.
 \end{oss}
-\end{theorem}
