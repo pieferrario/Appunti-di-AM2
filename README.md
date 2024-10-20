@@ -1,5 +1,5 @@
 # Appunti di Analisi Matematica 2
-Questi appunti riguardano il corso di **Analisi Matematica 2** tenuto dai professori M. Garrione e N. Potrich per il corso di Ingegneria Matematica @ Politecnico di Milano per l'anno accademico 2024-2025.
+Questi appunti riguardano il corso di **Analisi Matematica 2** tenuto dai professori M. Garrione e N. Potrich per il corso di laurea in Ingegneria Matematica @ Politecnico di Milano per l'anno accademico 2024-2025.
 > [!NOTE]
 > Il PDF compilato si trova nella sezione **Releases** di questa pagina.
 
