@@ -1148,18 +1148,18 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
         \end{equation}
         Poiché scopo della dimostrazione è mostrare che $f(x_0+h)-f(x_0) \geq 0\ \forall h \in \mathbb{R}^n$, occorre provare che $o(|h|^2)$ sia trascurabile.
         \begin{equation}
-            f(x_0+h)- f(x_0) \geq \frac{1}{2}\lambda_{min} |h|^2 \left( 1 + \frac{o(|h|^2}{\tfrac{1}{2}\lambda_{min}|h|^2}\right)
+            f(x_0+h)- f(x_0) \geq \frac{1}{2}\lambda_{min} |h|^2 \left( 1 + \frac{o(|h|^2)}{\tfrac{1}{2}\lambda_{min}|h|^2}\right)
         \end{equation}
         ma, per definizione di o-piccolo vale il seguente fatto:
         \begin{equation}
-            \exists\ \sigma >0\ \text{tale che, se}\ |h|<\sigma\ \text{allora}\ \frac{o(|h|^2}{\tfrac{1}{2}\lambda_{min} |h|^2} < \frac{1}{2}
+            \exists\ \sigma >0\ \text{tale che, se}\ |h|<\sigma\ \text{allora}\ \frac{o(|h|^2)}{\tfrac{1}{2}\lambda_{min} |h|^2} < \frac{1}{2}
         \end{equation}
         dove $\sigma=\frac{1}{2}$ è una costante arbitraria in $(0,1)$.
         Per tale disuguaglianza, allora, 
         \begin{equation}
         \begin{aligned}
             f(x_0+h)-f(x_0)&\geq \frac{1}{2}\lambda_{min} |h|^2 \left( 1 + \frac{o(|h|^2}{\tfrac{1}{2}\lambda_{min}|h|^2}\right) \geq \\
-            &\geq \frac{1}{2}\lambda_{min}|h|^2(1-\frac{1}{2})=\frac{1}{4}\lambda_{min}|h|^2 >0
+            &\geq \frac{1}{2}\lambda_{min}|h|^2\left(1-\frac{1}{2}\right)=\frac{1}{4}\lambda_{min}|h|^2 >0
             \end{aligned}
         \end{equation}
         purché $|h|< \sigma$. In tal caso la definizione di minimo è soddisfatta.\\
