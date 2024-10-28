@@ -23,7 +23,7 @@ Prima di procedere nella trattazione, si forniscano alcune definizioni di base u
     \end{equation}
 \end{definition}
 \begin{definition}
-    Sia $Z(F)$ definito come nella \eqref{Eq: Insieme degli zeri} e sia $P=(\overline{x}, \overline{y}) \in Z(F)$. Se $\nabla F(\overline{x}, \overline{y}= \neq 0$, si dice che $P$ è un \textbf{punto regolare} di $Z(F)$. Altrimenti $P$ è un \textbf{punto singolare}.
+    Sia $Z(F)$ definito come nella \eqref{Eq: Insieme degli zeri} e sia $P=(\overline{x}, \overline{y}) \in Z(F)$. Se $\nabla F(\overline{x}, \overline{y})\neq 0$, si dice che $P$ è un \textbf{punto regolare} di $Z(F)$. Altrimenti $P$ è un \textbf{punto singolare}.
 \end{definition}
 \section{Teorema del Dini}
 Il teorema del Dini, che verrà affrontato di seguito, fornisce le condizioni sotto le quali l'equazione $F(x,y)=0$ esprime $y$ in funzione di $x$ per certi valori delle variabili $x$, $y$.
@@ -222,6 +222,20 @@ allora esistono $\delta, \sigma>0$ ed un'unica funzione $f: B_\delta(x_0) \to (y
         F(x, f(x))=0 \qquad \forall x \in I
     \end{equation}
 \end{theorem}
+Si può inoltre notare che una conseguenza del teorema del Dini è il teorema delle funzioni inverse in una variabile reale. In realtà, tale risultato può essere ampliato alle funzioni di più variabili sfruttando il concetto di invertibilità locale.
+\begin{definition} \label{Def: Invertibilità locale}
+    Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ con $f \in C^1(A)$. Allora essa è detta \textbf{localmente invertibile} in $x_0 \in A$ se esiste un intorno $B_\delta(x_0) \subseteq A$ tale che la restrizione di $f$ a $B_\delta$, cioè $f\big|_{B_\delta(x_0)}$, sia una funzione invertibile di $B$ su $f(B_\delta)$.
+\end{definition}
+Tale nozione può essere potenziata definendo poi i diffeomorfismi locali.
+\begin{definition} \label{Def: Diffeomorfismo}
+    Sia $f$ localmente invertibile e definita su $f(B_\delta(x_0)$ aperto e siano $f$ e la sua inversa entrambe di classe $C^1$ nei propri domini, allora $f$ si dice $\mathbf{C^1}$\textbf{-diffeomorfismo}
+\end{definition}
+\begin{theorem}[Invertibilità locale] \label{Teo: Invertibilità locale}
+    Sia $A \subseteq \mathbb{R}^n$ e $f: A \to \mathbb{R}^n$ una funzione di classe $C^1(A)$. Allora se $x_0 \in A$ è tale che lo Jacobiano (\ref{Def: Jacobiano})in $x_0$ sia non nullo, cioè $\det(J_f(x_0) \neq 0$, esistono $B_\delta(x_0)$ aperto e $J$, intorno aperto di $f(x_0)$ tali che la funzione $f\big|_{B_\delta(x_0)}: B_\delta(x_0) \to J$ è invertibile con inversa $f^{-1}: J \to B_\delta(x_0)$ di classe $C^1$. Inoltre, 
+    \begin{equation}
+        J_{f^{-1}}(y)=(J_f(f^{-1}(y)))^{-1}
+    \end{equation}
+\end{theorem}
 \section{Ottimizzazione vincolata}
 Dopo aver descritto le funzioni implicite, può essere utile capire come queste possano essere massimizzate o minimizzate lungo un determinato vincolo. Si proceda allora ad introdurre e definire diversi concetti.
 \begin{definition} \label{Def: Vincolo di uguaglianza}
@@ -250,14 +264,81 @@ In particolare, si affronterà il caso con $n=2$.
         \frac{\partial{F}}{\partial \tau}(x_0, y_0)=0 
     \end{equation}
 \end{definition}
-%\paragraph{Determinare gli estremi vincolati lungo un vincolo esplicitabile}
-%È possibile sviluppare dei metodi per individuare eventuali estremi vincolati. Si prenda in considerazione il caso in cui il vincolo sia dato da una curva o l'unione di un numero finito di grafici di funzioni di una variabile.
-%\subparagraph{$V$ è una curva parametrica.} Sia $V$ un vincolo dato come curva parametrica della forma $(x(t), y(t)),\ t \in I=[a,b]$ con $V \in C^1$. In tal caso $F \big|_V$ è data da $h(t)=f(x(t), y(t) \in C^1$. Quindi ci si è ricondotti al caso di funzioni in una variabile. Si può dunque notare che se $(x(t_0), y(t_0)$ è un estremo relativo vincolato per $f$ su $V$, è noto che $h'(t_0)=0$.\\Inoltre, poiché $h'(t_0)= \langle \nabla f(x(t), y(t)), (x'(t), y'(t)) \rangle \big|_{t_0}=0$, si può affermare che $\nabla f(x(t), y(t)) \perp (x'(t), y'(t))$
+\paragraph{Determinare gli estremi vincolati lungo un vincolo esplicitabile}
+È possibile sviluppare dei metodi per individuare eventuali estremi vincolati. Si prenda in considerazione il caso in cui il vincolo sia dato da una curva.
+Sia $V$ dato come curva parametrica $(x(t), y(t))$ con $t \in \mathbb{R}$ di classe $C^1$.
+In tal caso $f \big|_V$ è data da $h(t)=f(x(t), y(t)) \in C^1$. Quindi ci si è ricondotti al caso di funzioni in una variabile. Si può dunque notare che se $(x(t_0), y(t_0))$ è un estremo relativo vincolato per $f$ su $V$, è noto che $h'(t_0)=0$.\\
+Inoltre, poiché $h'(t_0)= \langle \nabla f(x(t), y(t)), (x'(t), y'(t)) \rangle \big|_{t_0}=0$, si può affermare che $\nabla f(x(t), y(t)) \perp (x'(t), y'(t))$, cioè che $\nabla f$ è ortogonale alla curva nel punto di estremo.
 \begin{theorem}[Moltiplicatore di Lagrange] \label{Teo: Moltiplicatore di Lagrange}
 Siano $A \subseteq \mathbb{R}^2$ aperto, $f: A \to \mathbb{R}$ e $F: A \to \mathbb{R}$ tali che entrambe siano di classe $C^1$. Siano poi $Z(F)= \left\{ (x,y) \in A \mid F(x,y)=0\right\}$ e $(x_0,y_0)$ un punto regolare di $Z(F)$. Allora se $(x_0, y_0)$ è un estremo relativo vincolato per $f$ su $Z(F)$, si ha che
 \begin{enumerate}
+    \item  $\exists\ \lambda_0 \in \mathbb{R}$, detta \textbf{moltiplicatore di Lagrange}, tale che $\nabla f(x_0, y_0)= \lambda_0 \nabla F(x_0, y_0)$;
     \item $(x_0, y_0)$ è un punto critico vincolato per $f$ su $Z(F)$
-    \item  $\exists\ \lambda_0 \in \mathbb{R}$, detta \textbf{moltiplicatore di Lagrange} tale che $\nabla f(x_0, y_0)= \lambda_0 \nabla F(x_0, y_0)$
     \item $(x_0, y_0)$ è un punto critico libero della Lagrangiana $\mathcal{L}(x, y, \lambda)=f(x,y)- \lambda F(x, y)$
 \end{enumerate}
 \end{theorem}
+\begin{proof}
+    Poiché $(x_0, y_0) \in Z(F)$ è regolare in $Z$, cioè $\nabla F(x_0, y_0) \neq 0$, si ha 
+    \begin{equation}
+        F_x(x_0, y_0) \neq 0 \lor F_y(x_0, y_0) \neq 0
+    \end{equation}
+    Si supponga allora, senza perdita di generalità, che la derivata parziale lungo $y$ sia non nulla. Allora, per il teorema del Dini, esistono $U(x_0)$, $V(y_0)$ tali che esista
+    \begin{equation}
+    h:U(x_0) \to V(y_0) \iff \begin{cases}
+        F(x, y)=0\\
+        x\in U(x_0)\\
+        y \in V(y_0)
+    \end{cases}
+    \end{equation}
+    Inoltre, sempre per il teorema del Dini, è noto che
+    \begin{equation} \label{Eq: Derivata implicita per teorema moltiplicatore}
+        h'(x)=- \frac{F_x(x_0, y_0)}{F_y(x_0, y_0)} 
+    \end{equation}
+    Si dimostri quindi il punto 1.\\
+    Sia $\mathcal{F}$ così definita:
+    \begin{equation}
+        \mathcal{F}(x)=f(x, h(x)) \quad x \in U(x_0)
+    \end{equation}
+    Poiché $x_0$ è interno a $U$ e, per ipotesi, $x_0$ è punto critico per $\mathcal{F}$ e $\mathcal{F}$ è derivabile in $x_0$, dal teorema di Fermat, si ha $\mathcal{F}'(x_0)=0$, cioè:
+    \begin{equation}  \label{Eq: Fermat per teorema moltiplicatore}    0=\mathcal{F}'(x_0)=\frac{\partial{f}}{\partial{x}}(x_0, h(x_0))+ \frac{\partial{f}}{\partial{y}}(x_0, h(x_0))h'(x_0)
+    \end{equation}
+    Quindi sostituendo la \eqref{Eq: Derivata implicita per teorema moltiplicatore} nella \eqref{Eq: Fermat per teorema moltiplicatore} si ha che
+    \begin{equation}
+        f_x(x_0, y_0)={f_y(x_0, y_0)} \frac{F_x(x_0, y_0)}{F_y(x_0, y_0)}
+    \end{equation}
+    Quindi, posto
+    \begin{equation}
+        \lambda_0=\frac{f_y(x_0, y_0)}{F_y(x_0, y_0)}
+    \end{equation}
+    si ha la tesi.\\
+    Si dimostri ora il punto 2.\\
+    Si scriva il vincolo in forma parametrica come
+    \begin{equation}
+        \varphi(t)=(t, h(t)) \quad t \in U(x_0)
+    \end{equation}
+    allora, si hanno $(x_0, y_0)=(x_0, h(x_0))$ e il versore tangente $T(x_0)=\tfrac{(1, h'(x_0))}{\sqrt{1+h'(x_0)^2}}$.
+    Perciò, per la formula del gradiente \eqref{Eq:Formula gradiente}
+    e dalla \eqref{Eq: Fermat per teorema moltiplicatore}
+    si ha che
+    \begin{equation}
+        \frac{\partial{f}}{\partial{T}}(x_0, y_0)= \langle \nabla f(x_0, y_0), T\rangle = 0
+    \end{equation}
+    cioè $(x_0, y_0)$ è un punto critico vincolato per $f$ su $Z$.\\
+    Infine si dimostri la 3.\\
+    Si calcoli il gradiente di $\mathcal{L}(x, y, \lambda)=f(x, y)-\lambda F(x, y)$:
+    \begin{equation}
+        \nabla \mathcal{L}(x,y,\lambda)=\left(\frac{\partial{f}}{\partial{x}}(x, y)-\lambda \frac{\partial{F}}{\partial{x}}(x, y), \frac{\partial{f}}{\partial{y}}(x, y)-\lambda \frac{\partial{F}}{\partial{y}}(x, y), -F(x, y)\right)
+    \end{equation}
+    Quindi,
+    \begin{equation}
+     \nabla \mathcal{L}(x_0, y_0, \lambda_0)=0   
+    \end{equation}
+    cioè $(x_0, y_0, \lambda_0)$ è un punto critico per $\mathcal{L}$
+\end{proof}
+\paragraph{Ottimizzazione sui compatti}
+Sia $f: K \subset \mathbb{R}^2 \to \mathbb{R}$ con $K$ compatto tale che $f \in C^=(K)$. Allora si proceda così per determinare i punti di massimo e minimo di $f$ su $K$.
+\begin{enumerate}
+    \item Per Weierstrass (Teorema \ref{Teo: Weierstrass}) si sa che $f$ assume massimo e minimo (assoluti) su $K$.
+    \item Risolvendo $\nabla f=0$ si cercano i punti critici liberi su $\mathring{K}$.
+    \item Si agisce su $\partial K$ e, se il vincolo è esplicitabile, si procede come già visto nel paragrafo dedicato. Se il vincolo è presentato in forma implicita come $F(x,y)=0$ occorre, collezionare i punti singolari, applicare i moltiplicatori di Lagrange per trovare gli altri punti critici e poi confrontarli.
+\end{enumerate}
