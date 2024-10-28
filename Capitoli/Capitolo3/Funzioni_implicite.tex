@@ -76,7 +76,7 @@ Il teorema del Dini, che verrà affrontato di seguito, fornisce le condizioni so
        \begin{equation}
            F(x, y_0-\sigma) < 0 < F(x, y_0+\sigma) \quad \forall x \in [x_0-\delta, x_0+\delta]
        \end{equation}
-       Dunque, per ogni $\overline{x} \in [x_0-\delta, x_0+\delta]$ fissato, la funzione $h_{\overline{x}}(y)=F(\overline{x}, y)$ è monotona, strettamente crescente, di segno opposto agli estremi di $[y_0 - \sigma, y_0+\sigma]$. Quindi, per il teorema dei valori intermedi, si sa che $\forall \overline{x} \in [x_0-\delta, x_0+\delta]$ esiste un unico $\overline{y} \in [y_0-\sigma, y_0+sigma]$ tale che 
+       Dunque, per ogni $\overline{x} \in [x_0-\delta, x_0+\delta]$ fissato, la funzione $\eta_{\overline{x}}(y)=F(\overline{x}, y)$ è monotona, strettamente crescente, di segno opposto agli estremi di $[y_0 - \sigma, y_0+\sigma]$. Quindi, per il teorema dei valori intermedi, si sa che $\forall \overline{x} \in [x_0-\delta, x_0+\delta]$ esiste un unico $\overline{y} \in [y_0-\sigma, y_0+\sigma]$ tale che 
        \begin{equation}
            F(\overline{x}, \overline{y})=0
        \end{equation}
@@ -200,9 +200,30 @@ e quindi, esplicitando $g''$
     \end{equation}
     cioè la tesi.
 \end{proof}
+
+Bisogna anche ricordare che il teorema del Dini può essere applicato anche in altri contesti oltre a quanto già visto. Infatti, esiste una versione del teorema applicata alle funzioni di più variabili ed un'altra applicata ai sistemi di equazioni, di cui si riporta solo l'enunciato.
+\begin{theorem}[Teorema del Dini per le funzioni in più variabili]
+Siano $x=(x_1, \dots, x_n) \in \mathbb{R}^n$, $y \in \mathbb{R}$ e sia $F(x, y)=F(x_1, \dots, x_n, y)$ una funzione continua nell'aperto $A \in \mathbb{R}^{n+1}$ insieme alla sua derivata parziale $F_y$ in $A$. Se $(x_0, y_0)=(x_{01}, \dots, x_{0n}, y_0)\in A$ è tale che
+\begin{equation}
+    F(x_0, y_0)=0 \qquad F_y(x_0, y_0) \neq 0
+\end{equation}
+allora esistono $\delta, \sigma>0$ ed un'unica funzione $f: B_\delta(x_0) \to (y_0-\sigma, y_0+ \sigma)$ tale che 
+\begin{equation}
+    F(x, f(x))=0 \qquad \forall x \in B_\delta(x_0)
+\end{equation}
+\end{theorem}
+\begin{theorem}[Teorema del Dini per i sistemi]
+    Siano $A \in \mathbb{R}^{n+h}$ un aperto e $F=F(x,y): A \to \mathbb{R}^h$ di classe $C^1$. Sia poi $(x_0, y_0) \in A$ tale che
+    \begin{equation}
+        F(x_0, y_0)=0\quad \land \quad \det(J_f) \neq 0
+    \end{equation}
+    allora esistono un intorno sferico $I$ di $x_0$, un intorno sferico $J$ di $y_0$ ed un'unica funzione $f: I \subset \mathbb{R}^n \to J \subset\mathbb{R}^h$. tale che $f(x_0)=y_0$
+    \begin{equation}
+        F(x, f(x))=0 \qquad \forall x \in I
+    \end{equation}
+\end{theorem}
 \section{Ottimizzazione vincolata}
 Dopo aver descritto le funzioni implicite, può essere utile capire come queste possano essere massimizzate o minimizzate lungo un determinato vincolo. Si proceda allora ad introdurre e definire diversi concetti.
-\clearpage
 \begin{definition} \label{Def: Vincolo di uguaglianza}
 Sia F una funzione di classe $C^1$. Si dice \textbf{vincolo di uguaglianza} un insieme $V \subseteq \mathbb{R}^n$ della forma
 \begin{equation}
