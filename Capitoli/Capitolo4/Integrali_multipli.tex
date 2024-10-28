@@ -1,1 +1,116 @@
 \chapter{Integrali multipli}
+Il capitolo che segue espone la teoria dell'integrazione di funzioni di $n$ variabili. La trattazione affronterà in prima istanza il caso degli integrali doppi con funzioni di $n=2$ variabili. Verranno mostrati in seguito i metodi di integrazione di funzioni in $n=3$ variabili.
+Si diano prima alcune nozioni inerenti i concetti di misura.
+\section{Misura di Peano-Jordan}
+\begin{definition} \label{Def: Rettangolo}
+Sia $I=\left[a_1, b_1\right) \times \left[a_2, b_2 \right) \times \dots \times \left[a_n, b_n \right)$ con $a_i < b_i$. Allora, tale intervallo è definito \textbf{rettangolo} superiormente semiaperto di $\mathbb{R}^n$.\\
+Inoltre, si definisce \textbf{misura elementare} di $I$ il volume di tale rettangolo, cioè:
+\begin{equation}
+    m(I)=\left(b_1-a_1\right)\left(b_2-a_2\right)\dots\left(b_n-a_n\right)
+\end{equation}
+\end{definition}
+\begin{oss}
+    Se $I$ è vuoto, allora si pone per convenzione $m(I)=0$.
+\end{oss}
+\begin{oss}
+    La scelta di intervalli semiaperti superiormente permette di poter creare partizioni senza problemi di sovrapposizione.
+\end{oss}
+\begin{definition} \label{Def: Plurirettangolo}
+    Si dice \textbf{plurirettangolo} superiormente semiaperto di $\mathbb{R}^n$ un insieme $P$ dato dall'unione finita di rettangoli superiormente semiaperti a 2 a 2 disgiunti, cioè
+    \begin{equation}
+        P= \bigsqcup_{j=1}^{H \in \mathbb{N}} I_j \qquad I_j \cap I_l = \emptyset\ \text{se}\ j\neq l
+    \end{equation}
+\end{definition}
+\begin{definition} \label{Def: Misura di un plurirettangolo}
+Sia $\mathcal{P}= \left\{\text{insieme dei plurirettangoli}\right\}$. Allora si dice \textbf{misura di un plurirettangolo} $P=\bigsqcup\limits_{j=1}^{H} \in \mathcal{P}$ la quantità
+\begin{equation}
+    m(P)= \sum_{j=1}^{H}{m(I_j)}
+\end{equation}
+\end{definition}
+\begin{oss}
+    Si osservi che la scelta di una partizione per $P$ è ininfluente ai fini del calcolo della misura di un plurirettangolo.
+\end{oss}
+Queste definizioni, permettono di sviluppare una funzione $m: \mathcal{P} \to \mathbb{R}^+$ che goda delle seguenti proprietà $ \forall\ P_1, P_2\in \mathcal{P}$:
+\begin{itemize}
+    \item $m$ è \textbf{subadditiva}: $m(P_1 \cup P_2) \leq m(P_1)+m(P_2)$
+    \item $m$ è \textbf{additiva}: $m(P_1 \cup P_2)=m(P_1)+m(P_2)$ se $P_1 \cap P_2 = \emptyset$
+    \item $m$ è \textbf{crescente}: se $P_1 \subseteq P_2$ allora $m(P_1) \leq m(P_2)$
+\end{itemize}
+\begin{definition} \label{Def: Misura interna, misura esterna}
+Sia $E \subseteq \mathbb{R}^n$. Allora, si definisce \textbf{misura esterna} di E la quantità 
+\begin{equation}
+    \overline{m}(E) := \inf\left\{m(P) \mid P \in \mathcal{P}, E \subseteq \mathcal{P} \right\}
+\end{equation}
+Analogamente, si definisce \textbf{misura interna} di E la quantità
+\begin{equation}
+    \underline{m}(E) := \sup\left\{m(P) \mid P \in \mathcal{P}, E \subseteq P\right\}
+\end{equation}
+\end{definition}
+\begin{proposition}
+    Sia $E \subseteq \mathbb{R}^n$ limitato. Allora $\underline{m}(E) \leq \overline{m}(E)$
+\end{proposition}
+\begin{definition} \label{Def: Insieme misurabile}
+    Si dice che $E \subseteq \mathbb{R}^n$ è \textbf{misurabile} secondo Peano-Jordan se
+    \begin{equation}
+        \underline{m}(E)=\overline{m}(E)
+    \end{equation}
+    In tal caso allora
+    \begin{equation}
+        m(E) := \underline{m}(E)=\overline{m}(E)
+    \end{equation}
+    e si indica con $\mathcal{M}$ l'\textbf{insieme degli $\mathbf{E}$} limitati e \textbf{misurabili} di $\mathbb{R}^n$
+\end{definition}
+\begin{oss}
+    Una notazione alternativa di $m(E)$ è $m_n(E)$
+\end{oss}
+\begin{oss}
+    Si noti che $\mathcal{M} \subsetneq \mathcal{P}(\mathbb{R}^n)$
+\end{oss}
+\begin{example}
+    A sostegno di quest'ultima osservazione si proponga un insieme non misurabile di $\mathbb{R}^n$
+    \begin{equation*}
+        \Tilde{E}=\left( \left[0,1\right] \cap \mathbb{Q}^2\right)
+    \end{equation*}
+    Infatti, volendo coprire di plurirettangoli tale insieme, si ha che:
+    \begin{align*}
+        &\overline{m}(\Tilde{E})=1=(1-0)\times(1-0)\\
+        &\underline{m}(\Tilde{E})=0
+    \end{align*}
+    Pertanto $\Tilde{E}$ non è misurabile secondo Peano-Jordan.
+\end{example}
+D'altro canto, si elenchino ora tipi di insiemi che siano Peano-Jordan misurabili.
+\begin{example}
+    Il caso banale è il plurirettangolo P. Infatti:
+    \begin{equation*}
+    m(P)=m(\mathring{P})=m(\overline{P})       
+    \end{equation*}
+\end{example}
+\begin{example}
+    Un \textit{dominio semplice}, cioè un dominio compreso tra i grafici di funzioni continue su $\left[a,b\right]$ limitate, è P.J. misurabile.
+    
+    In $\mathbb{R}^2$ si possono avere domini semplici della forma:
+    \begin{equation*}
+            D= \left\{ (x, y) \in \mathbb{R}^2 \mid a \leq x \leq b ,\ f(x)\leq y \leq g(x) \right\}\        
+    \end{equation*}
+    detti \textit{y-semplici} o \textit{normali rispetto all'asse x}. Oppure
+    \begin{equation*}
+        E= \left\{(x, y) \in \mathbb{R}^2\mid c \leq y \leq d,\ f(y) \leq x \leq g(y)\right\}
+    \end{equation*}
+    detti \textit{x-semplici} o \textit{normali rispetto all'asse y}.
+    \vspace*{6pt}                       
+    
+    In $\mathbb{R}^3$ esempi di domini semplici possono essere:
+    \begin{equation*}
+        \mathcal{D}=\left\{(x,y,z) \in \mathbb{R}^3 \mid (x,y) \in D \subseteq \mathbb{R}^2,\ \alpha(x, y) \leq \beta(x,y) \right\}
+    \end{equation*}
+    con $D$ normale rispetto ad almeno un asse e detto \textit{z-semplice} o \textit{normalw rispeto al piano xy} o, ancora \textit{rappresentabile per fili}. Oppure, 
+    \begin{equation*}
+        \mathcal{E}=\left\{(x,y,z) \in \mathbb{R}^3 \mid c_1 \leq z \leq c_2,\ (x,y) \in D_z\subseteq \mathbb{R}^2\right\}
+    \end{equation*}
+    con $D_z$ dominio normale e detto \textit{xy semplice} o \textit{normale rispetto all'asse $z$} o \textit{rappresentabile per strati}.
+    \begin{oss}
+        Si possono ottenere altri domini normali di $\mathbb{R}^3$ invertendo gli assi.
+    \end{oss}
+\end{example}
+\section{Integrali doppi}
+
