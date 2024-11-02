@@ -2,6 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[italian]{babel}
 \usepackage{amsmath, amssymb, amsthm}
+\usepackage{geometry}
 \usepackage{titling}
 \usepackage{enumitem}
 \usepackage{pdfpages}
@@ -28,8 +29,8 @@
 
 
 %Cornice teorema
-\newmdenv[skipabove=6pt,
-skipbelow=6pt,
+\newmdenv[skipabove=5pt,
+skipbelow=5pt,
 rightline=false,
 leftline=true,
 topline=false,
@@ -39,14 +40,16 @@ backgroundcolor=purple!0,
 innerleftmargin=5pt,
 innerrightmargin=5pt,
 innertopmargin=0pt,
+innerbottommargin=2pt,
 leftmargin=0cm,
 rightmargin=0cm,
 linewidth=2pt,
-innerbottommargin=2pt]{theoremBox}
+splitbottomskip=0pt]{theoremBox}
+
 
 %Cornice definizione
-\newmdenv[skipabove=6pt,
-skipbelow=6pt,
+\newmdenv[skipabove=5pt,
+skipbelow=5pt,
 rightline=false,
 leftline=true,
 topline=false,
@@ -62,8 +65,8 @@ linewidth=2pt,
 innerbottommargin=2pt]{definitionBox}
 
 %Cornice proposizione
-\newmdenv[skipabove=6pt,
-skipbelow=6pt,
+\newmdenv[skipabove=5pt,
+skipbelow=5pt,
 rightline=false,
 leftline=true,
 topline=false,
@@ -79,8 +82,8 @@ linewidth=2pt,
 innerbottommargin=2pt]{propositionBox}
 
 %Cornice lemma
-\newmdenv[skipabove=6pt,
-skipbelow=6pt,
+\newmdenv[skipabove=5pt,
+skipbelow=5pt,
 rightline=false,
 leftline=true,
 topline=false,
@@ -96,8 +99,8 @@ linewidth=2pt,
 innerbottommargin=2pt]{lemmaBox}
 
 %Cornice corollario
-\newmdenv[skipabove=6pt,
-skipbelow=6pt,
+\newmdenv[skipabove=5pt,
+skipbelow=5pt,
 rightline=false,
 leftline=true,
 topline=false,

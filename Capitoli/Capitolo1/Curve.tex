@@ -71,7 +71,11 @@ Analogamente, è possibile utilizzare le \textbf{equazioni parametriche della cu
 \end{example}
 Da ciò si può osservare come, \textit{in primis}, la definizione di $I$ sia fondamentale nel tracciare il sostegno e, \textit{in secundis}, come, d'altra parte, il sostegno non identifichi la curva. A tal proposito infatti occorre notare che, benché le curve associate ai sostegni delle figure 1.2 e 1.3 siano diverse, i loro sostegni sono uguali.
 \begin{example}    
-    Un'altra casistica è quella rappresentata dalla curva di equazione $\varphi(t)=(R \cos(-t), R \sin(-t))$. Il suo sostegno, infatti, rimane la circonferenza (o l'arco) di raggio $R$, percorso tuttavia in senso orario.
+    Un'altra casistica è quella rappresentata dalla curva di equazione
+    \begin{equation*}    
+    \varphi(t)=(R \cos(-t), R \sin(-t)) 
+    \end{equation*}
+    Il suo sostegno, infatti, rimane la circonferenza (o l'arco) di raggio $R$, percorso tuttavia in senso orario.
 \end{example}
 \begin{definition}
     Sia $\varphi:[I \to \mathbb{R}^n]$ una curva parametrica. Allora si dice che $P_1=\varphi(t_1)$ \textbf{precede} $P_2=\varphi(t_2)$ nel verso delle $t$ crescenti se $t_1<t_2$ con $t_1, t_2 \in I$.
@@ -88,7 +92,7 @@ Fatte tali premesse, si passi ad analizzare alcune proprietà delle curve.
     Una curva $\varphi:[a,b] \to \mathbb{R}^n$ si dice \textbf{semplice} se, $\forall$ $ t_1, t_2 \in [a,b]$ distinti di cui almeno uno \textit{interno} all'intervallo, risulta $\varphi(t_1)\neq\varphi(t_2)$.
 \end{definition}
     \begin{oss}
-        In altre parole, affinché $\varphi$ sia semplice, essa non deve autointersecarsi, se non, al più, negli estremi.
+        In altre parole, affinché $\varphi$ sia semplice, essa non deve auto-intersecarsi, se non, al più, negli estremi.
     \end{oss}
     \begin{oss}
         La curva in figura 1.2 è semplice.
@@ -178,7 +182,6 @@ Tuttavia si può anche osservare che la curva può essere vista come l'unione di
     \begin{itemize}
         \item Se $[\theta_0, \theta_1] \subseteq [0, 2\pi]$ allora la curva è semplice se $\nexists$ $\theta_i, \theta_j \in (0,2\pi)$ tali che $\varrho(\theta_i)=\varrho(\theta_j)=0$
     \end{itemize}
-\newpage
 \section{Curve equivalenti}
 \begin{definition}
     Due curve $\varphi: I\to \mathbb{R}^n$ e $\psi:J\to \mathbb{R}^n$ si dicono \textbf{equivalenti} se $\exists$ $\eta:I\to J$ di classe $C^1(I)$ suriettiva e tale che $\eta'(t) \neq 0$ $\forall$ $t \in I$ per cui si abbia
@@ -227,7 +230,7 @@ Tuttavia si può anche osservare che la curva può essere vista come l'unione di
 Si può osservare che due curve equivalenti hanno lo stesso sostegno. Tuttavia tale condizione non è sufficiente siccome per l'equivalenza è necessario che il sostegno sia percorso nel medesimo numero di volte.\\
 La nozione di equivalenza può essere rafforzata, come segue.
 \begin{definition}
-    Due curve equivalenti come sopra si dicono \textbf{equvalenti con lo stesso verso} se il loro sostegno è percorso nello stesso verso, cioè se: $\eta'>0$
+    Due curve equivalenti come sopra si dicono \textbf{equivalenti con lo stesso verso} se il loro sostegno è percorso nello stesso verso, cioè se: $\eta'>0$
 \end{definition}
 \section{Lunghezza di una curva}
 Si consideri una curva continua $\varphi:[a,b] \to \mathbb{R}^n$ definita su un intervallo chiuso e limitato $[a,b]$. È possibile associare ad ogni \textit{partizione} 
@@ -236,7 +239,7 @@ Si consideri una curva continua $\varphi:[a,b] \to \mathbb{R}^n$ definita su un 
 \end{equation}
 la poligonale $\mathcal{P}$ inscritta nella curva e di vertici $\varphi(a),\varphi(t_1),\dots,\varphi(t_{N-1}), \varphi(b)$. La lunghezza di tale poligonale sarà pari a:
 \begin{equation}
-    \ell(\mathcal{P})=\sum\limits_{i=1}^{N}{|\varphi(t_i)-\varphi(t_{i-1})}
+    \ell(\mathcal{P})=\sum\limits_{i=1}^{N}{|\varphi(t_i)-\varphi(t_{i-1})|}
 \end{equation}
 Tale valore è un'approssimazione della lunghezza effettiva della curva per difetto, il cui errore diminuisce in maniera proporzionale al numero di segmenti che compongono la poligonale.
 \begin{figure}[H]
