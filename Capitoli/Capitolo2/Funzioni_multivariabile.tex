@@ -18,9 +18,9 @@ Tramite la definizione di norma si può ottenere la definizione di \textbf{dista
 \begin{definition}
     Sia $X$ un insieme e sia $d:X \times X \to \left[0, +\infty \right)$ una funzione che ad ogni coppia $(x,y)$ di punti di $X$ associa un numero reale $d(x,y)\geq0$. Allora si dice che $d$ è una \textbf{distanza} su $X$ se sono verificate le seguenti condizioni:
     \begin{align}
-        &d(x,y)=0 \ \iff x=y \ \forall\ x,y \in X \\
-        &d(x,y)=d(y,x) \ \forall\ x,y \in X \\
-        &d(x,y) \leq d(x,z) + d(z, y) \ \forall\ x,y,z \in X
+        &d(x,y)=0 \ \iff x=y \qquad\forall\ x,y \in X \\
+        &d(x,y)=d(y,x) \qquad \forall\ x,y \in X \\
+        &d(x,y) \leq d(x,z) + d(z, y) \qquad \forall\ x,y,z \in X
     \end{align}
     In particolare in $\mathbb{R}^n$ si ha che:
     \begin{equation}
@@ -91,7 +91,7 @@ Tramite la definizione di norma si può ottenere la definizione di \textbf{dista
             \item $(0, \tfrac{1}{2})$ è \textit{interno}.
             \item $(1,0) $ è di \textit{frontiera} e di \textit{accumulazione}.
             \item $(-1,0) $ è di \textit{frontiera} e di \textit{accumulazione}.
-            \item $(1, \tfrac{3}{2}) $ è di \textit{frontiera} e \textit{isolato}.
+            \item $\left(1, \tfrac{3}{2}\right) $ è di \textit{frontiera} e \textit{isolato}.
         \end{itemize}      
     \end{minipage}
 \end{example}
@@ -759,7 +759,7 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
         \begin{equation}
             x \mapsto f(x, y_0+k) \hspace{1.5cm} y \mapsto f(x_0, y)
         \end{equation}
-        negli intervalli $[x_0, x_0+h]$ e $[y_0, y_0+h]$ con $h,k>0$ (altrimenti si scambiano gli estremi).
+        negli intervalli $[x_0, x_0+h]$ e $[y_0, y_0+k]$ con $h,k>0$ (altrimenti si scambiano gli estremi).
         Di conseguenza, esistono $x_1 \in [x_0, x_0+h] $ e $y_1 \in [y_0, y_0+h]$ tali che
         \begin{equation}
             \begin{cases}
@@ -769,14 +769,14 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
         \end{equation}
         Sostituendo nella \eqref{Eq: Difftot 2} si ottiene che
         \begin{equation} \label{Eq: Difftot 3}
-            f(x_0+h, y_0+k)-f(x_0, y_0)=f_x(x_1, y_0+k)h+f_y(x_0, y_0+k)k
+            f(x_0+h, y_0+k)-f(x_0, y_0)=f_x(x_1, y_0+k)h+f_y(x_0, y_1)k
         \end{equation}
         Pertanto, risolvendo il prodotto scalare della \eqref{Eq: Difftot 1}, si ha che
         \begin{equation}
             \begin{aligned}
                 &\frac{|f(x_0+h, y_0+k)-f(x_0, y_0)-f_x(x_0, y_0)h-f_y(x_0, y_0)k|}{\sqrt{h^2+k^2}}=\\
-                &\overset{\eqref{Eq: Difftot 3}}{=}\frac{|f_x(x_1, y_0+k)h-f_x(x_0, y_0)h+f_y(x_0, y_0+k)k-f_y(x_0, y_0)k|}{\sqrt{h^2+k^2}}\leq\\
-                &\overset{\substack{\text{Triangolare,}\\\text{Schwarz}}}{\leq} \frac{|f_x(x_1, y_0+k)-f_x(x_0, y_0)||h|}{\sqrt{h^2+k^2}}+\frac{|f_y(x_0, y_0+k)-f_y(x_0, y_0)||k|}{\sqrt{h^2+k^2}}\leq\\
+                &\overset{\eqref{Eq: Difftot 3}}{=}\frac{|f_x(x_1, y_0+k)h-f_x(x_0, y_0)h+f_y(x_0, y_1)k-f_y(x_0, y_0)k|}{\sqrt{h^2+k^2}}\leq\\
+                &\overset{\substack{\text{Triangolare,}\\\text{Schwarz}}}{\leq} \frac{|f_x(x_1, y_0+k)-f_x(x_0, y_0)||h|}{\sqrt{h^2+k^2}}+\frac{|f_y(x_0, y_1)-f_y(x_0, y_0)||k|}{\sqrt{h^2+k^2}}\leq\\
                 &\overset{\text{Maggiorazione}}{\leq} |f_x(x_1, y_0+k)-f_x(x_0, y_0)|+|f_y(x_0, y_0+k)-f(x_0, y_0)|
             \end{aligned}
         \end{equation}
@@ -793,7 +793,7 @@ Se nello studio di funzioni monovariabile era possibile dimostrare che una funzi
         \end{equation} 
         e quindi 
         \begin{equation}
-            \frac{|f(x_0+h, y_0+k)-f(x_0, y_0)-f_x(x_0, y_0)h-f_y(x_0, y_0)k}{\sqrt{h^2+k^2}} \overset{(h,k)\to(0,0)}{\to} (0,0)
+            \frac{|f(x_0+h, y_0+k)-f(x_0, y_0)-f_x(x_0, y_0)h-f_y(x_0, y_0)k}{\sqrt{h^2+k^2}} \overset{(h,k)\to(0,0)}{\to} 0
         \end{equation}
     \end{proof}
 \begin{definition} \label{Def:C0 e C1}
@@ -848,14 +848,14 @@ Inoltre, di norma la matrice hessiana non è simmetrica. Tuttavia, è possibile 
         Si prenda:
         \begin{equation*}
             f(x,y)=\begin{cases}
-                xy \frac{x^2-y^2}{x^2+y^2} &\text{se}\ (x,y)\neq (0,0)\\
+                xy \dfrac{x^2-y^2}{x^2+y^2} &\text{se}\ (x,y)\neq (0,0)\\
                 0 &\text{se}\ (x,y)=(0,0)
             \end{cases}
         \end{equation*}
-        Si può osservare che tale funzione è di classe $C1$ su $(0,0)$ e il suo gradiente è
+        Si può osservare che tale funzione è di classe $C^1$ su $(0,0)$ e il suo gradiente è
         \begin{equation*}
             \begin{cases}
-                \left(y \frac{x^2-y^2}{x^2+y^2}+\frac{4(x^2y^3)}{(x^2+y^2)^2},x \frac{x^2-y^2}{x^2+y^2}-\frac{4(y^2x^3)}{(x^2+y^2)^2}\right) &\text{se}\ (x,y)\neq(0,0)\\
+                \left(y \dfrac{x^2-y^2}{x^2+y^2}+\dfrac{4(x^2y^3)}{(x^2+y^2)^2},x \dfrac{x^2-y^2}{x^2+y^2}-\dfrac{4(y^2x^3)}{(x^2+y^2)^2}\right) &\text{se}\ (x,y)\neq(0,0)\\
                 (0,0) &\text{se}\ (x,y)=(0,0)
             \end{cases}
         \end{equation*}
@@ -880,7 +880,7 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
     Se $f \in C^2(A)$, allora $H_f$ è simmetrica in ogni punto del dominio.
 \end{corollary}
 \begin{theorem}[Derivata della funzione composta 1] \label{Teo: Derivata composta 1}
-    Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x: I \to \mathbb{R}$ una curva. Si assuma che $x(I) \subseteq A$. Se $x(t)=(x_1(t), \dots, x_n(t))$ è derivabile in ogni $x_i:I \to \mathbb{R}$, se $t_0 \in I$ e se $f$ differenziabile in $x(t_0)$, allora
+    Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x: I \to \mathbb{R}^n$ una curva. Si assuma che $x(I) \subseteq A$. Se $x(t)=(x_1(t), \dots, x_n(t))$ è derivabile in ogni $x_i:I \to \mathbb{R}^n$, se $t_0 \in I$ e se $f$ differenziabile in $x(t_0)$, allora
     $f \circ x$ è derivabile in $t_0$ e vale
     \begin{equation}
         (f \circ x)'(t_0)= \langle \nabla f(x(t_0)), x'(t_0) \rangle \label{Eq: Derivata composta 1}
@@ -890,7 +890,7 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
     L'ipotesi $x(I) \subseteq A$ serve a garantire una composizione ben definita.
 \end{oss}
 \begin{theorem}[Derivata della funzione composta 2] \label{Teo: Derivata composta 2}
-    Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x: B \subseteq \mathbb{R}^k \to \mathbb{R}^n$ con $B$ aperto. Sia poi $F(y)=f(x(y))=(f \circ x): B \to \mathbb{R}$ con $y \in B$. Se $x_1 \dots x_n$ sono derivabili parzialmente (o $C^1$ o differenziabili) rispetto ad una certa $y_j$ fissata, e $f$ è differenziabile in $x(y_0) \in A$, allora $F$ è derivabile parzialmente (o $C^1$ o differenziabile) rispetto a $y_j$ e vale 
+    Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x: B \subseteq \mathbb{R}^k \to \mathbb{R}^n$ con $B$ aperto. Sia poi $F(y)=f(x(y))=(f \circ x): B \to \mathbb{R}$ con $y \in B$. Se $x_1, \dots, x_n$ sono derivabili parzialmente (o $C^1$ o differenziabili) rispetto ad una certa $y_j$ fissata, e $f$ è differenziabile in $x(y_0) \in A$, allora $F$ è derivabile parzialmente (o $C^1$ o differenziabile) rispetto a $y_j$ e vale 
     \begin{equation} \label{Eq: Derivata composta 2}
         \frac{\partial f}{\partial y_j}=\left\langle \nabla f(x(y_0)), \frac{\partial x}{\partial y_j}(y_0)\right\rangle=\sum\limits_{i=1}^{n}{\frac{\partial f}{\partial x_i}(x(y_0))\ \frac{\partial x_i}{\partial y_j}(y_0)}
     \end{equation}    
@@ -931,7 +931,7 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
 \begin{theorem}[Formula di Taylor con resto di Lagrange al II ordine] \label{Teo: Taylor con resto di Lagrange}
     Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ tale che $f\in C^2(A)$ e siano $x_0,\ x_0+h \in A$ tali che $[x_0, x_0+h] \subseteq A$. Allora, $\exists\ \theta \in (0,1)$ tale che
     \begin{equation}
-        f(x_0+h)=f(x_0)+ \langle \nabla f(x_0), h \rangle + \frac{1}{2}\langle H_f(x_0+\theta h),h \rangle 
+        f(x_0+h)=f(x_0)+ \langle \nabla f(x_0), h \rangle + \frac{1}{2}\langle H_f(x_0+\theta h)h,h \rangle 
     \end{equation} 
 \end{theorem}
     \begin{proof}
@@ -989,7 +989,7 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
                 &\frac{|\langle H_f(x_0+\theta h)h, h \rangle - \langle H_f(x_0)h, h\rangle|}{|h|^2}\leq\\
                 &\overset{\substack{\text{Prop.}\\\text{prod.}\\ \text{scal.}}}{\leq}\frac{|\langle [H_f(x_0+\theta h)-H_f(x_0)]h, h \rangle|}{|h|^2} \leq\\
                 &\overset{\substack{\text{Cauchy}\\\text{Schwarz}}}{\leq} \frac{|[H_f(x_0+\theta h)-H_f(x_0)]h|\ |h|}{|h|^2} \leq\\
-                &\overset{\substack{\text{Cauchy}\\\text{Schwarz}}}{\leq} \frac{|H_f(x_0+\theta h)-H_f(x_0)|\ |h|}{|h|} =\\
+                &\overset{\text{Frobenius}}{\leq} \frac{|H_f(x_0+\theta h)-H_f(x_0)|\ |h|}{|h|} =\\
                 &\overset{f \in C^2(A)}{=}|H_f(x_0+\theta h)-H_f(x_0)| \overset{h \to 0}{\to} 0
             \end{aligned}
         \end{equation}
@@ -1011,7 +1011,7 @@ Sia $f:A \subseteq \mathbb{R}^n  \to \mathbb{R}$ e $x_0 \in \mathring{A}$. Se $x
 \begin{proof}
     Senza perdita di generalità si supponga di avere $x_0$ massimo relativo. Allora bisogna mostrare
     \begin{equation}
-        \frac{\partial f}{\partial x_i}(x_0)=0\ \forall\ i=1, \dots, n
+        \frac{\partial f}{\partial x_i}(x_0)=0 \qquad \forall\ i=1, \dots, n
     \end{equation}
     Poiché $A$ è aperto, esiste $\delta>0$ tale che sia ben definita per ogni $t \in (-\delta, \delta)$
     \begin{equation}
@@ -1019,11 +1019,11 @@ Sia $f:A \subseteq \mathbb{R}^n  \to \mathbb{R}$ e $x_0 \in \mathring{A}$. Se $x
     \end{equation}
     Inoltre, $g$ è derivabile in $t=0$ e, poiché $x_0$ è per ipotesi massimo relativo, 
     \begin{equation}
-        g_i(t) \leq g_i(0)\ \forall t \in \mathcal{U}(0)
+        g_i(t) \leq g_i(0)\qquad\forall t \in \mathcal{U}(0)
     \end{equation}
     Applicando il teorema di Fermat per le funzioni in una variabile si osserva che
     \begin{equation}
-        0=g_i'(0)=\frac{\partial f}{\partial x_i}(x_0)\ \forall\ i=1, \dots, n
+        0=g_i'(0)=\frac{\partial f}{\partial x_i}(x_0)\qquad\forall\ i=1, \dots, n
     \end{equation}
 \end{proof}
 \begin{definition} \label{Def: Insieme dei punti critici}
@@ -1116,13 +1116,13 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
     \end{equation}
     da cui, per condizione necessaria sulle funzioni di una variabile, segue che
     \begin{equation}
-        F''(0)= \langle (x_0)v, v \rangle \leq 0
+        F''(0)= \langle H_f(x_0)v, v \rangle \leq 0
     \end{equation}
     cioè che $H_f(x_0)$ è semidefinita negativa.\\
     La dimostrazione del caso in cui $x_0$ è minimo relativo per $f$ è del tutto analoga.
 \end{proof}
 \begin{lemma} \label{Lemma: FQ di matrice simmetrica è compresa tra i suoi autovalori max e min}
-        Se, presa $A \in \mathbb{M}_{n,n}$ simmetrica e detti $\lambda_1 \leq \lambda_2 \leq \lambda_n$ i suoi autovalori, si ha $\langle Ax, x \rangle$, allora $\lambda_1 |x| \leq \langle Ax, x \rangle \leq \lambda_n |x|$
+        Se, presa $A \in \mathbb{M}_{n,n}$ simmetrica e detti $\lambda_1 \leq \lambda_2 \leq \lambda_n$ i suoi autovalori, si ha $\langle Ax, x \rangle$, allora $\lambda_1 |x|^2 \leq \langle Ax, x \rangle \leq \lambda_n |x|^2$
 \end{lemma}
 \begin{theorem}[Condizione sufficiente del II ordine] \label{Teo: Condizione sufficiente del secondo ordine}
     Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $f \in C^2(A)$. Sia poi $x_0$ un punto critico per $f$. Allora, 
@@ -1133,9 +1133,9 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
 \end{theorem}
     \begin{proof}
         Si consideri il caso in cui $H_f(x_0)$ sia definita positiva e si mostri che $x_0$ è un punto di minimo per $f$\\
-        Si può osservare che, essendo $H_f \in C^2(A)$, allora essa è simmetrica per il teorema \ref{Teo: Schwarz} e vale dunque il lemma \ref{Lemma: FQ di matrice simmetrica è compresa tra i suoi autovalori max e min}. Pertanto, indicato con $\lambda_{min}>0$ il minor autovalore di $H_f$, si ha che
+        Si può osservare che, essendo $f \in C^2(A)$, allora $H_f$ è simmetrica per il teorema \ref{Teo: Schwarz} e vale dunque il lemma \ref{Lemma: FQ di matrice simmetrica è compresa tra i suoi autovalori max e min}. Pertanto, indicato con $\lambda_{min}>0$ il minor autovalore di $H_f$, si ha che
         \begin{equation}
-            \langle H_f(x_0)h,h \rangle \geq \lambda_{min} |h|^2\ \forall h \in \mathbb{R}^n
+            \langle H_f(x_0)h,h \rangle \geq \lambda_{min} |h|^2 \qquad \forall h \in \mathbb{R}^n
         \end{equation}
         Si scriva quindi lo sviluppo di Taylor con resto di Peano al secondo ordine in $f(x_0)$.
         \begin{equation}
@@ -1151,13 +1151,13 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
         \end{equation}
         ma, per definizione di o-piccolo vale il seguente fatto:
         \begin{equation}
-            \exists\ \sigma >0\ \text{tale che, se}\ |h|<\sigma\ \text{allora}\ \frac{o(|h|^2)}{\tfrac{1}{2}\lambda_{min} |h|^2} < \frac{1}{2}
+            \exists\ \sigma >0\ \text{tale che, se}\ |h|<\sigma\ \text{allora}\ \left|\frac{o(|h|^2)}{\tfrac{1}{2}\lambda_{min} |h|^2}\right| < \frac{1}{2}
         \end{equation}
         dove $\sigma=\frac{1}{2}$ è una costante arbitraria in $(0,1)$.
         Per tale disuguaglianza, allora, 
         \begin{equation}
         \begin{aligned}
-            f(x_0+h)-f(x_0)&\geq \frac{1}{2}\lambda_{min} |h|^2 \left( 1 + \frac{o(|h|^2}{\tfrac{1}{2}\lambda_{min}|h|^2}\right) \geq \\
+            f(x_0+h)-f(x_0)&\geq \frac{1}{2}\lambda_{min} |h|^2 \left( 1 + \frac{o(|h|^2)}{\tfrac{1}{2}\lambda_{min}|h|^2}\right) \geq \\
             &\geq \frac{1}{2}\lambda_{min}|h|^2\left(1-\frac{1}{2}\right)=\frac{1}{4}\lambda_{min}|h|^2 >0
             \end{aligned}
         \end{equation}
@@ -1184,8 +1184,8 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
         con $f(0,0)=0$. Si può osservare, però che:
         \begin{equation*}
             \begin{aligned}
-                &f(x, 0) > 0\ \forall x \neq 0\\
-                &f(0,y) < 0 \ \forall y \neq 0
+                &f(x, 0) > 0 \qquad \forall x \neq 0\\
+                &f(0,y) < 0 \qquad \forall y \neq 0
             \end{aligned}
         \end{equation*}
         Pertanto $(0,0)$ è un punto di sella, giacché non è né un massimo né un minimo.
@@ -1240,9 +1240,9 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
 \end{definition}
 
 \begin{theorem} \label{Teo: Derivata composta di f. vettoriali}
-Siano $g: B \subseteq \mathbb{R}^k \to A \subseteq R^n$ e $f: A \subseteq \mathbb{R}^n \to \mathbb{R}^m$ e le si assuma di classe $C^1$. Allora, $h=f \circ g: B \to \mathbb{R^m}$ è ben definita su $B$, è di classe $C^1(B)$ e vale:
+Siano $g: B \subseteq \mathbb{R}^k \to A \subseteq R^n$ e $f: A \subseteq \mathbb{R}^n \to \mathbb{R}^m$ e le si assuma di classe $C^1$. Allora, $h=f \circ g: B \to \mathbb{R}^m$ è ben definita su $B$, è di classe $C^1(B)$ e vale:
 \begin{equation}
-    J_h(y) \in \mathbb{M}_{m,n}\ \text{tale che}\ J_h(y)=J_f(g(y)) J_g(y)\ \forall\ y \in B
+    J_h(y) \in \mathbb{M}_{m,n}\ \text{tale che}\ J_h(y)=J_f(g(y)) J_g(y) \qquad \forall\ y \in B
 \end{equation}
 \end{theorem}
 \begin{oss}

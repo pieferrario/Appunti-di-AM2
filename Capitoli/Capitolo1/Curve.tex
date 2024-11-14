@@ -225,7 +225,7 @@ Tuttavia si può anche osservare che la curva può essere vista come l'unione di
     L'applicazione $\eta$ che permette di passare dalla rappresentazione parametrica di $\varphi$ a quella di $\psi$ è detta anche \textbf{$C^1$ diffeomorfismo}.
 \end{definition}
 \begin{definition}
-    Date due curve equivalenti $\varphi$ e $\psi$, si dice che $\psi$ è la riparametrizzazione di $\varphi$.
+    Date due curve equivalenti $\varphi$ e $\psi$, si dice che $\psi$ è la \textbf{riparametrizzazione} di $\varphi$.
 \end{definition}
 Si può osservare che due curve equivalenti hanno lo stesso sostegno. Tuttavia tale condizione non è sufficiente siccome per l'equivalenza è necessario che il sostegno sia percorso nel medesimo numero di volte.\\
 La nozione di equivalenza può essere rafforzata, come segue.
@@ -252,14 +252,14 @@ Tale valore è un'approssimazione della lunghezza effettiva della curva per dife
 \begin{definition}
     Sia $\varphi:[a,b]\to \mathbb{R}^n$, allora si dice \textbf{lunghezza di un arco di curva} continua la quantità
     \begin{equation}
-        L(\varphi)=\sup\limits_{l}(\mathcal{P})
+        L(\varphi)=\sup\limits_{\Pi}(\ell(\mathcal{P}))
     \end{equation}
     dove $\mathcal{P} \in \Pi$ con $\Pi=\left\{\text{poligonali inscritte nella curva}\right\}$.
 \end{definition}
 \begin{definition}
     Si dice che una curva $\varphi: [a,b] \to \mathbb{R}^n$ è \textbf{rettificabile} se 
     \begin{equation}
-        \sup\limits_{\mathcal{P}\in\Pi}L(\varphi)<+\infty
+    L(\varphi)<+\infty
     \end{equation}
 \end{definition}
 \begin{theorem}[Teorema di rettificabilità]
@@ -284,7 +284,7 @@ Sia $\varphi: [a,b] \to \mathbb{R}^n$ una curva di classe $C^1$. Allora essa è 
     Detta 
     \begin{equation*}
         f(x)= \begin{cases}
-            0 \text{ se } x=0\\ x\sin(\frac{1}{x}) \text{ se } x\neq 0
+            0 \text{ se } x=0\\ x\sin\left(\frac{1}{x}\right) \text{ se } x\neq 0
         \end{cases}
     \end{equation*}
     allora una curva non rettificabile può essere 
@@ -329,8 +329,8 @@ Siano $\underline{v}=(v_1, v_2, v_3)$ e $\underline{w}=(w_1, w_2, w_3)$ vettori 
 \begin{lemma}
     Siano $u, v$ definiti in $I\to\mathbb{R}^3$ e derivabili. Allora:
     \begin{align}
-        \frac{d}{dt}{\langle u(t), v(t) \rangle} = \langle u'(t), v(t) \rangle + \langle u(t), v'(t) \rangle \\
-        \frac{d}{dt}\left(u(t) \wedge v(t)\right) = u'(t) \wedge v(t) + u(t) \wedge v'(t)
+        \frac{d}{dt}{\langle u(t), v(t) \rangle} = \langle u'(t), v(t) \rangle + \langle u(t), v'(t) \rangle \label{Eq: Derivata del prodotto scalare}\\
+        \frac{d}{dt}\left(u(t) \wedge v(t)\right) = u'(t) \wedge v(t) + u(t) \wedge v'(t) \label{Eq: Derivata del prodotto vettoriale}
     \end{align}
 \end{lemma}
 \begin{proposition}
@@ -341,7 +341,7 @@ Siano $\underline{v}=(v_1, v_2, v_3)$ e $\underline{w}=(w_1, w_2, w_3)$ vettori 
         \begin{equation}
             |w(t)|^2=c^2 \iff \langle w(t), w(t) \rangle = c
         \end{equation}
-        Derivando rispetto a $t$ e applicando l'equazione 1.26, si ha che:
+        Derivando rispetto a $t$ e applicando l'equazione \eqref{Eq: Derivata del prodotto scalare}, si ha che:
         \begin{equation}
             \frac{d}{dt}{\langle w(t), w(t)\rangle}\overset{\substack{\text{Prop.} \\ \text{prod. scal.} }}{=}2 \langle w'(t), w(t) \rangle = \frac{d c^2}{dt}=0
         \end{equation}
@@ -380,7 +380,6 @@ Siano $\underline{v}=(v_1, v_2, v_3)$ e $\underline{w}=(w_1, w_2, w_3)$ vettori 
         \left\{N(s), B(s)\right\}
     \end{equation}
 \end{definition}
-\newpage
 \begin{definition}
     Si dice \textbf{piano rettificato} per $\psi$ in $\psi(s)$ il piano generato da
     \begin{equation}

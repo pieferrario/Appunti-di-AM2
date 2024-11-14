@@ -105,7 +105,7 @@ Il teorema del Dini, che verrà affrontato di seguito, fornisce le condizioni so
 \begin{theorem}[Derivata delle funzioni implicite]
 Siano le ipotesi del Dini con in aggiunta $F \in C^1(A)$, allora anche $g \in C^1(U)$ e la derivata $g'$ vale
 \begin{equation}
-    g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \quad \forall\ x \in U
+    g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \qquad \forall\ x \in U
 \end{equation}
 \end{theorem}
 \begin{proof}
@@ -124,7 +124,7 @@ Svolgendo il prodotto scalare e sfruttando le ipotesi del Dini si ha che
     \end{equation}
 Essendo $F \in C^1$ ne consegue che $g$ è derivabile in $U$ e, essendo continue per ipotesi le derivate parziali, si ha proprio che
 \begin{equation}
-    g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \quad \forall\ x \in U
+    g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \qquad \forall\ x \in U
 \end{equation}
 \end{proof}
 \begin{corollary}
@@ -182,16 +182,16 @@ e quindi, esplicitando $g''$
         \item Si verifichi che $F_y(\tfrac{\pi}{2}, 1) \neq 0$.\\
         $\nabla F(x, y) = (\log y + y \sin{x}, \tfrac{x}{y}- \cos{x}) \Rightarrow F_y(\tfrac{\pi}{2},1)=\tfrac{\pi}{2}$
         \item Verificate tali condizioni, per il teorema del Dini, esiste una $g(x)=y$ tale che $g(\tfrac{\pi}{2})=1$. Per calcolarne lo sviluppo occorre ricavare mediante le formule ottenute prima $g'(\tfrac{\pi}{2})$ e $g''(\tfrac{\pi}{2})$.
-        \item Infine, $g(x)=g(\tfrac{\pi}{2}) + g'(\tfrac{\pi}{2})(x-\tfrac{\pi}{2})+ \tfrac{g''(\tfrac{\pi}{2})}{2}(x-\tfrac{\pi}{2})^2+ o((x-\tfrac{\pi}{2})^2)$
+        \item Infine, $g(x)=g\left(\tfrac{\pi}{2}\right) + g'\left(\tfrac{\pi}{2}\right)\left(x-\tfrac{\pi}{2}\right)+ \tfrac{g''\left(\tfrac{\pi}{2}\right)}{2}\left(x-\tfrac{\pi}{2}\right)^2+ o\left(\left(x-\tfrac{\pi}{2}\right)^2\right)$
     \end{enumerate}
 \end{example}
 \begin{theorem}[Ortogonalità del gradiente alle curve di livello] \label{Teo: Ortogonalità del gradiente alle curve di livello}
-    Sia $F: A \subseteq \mathbb{R}^2 \to \mathbb{R}$ tale che $F \in C^1(A)$ e $Z(F)= \left\{(x,y) \in A \mid F(x,y)=0\right\}$. Supponendo $(x_0,y_0) \in Z(F)$ e $\nabla F \neq (0,0) \in Z(F)$, si ottiene che $\nabla F(x_0,y_0) \perp Z(F)$ in $(x_0, y_0)$. Preso $\mathcal{L}_a$ insieme di livello $a$ e considerata $G(x,y)=F(x,y)-a$, il teorema vale sugli insiemi di livello in generale.
+    Sia $F: A \subseteq \mathbb{R}^2 \to \mathbb{R}$ tale che $F \in C^1(A)$ e $Z(F)= \left\{(x,y) \in A \mid F(x,y)=0\right\}$. Supponendo $(x_0,y_0) \in Z(F)$ e $\nabla F \neq (0,0)$ in $Z(F)$, si ottiene che $\nabla F(x_0,y_0) \perp Z(F)$ in $(x_0, y_0)$. Preso $\mathcal{L}_a$ insieme di livello $a$ e considerata $G(x,y)=F(x,y)-a$, il teorema vale sugli insiemi di livello in generale.
 \end{theorem}
 \begin{proof}
     Per il teorema del Dini, $Z(F)$ in un intorno di $(x_0, y_0)$ è il grafico di una funzione implicita $g: (x_0- \delta, x_0+ \delta) \to \mathbb{R}$. In particolare esso è il sostegno della curva parametrica $\gamma = (x, g(x))$. Il versore tangente di $\gamma$ è dunque definito da
     \begin{equation}
-        T(x)= \frac{1, g'(x)}{\sqrt{1+g'(x)^2}} \qquad x \in (x_0- \delta, x_0+ \delta)
+        T(x)= \frac{(1, g'(x))}{\sqrt{1+g'(x)^2}} \qquad x \in (x_0- \delta, x_0+ \delta)
     \end{equation}
     Calcolando per tali valori di $x$ il prodotto scalare tra il gradiente ed il versore tangente si ha che
     \begin{equation}
@@ -248,12 +248,12 @@ In particolare, si affronterà il caso con $n=2$.
 \begin{definition} \label{Def: Estremi vincolati}
     Un punto $(x_0, y_0) \in V= Z(F)$ con $F \in C^1$ è detto \textbf{punto di massimo (minimo) relativo vincolato} per $f$ su $Z(F)$ se esiste $\delta>0$ tale che 
     \begin{equation}
-        f(x,y) \underset{(\geq)}{\leq} f(x_0, y_0) \quad \forall\ (x, y) \in B_\delta(x_0, y_0) \cap Z(F)
+        f(x,y) \underset{(\geq)}{\leq} f(x_0, y_0) \qquad \forall\ (x, y) \in B_\delta(x_0, y_0) \cap Z(F)
     \end{equation}
     In tal caso $(x_0, y_0)$ è detto \textbf{estremo relativo vincolato}.\\
     Poi, $(x_0, y_0)$ è detto \textbf{punto di massimo (minimo) assoluto} per $f$ su $Z(F)$ se vale
     \begin{equation}
-        f(x, y) \underset{(\geq)}{\leq} f(x_0, y_0) \quad \forall\ (x, y) \in Z(F)
+        f(x, y) \underset{(\geq)}{\leq} f(x_0, y_0) \qquad \forall\ (x, y) \in Z(F)
     \end{equation}
     Infine, i valori nei punti di massimo (minimo) sono detti \textbf{massimo (minimo)} della funzione.
 \end{definition}

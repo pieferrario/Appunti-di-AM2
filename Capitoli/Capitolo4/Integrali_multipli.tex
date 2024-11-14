@@ -409,7 +409,7 @@ Si noti che integrare (in due o tre dimensioni) sulla costante $1$ equivale a ca
 \subsubsection{Formule di cambiamento di variabili}
 Anche nel caso di integrali in $R^3$ si può pensare di effettuare dei cambi di variabile. Il teorema delle formule di cambiamento delle variabili in $\mathbb{R}^3$ è pressoché analogo a quello in due dimensioni e raggiunge la seguente tesi:
 \begin{equation}
-    \iiint\limits_{\mathcal{D}}{f(x,y,z}\,dx\,dy\,dz=\iiint_{\mathcal{D}'}{f(u,v,w)|\det(J_\Phi)|}\,du\,dv\,dw
+    \iiint\limits_{\mathcal{D}}{f(x,y,z)}\,dx\,dy\,dz=\iiint_{\mathcal{D}'}{f(u,v,w)|\det(J_\Phi)|}\,du\,dv\,dw
 \end{equation}
 Si mostrino alcuni cambi di variabili notevoli.
 
@@ -487,7 +487,7 @@ Si mostri infine un'applicazione dell'integrale improprio.
     Per quanto detto, se tale integrale esiste allora può essere calcolato come
     \begin{equation} \label{Eq: Primo risultato teorema integrale gaussiana}
     \begin{aligned}
-        I&=\lim_{R \to +\infty}{\iint_{B_R(0)}{e^{-(x^2-y^2)}}}\,dx\,dy \overset{\text{Polari}}{=} \lim_{R \to +\infty}{\iint\limits_{\substack{0 \leq \varrho \leq R^2\\ 0 \leq \vartheta \leq 2\pi}}{e^{-\varrho^2} \varrho}\,d\varrho\,d\vartheta}=\\
+        I&=\lim_{R \to +\infty}{\iint_{B_R(0)}{e^{-(x^2+y^2)}}}\,dx\,dy \overset{\text{Polari}}{=} \lim_{R \to +\infty}{\iint\limits_{\substack{0 \leq \varrho \leq R^2\\ 0 \leq \vartheta \leq 2\pi}}{e^{-\varrho^2} \varrho}\,d\varrho\,d\vartheta}=\\
         &= 2\pi \lim_{R \to +\infty}{\frac{1}{2}}{e^{-\varrho^2}\Big|_{0}^{R}}= \pi \lim_{R \to +\infty}{(1-e^{-R^2})}= \pi
     \end{aligned}
     \end{equation}
