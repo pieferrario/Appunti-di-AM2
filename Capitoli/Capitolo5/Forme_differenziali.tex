@@ -1,1 +1,107 @@
 \chapter{Forme differenziali}
+Si passi ora alla trattazione delle forme differenziali.
+Per fare ciò, si consideri $A \subseteq \mathbb{R}^n$ aperto. Siano poi $a_1(x), \dots, a_n(x)$ con $x \in A$ funzioni continue in $A$ e siano $dx_1, \dots, dx_n$ funzioni lineari da $\R^n$ a $\R$ tali che $h \mapsto h_i$.
+\begin{definition} \label{Def: Forma differenziale}
+Si dice \textbf{forma differenziale} un'applicazione $\omega:\ x \in A \to  (\mathbb{R}^n)^*$, cioè il duale di $\mathbb{R}^n$, data dall'espressione:
+\begin{equation}
+    \omega= \omega(x)= \sum\limits_{i=1}^{n}{a_i(x)dx_i}
+\end{equation}
+con $a_i$ detti \textbf{coefficienti} della forma differenziale $\omega$.
+\end{definition}
+\begin{oss}
+    Se $h$ è un vettore generico di $\R^n$, il valore assunto da $\omega(x)$ in $h$ è dato da:
+    \begin{equation}
+        \omega(x)(h)=\sum\limits_{i=1}^{n}{a_i(x)dx_i(h)}= \sum\limits_{i=1}^{n}{a_i(x)h_i}
+    \end{equation}
+\end{oss}
+\begin{oss}
+A tal proposito, si dice \textit{campo vettoriale} associato la funzione $F: A\subseteq \R^n \to \R^n$ data da
+\begin{equation}
+    F=F(x)=(a_1(x), \dots, a_n(x_n))
+\end{equation}
+Inoltre, si può notare che il legame tra i due è dato da:
+\begin{equation} \label{Eq: Campo vettoriale}
+    \omega(x)= \langle F(x), dx \rangle
+\end{equation}
+dove $dx= (dx_1,\dots, dx_n)$.
+\end{oss}
+\begin{oss}
+Presa $f$ differenziabile in $A$, si può osservare che il suo differenziale $df$ sarà dato da
+\begin{equation} \label{Eq: Differenziale}
+    df(x)= \sum\limits_{i=1}^{n}{\frac{\partial f}{\partial x_i}(x)\ dx_i}= \langle \nabla f(x), dx\rangle
+\end{equation}
+\end{oss}
+\section{Integrale curvilineo di seconda specie}
+\begin{definition} \label{Def: Integrale curvilineo di seconda specie}
+    Sia $A \subseteq \R$ e sia $\omega: A \to (\R)^*$ con coefficienti continui. Sia inoltre $\gamma$ una curva regolare di parametrizzazione $\varphi: [a, b] \to A$. Allora si definisce \textbf{integrale curvilineo di seconda specie} o integrale di $\omega$ lungo $\gamma$ la quantità:
+    \begin{equation} \label{Eq: Integrale curvilineo di seconda specie}
+        \int\limits_\gamma \omega := \int\limits_{a}^{b}\left( \sum\limits_{i=1}^{n}{a_i(\varphi(t))\ \varphi_i'(t)}\right)\, dt
+    \end{equation}
+\end{definition}
+Per tale ragione, si può osservare che l'integrale curvilineo di seconda specie di un campo vettoriale $F$ associato ad una forma differenziale $\omega$ lungo una curva $\gamma$ è dato dall'integrale curvilineo di prima specie di 
+\begin{equation}
+    \int\limits_{\gamma}{\langle F, T \rangle}\, ds
+\end{equation}
+e in particolare vale:
+\begin{equation}
+    \int\limits_{\gamma}{\omega}= \int\limits_{a}^{b} {\langle F(\gamma(t)), \gamma'(t)\rangle}\, dt = \int\limits_{a}^{b} {\langle F(\gamma(t)), T(\gamma(t))\rangle} |\gamma'(t)|\, dt = \int\limits_{\gamma}{\langle F, T \rangle}\, ds
+\end{equation}
+Inoltre, vale il seguente risultato.
+\begin{theorem}[Invarianza per equivalenza di curve] \label{Teo: Invarianza per equivalenza di curve dell'integrale curv di 2 specie}
+    Siano $\gamma,\ , \gamma'$ due curve equivalenti e sia $\omega$ una forma differenziale definita in $A$. Allora
+    \begin{equation}
+        \int\limits_\gamma { \omega} = \int\limits_{\gamma'}{\omega}\quad \text{oppure} \quad \int\limits_\gamma { \omega} = -\int\limits_{\gamma'}{\omega}
+    \end{equation}
+    se sono percorse nello stesso verso o in verso opposto, rispettivamente.
+\end{theorem}
+\begin{proof}
+    Per definizione di equivalenza di curve, prese 
+    $\varphi: [a, b] \to \R^n$ parametrizzazione di $\gamma$ e $\psi:[c,d] \to \R^n$ parametrizzazione di $\gamma'$,  esiste un cambio di parametro ammissibile $\eta$ tale che $\varphi(t)= \psi(\eta(t))$ per ogni $t \in [a,b]$. Allora, 
+    \begin{equation}
+        \int\limits_\gamma {\omega}= \int\limits_{a}^{b}{\langle F(\varphi(t)), \varphi'(t) \rangle}\, dt = \int\limits_{a}^{b}{ \langle F(\psi(\eta(t))), \psi(\eta(t))\eta'(t)\rangle}\, dt
+    \end{equation}
+    dove $F$ è il campo vettoriale associato ad $\omega$.
+    Perciò, mediante la sostituzione
+    \begin{equation}
+        \eta(t)=s \qquad \eta'(t)dt =ds
+    \end{equation}
+    si ha che, se le due curve sono percorse nello stesso verso, $\eta'(t) >0 $ e $\eta(a)=c,\ \eta(b)=d$ e
+    \begin{equation}
+    \int\limits_{\eta(a)=c}^{\eta(b)=d}{ \langle F(\psi(s)), \psi'(s)\rangle}\, ds \overset{\text{Costr.}}{=} \int\limits_{\gamma'}{\omega} 
+    \end{equation}
+    Altrimenti, se $\eta'(t) < 0 $,  $\eta(a)=d,\ \eta(b)=c$ e 
+    \begin{equation}
+     \int\limits_{\eta(a)=d}^{\eta(b)=c}{ \langle F(\psi(s)), \psi'(s)\rangle}\, ds = - \int\limits_{c}^{d}{\langle F(\psi(s)), \psi'(s)\rangle}\, ds\overset{\text{Costr.}}{=} -\int\limits_{\gamma'}{\omega} 
+    \end{equation}
+\end{proof}
+\begin{oss}
+    Per come è definito, si può notare che $\int\limits_{\gamma}{\omega}$ è il lavoro del campo vettoriale $F$ lungo $\gamma$.
+\end{oss}
+\section{Forme differenziali esatte}
+In continuità con l'ultima osservazione, può essere approfondito il tema del lavoro di una forma differenziale lungo una certa curva $\gamma$. In particolare, scopo del paragrafo è stabilire sotto quali circostanze una forma differenziale possa dirsi \textit{esatta} e come tale gruppo possa essere caratterizzato.
+\begin{definition} \label{Def: Forma differenziale esatta}
+    Sia $\omega$ una forma differenziale su $A \subseteq \R^n$. Allora $\omega$ è detta \textbf{esatta} in $A$ se ammette primitiva $f$, cioè se essa è il differenziale di una certa $f \in C^1(A)$ tale che 
+    \begin{equation}
+        \omega = df
+    \end{equation}
+    In maniera equivalente, una forma differenziale esatta è una forma differenziale tale che
+    \begin{equation} \label{Eq: Forma differenziale esatta}
+        \exists\ \mathcal{U} \in C^1(A) \ \text{tale che}\ F=\nabla\mathcal{U}
+    \end{equation}
+\end{definition}
+In termini fisici, così come prima si definiva campo vettoriale la funzione $F$ associata a $\omega$, ora, si definisce \textit{potenziale} $\U$ ciò che in analisi matematica è detto primitiva. Inoltre, sempre nell'ambito del lessico fisico, si può creare un ulteriore ponte sottolineando che una forma differenziale esatta è talvolta chiamata \textit{campo vettoriale conservativo}. Infatti, si può dimostrare che il lavoro di una forma differenziale esatta è dato dalla differenza di primitive valutate all'istante iniziale e a quello finale.
+\begin{theorem}
+    Sia $\omega$ una forma differenziale esatta e $\varphi: [a, b] \to \R^n$ una parametrizzazione della curva $\gamma$ regolare. Allora, detta $f$ primitiva di $\omega$, si ha che 
+    \begin{equation}
+        \int\limits_\gamma{\omega}= f(\varphi(b))-f(\varphi(a))
+    \end{equation}
+\end{theorem}
+\begin{proof}
+    Si risolva tale integrale.
+    \begin{equation}
+    \begin{aligned}
+        \int\limits_{\gamma}{\omega} &\overset{\text{Def}}{=}\int\limits_{a}^{b}{\langle F(\varphi(t)), \varphi'(t)\rangle}\, dt \overset{\eqref{Eq: Forma differenziale esatta}}{=} \int\limits_{a}^{b}{\langle \nabla f(\varphi(t)), \varphi'(t) \rangle}\, dt =\\
+        &\overset{\eqref{Eq: Derivata composta 1}}{=}\int\limits_{a}^{b}\frac{d}{dt}{f(\varphi(t))} \overset{\text{TFC}}{=} f(\varphi(b))- f(\varphi(a))
+    \end{aligned}
+    \end{equation}
+\end{proof}
