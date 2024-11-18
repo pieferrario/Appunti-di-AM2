@@ -90,7 +90,7 @@ In continuità con l'ultima osservazione, può essere approfondito il tema del l
     \end{equation}
 \end{definition}
 In termini fisici, così come prima si definiva campo vettoriale la funzione $F$ associata a $\omega$, ora, si definisce \textit{potenziale} $\U$ ciò che in analisi matematica è detto primitiva. Inoltre, sempre nell'ambito del lessico fisico, si può creare un ulteriore ponte sottolineando che una forma differenziale esatta è talvolta chiamata \textit{campo vettoriale conservativo}. Infatti, si può dimostrare che il lavoro di una forma differenziale esatta è dato dalla differenza di primitive valutate all'istante iniziale e a quello finale.
-\begin{theorem}
+\begin{theorem} \label{Teo: Integrale di forme differenziali esatte}
     Sia $\omega$ una forma differenziale esatta e $\varphi: [a, b] \to \R^n$ una parametrizzazione della curva $\gamma$ regolare. Allora, detta $f$ primitiva di $\omega$, si ha che 
     \begin{equation}
         \int\limits_\gamma{\omega}= f(\varphi(b))-f(\varphi(a))
@@ -105,3 +105,116 @@ In termini fisici, così come prima si definiva campo vettoriale la funzione $F$
     \end{aligned}
     \end{equation}
 \end{proof}
+\paragraph{Giustificazione del termine \textit{conservativo}}
+Si pensi ad $F$ come un campo di forze che agisce su una massa di $m=1$ e si consideri una generica traiettoria data da una curva $x=x(t)$ almeno di classe $C^2$ che soddisfi l'equazione differenziale 
+\begin{equation}
+    x''(t)=F(x(t)) \qquad \forall\ t \in \R
+\end{equation}
+Si introduca poi l'energia meccanica 
+\begin{equation}
+    E_m(t)= \frac{1}{2} |x'(t)|^2- f(x(t))
+\end{equation}
+con $f$ potenziale di $F$.\\
+Allora, derivando tale relazione, si ha che
+\begin{equation}
+\begin{aligned}
+        \frac{d}{dt}{E_m(t)}&=\frac{1}{2} \frac{d}{dt}{ \langle x'(t), x'(t) \rangle}- \frac{d}{dt}{f(x(t))}=\\
+        &= \langle x''(t), x'(t) \rangle- \langle \nabla f(x(t)), x'(t) \rangle =\\
+        &= \langle F(x(t)), x'(t) \rangle - \langle F(x(t)), x'(t) \rangle =0
+\end{aligned}    
+\end{equation}
+
+Ciò significa che l'energia meccanica si \textit{conserva} lungo le traiettorie indotte dal campo $F$.
+\begin{theorem}[Caratterizzazione delle forme esatte] \label{Teo: Caratterizzazione forme esatte}
+Siano $A \subseteq \R^n$ aperto connesso, $\omega$ una forma differenziale in $A$ e $\gamma,\ \gamma_1,\ \gamma_2$ tre curve regolari a tratti con sostegno contenuto in $A$. Allora le seguenti affermazioni sono equivalenti:
+\begin{enumerate}
+    \item $\omega$ è esatta in A
+    \item se $\gamma$ è chiusa allora 
+    \begin{equation}
+        \int\limits_{\gamma}{\omega}=0
+    \end{equation}
+    \item se $\gamma_1$, $\gamma_2$ hanno gli stessi estremi e lo stesso verso di percorrenza allora
+    \begin{equation}
+        \int\limits_{\gamma_1}{\omega} = \int\limits_{\gamma_2}{\omega}
+    \end{equation}
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+    Si dimostrino le tre affermazioni in questo ordine: $1 \Rightarrow 2 \Rightarrow 3 \Rightarrow 1$.\\
+    $1 \Rightarrow 2$: Sia $\varphi: [a,b] \to A$ una parametrizzazione di $\gamma$. Poiché $\gamma$ è chiusa, si ha che $\varphi(a)=\varphi(b)$. Allora, siccome $\omega$ è esatta, vale 
+    \begin{equation}
+        \int\limits_{\gamma}{\omega} = f(\varphi(b))- f(\varphi(a)) = f(\varphi(a))-f(\varphi(a))=0
+    \end{equation}
+    $2 \Rightarrow 3$: Si considerino $\gamma_1,\ \gamma_2$ definite come nelle ipotesi di $(3)$. Siano poi:
+    \begin{equation}
+        \begin{aligned}
+            &\varphi: [a,b] \to A \ \text{parametrizzazione di } \gamma_1\\
+            &\psi:[c, d] \to A \ \text{parametrizzazione di } \gamma_2
+        \end{aligned}
+    \end{equation}
+    Sia poi $\hat{\psi}$ la parametrizzazione che percorre $\psi$ in verso opposto, cioè
+    \begin{equation}
+        \hat{\psi}(t)= \psi(-t+b+d) \qquad t \in [b, b+d-c]
+    \end{equation}
+Si può verificare che: $\hat{\psi}(b)= \psi(d)$ e $\hat{\psi}(b+d-c)=\psi(c)$.\\
+Allora, definita $\xi: [a, b+d-c] \to A$ come
+\begin{equation}
+    \xi(t)= \begin{cases}
+        \varphi(t) \qquad & t \in [a,b]\\
+        \hat{\psi}(t) \qquad & t \in [b, b+d-c]
+    \end{cases}
+\end{equation}
+Si ha che per costruzione essa è regolare a tratti. Inoltre, si ha che:
+\begin{equation}
+\begin{aligned}
+    &\xi(a)= \varphi(a)\\
+    &\xi(b+d-c)= \hat(\psi(b+d-c))=\psi(c)=\varphi(a)
+\end{aligned}
+\end{equation}
+cioè $\xi(t)$ è una curva chiusa. Allora, detta $\hat{\gamma}$ la curva di parametrizzazione $\xi(t)$, per il punto (2) si ha che:
+\begin{equation}
+\begin{aligned}
+\int\limits_{\hat{{\gamma}}}{\omega} &= \int\limits_{a}^{b} \langle F(\varphi(t)), \varphi'(t)\rangle \, dt + \int\limits_{b}^{b+d-c}{\langle F(\hat{\psi}(t), \hat{\psi}(t) \rangle}\, dt=\\ 
+&= \int\limits_{a}^{b} \langle F(\varphi(t)), \varphi'(t)\rangle \, dt - \int\limits_{c}^{d}{\langle F(\psi(t)), \psi'(t) \rangle}\, dt =\\
+&= \int\limits_{\gamma_1}{\omega} - \int\limits_{\gamma_2}{\omega} = 0
+\end{aligned}
+\end{equation}
+Da cui si ottiene la tesi.\\
+$3 \Rightarrow 1$: Sia $x_0 \in A$ fissato. Dato $x \in A$, poiché $A$ è connesso per archi, esiste una curva $\gamma$ regolare a tratti che congiunga $x_0$ a $x$ con sostegno in A. Sia inoltre $\gamma$ percorsa da $x_0$ a $x$.\\
+Si definisca allora
+\begin{equation}
+    f(x):=\int\limits_{\gamma}{\omega}
+\end{equation}
+In particolare si può osservare che grazie a (3) tale funzione è sempre ben definita e il suo valore non dipende dalla curva scelta.\\
+L'obiettivo della dimostrazione è mostrare che $f \in C^1(A)$ e $df= \omega$.\\
+Siano dunque $x=(x_1, \dots, x_n) \in A$, $h \in \R$ tali che $x+he_i \in A$. Sia poi $\varphi$ la curva di sostegno $[x, x+he_i]$, cioè
+\begin{equation}
+    \varphi= \begin{cases}
+        x_1(t)=x_1\\
+        \vdots\\
+        x_i(t)=x_i+ht\\
+        \vdots\\
+        x_n(t)=x_n
+    \end{cases}
+    \qquad t \in [0,1]
+\end{equation}
+Sia poi $\gamma_1= \gamma \cup \varphi$, che, per costruzione, è regolare a tratti e congiunge $x_0$ a $x_0+he_i$. Tramite la definizione di $f$ si ottiene che
+\begin{equation}
+\begin{aligned}
+    f(x_0+he_i)-f(x)&=\int\limits_{\gamma_1}{\omega}- \int\limits_{\gamma}{\omega}= \int\limits_{\gamma}{\omega}+\int\limits_{\varphi}{\omega}-\int\limits_{\gamma}{\omega}= \int\limits_{\varphi}{\omega}=\\
+    &=\int\limits_{0}^{h}{\left[\sum\limits_{j=1}^{n}{a_j(\varphi(t))\varphi_j'(t)} \right] }\, dt=    \int\limits_{0}^{h}{a_i(\varphi(t))\cdot 1}\, dt =\\ 
+    &=\int_{0}^{h}{a_i(x_1, \dots, x_i+ht, \dots x_n)}\, dt
+\end{aligned}
+\end{equation}
+Di conseguenza, 
+\begin{equation}
+\begin{aligned}
+    \frac{\partial{f}}{\partial x_i}{(x)}&= \lim_{h\to 0}{\frac{f(x+he_i)-f(x)}{h}}= \frac{1}{h}{\int_{0}^{h}{a_i(x_1, \dots, x_i+ht, \dots x_n)}\, dt}=\\
+    &\overset{\text{TFC}}{=} a_i(x_1, \dots, x_i, \dots, x_n) = a_i (x)
+\end{aligned}
+\end{equation}
+Reiterando per ogni $i$ si ottiene che $\nabla f(x)= (a_1(x), \dots, a_n(x))$, cioè $\omega$ è una forma esatta. 
+\end{proof}
+%\newpage
+%\section{Forme differenziali chiuse}
+%\section{Formule di Gauss-Green}
