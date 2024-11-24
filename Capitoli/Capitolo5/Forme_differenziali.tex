@@ -215,6 +215,254 @@ Di conseguenza,
 \end{equation}
 Reiterando per ogni $i$ si ottiene che $\nabla f(x)= (a_1(x), \dots, a_n(x))$, cioè $\omega$ è una forma esatta. 
 \end{proof}
-%\newpage
-%\section{Forme differenziali chiuse}
-%\section{Formule di Gauss-Green}
+\section{Forme differenziali chiuse}
+\begin{definition} \label{Def: Forma differenziale chiusa}
+    Sia $\omega$ una forma differenziale definita in $A$ aperto di $\R^n$. Si dice che $\omega$ è \textbf{chiusa} in $A$ se
+    \begin{equation}
+        \frac{\partial a_i}{\partial x_j}(x)= \frac{\partial a_j}{\partial x_i} \qquad \forall\ x \in A,\ \forall\ i, j = 1, \dots, n
+    \end{equation}
+\end{definition}
+Dal punto di vista fisico, dato un campo vettoriale $F=F(x)=(a_1(x), \dots, a_n(x))$ definito in $A \subseteq \R^n$, lo si dice \textit{campo vettoriale irrotazionale} se vale (\theequation). 
+\begin{theorem} \label{Teo: Forma esatta => forma chiusa}
+    Sia $\omega: A \subseteq \R^n \to (\R)^*$ una forma differenziale esatta di classe $C^1(A)$. Allora $\omega$ è chiusa in $A$.
+\end{theorem}
+\begin{proof}
+    Poiché $\omega$ è esatta, per definizione, ne esiste una primitiva $f$ tale che
+    \begin{equation}
+        \omega= df \iff a_i(x)=\frac{\partial f }{\partial x_i}(x) \qquad \forall\ x \in A,\ \forall\ i=1, \dots, n
+    \end{equation}
+    Poiché poi $a_i \in C^1(A)$, si ha che $f$ deve essere di classe $C^2(A)$. Pertanto, dal teorema di Schwarz (\ref{Teo: Schwarz}) si ottiene
+    \begin{equation}
+        \frac{\partial a_i}{\partial x_j}(x)= \frac{\partial f}{\partial x_j \partial x_i}(x) = \frac{\partial f}{\partial x_i \partial x_j}(x) = \frac{\partial a_j}{\partial x_i}(x)= 
+    \end{equation}
+    cioè la tesi.
+\end{proof}
+In maniera analoga, si ha che un campo conservativo $F$ definito su un aperto $A$ di $\R^n$ di classe $C^1(A)$ è ivi irrotazionale.
+\begin{example}
+    Si può notare che in tale teorema non vale l'implicazione inversa. Infatti, presa la forma differenziale in $A=\R^2\setminus \left\{ (0,0)\right\} $ definita da
+    \begin{equation*}
+        \omega(x,y)= - \frac{y}{x^2+y^2}dx+ \frac{x}{x^2+y^2}dy
+    \end{equation*}
+    si può osservare che
+    \begin{equation*}
+        \begin{aligned}
+            &a_1(x, y)= - \frac{y}{x^2+y^2}, \qquad &\frac{\partial a_1}{\partial y} (x, y) = \frac{y^2-x^2}{\left(x^2+y^2 \right)^2} \\
+            &a_2(x,y)= \frac{x}{x^2+y^2} \qquad &\frac{\partial a_2}{\partial x} (x, y) = \frac{y^2-x^2}{\left(x^2+y^2 \right)^2}
+        \end{aligned}
+    \end{equation*}
+    cioè che $\omega(x,y)$ è chiusa in $A$.\\
+    Si consideri ora la curva chiusa $\gamma$ di sostegno
+    \begin{equation*}
+        \gamma= \begin{cases}
+            x= \cos t\\
+            y= \sin t
+        \end{cases}
+        \qquad t \in \left[\ 0, 2 \pi \right]
+    \end{equation*}
+    Si ha:
+    \begin{equation*}
+    \int\limits_{\gamma}{\omega}= \int\limits_{0}^{2\pi}{- \frac{\sin t}{1} (-\sin t) + \frac{\cos t}{1} (\cos t)}\, dt = \int\limits_{0}^{2\pi}{\,dt}= 2\pi \neq 0
+    \end{equation*}
+    Quindi, non vale il teorema \ref{Teo: Caratterizzazione forme esatte}. Pertanto $\omega$ è chiusa ma non esatta.
+\end{example}
+\begin{definition} \label{Def: Rotore}
+Dato un campo $F= F(x,y,z)= (a_1(x,y,z), a_2(x,y,z), a_3(x,y,z)$ definito in $A \subseteq \R^3$, si definisce \textbf{rotore} ($\Rot(F)$) l'operatore di $\R^3$ dato da
+\begin{equation}
+\nabla \wedge F = \left| \begin{matrix}
+    i & j & k \\
+    \partial x & \partial y & \partial z\\
+    a_1 & a_2 & a_3
+\end{matrix}
+\right|
+= \left( \frac{\partial a_3}{\partial y} - \frac{\partial a_2}{\partial z} \right)i - \left( \frac{\partial a_3}{\partial x} - \frac{\partial a_1}{\partial z} \right)j + \left( \frac{\partial a_2}{\partial x} - \frac{\partial a_1}{\partial y}\right)k 
+\end{equation}
+\end{definition}
+\begin{definition} \label{Def: Campo irrotazionale}
+    Sia $\omega$ una forma differenziale cui sia associato un campo $F$. Allora, $F$ si dice irrotazionale se e solo se $\omega$ è chiusa e se e solo se
+    \begin{equation}
+      \Rot(F) = \nabla \wedge F = 0  
+    \end{equation}
+\end{definition}
+\begin{definition} \label{Def: Divergenza}
+    Dato un campo $F= F(x,y,z)= (a_1(x,y,z), a_2(x,y,z), a_3(x,y,z)$ definito in $A \subseteq \R^3$, si definisce \textbf{divergenza} di $F$ ($\Div(F)$) l'operatore di $\R^3$ dato da
+    \begin{equation}
+        \langle \nabla, F \rangle = \frac{\partial a_1}{\partial x} + \frac{\partial a_2}{\partial y} + \frac{\partial a_3}{\partial z}
+    \end{equation}
+\end{definition}
+L'obiettivo di quanto segue è trovare una condizione sufficiente che leghi forme chiuse e forme esatte. 
+\begin{definition}
+    Sia $A \subseteq \R^n$ aperto connesso. Si dice che $A$ è \textbf{semplicemente connesso} se ogni curva $\gamma:[a,b] \to A$ chiusa, regolare a tratti e semplice, con sostegno interamente contenuto in $A$ può essere contratta con continuità ad un punto $x_0 \in A$.
+\end{definition}
+\begin{oss}
+    La deformazione con continuità è nota in topologia come \textit{omotopia}.
+\end{oss}
+\begin{oss}
+    Un generico $A$ aperto convesso o stellato è semplicemente connesso.
+\end{oss}
+\begin{example}
+    Banalmente, $\R^n$ è semplicemente connesso.\\
+    Scendendo più nel dettaglio, si può osservare che $\R^2 \setminus \left\{(x_0,y_0)\right\}$ non lo è.
+    Inoltre, $\R^3 \setminus \left\{(x_0, y_0, z_0)\right\}$ è semplicemente connesso. Al contrario $\R^3 \setminus \left\{\text{retta}\right\}$ non lo è.\\
+    In generale, $\R^n$ privato di un elemento di dimensione $n-1$ non è semplicemente connesso. Nei casi di dimensione inferiore sì.
+\end{example}
+\begin{theorem} \label{Teo: Forma chiusa => forma esatta in spazi semplicemente connessi}
+    Sia $A$ aperto semplicemente connesso di $\R^n$. Sia poi $\omega: A \to (\R^n)^*$ una forma differenziale chiusa di classe $C^1(A)$. Allora $\omega$ è esatta.
+\end{theorem}
+\begin{oss}
+    Si può osservare che tale teorema offre una condizione sufficiente per identificare le forme esatte.
+\end{oss}
+\begin{oss}
+    Se è vero che, presa $f$ primitiva di $\omega$, $f+k$ con $k \in \R$ è ancora una primitiva di $\omega$, non è altrettanto vero che tutte le primitive di $\omega$ differiscano per una costante reale. Solitamente ciò accade in $A$ semplicemente connessi.
+\end{oss}
+\begin{example}
+    Si mostri ora come sia possibile procedere per riconoscere le forme esatte.
+\begin{enumerate}
+    \item Controllare se $\omega$ sia chiusa. In caso negativo, decade la condizione necessaria (\ref{Teo: Forma esatta => forma chiusa}) e $\omega$ non è esatta. Altrimenti bisogna continuare nell'indagine.
+    \item Controllare se $A$ sia semplicemente connesso. In caso affermativo, essa è anche esatta (\ref{Teo: Forma chiusa => forma esatta in spazi semplicemente connessi}). Altrimenti bisogna andare avanti e tentare due strade:
+    \begin{itemize}
+        \item Cercare un'eventuale primitiva $f$ tale che $\omega= df$. Se essa esiste, $\omega$ è esatta per definizione.
+        \item Cercare una curva $\gamma$ tale che $\int_{\gamma}{\omega} \neq 0$. Se essa esiste, $\omega$ non è esatta (\ref{Teo: Caratterizzazione forme esatte}). 
+    \end{itemize}
+\end{enumerate}
+\end{example}
+\section{Formule di Gauss-Green}
+Prima di affrontare le formule di Gauss-Green e le conseguenze che ne discendono, occorre fare prima un accenno su cosa si intenda per orientazione della frontiera di un dominio.
+\paragraph{Dominio normale}
+In un \textit{dominio normale} (\ref{Def: Dominio normale}) $D$ come un generico
+ \begin{equation}
+ D=\left\{ (x,y) \in \R^2 \mid a<x<b,\ \alpha(x)<y<\beta(x)\right\}
+ \end{equation}
+ si dice che la sua frontiera è positivamente orientata se è percorsa in senso antiorario e lo si indica con $\ppartial D$.
+ \paragraph{Dominio regolare}
+ In un \textit{dominio regolare} (\ref{Def: Dominio regolare}) $D$, si ha che la sua frontiera $\partial D$ è unione di un numero finito di curve regolari a tratti, pertanto, a meno di un numero finito di punti, è ben definito il versore tangente $T$. Si definisce allora $N$ il versore normale esterno a $D$ laddove $T$ sia ben definito e si dice che la frontiera di $D$ è orientata positivamente se $\left\{N,T\right\}$ è equiversa a $\left\{i, j\right\}$ e lo si indica con $\ppartial D$.
+ Si mostri ora un esempio di frontiera positivamente orientata.
+ \begin{figure}[H]
+     \centering
+     \begin{minipage}{0.5\textwidth}
+     \includegraphics[width=\textwidth]{Capitoli/Capitolo5/Bordo orientato.png}
+     \end{minipage}
+     \begin{minipage}{0.4\textwidth}
+         Affinché la frontiera della corona circolare sia orientata positivamente, occorre che la coppia di versori $N,\ T$ sia disposta come in figura. Da ciò si osserva che la circonferenza esterna deve essere percorsa in senso antiorario, quella interna nel senso opposto.
+     \end{minipage}
+ \end{figure}
+ \begin{theorem}[Formule di Gauss-Green per domini regolari]
+ Sia $f: D\subseteq \R^2 \to \R$ di classe $C^1(D)$. Se $D$ è un dominio normale regolare rispetto a $x$ si ha che
+ \begin{equation} \label{Eq: Gauss-Green per dimostrazione}
+     \iint\limits_D{\frac{\partial f}{\partial y}(x,y)}\,dx\,dy= -\int\limits_{\ppartial D}{f(x,y)}\,dx
+ \end{equation}
+     Se invece $D$ è un dominio normale regolare rispetto a $y$, vale
+     \begin{equation}
+    \iint\limits_D{\frac{\partial f}{\partial x}(x,y)}\,dx\,dy= \int\limits_{\ppartial D}{f(x,y)}\,dy
+     \end{equation}
+ \end{theorem}
+ \begin{proof}
+ Sia $D$ definito come segue:
+        \begin{equation}
+          D=  \left\{ (x,y) \in \R^2 \mid a \leq x \leq b,\ \alpha(x) \leq y \leq \beta(x)\right\}
+        \end{equation}
+Allora si ha che la frontiera di tale insieme può essere rappresentata come l'unione dei sostegni di quattro curve, come in figura.
+ \begin{figure}[H]
+     \centering
+     \begin{minipage}{0.3\textwidth}
+     \includegraphics[width=\textwidth]{Capitoli/Capitolo5/Curve per GG.png}
+     \end{minipage}
+     \begin{minipage}{0.63\textwidth}
+        Si parametrizzino i vari tratti di curva: 
+        \begin{equation}
+            \begin{aligned}
+                &\gamma_1:\ \varphi_1(t)= \begin{cases}
+                    t\\
+                    \alpha(t)
+                \end{cases}
+                \quad t \in [a,b]\\
+                &\gamma_2:\ \varphi_2(t)= \begin{cases}
+                    b\\
+                    t
+                \end{cases}
+                \quad t \in [\alpha(b), \beta(b)]\\
+                &\gamma_3:\ \varphi_3(t)= \begin{cases}
+                    a+b-t\\
+                    \beta(a+b-t)
+                \end{cases}
+                \quad t \in [a,b]\\
+                &\gamma_4: \varphi_4(t)= \begin{cases}
+                    a\\
+                    \beta(a)+\alpha(a)-t
+                \end{cases}
+                \quad t \in [\alpha(a), \beta(a)]
+            \end{aligned}
+        \end{equation}
+     \end{minipage}
+ \end{figure}
+ \flushleft Dunque, si mostri, senza perdita di generalità, l'equivalenza degli integrali nella \eqref{Eq: Gauss-Green per dimostrazione}.
+ \begin{equation}
+    \begin{aligned}
+     \iint\limits_D{\frac{\partial f}{\partial y}(x,y)}\,dx\,dy &\overset{\eqref{Eq: Formula di riduzione integrali doppi 1}}{=} \int\limits_{a}^{b}{\left( \int\limits_{\alpha(x)}^{\beta(x)}\frac{\partial f}{\partial y}(x,y)\,dy \right)}\, dx \overset{\text{TFC}}{=}\int\limits_{a}^{b}{ f(x, \beta(x))- f(x, \alpha(x))}\, dx
+     \end{aligned}
+ \end{equation}
+Inoltre, 
+\begin{equation}
+\begin{aligned}
+    \int\limits_{\ppartial D}{f}\, dx &= \sum\limits_{i=1}^{4} \int\limits_{\gamma_i}{f}\,dx =
+    \int\limits_{a}^{b}{f(t, \alpha(t)) t'}\, dt+ \int\limits_{\alpha(b)}^{\beta(b)}{f(b,t)b'}\, dt +\\
+    &+\int\limits_{a}^{b}{f(a+b-t, \beta(a+b-t))}\, dt + \int\limits_{\alpha(a)}^{\beta(a)}{f(a, \beta(a)+\alpha(a)-t) a'}\, dt=\\
+    &= \int\limits_{a}^{b}{f(t, \alpha(t))}\, dt + \int\limits_{a}^{b}{f(a+b-t, \beta(a+b-t))}\, dt =\\
+    &\overset{\substack{\text{Nel }\#2:\\ a+b-t=s\\ -dt=ds}}{=} \int\limits_a^b{f(t, \alpha(t)}\, dt + \int\limits_a^b{f(s, \beta(s)} = \int\limits_{a}^{b}{f(t, \alpha(t))- f(t, \beta(t))}\, dt=\\
+    &=-\int\limits_{a}^{b}{ f(t, \beta(t))- f(t, \alpha(t))}\, dt
+    \end{aligned}
+\end{equation}
+Cioè la tesi.\\
+Il ragionamento e la dimostrazione per la seconda parte della tesi sono analoghi.
+ \end{proof}
+ Dal teorema discende come corollario quanto segue.
+ \begin{corollary}
+     Sia $D$ un dominio normale regolare rispetto a entrambi gli assi e sia $\omega= P(x,y)dx+ Q(x,y)dy$ una forma differenziale di classe $C^1(D)$. Allora
+     \begin{equation}
+         \iint\limits_{D}{\left[\frac{\partial Q}{\partial x} (x,y)- \frac{\partial P}{\partial y}(x,y)\right]}\, dx\, dy = \int\limits_{\ppartial D} \omega
+     \end{equation}
+\end{corollary}
+\begin{proof}
+    La dimostrazione discende dall'applicazione del teorema precedente. Infatti,
+    \begin{equation}
+        \begin{aligned}
+            &\iint\limits_{D}{\frac{\partial Q}{\partial x} (x,y)}\,dx\,dy =  \int\limits_{\ppartial D}{Q(x,y)}\,dy\\
+            &\iint\limits_{D}{\frac{\partial P}{\partial y} (x,y)}\,dx\,dy =  -\int\limits_{\ppartial D}{P(x,y)}\,dx
+        \end{aligned}
+    \end{equation}
+    Perciò, unendo tali risultati si ha che
+    \begin{equation}
+      \iint\limits_{D}{\left[\frac{\partial Q}{\partial x} (x,y)- \frac{\partial P}{\partial y}(x,y)\right]}\, dx\, dy = \int\limits_{\ppartial D}{Q(x,y)}\,dy - \left(  -\int\limits_{\ppartial D}{P(x,y)}\,dx\right)= \int\limits_{\ppartial D} \omega  
+    \end{equation}
+\end{proof}
+\begin{oss}
+A questo punto si può inoltre aggiungere che se $D$ è un dominio regolare qualsiasi definito come 
+\begin{equation}
+    D = \bigcup_{j=1}^{N} D_j
+\end{equation}
+allora continuano a valere le formule di Gauss-Green. Una dimostrazione di tale fatto si può avere sommando per additività gli integrali calcolati sui singoli tratti di frontiera. Infatti, laddove $\ppartial D_i$ e $\ppartial D_j$ coincidono, si ha che i versori normali hanno verso opposto e il loro contributo è nullo, lasciando come integrale risultante proprio
+\begin{equation}
+    \int\limits_{\ppartial D}{\omega}
+\end{equation}
+\end{oss}
+Le formule di Gauss-Green possono essere utilizzate per il calcolo di aree racchiuse da curve. Infatti vale il seguente corollario.
+\begin{corollary}[Gauss-Green per il calcolo di aree racchiuse da una curva]
+Sia $D \subseteq \R^2$ un dominio regolare. Allora,
+\begin{equation}
+    \area(D)= \int\limits_{\ppartial D}{x}\, dy = -\int\limits_{\ppartial D}{y}\, dx = \frac{1}{\alpha+\beta}{\int\limits_{\ppartial D}{\alpha x dy - \beta y dx}} \qquad \forall\ \alpha, \beta \in \R,\ \alpha+\beta \neq 0
+\end{equation}
+\end{corollary}
+\begin{proof}
+    Per definizione 
+    \begin{equation}
+        \area(D)= \iint\limits_{D}{1}\,dx\, dy
+    \end{equation}
+    Allora si ha che
+    \begin{align}
+        &1= \frac{\partial f}{\partial y} \Rightarrow f(x,y)= y \Rightarrow \area(D)= \iint\limits_{D} \frac{\partial f}{\partial y} \overset{\text{G.G.}}{=}  -\int\limits_{\ppartial D}{y}\,dx\\
+      &  1=\frac{\partial f}{\partial x} \Rightarrow f(x,y)= x \Rightarrow \area(D)= \iint\limits_{D} \frac{\partial f}{\partial x} \overset{\text{G.G.}}{=}  \int\limits_{\ppartial D}{x}\,dy
+    \end{align}
+    Perciò, si ha che
+    \begin{equation}
+        (\alpha+\beta)\area(D)= \int\limits_{\ppartial D}{\alpha x dy - \beta y dx} \Rightarrow \area(D)=  \frac{1}{\alpha+\beta}{\int\limits_{\ppartial D}{\alpha x dy - \beta y dx}}
+    \end{equation}
+\end{proof}
