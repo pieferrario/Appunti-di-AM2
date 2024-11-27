@@ -1,0 +1,65 @@
+\chapter{Superfici}
+D'ora in avanti nel corso del capitolo sia $D \subseteq \R^2$ un dominio connesso tale che il suo interno $\mathring{D}=A$ con $A$ aperto.
+\begin{definition} \label{Def: Superficie parametrica}
+    Una \textbf{superficie parametrica} in $\R^3$ è un'applicazione continua $r: D \to \R^3$
+    \begin{equation}
+        r(u,v)=(x(u,v), y(u,v), z(u,v))
+    \end{equation}
+\end{definition}
+Una superficie parametrica è anche descritta tramite le proprie \textit{equazioni parametriche}
+\begin{equation}
+    r: \begin{cases}
+        x=x(u,v)\\
+        y=y(u,v)\\
+        z=z(u,v)
+    \end{cases}
+    \qquad (u,v) \in D
+\end{equation}
+\begin{definition} \label{Def: Sostegno di una superficie}
+    Si dice \textbf{sostegno di una superficie} l'insieme $S=r(D)$
+\end{definition}
+In realtà una superficie propriamente detta è la coppia data da una sua parametrizzazione e il suo sostegno.\\
+Inoltre, come per le curve, è possibile parlare di riparametrizzazioni di una superficie. Tuttavia, tale discorso non verrà approfondito.
+\begin{definition} \label{Def: Superficie di classe C^k}
+    Una superficie $r$ è detta di classe $\mathbf{C^K}$ se $r \in C^k(D)$.
+\end{definition}
+\begin{definition} \label{Def: Superficie semplice}
+    Una superficie $r$ si dice \textbf{semplice} se $r|_A$ è iniettiva e $r(A) \cap\ r(D)= \emptyset$
+\end{definition}
+\begin{definition} \label{Def: Superficie regolare}
+    Una superficie $r: D \to \R^3$ è detta regolare se essa è una superficie semplice di classe $C^1(D)$ tale che
+    \begin{equation}
+        J_r(u,v)= \begin{pmatrix}
+            \frac{\partial x}{\partial u}(u,v) & \frac{\partial x}{\partial v}(u,v)\\
+            \frac{\partial y}{\partial u}(u,v) & \frac{\partial y}{\partial v}(u,v)\\
+            \frac{\partial z}{\partial u}(u,v) & \frac{\partial z}{\partial v}(u,v)
+        \end{pmatrix}
+    \end{equation}
+abbia rango 2 per ogni $(u,v) \in \mathring{D}$
+\end{definition}
+\begin{definition}
+    Sia $(\overline{u}, \overline{v}) \in D$ tale che $\rank(J_r(\overline{u}, \overline{v}))< 2$, allora esso è detto \textbf{punto singolare}
+\end{definition}
+Si può pertanto notare che la nozione di regolarità garantisce che $\tfrac{\partial r}{\partial u} (u,v)$ e $\tfrac{\partial r}{\partial v} (u,v)$ siano linearmente indipendenti per ogni $(u,v) \in \mathring{D}$. Ciò ha come conseguenza che sia ben definito il piano tangente a $S=r(D)$ in $r(u,v)$.\\
+Rispetto a tale fatto si può dire di più. Si prenda una curva regolare $\gamma$ contenuta in $D$. Si può verificare che $r$ trasforma $\gamma$ in una curva regolare $\Tilde{\gamma}:[a,b] \to S \subseteq \R^3$ di equazioni parametriche
+\begin{equation}
+\Tilde{\gamma}(t)= \begin{cases} 
+x= x(\gamma_1(t), \gamma_2(t))\\ 
+y= y(\gamma_1(t), \gamma_2(t))\\
+z= z(\gamma_1(t), \gamma_2(t))
+\end{cases}
+\qquad t \in [a,b]
+\end{equation}
+Poiché $\gamma$ è regolare, anche $\Tilde{\gamma}$ è di classe $C^1$ su $[a,b]$ e in particolare
+\begin{equation}
+    \Tilde{\gamma}'(t)\overset{\ref{Teo: Derivata composta di f. vettoriali}}{=}
+        \begin{pmatrix}
+            \frac{\partial x}{\partial u}(\gamma_1,\gamma_2) & \frac{\partial x}{\partial v}(\gamma_1,\gamma_2)\\
+            \frac{\partial y}{\partial u}(\gamma_1,\gamma_2) & \frac{\partial y}{\partial v}(\gamma_1,\gamma_2)\\
+            \frac{\partial z}{\partial u}(\gamma_1,\gamma_2) & \frac{\partial z}{\partial v}(\gamma_1,\gamma_2)
+        \end{pmatrix}
+        (\gamma_1', \gamma_2') = \frac{\partial r}{\partial u}(\gamma(t))\gamma_1'(t) + \frac{\partial r}{\partial v}(\gamma(t))\gamma_2'(t)
+\end{equation}
+si può dedurre che per ogni $t \in [a,b]$ $\Tilde{\gamma}'$ è combinazione lineare dei generatori linearmente indipendenti del piano tangente. Ciò significa che il piano tangente contiene tutte le tangenti in $r(u,v)$ a curve regolari con sostegno in $S$ passanti per $r(u,v)$.
+%\section{Superfici orientabili}
+%\section{Integrali superficiali}

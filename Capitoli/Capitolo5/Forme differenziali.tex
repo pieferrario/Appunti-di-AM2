@@ -405,9 +405,9 @@ Inoltre,
 \begin{aligned}
     \int\limits_{\ppartial D}{f}\, dx &= \sum\limits_{i=1}^{4} \int\limits_{\gamma_i}{f}\,dx =
     \int\limits_{a}^{b}{f(t, \alpha(t)) t'}\, dt+ \int\limits_{\alpha(b)}^{\beta(b)}{f(b,t)b'}\, dt +\\
-    &+\int\limits_{a}^{b}{f(a+b-t, \beta(a+b-t))}\, dt + \int\limits_{\alpha(a)}^{\beta(a)}{f(a, \beta(a)+\alpha(a)-t) a'}\, dt=\\
-    &= \int\limits_{a}^{b}{f(t, \alpha(t))}\, dt + \int\limits_{a}^{b}{f(a+b-t, \beta(a+b-t))}\, dt =\\
-    &\overset{\substack{\text{Nel }\#2:\\ a+b-t=s\\ -dt=ds}}{=} \int\limits_a^b{f(t, \alpha(t)}\, dt + \int\limits_a^b{f(s, \beta(s)} = \int\limits_{a}^{b}{f(t, \alpha(t))- f(t, \beta(t))}\, dt=\\
+    &+\int\limits_{a}^{b}{f(a+b-t, \beta(a+b-t))(a+b-t)'}\, dt + \int\limits_{\alpha(a)}^{\beta(a)}{f(a, \beta(a)+\alpha(a)-t) a'}\, dt=\\
+    &= \int\limits_{a}^{b}{f(t, \alpha(t))}\, dt + \int\limits_{a}^{b}{-f(a+b-t, \beta(a+b-t))}\, dt =\\
+    &\overset{\substack{\text{Nel }\#2:\\ a+b-t=s\\ -dt=ds}}{=} \int\limits_a^b{f(t, \alpha(t))}\, dt + \int\limits_a^b{f(s, \beta(s))}\, ds = \int\limits_{a}^{b}{f(t, \alpha(t))- f(t, \beta(t))}\, dt=\\
     &=-\int\limits_{a}^{b}{ f(t, \beta(t))- f(t, \alpha(t))}\, dt
     \end{aligned}
 \end{equation}
