@@ -110,17 +110,14 @@ Una superficie $S$ si dice \textbf{orientabile} se $\nu$ può essere estesa con 
     con $u \in [0, 2\pi], v \in [-1,1]$
      \end{minipage}
  \end{figure}
- Il vettore normale di tale superficie è dato da
- \begin{equation*}
-     \frac{\partial r}{\partial u} \wedge \frac{\partial r}{\partial v} = \left( \frac{1}{4}v- \frac{1}{2} \cos u - \frac{1}{4} v \cos 2u - \sin \right)
- \end{equation*}
  \begin{figure}[H]
      \centering
      \begin{minipage}{0.5\textwidth}
  In particolare, studiando i punti in cui $v$ sia nullo si ha che
  \begin{align*}
-     &\lim_{u \to 0^+} \nu (u,0) = (0,-2,0)\\
-     &\lim_{u \to 2\pi^-} \nu (u,0) = (0,2,0)
+     & n=\frac{\partial r}{\partial u} \wedge \frac{\partial r}{\partial v}=(2\sin u, 2 \cos u, 0)\\
+     &\lim_{u \to 0^+} n (u,0) = (0,-2,0)\\
+     &\lim_{u \to 2\pi^-} n (u,0) = (0,2,0)
  \end{align*}
  e ciò non rispetta la definizione di superficie orientabile.
  \end{minipage}
