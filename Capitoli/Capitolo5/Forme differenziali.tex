@@ -180,8 +180,7 @@ cioè $\xi(t)$ è una curva chiusa. Allora, detta $\hat{\gamma}$ la curva di par
 \end{aligned}
 \end{equation}
 Da cui si ottiene la tesi.\\
-$3 \Rightarrow 1$: Sia $x_0 \in A$ fissato. Dato $x \in A$, poiché $A$ è connesso per archi, esiste una curva $\gamma$ regolare a tratti che congiunga $x_0$ a $x$ con sostegno in A. Sia inoltre $\gamma$ percorsa da $x_0$ a $x$.\\
-Si definisca allora
+$3 \Rightarrow 1$: Sia $x_0 \in A$ fissato. Dato $x \in A$, poiché $A$ è connesso per archi, esiste una curva $\gamma$ regolare a tratti che congiunga $x_0$ a $x$ con sostegno in A. Sia inoltre $\gamma$ percorsa da $x_0$ a $x$. Allora, si ponga
 \begin{equation}
     f(x):=\int\limits_{\gamma}{\omega}
 \end{equation}
@@ -203,13 +202,13 @@ Sia poi $\gamma_1= \gamma \cup \varphi$, che, per costruzione, è regolare a tra
 \begin{aligned}
     f(x_0+he_i)-f(x)&=\int\limits_{\gamma_1}{\omega}- \int\limits_{\gamma}{\omega}= \int\limits_{\gamma}{\omega}+\int\limits_{\varphi}{\omega}-\int\limits_{\gamma}{\omega}= \int\limits_{\varphi}{\omega}=\\
     &=\int\limits_{0}^{h}{\left[\sum\limits_{j=1}^{n}{a_j(\varphi(t))\varphi_j'(t)} \right] }\, dt=    \int\limits_{0}^{h}{a_i(\varphi(t))\cdot 1}\, dt =\\ 
-    &=\int_{0}^{h}{a_i(x_1, \dots, x_i+ht, \dots x_n)}\, dt
+    &=\int\limits_{0}^{h}{a_i(x_1, \dots, x_i+ht, \dots x_n)}\, dt
 \end{aligned}
 \end{equation}
 Di conseguenza, 
 \begin{equation}
 \begin{aligned}
-    \frac{\partial{f}}{\partial x_i}{(x)}&= \lim_{h\to 0}{\frac{f(x+he_i)-f(x)}{h}}= \frac{1}{h}{\int_{0}^{h}{a_i(x_1, \dots, x_i+ht, \dots x_n)}\, dt}=\\
+    \frac{\partial{f}}{\partial x_i}{(x)}&= \lim_{h\to 0}{\frac{f(x+he_i)-f(x)}{h}}= \frac{1}{h}{\int\limits_{0}^{h}{a_i(x_1, \dots, x_i+ht, \dots x_n)}\, dt}=\\
     &\overset{\text{TFC}}{=} a_i(x_1, \dots, x_i, \dots, x_n) = a_i (x)
 \end{aligned}
 \end{equation}
