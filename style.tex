@@ -12,8 +12,6 @@
 \usepackage{hyperref}
 \usepackage{mdframed} % Pacchetto per le cornici
 \usepackage{xcolor}   % Pacchetto per la gestione dei colori
-\usepackage{forest} %diagrammi ad albero
-
 % Colore per il background delle cornici
 \definecolor{grey245}{RGB}{245,245,245}
 
@@ -60,10 +58,11 @@ backgroundcolor=blue!0,
 innerleftmargin=5pt,
 innerrightmargin=5pt,
 innertopmargin=0pt,
+innerbottommargin=2pt,
 leftmargin=0cm,
 rightmargin=0cm,
 linewidth=2pt,
-innerbottommargin=2pt]{definitionBox}
+splitbottomskip=0pt]{definitionBox}
 
 %Cornice proposizione
 \newmdenv[skipabove=5pt,
@@ -77,10 +76,11 @@ backgroundcolor=teal!0,
 innerleftmargin=5pt,
 innerrightmargin=5pt,
 innertopmargin=0pt,
+innerbottommargin=2pt,
 leftmargin=0cm,
 rightmargin=0cm,
 linewidth=2pt,
-innerbottommargin=2pt]{propositionBox}
+splitbottomskip=0pt]{propositionBox}
 
 %Cornice lemma
 \newmdenv[skipabove=5pt,
@@ -94,10 +94,11 @@ backgroundcolor=orange!0,
 innerleftmargin=5pt,
 innerrightmargin=5pt,
 innertopmargin=0pt,
+innerbottommargin=2pt,
 leftmargin=0cm,
 rightmargin=0cm,
 linewidth=2pt,
-innerbottommargin=2pt]{lemmaBox}
+splitbottomskip=0pt]{lemmaBox}
 
 %Cornice corollario
 \newmdenv[skipabove=5pt,
@@ -111,10 +112,11 @@ backgroundcolor=green!0,
 innerleftmargin=5pt,
 innerrightmargin=5pt,
 innertopmargin=0pt,
+innerbottommargin=2pt,
 leftmargin=0cm,
 rightmargin=0cm,
 linewidth=2pt,
-innerbottommargin=2pt]{corollaryBox}
+splitbottomskip=0pt]{corollaryBox}
 
 
 % Definizione degli ambienti con cornici senza cambiare i nomi
@@ -147,6 +149,12 @@ innerbottommargin=2pt]{corollaryBox}
 \newcommand{\ppartial}{\partial^+}
 \newcommand{\fn}{f_n}
 \newcommand{\sn}{s_n}
+\newcommand{\ode}{equazione differenziale ordinaria }
+\newcommand{\Ode}{Equazione differenziale ordinaria }
+\newcommand{\ODE}{Equazione Differenziale Ordinaria }
+\newcommand{\odes}{equazioni differenziali ordinarie }
+
+
 
 %Nuovi operatori matematici
 \DeclareMathOperator{\Div}{div}
@@ -155,6 +163,7 @@ innerbottommargin=2pt]{corollaryBox}
 \DeclareMathOperator{\area}{Area}
 \DeclareMathOperator{\rank}{rank}
 \DeclareMathOperator{\Span}{Span}
+\DeclareMathOperator{\sgn}{sgn}
 
 %Arraystretch per spaziare le righe tra le matrici
    \renewcommand{\arraystretch}{1.25}

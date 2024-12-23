@@ -135,7 +135,7 @@ Allora esistono i seguenti limiti e si ha
     Il passaggio al limite nella prima parte della dimostrazione è consentito dal fatto che per ipotesi siano definite $\ell_n$ e $\ell_m$ reali.
 \end{oss}
 Da tale teorema discende come conseguenza immediata il seguente corollario
-\begin{corollary}
+\begin{corollary} \label{Cor: Corollario a scambio limiti}
     Sia $\fn$ una successione di funzioni continue uniformemente convergente in $I$ a $f:I \to \R$. Allora $f$ è continua. 
 \end{corollary}
 \begin{proof}
@@ -154,16 +154,15 @@ Da tale teorema discende come conseguenza immediata il seguente corollario
           &= \lim_{x \to x_0}{ \left( \lim_{n \to +\infty}{\fn(x)}\right)}=\lim_{x \to x_0}{f(x)} 
     \end{aligned}
     \end{equation}
-   
 \end{proof}
 Si mostrino ora due importanti risultati rispetto alla derivazione e all'integrazione di successioni di funzioni.
-\begin{theorem} \label{Teo: Passaggio al limite sotto al segno di derivata}
+\begin{theorem}[Teorema di passaggio al limite sotto al segno di derivata] \label{Teo: Passaggio al limite sotto al segno di derivata}
     Sia $\{\fn\}_{n\in\N}$ una successione di funzioni $C^1[a,b]$. Sia la successione di numeri reali $\{\fn(x_0)\}_n$ convergente e sia $\{\fn'\}_n$ uniformemente convergente. Allora $\{\fn\}_n$ converge uniformemente in $[a,b]$ ad una funzione $f \in C^1([a,b])$ e 
     \begin{equation}
         \lim_{n \to +\infty}{\fn'(x)}= \left(\lim_{n \to +\infty}{\fn(x)}\right)'=f'(x)
     \end{equation}
 \end{theorem}
-\begin{theorem} \label{Teo: Passaggio al limite sotto al segno di integrale}
+\begin{theorem}[Teorema di passaggio al limite sotto al segno di integrale] \label{Teo: Passaggio al limite sotto al segno di integrale}
 Sia $\{\fn\}_{n_\in \N}$ una successione di funzioni continue in $[a,b]$ uniformemente convergente in $[a,b]$ a $f$. Allora
 \begin{equation}
     \lim_{n \to +\infty}{\int\limits_{a}^{b}{\fn(x)}\,dx}=\int\limits_{a}^{b}{\lim_{n \to +\infty}{\fn(x)}\,dx}= \int\limits_{a}^{b}{f(x)}\,dx
@@ -228,7 +227,6 @@ Sia $\sum\limits_{n=1}^{\infty}{\fn(x)}$ una serie di funzioni. Allora si dice c
 \forall\ \varepsilon>0\ \exists\ N_\varepsilon \in \N\ \text{tale che}\ \forall\ n > N_\varepsilon\ \forall\ p \in \N\ \text{si ha}\ \sup_{x \in I}{|f_{n+1}(x)+\dots+f_{n+p}(x)|}<\varepsilon 
 \end{equation}
 \end{definition}
-Verranno introdotte ora due nuove nozioni di convergenza proprie delle serie di funzioni.
 \begin{definition}
     Sia $\{\sn\}_{n \in \N}$ una serie di funzioni. Si dice che la serie \textbf{converge assolutamente}  se
     \begin{equation}
@@ -236,9 +234,13 @@ Verranno introdotte ora due nuove nozioni di convergenza proprie delle serie di 
     \end{equation}
     converge per ogni $x \in I$
 \end{definition}
-In particolare si può osservare che, da una parte, la convergenza assoluta implica la convergenza puntuale, dall'altra, convergenza uniforme e assoluta non si implicano in nessuna direzione.
+Si possono osservare le seguenti relazioni tra le varie nozioni di convergenza:
+\begin{itemize}
+    \item Convergenza assoluta $\Rightarrow$ Convergenza puntuale.
+    \item  Nessuna correlazione tra convergenza assoluta e convergenza uniforme.
+\end{itemize}
 \begin{example}
-    Si mostri inoltre con un esempio che la convergenza puntuale non implica la convergenza assoluta. Sia
+    La convergenza puntuale non implica la convergenza assoluta. Infatti, sia
     \begin{equation*}
         \fn(x)=\frac{(-1)^n}{n}
     \end{equation*}
@@ -263,9 +265,13 @@ In particolare si può osservare che la convergenza totale implica la convergenz
 Una serie di funzioni $\sum\limits_{n=1}^{\infty}{\fn(x)}$ totalmente convergente in $I$ è ivi uniformemente convergente.
 \end{theorem}
 \begin{proof}
-    Si sfrutti il criterio di Cauchy uniforme per le serie. L'obiettivo quindi è mostrare che esista un $N_\varepsilon$ tale che $|f_{n+1}+ \dots+ f_{n+p}|< \varepsilon,\ \forall\ n > N_\varepsilon,\ \forall\ P\in \N$.
-    Dunque, si fissi $\varepsilon>0$. Per ipotesi di convergenza totale si ha che $\sum\limits_{n=1}^{\infty}{k_n}$ converge, perciò esiste un $N_\varepsilon>0$ tale che per ogni $n>N_\varepsilon$ si ha che $|k_{n+1}+\dots+k_{n+p}|< \varepsilon\ \forall\ p \in \N$. 
-    Tuttavia, $k_n>0\ \forall n$, quindi si può togliere il modulo. D'altra parte, $|\fn|<k_n$ e, di conseguenza, a patto di prendere $n> N_\varepsilon$ si ha che, $\forall\ p \in \N,\ \forall x \in I$, vale
+    Si sfrutti il criterio di Cauchy uniforme per le serie. L'obiettivo quindi è mostrare che esista un $N_\varepsilon$ tale che $|f_{n+1}+ \dots+ f_{n+p}|< \varepsilon,\ \forall\ n > N_\varepsilon,\ \forall\ P\in \N$.\\
+    Dunque, si fissi $\varepsilon>0$. Per ipotesi di convergenza totale si ha che $\sum\limits_{n=1}^{\infty}{k_n}$ converge. Allora, esiste un $N_\varepsilon>0$ tale che per ogni $n>N_\varepsilon$ si ha che 
+    \begin{equation}
+        |k_{n+1}+\dots+k_{n+p}|< \varepsilon\ \forall\ p \in \N
+    \end{equation}
+   con $k_n>0\ \forall\ n$.\\
+   D'altra parte, $|\fn|<k_n$ e, di conseguenza, a patto di prendere $n> N_\varepsilon$ si ha che, $\forall\ p \in \N,\ \forall x \in I$, vale
     \begin{equation}
     \begin{aligned}
         |f_{n+1}(x)+ \dots + f_{n+p}(x)| &\leq |f_{n+1}(x)|+ \dots + |f_{n+p}(x)|<\\ 
@@ -275,12 +281,24 @@ Una serie di funzioni $\sum\limits_{n=1}^{\infty}{\fn(x)}$ totalmente convergent
     Dunque è verificato il criterio di Cauchy uniforme e la serie converge uniformemente in I.
 \end{proof}
 \begin{oss}
-    Il teorema offre una condizione sufficiente per la convergenza uniforme delle serie di funzioni.
+    Il teorema offre una condizione sufficiente per la convergenza uniforme.
 \end{oss}
-Infine, si enuncino i teoremi sulla continuità della somma e su derivazione e integrazione di serie di funzioni.
+Occorre ricordare che il teorema \ref{Teo: Scambio di limiti} sullo scambio dei limiti continua a valere anche quando si parla di serie dal momento che, come già accennato, ogni serie può essere interpretata come successione delle ridotte n-esime.
+\begin{theorem}[Teorema di scambio dei limiti per le serie di funzioni]
+    Sia $\fn: E \subseteq \R \to \R$ e sia $x_0$ di accumulazione per $E$. Se esiste finito
+    \begin{equation}
+        \lim_{x \to x_0}{\fn(x)} \qquad \forall\ n\geq0
+    \end{equation}
+    e se $\sum\limits_{n=0}^{\infty}{\fn(x)}$ converge uniformemente su E alla somma $S(x)$, allora $S(x)$ converge per $x \to x_0$ e 
+    \begin{equation}
+        \lim_{x \to x_0}{S(x)= \sum\limits_{n=0}^{\infty}{\lim_{x \to x_0}{\fn(x)}}}
+    \end{equation}
+\end{theorem}
+Seguendo lo stesso ragionamento, continua a valere in questo ambito il teorema sulla continuità della funzione somma.
 \begin{theorem}
     Siano $I \subseteq \R,\ \fn \in C^0(I)$ e sia $\sum\limits_{n=0}^{\infty}{\fn(x)}$ uniformemente convergente in $I$ a $s$. Allora la funzione somma $s(x)$ è continua in $I$.
 \end{theorem}
+Idem dicasi per i teoremi di derivazione e integrazione di serie di funzioni, che rappresentano un'estensione di quelli di derivazione e integrazione per le successioni di funzioni.
 \begin{theorem}
     Sia $\fn \in C^1([a,b])$ e si supponga $\sum\limits_{n=0}^{\infty}{\fn(x)}$ puntualmente convergente in $[a,b]$ a $s(x)$ e $\sum\limits_{n=0}^{\infty}{\fn'(x)}$ uniformemente convergente in $[a,b]$. Allora
     \begin{equation}
@@ -318,10 +336,10 @@ La caratterizzazione di $R$ si ha a partire dal seguente teorema.
     Sia $R$ raggio di convergenza della serie di potenze. Se $R=0$, allora la serie converge solo in $0$. Se $R>0$, la serie converge totalmente in ogni $[a,b] \subset (-R, R)$ e non converge per $|x|>R$.
 \end{theorem}
 \begin{proof}
- Si mostri che se $\sum\limits_{n=0}^{\infty}{a_n \xi^n}$ converge per un qualche $\xi \neq 0$ allora converge totalmente in ogni intervallo $[-\eta, \eta] \subset (|-\xi|, |\xi)$.\\
+ Si mostri che se $\sum\limits_{n=0}^{\infty}{a_n \xi^n}$ converge per un qualche $\xi \neq 0$ allora converge totalmente in ogni intervallo $[-\eta, \eta] \subset (|-\xi|, |\xi|)$.\\
  Per ipotesi di convergenza della serie, $|a_n \xi^n|$ deve essere una successione infinitesima (e perciò limitata) per $n\to \infty$, ovvero
  \begin{equation}
-     \exists\ M>0\ \text{tale che}\ |a_n||\xi|^n\leq M
+     \exists\ M>0\ \text{tale che}\ |a_n\xi^n|\leq M
  \end{equation}
  A questo punto, fissato $\eta>0$ tale che $\eta<|\xi|$, si calcoli il termine generale della serie per un qualche $x \in [-\eta, \eta]$.
  \begin{equation}
@@ -379,9 +397,11 @@ Oltre al criterio della radice, vale anche il criterio del rapporto, di cui vien
         \end{cases}
     \end{equation}
 \end{theorem}
-\begin{example}
-    RECUPERARE ESEMPIO E PARTE SUL TEOREMA DI ABEL
-\end{example}
+Il teorema di Abel, che segue, offre una condizione sufficiente per la convergenza uniforme di serie di potenze.
+\begin{theorem}[Teorema di Abel] \label{Teo: Teorema di Abel}
+    Sia $\sum\limits_{n=0}^{\infty}{a_n x^n}$ una serie di potenze con raggio di convergenza $R$, con $0<R<+\infty$. Sia poi $M$ tale che $0<M<R$. Se la serie converge anche in $x=R$ (o $x=-R$) allora la serie converge uniformemente su $[-M, R]$ (o $[-R, M]$). \\
+    In particolare, se la serie converge in $x= \pm R$, allora essa converge uniformemente in $[-R, R]$.
+\end{theorem}
 \subsection{Sviluppabilità di una funzione in serie di potenze}
 \begin{theorem}[Derivazione di serie di potenze] \label{Teo: Derivazione di serie di potenze}
 Sia $\sum\limits_{n=0}^{\infty}{a_n x^n}$ una serie di potenze con raggio di convergenza $R>0$. Sia poi $f$ la sua funzione somma. Allora la serie
@@ -478,4 +498,170 @@ Allora, per terminare, si dia ora un criterio per stabilire se una funzione sia 
 \begin{oss}
     Funzioni come $e^x,\ \sin(x), \ \cos(x)$ sono analitiche.
 \end{oss}
-%\section{Spazi metrici}
+\section{Spazi metrici}
+\begin{definition} \label{Def: Spazi metrici}
+    Sia $X$ un insieme e sia $d$ una metrica (\ref{Def: Distanza}). Si dice \textbf{spazio metrico} la coppia $\left(X, d\right)$
+\end{definition}
+\begin{example}
+    Esempi di spazi metrici possono essere:
+    \begin{itemize}
+        \item $X=\R^n$ con distanza euclidea $d(x, y):= \sqrt{ \sum\limits_{i=1}^n{(x_i-y_i)^2}}$.
+        \item $X=\R^n$ con $d_\infty(x,y):= \max\limits_{i=1, \dots, n}{|x_i-y_i|}$.
+        \item $X=C^0([a,b], d_\infty)$ con $d_\infty(x,y):= \sup\limits_{x \in [a,b]}{|f(x)-g(x)|}$. 
+    \end{itemize}
+\end{example}
+\begin{definition} \label{Def: Palla di raggio r}
+    Sia $(X, d)$ uno spazio metrico. Si dice \textbf{palla} di raggio $r$ centrata in $x_0$ l'insieme
+    \begin{equation}
+    B_r(x_0)= \left\{ x \in X \mid d(x_0, x)< r\right\}
+    \end{equation}
+\end{definition}
+\begin{definition} \label{Def: Convergenza e convergenza di Cauchy}
+Una successione $\{x_n\}_n$ con $x_n \in (X, d)$ per ogni n e con $(X, d)$ spazio metrico \textbf{converge} a $x_0 \in X$ se
+\begin{equation}
+    d(x_n, x_0) \overset{n \to +\infty}{\to} 0
+\end{equation}
+Inoltre, se 
+\begin{equation}
+    \forall\ \varepsilon>0\ \exists\ N_\varepsilon\ \text{tale che}\ \forall\ n,m > N_\varepsilon\ \text{si ha}\ d(x_n, x_m)< \varepsilon
+\end{equation}
+allora tale successione è detta \textbf{di Cauchy}.
+\end{definition}
+\begin{definition} \label{Def: Spazio metrico completo}
+    Uno spazio metrico $(X, d)$ è detto \textbf{completo} se ogni successione di Cauchy in X converge ad un elemento di X.
+\end{definition}
+\begin{example}
+    Esempi di spazi metrici completi possono essere
+    \begin{itemize}
+        \item $X=\R^n$ con distanza euclidea o con $d_\infty$.
+        \item $X=\R^n$ con $d_p= \left(\sum\limits_{i=1}^{n}{|x_i - y_i|^p}\right)^{\frac{1}{p}}$ e $p\geq 1$. (Nota: per $p=2$, la distanza $d_p$ è la distanza euclidea).
+    \end{itemize}
+    Uno spazio metrico non completo è invece $\mathbb{Q}^n$.
+\end{example}
+\begin{oss}
+    Uno spazio vettoriale normato ( $\Rightarrow$ metrico con $d(x, y)= |x-y|$) completo è detto spazio di \textbf{Banach}.\\
+    Se in aggiunta la norma di tale spazio discende da un prodotto scalare, esso è detto spazio di \textbf{Hilbert}.
+\end{oss}
+\begin{theorem}
+    $(C^0([a,b]), d_\infty)$ è uno spazio metrico completo.
+\end{theorem}
+\begin{proof}
+    Sia $\{\fn\}_n$ di Cauchy in $(C^0([a,b]), d_\infty)$. Allora, 
+    \begin{equation}
+          \forall\ \varepsilon>0\ \exists\ N_\varepsilon\ \text{tale che}\ \forall\ n,m > N_\varepsilon\ \text{si ha}\ d(\fn, f_m)< \varepsilon
+    \end{equation}
+    cioè 
+    \begin{equation}
+     \sup\limits_{x \in [a,b]}{|\fn(x)-f_m(x)|}< \varepsilon
+    \end{equation}
+    Ma allora $\fn$ soddisfa il criterio di Cauchy uniforme ed esiste una funzione limite $f$ cui $\fn$ converge uniformemente in $[a,b]$ per $n \to \infty$. Inoltre, $f \in C^0([a,b])$ poiché è il limite uniforme delle $\fn$, le quali sono continue per ipotesi. Perciò, sfruttando il corollario \ref{Cor: Corollario a scambio limiti} si ha la tesi.
+\end{proof}
+\begin{oss}
+    Si può notare che la definizione di completezza dipende dalla distanza. A tal proposito si consideri lo spazio metrico $(C^0([-1,1], d_p)$ con 
+    \begin{equation*}
+        d_p=\left(\int\limits_{-1}^{1}{|f(x)-g(x)|^p\, dx}\right)^\frac{1}{p}
+    \end{equation*}
+    e si prenda la successione
+    \begin{equation*}
+        \fn(x) = \begin{cases}
+            -1 &\qquad x \in [-1, -\frac{1}{n}]\\
+            nx &\qquad x \in [-\frac{1}{n}, \frac{1}{n}]\\
+            1 &\qquad x \in [\frac{1}{n}, 1]
+        \end{cases}
+    \end{equation*}
+    Il suo limite è
+    \begin{equation*}
+        f(x)= \sgn(x)=\begin{cases}
+            -1 &\qquad x \in [-1,0)\\
+            0 &\qquad x =0\\
+            1 &\qquad x \in (0, 1]
+        \end{cases}
+    \end{equation*}
+    e $f\notin C^0([-1, 1]\ \forall\ x$
+    benché $\fn$ sia di Cauchy. Infatti, 
+    \begin{equation*}
+        d_p(\fn, f)=  d_p=\left(\int\limits_{-1}^{1}{|\fn-f|^p\, dx}\right)^\frac{1}{p} \leq \left(\int\limits_{-\tfrac{1}{n}}^{\tfrac{1}{n}}{2^p\, dx}\right)^\frac{1}{p} \overset{n \to \infty}{\to }0
+    \end{equation*}
+\end{oss}
+\begin{definition} \label{Def: Spazio chiuso}
+    Sia $(X, d)$ metrico. Un sottoinsieme $C \subset X$ è detto \textbf{chiuso} se ogni successione $\{x_n\}_n$ di elementi di $C$ che converge rispetto a $d$, converge ad un elemento di $C$.
+\end{definition}
+\begin{theorem} \label{Teo: Sottospazio chiuso di un completo è completo}
+    Sia $(X,d)$ uno spazio metrico completo e $C \subset X$ chiuso. Allora $(C, d)$ è un sottospazio metrico completo.
+\end{theorem}
+\begin{proof}
+    Sia $\{x_n\}_n$ una successione di Cauchy in $C$. Poiché $x_n \in C \subset X$ e $X$ è metrico completo, 
+    \begin{equation}
+        \exists\ y \in X\ \text{tale che}\ d(x_n, y)\to 0
+    \end{equation}
+    D'altra parte $x_n$ è una successione di $C$, che è chiuso. Dunque, per definizione, $y \in C$, cioè $C$ è metrico completo.
+\end{proof}
+\begin{definition} \label{Def: Funzione sequenzialmente continua}
+    Siano $(X, d_x),\ (Y, d_y)$ spazi metrici. Allora $f: X \to Y$ è detta \textbf{sequenzialmente continua} in $x_0 \in X$ se per ogni successione $\{x_n\}_n \subset X$ tale che $x_n \overset{n\to +\infty}{\to} x_0$ rispetto a $d_x$, si ha che $f(x_n) \to f(x_0)$ rispetto a $d_y$.
+\end{definition}
+\begin{definition} \label{Def: Lipschitziana}
+     Siano $(X, d_x),\ (Y, d_y)$ spazi metrici. Allora $f: X \to Y$ è detta \textbf{Lipschitziana} con costante di Lipschitz $L>0$ se 
+     \begin{equation}
+         d_y(f(x_1), f(x_2)) \leq L\,d_x(x_1, x_2) \qquad \forall\ x_1, x_2\in X
+     \end{equation}
+    \end{definition}
+\begin{definition} \label{Def: Contrazione}
+     Se $(Y, d_y)=(X, d_x)$, $0<L<1$ e $f$ come sopra, allora $f$ è detta \textbf{contrazione}.
+\end{definition}
+\begin{theorem}[Teorema delle contrazioni o di Banach-Cacioppoli] \label{Teo: delle contrazioni}
+    Siano $(X, d_x)$ metrico completo e $f: X \to X$ contrazione. Allora 
+    \begin{equation}
+    \exists!\ \overline{x} \in X \text{tale che}\ f(\overline{x})=\overline{x} 
+    \end{equation}
+    Tale punto è detto \textbf{punto fisso}.
+\end{theorem}
+\begin{proof}
+    Si parta dal mostrare l'esistenza di tale $\overline{x}$.\\
+    Sia $x_0 \in X$ arbitrario e si costruisca una successione $\{x_n\}_n \subset X$ tale che per ogni $n$:
+    \begin{equation}
+            x_1=f(x_0),\ x_2=f(x_1),\ \dots\ ,\ x_{n+1}=f(x_n)
+    \end{equation}
+    e si mostri che essa è di Cauchy. Vale
+    \begin{equation}
+    \begin{aligned}
+        d(x_2, x_1)=d(f(x_1), f(x_0)) &\overset{\text{Contr.}}{\leq} L\, d(x_1, x_0) = L\, d(f(x_0), x_0)\\
+        d(x_3, x_2)=d(f(x_2), f(x_1)) &\overset{\text{Contr.}}{\leq} L\, d(x_2, x_1) = L^2\,d(f(x_0), x_0)\\
+        &\vdots\\
+        d(x_{n+1}, x_n)= d(f(x_n), f(x_{n-1}))&\overset{\text{Contr.}}{\leq} L\, d(x_n, x_{n-1}) = L^n\,d(f(x_0), x_0)
+    \end{aligned}
+    \end{equation}
+    In generale
+    \begin{equation}
+    \begin{aligned}
+        d(x_{n+p}, x_n) &\leq d(x_n, x_{n+1})+ d(x_{n+1}, x_{n+2})+ \dots+ d(x_{n+p-1}, x_{n+p}) \leq\\
+        &\leq L^n\,d(x_0, f(x_0))+ L^{n+1}\, d(x_0, f(x_0))+ \dots+ L^{n+p-1}\, d(x_0, f(x_0))=\\
+        &=L^n(1+L+\dots+L^{p-1})\,d(x_0, f(x_0)) \overset{\text{S. geom.}}{=} L^n \frac{1-L^p}{1-L}\, d(x_0, f(x_0)) \leq\\
+        &\leq \frac{L^n}{1-L}\, d(x_0, f(x_0)) \to 0
+    \end{aligned}
+    \end{equation}
+    cioè $\{x_n\}_n$ è di Cauchy. Tuttavia, essendo $(X, d)$ metrico completo per ipotesi, è verificata l'esistenza di $\overline{x} \in X$ tale che $x_n \to \overline{x}$ rispetto a $d$.\\
+    Occorre ora mostrare che $\overline{x}$ è un punto fisso di $f$.\\
+    Si parta dal considerare 
+    \begin{equation}
+        x_{n+1}=f(x_n) \qquad \forall\ n
+    \end{equation}
+    Passando al limite per $n \to +\infty$ ad ambo i membri si ha
+    \begin{equation}
+        \overline{x}= \lim_{n \to +\infty}{x_{n+1}}=\lim_{n \to +\infty}{f(x_n)} = f(\overline{x})
+    \end{equation}
+    poiché $f$ è una contrazione ed è perciò Lipschitziana e di conseguenza sequenzialmente continua. Perciò, $\overline{x}$ è un punto fisso.\\
+    Si mostri infine l'unicità di tale punto fisso.\\
+    Per assurdo si ipotizzi l'esistenza di un secondo punto fisso $y \neq \overline{x}$. Si calcoli allora la distanza tra i due
+    \begin{equation}
+        d(\overline{x}, y)= d(f(\overline{x}), f(y)) \leq L\, d(\overline{x}, y)
+    \end{equation}
+    Allora deve essere 
+    \begin{equation}
+        (1-L)\, d(\overline{x}, y) \leq 0
+    \end{equation}
+    e, poiché $(1-L)>0\ \forall\ L$ e $d(x, y) \geq 0\ \forall\ x,y$, tale relazione è soddisfatta solo se
+    \begin{equation}
+        d(\overline{x}, y)=0
+    \end{equation}
+    cioè $\overline{x}=y$.
+\end{proof}

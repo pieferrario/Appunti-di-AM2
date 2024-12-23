@@ -15,8 +15,8 @@ In particolare, si può osservare che $\mathbb{R}^n$ è uno spazio vettoriale eu
     \end{equation}
 \end{definition}
 Tramite la definizione di norma si può ottenere la definizione di \textbf{distanza}, grazie alla quale $\mathbb{R}^n$ può essere definito anche come spazio metrico.
-\begin{definition}
-    Sia $X$ un insieme e sia $d:X \times X \to \left[0, +\infty \right)$ una funzione che ad ogni coppia $(x,y)$ di punti di $X$ associa un numero reale $d(x,y)\geq0$. Allora si dice che $d$ è una \textbf{distanza} su $X$ se sono verificate le seguenti condizioni:
+\begin{definition} \label{Def: Distanza}
+    Sia $X$ un insieme e sia $d:X \times X \to \left[0, +\infty \right)$ una funzione che ad ogni coppia $(x,y)$ di punti di $X$ associa un numero reale $d(x,y)\geq0$. Allora si dice che $d$ è una \textbf{distanza} o \textbf{metrica}su $X$ se sono verificate le seguenti condizioni:
     \begin{align}
         &d(x,y)=0 \ \iff x=y \qquad\forall\ x,y \in X \\
         &d(x,y)=d(y,x) \qquad \forall\ x,y \in X \\
@@ -129,7 +129,7 @@ Tramite la definizione di norma si può ottenere la definizione di \textbf{dista
 \begin{definition}
     Sia $E \subseteq \mathbb{R}^n$, $E$ si dice \textbf{limitato} se
     \begin{equation}
-        \exists R>0 \text{ tale che } E \subseteq B_R(0)
+        \exists\ R>0 \text{ tale che } E \subseteq B_R(0)
     \end{equation}
     Altrimenti esso è detto \textbf{illimitato}.
 \end{definition}
@@ -318,7 +318,7 @@ L'approccio per trovare il candidato limite ammette
     \end{equation}
 \end{itemize}
 Si mostrino di seguito alcuni modi per provare l'esistenza del limite.
-\paragraph{Definizione}
+\subsubsection{Definizione}
 Per conseguire il risultato prefissato occorre maggiorare o minorare la funzione in maniera tale da trovare un $\delta_\varepsilon$ per cui la definizione di limite sia verificata.
 \begin{example}
     Si mostri il procedimento sul seguente limite.
@@ -337,7 +337,7 @@ Per conseguire il risultato prefissato occorre maggiorare o minorare la funzione
     Fissato $\varepsilon$ e sapendo che $|x|=\sqrt{x^2+y^2}<\delta$, serve provare che $|x|<\varepsilon$. Ciò è vero scegliendo $\delta<\varepsilon$.\\
     Al contrario, preso qualsiasi altro valore di $\ell$ la definizione non è verificata, come ci si aspetta.
 \end{example}
-\paragraph{Confronto}
+\subsubsection{Confronto}
 Così come avveniva nelle funzioni a una variabile, è possibile verificare un candidato limite maggiorandolo e minorandolo con funzioni convergenti al medesimo candidato limite, applicando, cioè, il metodo del confronto.
 \begin{example}
     Si calcoli il limite seguente.
@@ -355,7 +355,7 @@ Così come avveniva nelle funzioni a una variabile, è possibile verificare un c
     \end{equation*}
     con gli estremi convergenti a $0$. Pertanto, il limite esiste ed è $0$.
 \end{example}
-\paragraph{Coordinate polari}
+\subsubsection{Coordinate polari}
 Dal momento che per provare la definizione di limite si deve controllare una distanza, può essere utile passare alle coordinate polari centrate nel punto $(x_0, y_0)$, ottenendo
 \begin{equation}
     \begin{cases}
@@ -500,10 +500,10 @@ In tal caso, $f(x_0)$ è detto \textbf{valore minimo} di $f$ su $X$
     Sia $f: K \subseteq \mathbb{R}^n \to \mathbb{R}$ continua con $K$ compatto. Allora $f$ è uniformemente continua su $K$.
 \end{theorem}
 Il teorema appena enunciato offre un metodo per verificare l'uniforme continuità su un compatto. Tuttavia, la definizione si applica su insiemi generici. Un metodo per verificare tale proprietà su insiemi non compatti è sfruttare la nozione di \textbf{lipschitzianità}.
-\begin{definition}
+\begin{definition} \label{Def: Funzione lipschitziana}
     Sia $f:E \subseteq \mathbb{R}^n \to \mathbb{R}$. Si dice che $f$ è \textbf{lipschitziana} su $E$ con costante di Lipschitz $L>0$ se
     \begin{equation}
-        \forall x,y \in E\ \text{si ha che}\ |f(x)-f(y)| \leq L|x-y|
+        \forall\ x,y \in E\ \text{si ha che}\ |f(x)-f(y)| \leq L|x-y|
     \end{equation}
 \end{definition}
 \begin{proposition}
