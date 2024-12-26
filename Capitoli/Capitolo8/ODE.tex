@@ -284,22 +284,142 @@ che risolve il problema di Cauchy per il lemma \ref{Lemma: Formulazione integral
     \end{equation*}
     In questo caso la funzione è $C^\infty(B_\delta(0,3))$, dunque vale il teorema di Cauchy e la soluzione è unica.
 \end{example}
-\subsection{Prolungamento di soluzioni}
-
-
+\begin{definition} \label{Prolungamento}
+    Sia $y(x)$ una soluzione dell'equazione $(E):\ y'=f(x,y)$ definita su $(a,b)$. Si dice che $y_1$ è un \textbf{prolungamento} di $y$ se $y_1(x)$ è una soluzione di $(E)$, è definita su $(a_1, b_1) \supset (a,b)$ e coincide con $y$ in $(a,b)$.\\
+    Inoltre, un prolungamento $y_1(x)$ di $y(x)$ si dice \textbf{massimale} se per ogni prolungamento $y_2(x)$ di $y(x)$ definito su $(a_2, b_2)$ si ha che $(a_2, b_2) \subset (a_1, b_1)$.
+\end{definition}
+\begin{oss}
+Data tale definizione, può aver senso ragionare sull'unicità del prolungamento. Perciò, ci si ponga nelle ipotesi del teorema di esistenza e unicità locale. Dopodiché siano $y_1,\ y_2 : (a,b) \to \R$ soluzioni tali che $y_1(x_0)=y_2(x_0)$ e si mostri che non esiste $x_1 \in (a,b)$ tale che $y_1(x_1) \neq y_2(x_1)$. Difatti, se $y_1 \not\equiv y_2$ su $(a,b)$, si avrebbe un punto $x^*$ tale che $y_1(x) \neq y_2(x)$ per $x>x^*$, ma allora
+\begin{equation}
+    \begin{cases}    
+    y'=f(x,y)\\
+    y(x_1)=y_1(x_1)=y_2(x_1)
+    \end{cases}
+\end{equation}
+non avrebbe un'unica soluzione locale, contraddicendo così il teorema.\\
+In sintesi, dunque, è ragionevole prolungare una soluzione locale di un problema di Cauchy a patto di mantenerne invariata l'unicità.
+\end{oss}
+Ragionando sul fatto che il teorema garantisca l'esistenza della soluzione in un intorno del punto $x_0$, si può notare che risolvendo il problema agli estremi dell'intorno, la soluzione sarà definita in un intorno dei medesimi, dando così un prolungamento di $y(x)$, con $y(x)$ soluzione. 
+\begin{theorem}
+    Sotto le ipotesi del teorema di esistenza e unicità locale, la soluzione $y(x)$ ammette sempre un prolungamento massimale.
+\end{theorem}
+\begin{definition}
+    L'intervallo di definizione del prolungamento massimale si dice \textbf{intervallo massimale} di esistenza della soluzione.
+\end{definition}
+\begin{oss}
+    Sia $I_m=(\alpha, \beta)$ l'intervallo massimale di esistenza di una soluzione. Allora, sicuramente per $x \to \beta^-$ non può succedere che 
+        \begin{equation}
+            \lim_{x \to \beta^-}{y(x)}= \ell \in \R \qquad (\beta, \ell) \in A
+        \end{equation}
+        poiché se così fosse si potrebbe estendere ulteriormente l'intervallo, ma esso è massimale, e si ha dunque un assurdo.
+        Quindi può accadere che
+        \begin{itemize}
+            \item Esista $\lim\limits_{x \to \beta^-}{y(x)}= \ell \in \R$
+            con $(\beta, \ell) \in \partial A$.
+            \item Esista $\lim\limits_{x \to \beta^-}{y(x)}= \pm \infty$
+            cioè che si abbia un \textit{blow-up} della soluzione.
+            \item Non esista $\lim\limits_{x \to \beta^-}{y(x)}$
+                cioè la funzione ha delle "oscillazioni" che si avvicinano a $\partial A$.
+            \end{itemize}
+\end{oss}
+Infine, sotto opportune condizioni, è possibile formulare un teorema di esistenza e unicità globale della soluzione.
+\begin{theorem} \label{Teo: Esistenza e unicità globale}
+    Sia $G: (a, b) \times \R^n \to \R^n$ continua e localmente Lipschitziana in $Y$, uniformemente in $x$ in tutto $(a, b) \times \R^n$. Esistano inoltre $h,k \geq 0$ tali che 
+    \begin{equation}
+        \left|G(x, Y)\right| \leq h+ k|y|
+    \qquad \forall\ (x, Y) \in (a,b) \times \R^n
+    \end{equation}
+    Allora per ogni $(x_0, Y_0) \in (a,b) \times \R^n$ l'unica soluzione di 
+    \begin{equation}
+        (P): \begin{cases}
+       Y'=G(x, Y)\\
+       Y(x_0)=Y_0
+       \end{cases}
+    \end{equation}
+    è prolungabile su tutto $(a, b)$.
+\end{theorem}
 \section{Equazioni differenziali ordinarie scalari del primo ordine}
 Si passi ora allo studio di vari metodi risolutivi per \odes del primo ordine. 
 \begin{definition}
     L'insieme di tutte le soluzioni di una \ode o di un sistema è detto \textbf{integrale generale}. Al contrario, ogni singola soluzione è detta \textbf{integrale particolare}.
 \end{definition}
-\subsection{Metodi risolutivi}
-\subsubsection{Equazioni a variabili separabili}
+\subsection{Equazioni lineari del primo ordine}
 Rientrano in questa categoria le equazioni della forma
-\begin{equation}
-    y'=a(x)b(y)
+\begin{equation} \label{Eq: Equazione lineare del primo ordine}
+    y'+ a(x) y = g(x)
 \end{equation}
+con $a,f: I \to \R$ entrambe almeno di classe $C^0(I)$.\\
+\begin{definition}
+    Un'equazione lineare del primo ordine si dice \textbf{omogenea} se $f \equiv 0$. Altrimenti, si dice \textbf{completa}.
+\end{definition}
+\begin{theorem} \label{Teo: Integrale generale delle ode lineare del primo ordine}
+    Tutte le soluzioni dell'equazione \eqref{Eq: Equazione lineare del primo ordine} sono date da
+    \begin{equation}
+        y(x)=e^{-A(x)}\left(C+ \int{e^{A(x)}g(x)}\right)
+    \end{equation}
+    con $A(x)$ primitiva di $a(x)$ e $C \in \R$ costante.
+\end{theorem}
+\begin{proof} 
+Si provi a ricondurre il primo membro  dell'equazione 
+\begin{equation}
+    y'+ a(x) y = g(x)
+\end{equation}
+ad una derivata di prodotto. Per fare ciò, occorre moltiplicare ambo i membri per $e^{A(x) \neq 0}$ in modo da avere
+\begin{equation}
+    e^{A(x)}(y'+a(x)y)= e^{A(x)}g(x)
+\end{equation}
+che a primo membro è la derivata di $z(x):=\left(e^{A(x)}y \right)$. Perciò, detta $B(x)$ una primitiva di $e^{A(x)}g(x)$,
+\begin{equation}
+    z'(x)= e^{A(x)}g(x) \iff z(x)=\int e^{A(x)}g(x)
+\end{equation}
+Dunque, detta $B(x)$ primitiva di $e^{A(x)}g(x)$, si ha
+\begin{equation}
+ z(x)= B(x)+C= e^{A(x)}y(x)
+ \end{equation}
+ e, esplicitando $y(x)$,
+ \begin{equation}
+    y(x)= B(x) e^{-A(x)} + C{e^{-A(x)}} = e^{-A(x)}\left( C + \int e^{-A(x)}g(x) \right)
+ \end{equation}
+\end{proof}
+Si può notare che tale integrale generale è dato dalla somma di una soluzione particolare e dell'integrale generale dell'equazione omogenea. La soluzione può pertanto essere vista come
+\begin{equation}
+    y=y_0+ y_p
+\end{equation}
+dove
+\begin{equation}
+    y_0= C\, e^{-A(x)} \qquad y_p= \int C\, e^{-A(x)}g(x)
+\end{equation}
+\subsubsection{Equazioni di Bernoulli}
+Rientrano in questa categoria le equazioni della forma
+\begin{equation} \label{Eq: Equazione di Bernoulli}
+    y'=a(x)y+ b(x)y^{\alpha}
+\end{equation}
+con $\alpha \neq 0, 1$, $a, b: I \to \R$, $a,b \in C^0(I)$. Si ipotizzi di voler trovare le $y$ positive.
+Si divida per $y^\alpha$.
+\begin{equation}
+    \frac{y'}{y^\alpha}=a(x)y^{1-\alpha}+ b(x)
+\end{equation}
+A questo punto, definita
+\begin{equation}
+    z(x):= \left(y(x)\right)^{1-\alpha}
+\end{equation}
+si ha che
+\begin{equation}
+    z'(x)=(1-\alpha)\, y^{-\alpha}\,y'=(1-\alpha)\,y^{-\alpha}\left( a(x)y+ b(x)y^{\alpha}\right)
+\end{equation}
+cioè
+\begin{equation}
+    z'(x)=(1-\alpha)\,a(x)\,y^{1-\alpha}+ (1-\alpha)\, b(x) = z'(x)=a(x)\,z+b(x)
+\end{equation}
+che è lineare in $z$. Dunque, la si può risolvere come previsto dal teorema \eqref{Teo: Integrale generale delle ode lineare del primo ordine}, ricavandone la soluzione $y$ per sostituzione.
+\subsection{Equazioni a variabili separabili}
+Rientrano in questa categoria le equazioni della forma
+\begin{equation} \label{Eq: Equazione a variabili separabili}
+    y'=a(x)b(y) 
+\end{equation}
+con $a:I \to \R,\ b: J \to \R,\ a \in C^0(I),\ b \in C^0(J)$.\\
 In particolare, considerando il problema di Cauchy associato a tale equazione, si può osservare che se $a(x)$ è continua in $\U(x_0)$ e $b(y)$ è continua in $\U(y_0)$, allora $a(x)b(y)$ è continua in $B_\delta(x_0, y_0)$ e per il teorema di Peano ammette soluzione locale. Rafforzando tale ipotesi e richiedendo $b(y)$ localmente Lipschitziana rispetto a $y$ o di classe $C^1(\U(y_0))$, allora $a(x)b(y)$ è continua e localmente Lipschitziana e per il teorema di Cauchy ha un'unica soluzione locale.\\
-La soluzione dell'equazione prevede due passaggi principali.
+La soluzione dell'equazione prevede due passaggi principali.\\
 Innanzitutto occorre cercare le soluzioni costanti, ovvero
 \begin{equation}
     y(x)=k \qquad k \in \R
@@ -308,11 +428,83 @@ In altre parole, siccome $k$ è una costante, se essa è soluzione allora si ha
 \begin{equation}
     k' = a(x)b(k) = 0 \iff b(k)=0
 \end{equation}
-Cercare le soluzioni costanti significa, in altre parole, cercare gli zeri di $b(y)$.
-
-\subsubsection{Equazioni lineari del primo ordine}
-
-\subsubsection{Equazioni esatte}
+Cercare le soluzioni costanti significa, in altre parole, cercare gli zeri di $b(y)$.\\
+Dopodiché occorre cercare le altre soluzioni. Ponendo $b(y) \neq 0$ localmente si ha che
+\begin{equation}
+    \frac{y'(x)}{b(y(x))}=a(x) \iff \int{\frac{y'(x)}{b(y(x))}}\, dx=\int{a(x)}\, dx 
+\end{equation}
+Imponendo il cambio di variabile $y=y(x),\ dy=y'(x)dx$ e indicando con $A$ una generica primitiva di $a(x)$, si ha che
+\begin{equation}
+    \int{\frac{y'(x)}{b(y(x))}}\, dx=\int{a(x)}\, dx \iff \int{\frac{1}{b(y)}}\,dy=A(x)+c_1
+\end{equation}
+Denotando poi con $B$ una primitiva di $\tfrac{1}{b(y)}$ si ha
+\begin{equation}
+    B(y)+c_2=A(x)+c_1 \iff B(y)=A(x)+c \iff y=B^{-1}(A(x)+c))
+\end{equation}
+se $B$ è invertibile. Per il teorema di invertibilità locale, $B$ lo è localmente, perciò, sostituendo all'indietro $y=y(x)$ si ha che l'integrale generale di un'equazione a variabili separabili è
+\begin{equation} 
+    y(x)=B^{-1}(A(x)+c)
+\end{equation}
+\subsubsection{Equazioni omogenee}
+Con equazioni omogenee si intendono tutte le equazioni della forma
+\begin{equation}  \label{Eq: Equazione omogenea}
+    y'=f\left(\frac{y}{x}\right)
+\end{equation}
+con $f:I \to \R$, $f \in C^0(I)$.\\
+Tali equazioni sono riconducibili a equazioni a variabili separabili. In particolare, si deve definire una nuova incognita
+\begin{equation}
+    z(x):=\frac{y(x)}{x} 
+\end{equation}
+Allora,
+\begin{equation}
+    z'(x)=\frac{y'(x)x-y(x)}{x^2}=\frac{y'(x)}{x}-{y(x)}{x^2}= \frac{f(\tfrac{y}{x}}{x}-\frac{y}{x}\frac{1}{x}=\frac{f(z(x))}{x}-\frac{z(x)}{x}
+\end{equation}
+e quindi
+\begin{equation}
+    z'=\frac{1}{x}\left(f(z)-z\right)
+\end{equation}
+Risolvendo quindi tale equazione a variabili separabili e sostituendo in modo da esplicitare $y$ si ha la soluzione dell'equazione di partenza \eqref{Eq: Equazione omogenea}.
+\subsubsection{Equazioni riconducibili ad autonome}
+Rientrano in tale categoria le equazioni della forma
+\begin{equation} \label{Eq: Equazione riconducibile ad autonoma}
+    y'= g(ax+by)
+\end{equation}
+con $g:I \to \R,\ a,b \in \R,\ b \neq 0,\ g \in C^0(I)$.\\
+Si definisca la nuova incognita 
+\begin{equation}
+    z:=ax+by(x)
+\end{equation}
+Allora,
+\begin{equation}
+    z'=a+by'(x) = a+bg(ax+by)=a+bg(z(x))
+\end{equation}
+cioè
+\begin{equation}
+    z'=a+bg(z)
+\end{equation}
+che è un'equazione autonoma. Risolvendo tale equazione come caso particolare di \eqref{Eq: Equazione a variabili separabili} e sostituendo in modo da esplicitare $y$ si ha la soluzione dell'equazione di partenza \eqref{Eq: Equazione riconducibile ad autonoma}.
+\subsection{Equazioni esatte}
+Rientrano in questa categoria le equazioni del tipo
+\begin{equation}
+    y'=-\frac{a(x,y)}{b(x,y)}
+\end{equation}
+con $\omega=a(x,y)dx+b(x,y)dy$ forma differenziale esatta.\\
+Per risolvere tale equazione si può procedere informalmente così:
+\begin{equation}
+    y'=\frac{dy}{dx}=-\frac{a(x,y)}{b(x,y)} \Rightarrow a(x,y)dx+b(x,y)dy=0
+\end{equation}
+Poiché $\omega$ è esatta, preso un opportuno potenziale $U$, si ha che
+\begin{equation}
+\omega= a(x,y)dx+b(x,y)dy = dU(x,y)= 0
+\end{equation}
+e occorre quindi risolvere
+\begin{equation}
+    dU(x,y)=0 \iff U(x,y)=C \qquad C\in \R
+\end{equation}
+Le soluzioni allora sono le curve di livello di $U$, definite implicitamente dall'equazione
+\begin{equation}
+    U(x,y)=C
+\end{equation}
 \section{Sistemi lineari}
 \subsection{Metodi risolutivi}
 \section{Equazioni lineari del secondo ordine a coefficienti costanti}
