@@ -57,7 +57,7 @@ con $Y: I \subseteq \R \to \R^n,\ Y=(y_1, \dots, y_n)$ e $G:I \times \R^n \to \R
 \begin{definition} \label{Def: Sistema/Ode autonoma}
     Un sistema di \odes del primo ordine o un'\ode di ordine $n$ si dicono \textbf{autonomi} se non è presente una dipendenza esplicita da x, cioè se $G=G(y)$.
 \end{definition}
-\begin{lemma}
+\begin{lemma} \label{Lemma: Equivalenza equazione-sistema}
     Un'\ode di ordine $n$ in forma normale è equivalente ad un sistema di \odes del primo ordine in $\R^n$.
 \end{lemma}
 \begin{proof}
@@ -200,7 +200,7 @@ D'altra parte, è anche vero che è possibile stabilire una condizione sufficien
         \forall\ (x, y_1), (x, y_2) \in K \ \text{si ha che}\ |G(x, y_1)-G(x, y_2)| \leq L_K |y_1-y_2|
     \end{equation}
 \end{definition}
-\begin{theorem}[Teorema di Cauchy di esistenza e unicità locale]
+\begin{theorem}[Teorema di Cauchy di esistenza e unicità locale] \label{Teo: Esistenza e unicità locale}
     Siano $A \subseteq \R^{n+1}$ aperto e $G:A \to \R^n$ continua, localmente Lipschitziana in $Y$ e uniformemente rispetto a $x$ in $B_\delta(x_0, y_0) \subset A$. Sia poi $(x_0, Y_0) \in A$. Allora esiste $\delta>0$ tale che il problema di Cauchy
     \begin{equation}
         (P): \begin{cases}
@@ -323,9 +323,9 @@ Ragionando sul fatto che il teorema garantisca l'esistenza della soluzione in un
             \end{itemize}
 \end{oss}
 Infine, sotto opportune condizioni, è possibile formulare un teorema di esistenza e unicità globale della soluzione.
-\begin{theorem} \label{Teo: Esistenza e unicità globale}
+\begin{theorem}[Teorema di esistenza e unicità globale] \label{Teo: Esistenza e unicità globale}
     Sia $G: (a, b) \times \R^n \to \R^n$ continua e localmente Lipschitziana in $Y$, uniformemente in $x$ in tutto $(a, b) \times \R^n$. Esistano inoltre $h,k \geq 0$ tali che 
-    \begin{equation}
+    \begin{equation} \label{Eq: Crescità sublineare}
         \left|G(x, Y)\right| \leq h+ k|y|
     \qquad \forall\ (x, Y) \in (a,b) \times \R^n
     \end{equation}
@@ -506,7 +506,703 @@ Le soluzioni allora sono le curve di livello di $U$, definite implicitamente dal
     U(x,y)=C
 \end{equation}
 \section{Sistemi lineari}
-\subsection{Metodi risolutivi}
+Siano $A(x) \in \mathbb{M}_{n,n}(\R)$ con $x \in I \subseteq \R$ e $B(x) \in \R^n$ con $x \in I$. Allora un sistema differenziale lineare del primo ordine di $n$ equazioni è dato dall'equazione 
+\begin{equation}
+    Y'=A(x)Y+B(x)
+\end{equation}
+\begin{definition}
+    Un sistema lineare si dice \textbf{omogeneo} se $B(x) \equiv 0$ in $I$, altrimenti si dice \textbf{completo}.
+\end{definition}
+\begin{definition}
+    Un sistema lineare si dice \textbf{autonomo} o \textbf{a coefficienti costanti} se $A(x) \equiv A$ e $B(x) \equiv B$ in $I$.
+\end{definition}
+Si consideri il caso $n=2$, allora si avrà che
+\begin{align}
+    &A(x)=\begin{pmatrix}
+        a_{11}(x) & a_{12}(x)\\
+        a_{21}(x) & a_{22}(x)
+    \end{pmatrix}, \qquad a_{ij}: I \to \R,\ i, j=1,2;\\
+    &B(x)=\begin{pmatrix}
+        B_1(x)\\
+        B_2(x)
+    \end{pmatrix}, \qquad b_i:I \to \R,\ i=1,2 
+\end{align}
+In particolare, si dice che $x \mapsto A(x)$ (equivalentemente per $B$) è continua se $x \mapsto a_{ij}$ è continua per ogni $i, j= 1, \dots, n$.\\
+Occorre notare che l'insieme delle soluzioni del sistema omogeneo coincide con il nucleo dell'operatore $L:C^1(I; \R^n) \to C^0(I; \R^n)$ a valori in $\R^n$ dato da
+    \begin{equation} \label{Eq: Applicazione L}
+        L(Y)=Y'-A(x)Y
+    \end{equation}
+\begin{proposition}
+    L'applicazione $L$
+    è lineare.
+\end{proposition}
+\begin{proof}
+    Siano $Y_1, Y_2 \in C^1(I; \R^n)$ e $\alpha, \beta \in \R$. Allora
+    \begin{equation}
+        \begin{aligned}
+            L(\alpha Y_1 + \beta Y_2) &= (\alpha Y_1+ \beta Y_2)'- A(x)(\alpha Y_1 + \beta Y_2) =\\
+            &= \alpha Y_1'+ \beta Y_2' - A(x) \alpha Y_1 - A(x) \beta Y_2=\\
+            &=\alpha(Y_1'-A(x)Y_1)+ \beta (Y_2'-A(x)Y_2)=\\
+            &=\alpha L(Y_1)+\beta L(Y_2)
+        \end{aligned}
+    \end{equation}
+\end{proof}
+Come conseguenza rilevante si ha il \textbf{principio di sovrapposizione degli effetti}. Infatti, poste $L(Y_1)=B_1$ e $L(Y_2)=B_2$, si può affermare che
+$Z:=Y_1+Y_2$ risolve 
+\begin{equation}
+    Z'(x)=A(x)Z(x)+B(X)
+\end{equation}
+infatti, si avrebbe che
+\begin{equation}
+L(Z)=L(Y_1+Y_2)=L(Y_1)+L(Y_2)=B_1+B_2
+\end{equation}
+Come già mostrato nel lemma \ref{Lemma: Equivalenza equazione-sistema}, esiste un legame tra equazioni e sistemi differenziali. In particolare, data un'equazione differenziale lineare di ordine $n$
+\begin{equation}
+    y^{(n)}=a_1(x)y^{(n-1)}+a_2(x)y^{(n-2)}+ \dots+a_n(x)y+b(x)
+\end{equation}
+e definito il vettore $Y=(Y_1, \dots, Y_n)$ di componenti
+\begin{equation}
+\begin{aligned}
+&Y_1:=y\\
+&Y_2:=y'\\
+&\qquad \vdots\\
+&Y_n:=y^{(n-1)}
+\end{aligned}
+\end{equation}
+si può osservare che tale equazione è equivalente ad un sistema lineare del primo ordine $n\times n$ della forma
+\begin{equation}
+    \begin{cases}
+        Y_1'=Y_2\\
+        Y_2'=Y_3\\
+        \qquad\vdots\\
+        Y_{n-1}'=Y_n\\
+        Y_n'= a_1(x) Y_n+ a_2(x) Y_{n-1}+ \dots+ a_n(x) Y_1 + b(x)
+    \end{cases}
+\end{equation}
+Tale sistema può essere scritto in forma compatta come \begin{equation}
+Y'=A(x)Y+B(x)
+\end{equation}
+dove
+\begin{align}
+&A(x)=\begin{pmatrix}
+    0 & 1 & 0 & \dots &  0\\
+    \vdots & 0 & 1 & \,  &\vdots\\
+    \, & \vdots & 0 & \,  &\,\\
+    \, & \, & \vdots & \,  &\,\\
+    0 & 0 & 0 & \,  & 1\\
+    a_n(x) & a_{n-1}(x) & a_{n-2}(x) & \dots & a_n(x)
+\end{pmatrix}\\
+&B(x)= \begin{pmatrix}
+    0\\
+    \vdots\\
+    0\\
+    b(x)
+\end{pmatrix}
+\end{align}
+Fatta tale premessa, si può osservare anche che è ben posto un eventuale problema di Cauchy della forma
+\begin{equation}
+    (P)=\begin{cases}
+        Y'=A(x)Y+B(x)\\
+        Y(x_0)=y_0
+    \end{cases}
+\end{equation}
+e che vale
+\begin{theorem}[Teorema di esistenza e unicità globale per sistemi differenziali lineari]
+    Siano $A(x) \in \mathbb{M}_{n,n}(\R)$ con $x \in I \subseteq \R$, $B(x) \in \R^n$ con $x \in I$ continui in $I$. Sia poi $(x_0, y_0) \in I \times \R^n$. Allora il problema di Cauchy
+    \begin{equation}
+    (P)=\begin{cases}
+        Y'=A(x)Y+B(x)\\
+        Y(x_0)=y_0
+    \end{cases}
+    \end{equation}
+    ha una ed una sola soluzione $Y: I \to \R^n$.
+\end{theorem}
+\begin{proof}
+    Sia $f(x,y): A=I \times \R^n \to \R^n$ tale che $f(x,Y)=A(x)Y+B(x)$. Allora il sistema può essere visto come 
+    \begin{equation}
+        Y'=f(x, Y)
+    \end{equation}
+    Tale funzione è continua in $A$, localmente Lipschitziana in $A$ in $Y$ uniformemente rispetto a $x$ ed ha una crescita al più lineare \eqref{Eq: Crescità sublineare}. Dunque la tesi discende dal teorema \ref{Teo: Esistenza e unicità globale}.
+\end{proof}
+In ultima istanza, vale il seguente risultato, cui si era già fatto cenno nel caso delle equazioni lineari del primo ordine.
+\begin{theorem}[Teorema di struttura dell'integrale generale di sistemi differenziali lineari del primo ordine di $n$ equazioni] \label{Teo: Struttura dell'integrale generale per i sistemi}
+    Siano rispettivamente $(SC)$ e $(SO)$ il sistema completo ed il sistema omogeneo
+    \begin{align}
+        &(SC):\ Y'=A(x)Y+ B(x)\\
+        &(SO):\ Y'=A(x)Y
+    \end{align}
+    con $A, B$ continue su $I$.\\
+    Allora,
+    \begin{enumerate}
+        \item L'integrale generale di $(SO)$ è un sottospazio vettoriale $n$-dimensionale di $C^1(I; \R)$
+        \item L'integrale generale di $(SC)$ si ottiene sommando all'integrale generale di $(SO)$ una soluzione particolare di $(SC)$.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    Si dimostri il primo fatto.\\
+    È già noto che l'integrale generale di $(SO)$ è un sottospazio vettoriale $S \subset C^1(I, \R^n)$, dal momento che esso è il nucleo di $L$ definita come in \eqref{Eq: Applicazione L}. Occorre dimostrare che esso ha dimensione $n$.
+    Si consideri la mappa $T: \R^n\to S$ data da
+    \begin{equation}
+        T(v):=z(x) \qquad \forall v \in \R^n
+    \end{equation}
+    dove $z=z(x)$ è l'unica soluzione al problema di Cauchy \begin{equation}
+        \begin{cases}    
+        z'=A(x)z\\
+        z(x_0)= v
+        \end{cases}
+    \end{equation}
+    per un $x_0 \in I$ fissato. Per il teorema di esistenza e unicità globale $T$ è ben definita ed è lineare: infatti
+    \begin{equation}
+        T(\alpha v_1 + \beta v_2)= \alpha z_1 + \beta z_2 = \alpha T(v_1)+ \beta T(v_2)
+    \end{equation}
+    poiché vale la sovrapposizione degli effetti.\\
+    Inoltre, $T$ è iniettiva e suriettiva grazie al teorema di esistenza e unicità globale. Dunque $T$ è lineare e biunivoca (cioè un isomorfismo) e \begin{equation}
+        \dim S = \dim \R^n = n
+    \end{equation}
+    Ora si passi al secondo punto.\\
+    Siano $Y_O$ una soluzione di $(SO)$ e $Y_P$ una soluzione particolare di $(SC)$. Allora,
+    \begin{equation}
+        Y=Y_O+Y_P
+    \end{equation}
+    è soluzione di $(SC)$. Viceversa, sia $Y$ una soluzione qualsiasi di $(SC)$. Allora $Y_O=Y-Y_P$ risolve il sistema omogeneo. Perciò, si può caratterizzare l'integrale generale di $(SC)$ come 
+    \begin{equation}
+        Y=Y_O+Y_P
+    \end{equation}
+\end{proof} 
+\begin{oss}
+    La struttura dell'integrale generale dell'equazione \eqref{Eq: Equazione lineare del primo ordine} è in linea con quanto appena mostrato.
+\end{oss}
+\subsection{Sistemi differenziali omogenei}
+Si consideri il sistema
+\begin{equation}
+    (S):\ Z'= A(x)Z(x)
+\end{equation}
+e si stabilisca la forma della soluzione generale.\\
+Per determinare l'integrale generale del sistema omogeneo occorre, per quanto detto nel teorema \ref{Teo: Struttura dell'integrale generale per i sistemi} trovare $n$ soluzioni linearmente indipendenti.
+\begin{definition} \label{Def: Soluzioni linearmente dipendenti/indipendenti}
+    Siano $\varphi_1, \dots, \varphi_n$ con $\varphi_i:I \to \R^n$ 
+    soluzioni di $(S)$. Si dice che esse sono \textbf{linearmente dipendenti} se 
+    \begin{equation}
+        \exists\ (c_1, \dots, c_n) \neq (0, \dots, 0)
+    \end{equation}
+    tale che
+    \begin{equation}
+        c_1 \varphi_1(x)+ \dots
+        +c_n \varphi_n(x) = 0
+    \end{equation}
+    In caso contrario, tali soluzioni si dicono \textbf{linearmente indipendenti}.
+\end{definition}
+\begin{definition} \label{Def: Matrice Wronskiana}
+    Date $\varphi_1, \dots, \varphi_n$ con $\varphi_i:I \to \R^n$ 
+    soluzioni di $(S)$, si dice \textbf{matrice Wronskiana} la matrice
+    \begin{equation}
+        W(x):= \begin{pmatrix}
+        \varphi_1(x)\mid \varphi_2(x)\mid  \dots \mid \varphi_n(x)
+        \end{pmatrix}
+    \end{equation}
+avente le soluzioni $\varphi_i(x)$ come colonne.\\
+Il determinante della Wronskiana è poi detto \textbf{Wronskiano}.
+\end{definition}
+In maniera equivalente, si può dire che le $\varphi_i(x)$ sono linearmente dipendenti se e solo se lo Wronskiano ad esse associato è nullo per ogni $x \in I$.
+\begin{proposition} \label{Prop: Wronskiano nullo sse nullo in I}
+    Il determinante Wronskiano è nullo in tutto l'intervallo se e solo se è nullo in almeno un punto di esso.
+\end{proposition}
+\begin{proof}
+   Sia $x_0 \in I$ tale che $c_1 \varphi_1(x_0)+ \dots+c_n \varphi_n(x_0) = 0$ per una certa $(c_1, \dots, c_n) \neq (0, \dots, 0)$.
+   Allora, posta
+   \begin{equation}
+       \xi(x):=c_1 \varphi_1(x)+ \dots
+        +c_n \varphi_n(x) \qquad \forall x \in I
+   \end{equation}
+   essa risolve 
+   \begin{equation}
+       \begin{cases}
+           Y'=A(x)\\
+           Y(x_0)=0
+       \end{cases}
+   \end{equation}
+   Poiché però anche $\eta\equiv 0$ risolve tale problema di Cauchy, per il teorema di esistenza e unicità si ha che 
+   \begin{equation}
+       \xi(x)=c_1 \varphi_1(x)+ \dots
+        +c_n \varphi_n(x) =\eta(x) \equiv0
+   \end{equation}
+\end{proof}
+Tale risultato vale anche per verificare la lineare indipendenza.
+\begin{definition}
+    Siano $\varphi_1, \dots, \varphi_n$ con $\varphi_i:I \to \R^n$ 
+    soluzioni di $(S)$ linearmente indipendenti. Allora esse formano un \textbf{sistema fondamentale} di soluzioni.
+\end{definition}
+Un sistema fondamentale rappresenta dunque una base per $\ker L$ con $L$ definita come in \eqref{Eq: Applicazione L}.\\
+L'integrale generale di $(S)$ si può in tale scrivere come 
+\begin{equation}
+    Y(x)= c_1\varphi_1(x)+ \dots+ c_n\varphi_n(x), \qquad (c_1, \dots, c_n) \in \R^n
+\end{equation}
+o, in forma compatta, 
+\begin{equation}
+    Y(x)=W(x)C
+\end{equation}
+dove $W$ è detta \textit{matrice fondamentale} e $C$ è il vettore colonna delle costanti $c_1, \dots, c_n$.\\
+\begin{oss}
+    Nel caso di una \ode di ordine $n$ omogenea
+    \begin{equation}
+        z^{(n)}=a_1(x)z^{(n-1)}+ a_2(x)z^{(n-2)}+ \dots + a_n(x)z
+    \end{equation}
+    la matrice Wronskiana è data da
+    \begin{equation}
+        W(x)=\begin{pmatrix}
+            y_1(x) & y_2(x) & \dots & y_n(x)\\
+            y_1'(x) & y_2'(x) & \dots & y_n'(x)\\
+            \vdots & \vdots & \, & \vdots\\
+            y_1^{(n-1)}(x) & y_2^{(n-1)}(x) & \dots & y_n^{(n-1)}(x)\\
+        \end{pmatrix}
+    \end{equation}
+\end{oss}
+\subsubsection{Sistemi omogenei a coefficienti costanti}
+Sono i sistemi del tipo
+\begin{equation}
+    Y'=AY
+\end{equation}
+con $A \in \mathbb{M}_{n,n}(\R)$.\\
+Nello specifico ci si concentrerà sul caso $n=2$ e
+\begin{align}    
+    &A=\begin{pmatrix}
+        a_{11} & a_{12}\\
+        a_{21} & a_{22}
+    \end{pmatrix} \qquad a_{ij} \in \R \\
+    &Y(x)=\begin{pmatrix}
+        y_1(x)\\
+        y_2(x)
+    \end{pmatrix} \qquad y_i:\R \to \R
+\end{align}
+o, in componenti,
+\begin{equation}
+    (S): \begin{cases}
+        y_1'=a_{11} y_1 + a_{12} y_2\\
+        y_2'=a_{21} y_1 + a_{22} y_2
+    \end{cases}
+\end{equation}
+Per determinare esplicitamente l'integrale generale di $(S)$ occorre studiare 3 diversi casi.
+\paragraph{$A$ diagonalizzabile con autovalori reali}
+Siano $\lambda_1$, $\lambda_2$ gli autovalori e $U$, $V$ gli autovettori rispettivamente associati.\\
+Allora si verifichi che
+\begin{equation}
+   \xi(x):= e^{\lambda_1 x}U \qquad
+   \eta(x):= e^{\lambda_2 x}V
+\end{equation}
+siano due soluzioni di $(S)$ linearmente indipendenti.
+Infatti per $\xi$ vale
+\begin{equation}
+    A\xi(x)=A(e^{\lambda_1 x}U)=e^{\lambda_1 x}AU = e^{\lambda_1 x} \lambda_1 U = \xi'(x)
+\end{equation}
+e lo stesso si può dire per $Y_2$. Dunque sono entrambi soluzioni del sistema.
+Si calcoli poi 
+\begin{equation}
+    W(X)=\begin{pmatrix}
+        \xi(x) \mid \eta(x)
+    \end{pmatrix} = \begin{pmatrix}
+        e^{\lambda_1 x} U_1 & e^{\lambda_2 x} V_1 \\
+        e^{\lambda_1 x} U_2 & e^{\lambda_2 x} V_2
+    \end{pmatrix}
+\end{equation}
+Allora, sfruttando la proposizione \ref{Prop: Wronskiano nullo sse nullo in I}
+\begin{equation}
+    \det W(0)=\det(U | V) \neq 0
+\end{equation}
+poiché per ipotesi $U,\ V$ sono autovettori associati ad autovalori distinti.\\
+Di conseguenza, $\xi(x),\ \eta(x)$ sono soluzioni di $(S)$ linearmente indipendenti e l'integrale generale è dato da
+\begin{equation}
+    Y(x)= c_1 e^{\lambda_1 x}U + c_2 e^{\lambda_2 x}V
+\end{equation}
+\begin{oss}
+    Se $A$ dovesse avere due autovalori reali coincidenti $\lambda_1=\lambda_2=\lambda$, poiché ogni $V \in \R^2$ è autovettore, un sistema fondamentale è dato da $\{e^{\lambda x}V_1, e^{\lambda x}V_2\}$ con $V_1,\ V_2$ linearmente indipendenti.
+\end{oss}
+\paragraph{$A$ diagonalizzabile con autovalori complessi}
+$A$ è diagonalizzabile con autovalori complessi coniugati
+\begin{equation}
+    \lambda_1=\lambda= \alpha+ i\beta, \qquad
+    \lambda_2=\overline{\lambda}= \alpha- i\beta \qquad \alpha, \beta \in \R, \beta \neq0
+\end{equation}
+In questo caso, anche i due autovettori associati sono complessi coniugati
+\begin{equation}
+    U=a+ib \qquad \overline{U}=a-ib \qquad a, b \in \R^2, b \neq 0
+\end{equation}
+Esattamente come prima, si può mostrare che $e^{\lambda x}U,\ e^{\overline{\lambda}x}\overline{U}$
+sono soluzioni linearmente indipendenti di $(S)$, ma a valori in $\mathbb{C}^2$. Tuttavia, anche
+\begin{align}
+    &\Re\left(e^{\lambda x}U\right)= \frac{1}{2}e^{\lambda x}U+\frac{1}{2}e^{\overline{\lambda} x}\overline{U} =: \xi(x)\\
+    &\Im\left(e^{\lambda x}U\right)= \frac{1}{2i}e^{\lambda x}U-\frac{1}{2i}e^{\overline{\lambda} x}\overline{U} =: \eta(x)
+\end{align}
+sono due soluzioni linearmente indipendenti di $(S)$ e a valori in $\R^2$.\\
+Dunque l'integrale generale è
+\begin{equation}
+        Y(x)= c_1 \xi(x) + c_2 \eta(x)
+\end{equation}
+\paragraph{$A$ non diagonalizzabile}
+Se $A$ non è diagonalizzabile, essa ha un solo autovalore $\lambda \in \R$ con molteplicità algebrica $m_a(\lambda)=2$ e molteplicità geometrica $m_g(\lambda)=1$. Il suo autovettore associato è $U$.\\
+Come prima, si può mostrare che 
+\begin{equation}
+    \xi(x)=e^{\lambda x}U
+\end{equation}
+è soluzione di $(S)$. Tuttavia ne serve un'altra. Per fare ciò occorre trovare un \textit{autovettore generalizzato} $V$ associato a $U$ risolvendo
+\begin{equation} \label{Eq: Equazione per autovettore generalizzato}
+    (A-\lambda I)V=U
+\end{equation}
+dunque occorre verificare che 
+\begin{equation}
+    \eta(x):= e^{\lambda x}(V+xU)
+\end{equation}
+sia soluzione di $(S)$. Da una parte si ha che
+\begin{equation}
+    A \eta(x)= A(e^{\lambda x}V+e^{\lambda x}xU) = e^{\lambda x}(AV+ xAU)= e^{\lambda x}(\lambda V + U + \lambda x U)
+\end{equation}
+Dall'altra, 
+\begin{equation}
+    \left[e^{\lambda x}(V+xU)\right]'= \lambda
+    e^{\lambda x}(V+xU) + e^{\lambda x}U = e^{\lambda x}(\lambda V + U + \lambda x U)
+\end{equation}
+Quindi $\eta(x)$ risolve il sistema. Resta da verificare l'indipendenza di $\xi$ e $\eta$. Dunque 
+\begin{equation}
+    W(x)= e^{\lambda x} \begin{pmatrix}
+        U_1 & V_1 + x U_1\\
+        U_2 & V_2 + x U_2
+    \end{pmatrix}
+\end{equation}
+e 
+\begin{equation}
+    \det W(0) = \det(U | V) \neq 0
+\end{equation}
+dal momento che se per assurdo $V= \sigma U$, allora dalla \eqref{Eq: Equazione per autovettore generalizzato} si avrebbe $V=0$, che porta all'assurdo dal momento che gli autovettori sono non nulli per propria definizione.\\
+Dunque l'integrale generale è 
+\begin{equation}
+    Y(x)= e^{\lambda x}[(c_1+c_2x)U+ c_2V]
+\end{equation}
+\subsection{Sistemi del primo ordine completi a coefficienti continui}
+Si consideri il sistema differenziale lineare del primo ordine di $n$ equazioni
+\begin{equation}
+    Y'=A(x)Y+B(x)
+\end{equation}
+con $y: I \subseteq \R \to \R^n$, $I$ intervallo e $A, B$ continui in $I$.\\
+Si calcoli l'integrale generale del sistema attraverso il \textbf{metodo delle costanti arbitrarie}.
+Per il teorema \ref{Teo: Struttura dell'integrale generale per i sistemi}, 
+\begin{equation}
+    Y(x)=Y_O+Y_P
+\end{equation}
+dove, per quanto già detto, $Y_O$ è soluzione del sistema fondamentale e quindi
+\begin{equation}
+    Y_O=W(x)c \qquad c \in \R^n
+\end{equation}
+Si cerchi una $Y_P$ della forma 
+\begin{equation}
+    Y_P(x)=W(x)c(x) \qquad c:I\to \R^n
+\end{equation}
+Poiché vale la relazione 
+\begin{equation}
+    W'(x)=A(x)W(x)
+\end{equation}
+si ha anche che
+\begin{equation}
+\begin{aligned}
+    Y_P'(x)&=W'(x)c(x)+W(x)c'(x)=\\
+    &=A(x)W(x)c(x)+W(x)c'(x)=\\
+    &=A(x)Y_P+W(x)c'(x)
+\end{aligned}
+\end{equation}
+Poiché lo Wronskiano è diverso da zero, $W(x)$ è invertibile per ogni $x \in I$. Quindi
+\begin{equation}
+    W(x)c'(x) =B(x) \iff c'(x)=W^{-1}(x)B(x)
+\end{equation}
+cioè
+\begin{equation}
+    c(x)= \int\limits_{x_0}^{x}{W^{-1}(s)B(s)}\, ds \qquad x_0 \in I
+\end{equation}
+Perciò
+\begin{equation}
+Y_P(x)=W(x)c(x)=W(x) \int\limits_{x_0}^{x}{W^{-1}(s)B(s)}\, ds
+\end{equation}
+Infine, l'integrale generale di tale sistema è dato da 
+\begin{equation}
+    Y(x)=W(x)\left(c+ \int\limits_{x_0}^{x}{W^{-1}(s)B(s)}\, ds\right)
+\end{equation}
 \section{Equazioni lineari del secondo ordine a coefficienti costanti}
-\subsection{Metodi risolutivi}
+\subsection{Equazioni omogenee}
+Una generica \ode del secondo ordine omogenea a coefficienti costanti è un'equazione del tipo
+\begin{equation}
+    y''=ay'+by
+\end{equation}
+con $a,b \in \R$.\\
+Per quanto già visto, essa può essere riscritta come sistema
+\begin{equation}
+    Y'=AY
+\end{equation}
+con 
+\begin{align}
+    &A=\begin{pmatrix}
+        0 & 1\\
+        b & a
+    \end{pmatrix}\\
+    &Y=\begin{pmatrix}
+        y\\
+        y'
+    \end{pmatrix}
+\end{align}
+Perciò, il suo polinomio caratteristico sarà
+\begin{equation}
+    P_A(\lambda)=\det(A-\lambda I) = \lambda^2-a\lambda-b
+\end{equation}
+e gli autovalori $\lambda_1, \lambda_2$ ne sono soluzione. Anche qui, il discorso si sviluppa in tre casi.
+\paragraph{Due autovalori reali distinti} In questo caso si hanno due autovalori $\lambda_1,\ \lambda_2 \in \R$ con $\lambda_1\neq \lambda_2$. Al primo è associato l'autovettore $U$ che risolve
+\begin{equation}
+    (A- \lambda_i I)U=0
+\end{equation}
+e in particolare dette $U_1,\ U_2$ le sue componenti si nota che
+\begin{equation}
+    -\lambda_1 U_1 + U_2 =0 \iff U_2 = \lambda_1 U_1
+\end{equation}
+Lo stesso vale per $V$ associato a $\lambda_2$. Nello specifico, poiché in entrambi i casi si ha che la seconda componente è $\lambda_i$ volte l'altra, un possibile autovettore è
+\begin{equation}
+    U=\begin{pmatrix}
+        1\\
+        \lambda_1
+    \end{pmatrix} \qquad
+    V=\begin{pmatrix}
+        1\\
+        \lambda_2
+    \end{pmatrix}
+\end{equation}
+Per quanto visto prima, 
+\begin{align}
+    &\xi(x)=e^{\lambda_1 x} \begin{pmatrix}
+        1\\
+        \lambda_1
+    \end{pmatrix}=\begin{pmatrix}
+        y_1\\
+        y_1'
+    \end{pmatrix}\\ 
+    &\eta(x)= e^{\lambda_2 x} \begin{pmatrix}
+        1\\
+        \lambda_2
+    \end{pmatrix}=\begin{pmatrix}
+        y_2\\
+        y_2'
+        \end{pmatrix}
+\end{align}
+risolvono il sistema e sono linearmente indipendenti.\\
+Dunque l'integrale generale è \begin{equation}
+    y(x)=c_1e^{\lambda_1 x} + c_2 e^{\lambda_2 x}
+\end{equation}
+\paragraph{Due autovalori complessi distinti}
+Gli autovalori sono $\lambda_1,\ \lambda_2 \in \mathbb{C}$ con
+\begin{equation}
+    \lambda_1=\lambda= \alpha+ i\beta, \qquad
+    \lambda_2=\overline{\lambda}= \alpha- i\beta \qquad \alpha, \beta \in \R, \beta \neq0
+\end{equation}
+Come nel caso precedente si può verificare che
+\begin{equation}
+    U = \begin{pmatrix}
+        1\\ 
+        \lambda
+        \end{pmatrix}
+\end{equation}
+è un autovettore di $A$ associato a $\lambda$. Inoltre,
+\begin{align}
+    &\xi(x) = \Re(e^{\lambda x}U)\\
+    &\eta(x)= \Im(e^{\lambda x}U)
+\end{align}
+sono soluzioni linearmente indipendenti del sistema le cui prime componenti sono 
+\begin{align}
+    y_1(x)=\Re\left(e^{\lambda x}\right) = \Re\left(e^{\alpha x + i \beta x}\right)=e^{\alpha x} \cos(\beta x)\\
+    y_2(x)=\Im\left(e^{\lambda x }\right)=\Im\left(e^{\alpha x + i \beta x}\right)=e^{\alpha x} \sin(\beta x)
+\end{align}
+Dunque, l'integrale generale dell'equazione è
+\begin{equation}
+    y(x)=e^{\alpha x}[c_1 \cos(\beta
+    x) + c_2\sin(\beta x)]
+\end{equation}
+\paragraph{Due autovalori reali coincidenti}
+Si ha un unico autovalore $\lambda \in \R$ con $m_a(\lambda)=2$ e $m_g(\lambda)<2$. Dunque la matrice $A$ non è mai diagonalizzabile. Si può verificare che un autovettore associato è 
+\begin{equation}
+    U= \begin{pmatrix}
+        1\\
+        \lambda
+    \end{pmatrix}
+\end{equation}
+Come verificato nel caso 3 della sezione precedente, si può affermare che 
+\begin{align}
+    &\xi=e^{\lambda
+    x}U\\
+    &\eta=e^{\lambda x}(V-xU)
+\end{align}
+sono soluzioni linearmente indipendenti del sistema associato, dove $V$ è l'autovettore generalizzato che risolve 
+\begin{equation}
+    (A-\lambda I)V=U \iff \begin{pmatrix}
+        -\lambda & 1\\
+        b & a-\lambda
+    \end{pmatrix}
+    \begin{pmatrix}
+        v_1\\
+        v_2
+    \end{pmatrix}= \begin{pmatrix}
+        1\\
+        \lambda
+    \end{pmatrix}
+\end{equation}
+Dal momento che $\lambda= \tfrac{a}{2}$ e $b=-\tfrac{a^2}{4}$ si ha
+\begin{equation}
+    \begin{pmatrix}
+        -\frac{a}{2} & 1\\
+        -\frac{a^2}{4} & a-\frac{a}{2}
+    \end{pmatrix}
+    \begin{pmatrix}
+        v_1\\
+        v_2
+    \end{pmatrix}= \begin{pmatrix}
+        1\\
+        \frac{a}{2}
+        \end{pmatrix}
+\end{equation}
+e, dalla prima, si ottiene $V_2=1+\tfrac{a}{2}V_1$. Posto $V_1=0$, un autovettore generalizzato è
+\begin{equation}
+    V=\begin{pmatrix}
+        0\\
+        1
+    \end{pmatrix}
+\end{equation}
+Perciò, sostituendo $V$ nell'equazione di $\eta(x)$ e scegliendo la prima componente di ciascun autovettore, si ha che l'integrale generale è
+\begin{equation}
+y(x)= e^{\lambda x}(c_1+c_2 x)    
+\end{equation}
+\subsection{Equazioni non omogenee}
+Si tratta di equazioni del tipo
+\begin{equation}
+    y'' - ay'-by=f(x)
+\end{equation}
+dove $f:I \subseteq \R \to \R$ è una funzione continua detta \textbf{forzante}.\\
+Dal teorema \ref{Teo: Struttura dell'integrale generale per i sistemi} è noto che l'integrale generale è della forma 
+\begin{equation}
+    y(x)= y_{O}+ y_{P}
+\end{equation}
+con $y_{O}$ soluzione dell'equazione omogenea e $y_{P}$ soluzione particolare dell'equazione completa, di cui si dirà di più ora.
+\subsubsection{Metodo di somiglianza}
+Un metodo risolutivo può essere il cosiddetto \textbf{metodo di somiglianza} che consiste nel cercare una soluzione particolare $y_P$ sulla base della sua somiglianza alla forzante.
+\paragraph{Caso 1} La forzante è un polinomio di grado $n$
+\begin{equation}
+    f(x)=Q_n(x)= q_nx^n+q_{n-1}x^{n-1}+ \dots +q_0
+\end{equation}
+con $q_n, q_{n-1}, \dots, q_0 \in \R$ coefficienti noti e $q_n \neq 0$.
+Allora, preso il polinomio caratteristico
+\begin{equation}
+    P(\lambda)=\lambda^2 - a\lambda-b
+\end{equation}
+si ha che
+\begin{equation}
+    y_P(x)=\begin{cases}
+        R_n(x) &\qquad \text{se}\ \lambda=0\ \text{\textbf{non} è radice di}\ P(\lambda)=0\\
+        xR_n(x) &\qquad \text{se}\ \lambda=0\ \text{è radice \textbf{semplice} di}\ P(\lambda)=0\\
+        x^2R_n(x) &\qquad \text{se}\ \lambda=0\ \text{è radice \textbf{doppia} di}\ P(\lambda)=0\\
+    \end{cases}
+\end{equation}
+con $R_n(x)=a_nx^n+ a_{n-1}x^{n-1}+\dots+a_0$ polinomio di grado $n$ i cui coefficienti vanno determinati in modo tale che $y_P$ risolva l'equazione completa.
+\paragraph{Caso 2} La forzante è una funzione esponenziale
+\begin{equation}
+    f(x)= A e^{\alpha x}
+\end{equation}
+con $A, \alpha \in \R$. Allora, 
+\begin{equation}
+    y_P(x)= \begin{cases}
+        C e^{\alpha x} &\qquad \text{se}\ \lambda=\alpha\ \text{\textbf{non} è radice di}\ P(\lambda)=0\\
+        C xe^{\alpha x} &\qquad \text{se}\ \lambda=\alpha\ \text{è radice \textbf{semplice} di}\ P(\lambda)=0\\
+        Cx^2 e^{\alpha x} &\qquad \text{se}\ \lambda=\alpha\ \text{è radice \textbf{doppia} di}\ P(\lambda)=0\\
+    \end{cases}
+\end{equation}
+con $C \in \R$ da determinare in modo che $y_P$ risolva l'equazione completa.
+\paragraph{Caso 3} La forzante è il prodotto di un polinomio di grado $n$ e una funzione esponenziale
+\begin{equation}
+    f(x)=Q_n(x) e^{\alpha x}
+\end{equation}
+con $Q_n(x)$ come nel caso 1. Allora
+\begin{equation}
+    y_P(x)= \begin{cases}
+        R_n(x) e^{\alpha x} &\qquad \text{se}\ \lambda=\alpha\ \text{\textbf{non} è radice di}\ P(\lambda)=0\\
+        x R_n(x)e^{\alpha x} &\qquad \text{se}\ \lambda=\alpha\ \text{è radice \textbf{semplice} di}\ P(\lambda)=0\\
+        x^2 R_n(x) e^{\alpha x} &\qquad \text{se}\ \lambda=\alpha\ \text{è radice \textbf{doppia} di}\ P(\lambda)=0\\
+    \end{cases}
+\end{equation}
+con $R_n(x)$ come nel caso 1 da determinare.
+\paragraph{Caso 4} La forzante è il prodotto di una funzione esponenziale ed una combinazione di funzioni trigonometriche
+\begin{equation}
+    f(x)=e^{\alpha x} \{A \sin(\beta x)+ C \cos(\beta x)\}
+\end{equation}
+con $A,\ C,\ \alpha,\ \beta \in \R$. Allora
+\begin{equation}
+    y_P(x)= \begin{cases}
+        e^{\alpha x}\{k \cos(\beta x) + h \sin(\beta x)\} &\quad \text{se}\ \lambda=\alpha+i\beta\ \text{\textbf{non} è radice di}\ P(\lambda)=0\\
+        xe^{\alpha x}\{k \cos(\beta x) + h \sin(\beta x)\} &\quad \text{se}\ \lambda=\alpha+i\beta\ \text{è radice \textbf{semplice} di}\ P(\lambda)=0\\ 
+    \end{cases}
+\end{equation}
+\paragraph{Caso 5} La forzante è somma di funzioni come quelle appena mostrate. Vale il principio di sovrapposizione degli effetti, perciò si possono studiare singolarmente le varie forzanti, per poi sommare le diverse soluzioni particolari ottenute.
 \section{Studi qualitativi}
+Sia (P) un problema di Cauchy per una \ode del primo ordine
+\begin{equation}
+    (P): \begin{cases}
+        y'=f(x,y)\\
+        y(x_0)=y_0
+    \end{cases}
+\end{equation}
+con $f: A \subseteq \R^2 \to \R$, $(x_0, y_0) \in A$, $y:I_m \subseteq \R \to \R$.\\
+Talvolta può essere necessario studiare alcune proprietà della soluzione $y(x)$ e del suo grafico senza però risolverla esplicitamente.
+Per fare ciò si può seguire una precisa procedura.
+\begin{enumerate}
+    \item Verificare la validità dei teoremi di \textit{esistenza} e \textit{unicità} locale (\ref{Teo: Esistenza e unicità locale}) e globale (\ref{Teo: Esistenza e unicità globale}).\\
+    Qualora le ipotesi globali non fossero soddisfatte, occorre ridurre l'intervallo massimale $I_m$.
+    \item Trovare le regioni di \textit{monotonia}
+    \begin{equation}
+        y'\geq 0 \iff f(x,y) \geq 0
+    \end{equation}
+    \item Eventualmente trovare le regioni di \textit{convessità}
+    \begin{equation}
+        y'' \geq 0 \iff [f(x,y(x))]' = \frac{\partial f}{\partial x}(x,y(x))+ f(x,y(x)) \frac{\partial f}{\partial y}(x,y(x)) \geq 0
+    \end{equation}
+    \item Determinare esplicitamente $I_m$.
+    \item Cercare eventuali \textit{soluzioni costanti}.
+    \item Studiare eventuali \textit{asintoti}.
+    \item Studiare eventuali \textit{simmetrie}.
+\end{enumerate}
+A tale scopo valgono due risultati.
+\begin{theorem}[Confronto per equazioni differenziali ordinarie]
+    Siano $I,J \subseteq \R$ due intervalli, $f:I\times J \to \R$ continua, localmente Lipschitziana in $y$, uniformemente rispetto a $x$ e $x_0 \in I$. Esistano $U,V: I \to J$ derivabili tali che $\forall\ x \in I$
+    \begin{equation}
+        \begin{aligned}
+            U'(x) &\leq f(x, U(x))\\
+            V'(x) & \geq f(x, V(x)
+        \end{aligned}
+    \end{equation}
+    Allora,
+    \begin{equation}
+     U(x_0) \leq V(x_0) \Rightarrow U(x) \leq V(x) \qquad \forall\ x \geq x_0,\ x \in I \end{equation}
+    oppure
+    \begin{equation}
+    U(x_0) \geq V(x_0) \Rightarrow U(x) \geq V(x) \qquad \forall\ x \leq x_0,\ x \in I \end{equation}
+\end{theorem}
+\begin{theorem}[Criterio dell'asintoto]
+    Sia $U:[a, +\infty]\to \R$ derivabile. Se esistono
+    \begin{equation}
+        \ell:=\lim_{x \to \infty}{U(x)} \in \R
+    \end{equation}
+    e 
+    \begin{equation}
+        m:=\lim_{x \to \infty}{U'(x)} \in [-\infty, +\infty]
+    \end{equation}
+    allora necessariamente $m=0$.
+\end{theorem}
+\subsection{Equazioni autonome scalari}
+Rientrano in questa categoria le equazioni della forma
+\begin{equation}
+    y'=f(y)
+\end{equation}
+con $f \in C^1$.
+Si può notare che tali equazioni godono della proprietà di invarianza nel tempo. Infatti, se $y(x)$ risolve $y'=f(y)$, allora anche $z(x)=y(x+t)$, $t\in \R$ risolve $y'=f(x)$.
+\begin{equation}
+    z'(x)=y'(x+t) \overset{s=x+t}{=}y'(s)
+\end{equation}
+che risolve l'equazione, dunque anche $z(x)$ è una soluzione dell'equazione.\\
+A causa di questa proprietà, può essere utile rappresentare la soluzione in un diagramma di fase in cui si indicano con dei punti le soluzioni costanti (o \textbf{equilibri}) e con delle frecce gli intervalli di monotonia. Si tratta tuttavia di uno strumento qualitativo che non indaga in maniera esplicita convessità ed eventuali asintoti verticali o obliqui.
