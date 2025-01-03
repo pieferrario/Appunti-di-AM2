@@ -55,20 +55,17 @@ Analogamente, è possibile utilizzare le \textbf{equazioni parametriche della cu
     \centering
     \begin{minipage}{0.25\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Capitoli/Capitolo1/sostegno_circ1.png}
-        \caption{Sostegno di $\varphi(t)$ con $R=2$ e $t\in[0, \pi]$}
+        \includegraphics[width=\textwidth]{Capitoli/Capitolo1/A_Sostegni di curve 1.png}
     \end{minipage}
     \hspace{1cm}
     \begin{minipage}{0.25\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Capitoli/Capitolo1/sostegno_circ2.png}
-        \caption{Sostegno di $\varphi(t)$ con $R=2$ e $t\in[0, 2\pi]$}
+        \includegraphics[width=\textwidth]{Capitoli/Capitolo1/A_Sostegni di curve 2.png}
     \end{minipage}
     \hspace{1cm}
     \begin{minipage}{0.25\textwidth}
         \centering
-        \includegraphics[width=\textwidth]{Capitoli/Capitolo1/sostegno_circ3.png}
-        \caption{Sostegno di $\varphi(t)$ con $R=2$ e $t\in[0, 3\pi]$}
+        \includegraphics[width=\textwidth]{Capitoli/Capitolo1/A_Sostegni di curve 3.png}
     \end{minipage}
 \end{figure}
 \end{example}
@@ -311,15 +308,15 @@ Si desideri ora sviluppare un sistema di riferimento intrinseco ad una curva $\v
         \begin{equation}
             \psi'(s)=\varphi'(t(s)) \text{ } t'(s) \overset{\substack{\text{Derivata}\\\text{ inversa}}}{=} \frac{\varphi'(t(s))}{s'(t)} = \frac{\varphi'(t(s))}{|\varphi'(t(s))|}
         \end{equation}
-        Ciò mostra come il vettore tangente a $\psi$ sia in ogni punto un versore tangente $T(s)$
+        Ciò mostra come il vettore tangente a $\psi$ sia in ogni punto un versore tangente $T(s)$.
     \end{oss}
 
-\paragraph*{Prodotto scalare in $\mathbb{R}^n$}
+\paragraph{Prodotto scalare in $\mathbb{R}^n$}
 Siano $\underline{v}=(v_1, \dots, v_n)$ e $\underline{w}=(w_1, \dots, w_n)$ vettori di $\mathbb{R}^n$. Allora
 \begin{equation}
     \langle \underline{v}, \underline{w} \rangle = \sum\limits_{i=1}^{n}{v_iw_i} 
 \end{equation}
-\paragraph*{Prodotto vettoriale in $\mathbb{R}^3$}
+\paragraph{Prodotto vettoriale in $\mathbb{R}^3$}
 Siano $\underline{v}=(v_1, v_2, v_3)$ e $\underline{w}=(w_1, w_2, w_3)$ vettori di $\mathbb{R}^3$. Allora
 \begin{equation}
     \underline{v} \wedge \underline{w}=
@@ -475,7 +472,7 @@ Pertanto è possibile osservare che se una generica $\psi:[a,b]\to \mathbb{R}^3$
         &N(t)=\frac{T'(t)}{|T'(t)|} \label{Eq: Frenet Normale}\\
         &B(t)=\frac{\psi'(t)\wedge \psi''(t)} {|\psi'(t)\wedge \psi''(t)|} \label{Eq: Frenet Binormale}\\
         &k(t)=\frac{|\psi'(t)\wedge\psi''(t)|}{|\psi'(t)|^3} \label{Eq: Frenet Curvatura}\\
-        &\tau(t)=\frac{\langle\psi'(t)\wedge \psi''(t), \psi'''(t)\rangle}{|\psi'(t)\wedge \psi''(t)|^2} \label{Eq: Frenet Torsione}
+        &\tau(t)=-\frac{\langle\psi'(t)\wedge \psi''(t), \psi'''(t)\rangle}{|\psi'(t)\wedge \psi''(t)|^2} \label{Eq: Frenet Torsione}
     \end{align}    
 \end{theorem}
 \section{Integrale curvilineo di prima specie}

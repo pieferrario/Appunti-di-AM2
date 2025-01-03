@@ -16,7 +16,7 @@ In particolare, si può osservare che $\mathbb{R}^n$ è uno spazio vettoriale eu
 \end{definition}
 Tramite la definizione di norma si può ottenere la definizione di \textbf{distanza}, grazie alla quale $\mathbb{R}^n$ può essere definito anche come spazio metrico.
 \begin{definition} \label{Def: Distanza}
-    Sia $X$ un insieme e sia $d:X \times X \to \left[0, +\infty \right)$ una funzione che ad ogni coppia $(x,y)$ di punti di $X$ associa un numero reale $d(x,y)\geq0$. Allora si dice che $d$ è una \textbf{distanza} o \textbf{metrica}su $X$ se sono verificate le seguenti condizioni:
+    Sia $X$ un insieme e sia $d:X \times X \to \left[0, +\infty \right)$ una funzione che ad ogni coppia $(x,y)$ di punti di $X$ associa un numero reale $d(x,y)\geq0$. Allora si dice che $d$ è una \textbf{distanza} o \textbf{metrica} su $X$ se sono verificate le seguenti condizioni:
     \begin{align}
         &d(x,y)=0 \ \iff x=y \qquad\forall\ x,y \in X \\
         &d(x,y)=d(y,x) \qquad \forall\ x,y \in X \\
@@ -248,7 +248,7 @@ Si cominci prima da alcune definizioni di carattere generale.
     \end{equation} 
     se
     \begin{equation}
-        \forall \varepsilon>0 \ \exists\delta=\delta_\varepsilon>0\ \text{tale che, se}\ 
+        \forall \varepsilon>0 \ \exists\ \delta=\delta_\varepsilon>0\ \text{tale che, se}\ 
                 x \in B_\delta(x_0) \setminus \left\{x_0\right\}\ \cap\ \Omega
             \text{ allora}\ |f(x)-\ell|<\varepsilon
     \end{equation}
@@ -258,7 +258,7 @@ Si cominci prima da alcune definizioni di carattere generale.
     \end{equation}
     se 
     \begin{equation}
-        \forall M>0 \ \exists\delta=\delta_M>0\ \text{tale che, se}\ 
+        \forall M>0 \ \exists\ \delta=\delta_M>0\ \text{tale che, se}\ 
         x \in B_\delta(x_0) \setminus \left\{x_0\right\}\ \cap\ \Omega
             \text{ allora}\ \underset{f(x)<-M}{f(x)>M}
     \end{equation}
@@ -286,7 +286,7 @@ Si cominci prima da alcune definizioni di carattere generale.
     \end{equation}
     se
     \begin{equation}
-        \forall \varepsilon > 0 \ \exists k=k_\varepsilon>0 \ \text{tale che, se}\ |x|>k_\varepsilon,\ \text{allora}\ |f(x)-\ell|<\varepsilon
+        \forall\ \varepsilon > 0 \ \exists\ k=k_\varepsilon>0 \ \text{tale che, se}\ |x|>k_\varepsilon,\ \text{allora}\ |f(x)-\ell|<\varepsilon
     \end{equation}
     Analogamente,
     \begin{equation}
@@ -294,7 +294,7 @@ Si cominci prima da alcune definizioni di carattere generale.
     \end{equation}
     se 
     \begin{equation}
-        \forall M>0 \exists k=k_M>0 \ \text{tale che, se}\ |x|>k_M\ \text{allora}\ \underset{f(x)<-M}{f(x)>M}
+        \forall\ M>0\ \exists\ k=k_M>0 \ \text{tale che, se}\ |x|>k_M\ \text{allora}\ \underset{f(x)<-M}{f(x)>M}
     \end{equation}
 \end{definition}
 \subsection{Metodi per la risoluzione di limiti}
@@ -423,7 +423,7 @@ Si consegue così una condizione necessaria per l'esistenza del limite. È tutta
 \subsection{Continuità}
 Si sfruttino ora le nozioni apprese sui limiti per definire la continuità di una funzione.
 \begin{definition} \label{Def: Continuità}
-    Sia $f: E \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in \mathbb{R}^n$. Se $x_0$ è un punto isolato di E, la funzione si dice \textbf{continua} in $x_0$ per convenzione. Se $x_0$ è di accumulazione per E, f è \textbf{continua} in $x_0$ se è definita in tale punto e
+    Sia $f: E \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in \mathbb{R}^n$. Se $x_0$ è un punto isolato di $E$, la funzione si dice \textbf{continua} in $x_0$ per convenzione. Se $x_0$ è di accumulazione per $E$, $f$ è \textbf{continua} in $x_0$ se è definita in tale punto e
     \begin{equation} \label{Eq: Continuità}
         \lim_{x \to x_0} f(x)= f(x_0)
     \end{equation}
@@ -493,7 +493,7 @@ In tal caso, $f(x_0)$ è detto \textbf{valore minimo} di $f$ su $X$
 \begin{definition} \label{Def: Uniforme continuità}
     Sia $f:E \subseteq \mathbb{R}^n \to \mathbb{R}$. Allora $f$ si dice \textbf{uniformemente continua} se
     \begin{equation}
-        \forall \varepsilon >0 \ \exists \delta=\delta_\varepsilon\ \text{tale che}\ \forall x, y \in E\ \text{tali che}\ |x-y|<\delta\ \text{si ha che}\ |f(x)-f(y)| < \varepsilon
+        \forall\ \varepsilon >0 \ \exists\ \delta=\delta_\varepsilon\ \text{tale che}\ \forall\ x, y \in E\ \text{tali che}\ |x-y|<\delta\ \text{si ha che}\ |f(x)-f(y)| < \varepsilon
     \end{equation}
 \end{definition}
 \begin{theorem}[Heine Cantor] \label{Teo: Heine Cantor}
@@ -561,7 +561,7 @@ La definizione di derivata parziale è dunque un caso particolare della derivata
 \end{equation}
 Definite le direzioni privilegiate e le derivate parziali, si può ora formalizzare il concetto di derivabilità in un punto.
 \begin{definition} \label{Def: Derivabilità}
-    Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ con $A$ aperto e sia $x_0 \in A$. Si dice che $f$ è \textbf{derivabile in $x_0$} se esistono finite le $n$ derivate parziali
+    Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ con $A$ aperto e sia $x_0 \in A$. Si dice che $f$ è \textbf{derivabile} in $x_0$ se esistono finite le $n$ derivate parziali
     \begin{equation}
         \frac{\partial{f}}{\partial{x_i}}(x_0)
     \end{equation}
@@ -906,7 +906,7 @@ Quanto detto nella definizione \ref{Def:C0 e C1} può essere generalizzato come 
 \end{proposition}
     \begin{proof}
   Per dimostrare il primo fatto bisogna osservare che si è calcolata la derivata di una funzione composta secondo la formula \eqref{Eq: Derivata composta 2}.
-  Si dimostri ora la seconda equazione.\newpage
+  Si dimostri ora la seconda equazione.
         \begin{equation}
             \begin{aligned}
                 F''(t)&= \frac{d}{dt}\left(\sum\limits_{i=1}^{n}{\frac{\partial f}{\partial x_i}(x_0+th)h_i}\right)\overset{\substack{\text{Prop.}\\\text{der.}}}{=}\sum\limits_{i=1}^{n}{h_i\frac{d}{dt}\left(\frac{\partial f}{\partial x_i}(x_0+th)\right)}=\\
@@ -1044,20 +1044,20 @@ Sia $f:A \subseteq \mathbb{R}^n  \to \mathbb{R}$ e $x_0 \in \mathring{A}$. Se $x
         \centering
         \begin{minipage}{0.26\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{Capitoli/Capitolo2/Minimo.png}
-            \caption{Grafico di $f(x,y)=x^2+y^2$ che mostra un minimo in $(0,0)$.}
+            \includegraphics[width=\textwidth]{Capitoli/Capitolo2/B_Punti critici 1.png}
+            \caption{Grafico di $f(x,y)=x^2+y^2$ con un minimo in $(0,0)$.}
         \end{minipage}
         \hspace{1cm}
         \begin{minipage}{0.26\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{Capitoli/Capitolo2/Massimo.png}
-            \caption{Grafico di $f(x,y)=-x^2-y^2$ che mostra un massimo in $(0,0)$.}
+            \includegraphics[width=\textwidth]{Capitoli/Capitolo2/B_Punti critici 2.png}
+            \caption{Grafico di $f(x,y)=-x^2-y^2$ con un massimo in $(0,0)$.}
         \end{minipage}
         \hspace{1cm}
         \begin{minipage}{0.26\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{Capitoli/Capitolo2/Sella 3.png}
-            \caption{Grafico di $f(x,y)=\frac{x^2}{3}-\frac{y^2}{3}$ che mostra punto di sella in $(0,0)$.}
+            \includegraphics[width=\textwidth]{Capitoli/Capitolo2/B_Punti critici 3.png}
+            \caption{Grafico di $f(x,y)={x^2}-{y^2}$ con una sella in $(0,0)$.}
         \end{minipage}
     \end{figure}
 \end{example}
