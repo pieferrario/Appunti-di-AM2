@@ -100,7 +100,7 @@ D'altro canto, si elenchino ora tipi di insiemi che siano Peano-Jordan misurabil
     
     In $\mathbb{R}^3$ esempi di domini semplici possono essere:
     \begin{equation*}
-        \mathcal{D}=\left\{(x,y,z) \in \mathbb{R}^3 \mid (x,y) \in D \subseteq \mathbb{R}^2,\ \alpha(x, y) \leq \beta(x,y) \right\}
+        \mathcal{D}=\left\{(x,y,z) \in \mathbb{R}^3 \mid (x,y) \in D \subseteq \mathbb{R}^2,\ \alpha(x, y) \leq z \leq \beta(x,y) \right\}
     \end{equation*}
     con $D$ normale rispetto ad almeno un asse e detto \textit{z-semplice} o \textit{normale rispetto al piano xy} o, ancora \textit{rappresentabile per fili}. Oppure, 
     \begin{equation*}
@@ -270,13 +270,13 @@ Si osservi che l'integrale di funzioni separate $F(x)G(y)$ in un rettangolo $ \l
         \iint\limits_D{xy}\,dx\,dy= \int_{0}^{1}{\left(\int_{y}^{1}{xy\,dx}\right)}\,dy = \int_{0}^{1}{y\left( \frac{x^2}{2}\Big|_{y}^1 \right)}\,dy= \frac{1}{2}\int_{0}^{1}{\left(y-y^3\right)}\,dy= \frac{1}{8}
     \end{equation*}
 \end{example}
-\begin{example}[TO-DO]
-    Si consideri il seguente integrale doppio.
-    \begin{equation*}
-    \iint\limits_D e^\frac{x}{y}\, dx\,dy    
-    \end{equation*}
-    su $D=\left\{ (x,y) \mid \frac{1}{2} \leq x \leq 1, \sqrt[3]{x} \leq y \leq 1\right\}$
-\end{example}
+%\begin{example}[TO-DO]
+%    Si consideri il seguente integrale doppio.
+%    \begin{equation*}
+%    \iint\limits_D e^\frac{x}{y}\, dx\,dy    
+%    \end{equation*}
+%    su $D=\left\{ (x,y) \mid \frac{1}{2} \leq x \leq 1, \sqrt[3]{x} \leq y \leq 1\right\}$
+%\end{example}
 \subsubsection{Formula di cambiamento di variabili}
 Così come si faceva per gli integrali in una dimensione, anche per gli integrali in due dimensioni è possibile effettuare cambi di variabile. Prima di mostrare come sia possibile, occorre fare delle precisazioni a quanto detto in precedenza.
 \begin{definition} \label{Def: Dominio regolare}
@@ -353,17 +353,18 @@ Ciò detto, si è in possesso di tutti gli strumenti necessari per la formulazio
 Pertanto, l'integrale diventa:
 \begin{align*}
     &\iint\limits_{(\varrho, \vartheta) \in \Gamma=\left\{ 1 \leq \varrho \leq 2,\ \frac{\pi}{6} \leq \vartheta \frac{\pi}{3}\right\}}{\frac{\varrho^5 \cos^3 \vartheta \sin \vartheta}{\varrho^2}\,d\varrho\,d\vartheta}=\iint\limits_{\Gamma}{\varrho^3\left(\ \cos^3 \vartheta \sin \vartheta \right)\, d\varrho\,d\vartheta }=\\
-    &=\int_{1}^{2}{\varrho^3\, d\varrho} \int_{\frac{\pi}{6}}^{\frac{\pi}{3}}{\cos^3\vartheta \sin \vartheta \, d\vartheta} = \left(\frac{\varrho^4}{4}\Big|_{1}^{2}\right)\left(\frac{\cos^4(\vartheta}{4}\Big|_{\frac{\pi}{6}}^\frac{\pi}{3}\right)= \frac{15}{32}
+    &=\int_{1}^{2}{\varrho^3\, d\varrho} \int_{\frac{\pi}{6}}^{\frac{\pi}{3}}{\cos^3\vartheta \sin \vartheta \, d\vartheta} = \left(\frac{\varrho^4}{4}\Big|_{1}^{2}\right)\left(\frac{\cos^4(\vartheta)}{4}\Big|_{\frac{\pi}{6}}^\frac{\pi}{3}\right)= \frac{15}{32}
     \end{align*}
 \end{example}
 Si presti attenzione a quanto segue. Nel caso descritto sopra, l'angolo $\vartheta$ era definito su $\left[\tfrac{\pi}{6}, \tfrac{\pi}{3}\right]$ e dunque non presentava problemi.\\
 Tuttavia, per quanto affermato nelle ipotesi del teorema \ref{Teo: Formula cambiamento variabili}, è necessario che $\Phi$ sia biunivoca affinché il cambiamento sia ammesso. Dunque, non è altrettanto garantito il cambiamento di variabili se $\vartheta \in [0, 2\pi]$, poiché $\Phi(\varrho, 0)=\Phi(\varrho, 2\pi)$ ovvero $\Phi$ non è biunivoca.
 Tuttavia, per ovviare a tale problema, è possibile estendere il teorema menzionato prima nella forma che segue.
 \begin{theorem}
-    Sia $\Phi \in C^1(D')$ e siano $D'$ e $\Phi(D')=D$ unioni finite di domini normali. Esista poi una successione di domini regolari $D'_k \subseteq D'$ tale che $\Phi\big|_{D'_k}$ verifichi le ipotesi del teorema \ref{Teo: Formula cambiamento variabili}. Allora vale
+    Sia $\Phi \in C^1(D')$ e siano $D'$ e $\Phi(D')=D$ unioni finite di domini normali. Esista poi una successione di domini regolari $D'_k \subseteq D'$ tale che $\Phi\big|_{D'_k}$ verifichi le ipotesi del teorema \ref{Teo: Formula cambiamento variabili}. Se
     \begin{equation}
         m(D'_k) \to m(D') \qquad m(\Phi(D'_k)) \to m(\Phi(D'))
     \end{equation}
+    allora si può dire lo stesso per $D$.
 \end{theorem}
 \vspace*{6pt}
 \begin{oss}
@@ -383,7 +384,7 @@ Si passi ora a descrivere le formule di riduzione.
 \subsubsection{Formule di riduzione}
 Siano $\mathcal{D}$ e $\mathcal{E}$ così definiti.
 \begin{align}
-    &\mathcal{D}=\left\{(x,y,z) \in \mathbb{R}^3 \mid (x,y) \in D \subseteq \mathbb{R}^2,\ \alpha(x, y) \leq \beta(x,y) \right\}\\
+    &\mathcal{D}=\left\{(x,y,z) \in \mathbb{R}^3 \mid (x,y) \in D \subseteq \mathbb{R}^2,\ \alpha(x, y)\leq z \leq \beta(x,y) \right\}\\
     &\mathcal{E}= \left\{(x,y,z) \in \mathbb{R}^3 \mid c_1\leq z \leq c_2, (x,y) \in D(z)\right\}
 \end{align}
 dove con $D$ si intende un dominio semplice. Siano poi $F \in C^0(\mathcal{D})$ e $G \in C^0(\mathcal{E}$.
@@ -395,13 +396,13 @@ In alternativa, si dice che l'integrale è calcolato per \textit{strati parallel
 \begin{equation}
 \iiint\limits_{\mathcal{E}}{G(x,y,z)\, dx\,dy\,dz} = \int_{c_1}^{c_2}{\left(\ \iint\limits_{D(z)}{G(x,y,z) \, dx\,dy} \right)\, dz}
 \end{equation}
-\begin{example}[TO-DO]
-    Si calcoli il seguente integrale
-    \begin{equation*}
-    \iiint\limits_{\mathcal{D}}{x^3z}\,dx\,dy\,dz
-    \end{equation*}
-    su $\mathcal{D}= \left\{(x,y,z) \in \mathbb{R}^3 \mid z \geq 0,\ x^2+y^2+z^2\leq R^2\right\}$
-\end{example}
+%\begin{example}[TO-DO]
+%   Si calcoli il seguente integrale
+%   \begin{equation*}
+%\iiint\limits_{\mathcal{D}}{x^3z}\,dx\,dy\,dz
+%   \end{equation*}
+ %   su $\mathcal{D}= \left\{(x,y,z) \in \mathbb{R}^3 \mid z \geq 0,\ x^2+y^2+z^2\leq R^2\right\}$
+%\end{example}
 \begin{oss}    
 Si noti che integrare (in due o tre dimensioni) sulla costante $1$ equivale a calcolare la misura dell'insieme di integrazione ovvero, nel primo caso, calcolarne l'area, nel secondo, il volume.
 \end{oss}
@@ -475,7 +476,7 @@ e, se $f^+,\ f^-$ sono integrabili impropriamente, si definisce l'integrale impr
 Si mostri infine un'applicazione dell'integrale improprio.
 \begin{theorem}[Integrale della Gaussiana]
     \begin{equation}
-    \int_{-\infty}^{+\infty}{e^{x^2}}\, dx = \sqrt{\pi}
+    \int_{-\infty}^{+\infty}{e^{-x^2}}\, dx = \sqrt{\pi}
     \end{equation}
 \end{theorem}
 \begin{proof}
@@ -487,7 +488,7 @@ Si mostri infine un'applicazione dell'integrale improprio.
     \begin{equation} \label{Eq: Primo risultato teorema integrale gaussiana}
     \begin{aligned}
         I&=\lim_{R \to +\infty}{\iint_{B_R(0)}{e^{-(x^2+y^2)}}}\,dx\,dy \overset{\text{Polari}}{=} \lim_{R \to +\infty}{\iint\limits_{\substack{0 \leq \varrho \leq R^2\\ 0 \leq \vartheta \leq 2\pi}}{e^{-\varrho^2} \varrho}\,d\varrho\,d\vartheta}=\\
-        &= 2\pi \lim_{R \to +\infty}{\frac{1}{2}}{e^{-\varrho^2}\Big|_{0}^{R}}= \pi \lim_{R \to +\infty}{(1-e^{-R^2})}= \pi
+        &= 2\pi \lim_{R \to +\infty}{\frac{1}{2}}{\left( -e^{-\varrho^2}\right) \Big|_{0}^{R}}= \pi \lim_{R \to +\infty}{(1-e^{-R^2})}= \pi
     \end{aligned}
     \end{equation}
     Tuttavia, la partizione tramite palle di raggio $R$ non è l'unica possibile. Si suddivida $\mathbb{R}^2$ in quadrati della forma
@@ -503,6 +504,6 @@ Si mostri infine un'applicazione dell'integrale improprio.
     \end{equation}
     Ne consegue che
     \begin{equation}
-        \int_{-\infty}^{+\infty}{e^{x^2}}\, dx = \sqrt{\pi}
+        \int_{-\infty}^{+\infty}{e^{-x^2}}\, dx = \sqrt{\pi}
     \end{equation}
 \end{proof}

@@ -82,7 +82,7 @@ Il teorema del Dini, che verrà affrontato di seguito, fornisce le condizioni so
            F(\overline{x}, \overline{y})=0
        \end{equation}
        Allora, definito $\overline{y}=g(\overline{x})$ si ha, per costruzione, la dimostrazione di \eqref{Eq: Tesi Dini} e di $g(x_0)=y_0$.\\
-       Rimane da mostrare la continuità di $g$. Si dicano allora $U=(x_0-\delta, x_0+\delta)$ e $V=(y_0-\sigma, y_0+\sigma)$ e si mostri che
+       Rimane da mostrare la continuità di $g$.
        \begin{equation}
            \forall\ \varepsilon > 0\ \exists\ \xi > 0\ \text{tale che, se}\ |x-\overline{x}|< \xi\ \text{allora}\ |g(x)-g(\overline{x})| < \varepsilon
        \end{equation}
@@ -94,7 +94,7 @@ Il teorema del Dini, che verrà affrontato di seguito, fornisce le condizioni so
        \begin{equation}
            F(x, g(\overline{x})-\varepsilon)<0<F(x, g(\overline{x})+\varepsilon)
        \end{equation}
-       Poiché infine $F(x, g(x))=0\ \forall\ x \in (x-\xi, x+\xi)$ e $F$ è crescente in tutti i punti considerati,
+       Poiché infine $F(x, g(x))=0\ \forall\ x \in (\overline{x}-\xi, \overline{x}+\xi)$ e $F$ è crescente in tutti i punti considerati,
        \begin{equation}
            g(\overline{x})- \varepsilon < g(x) < g(\overline{x})+\varepsilon
        \end{equation}
@@ -106,14 +106,14 @@ Il teorema del Dini, che verrà affrontato di seguito, fornisce le condizioni so
 \begin{theorem}[Derivata delle funzioni implicite]
 Siano le ipotesi del Dini con in aggiunta $F \in C^1(A)$, allora anche $g \in C^1(U)$ e la derivata $g'$ vale
 \begin{equation}
-    g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \qquad \forall\ x \in U
+    g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \qquad \forall\ x \in U=[x_0-\delta, x_0+\delta]
 \end{equation}
 \end{theorem}
 \begin{proof}
 Sia $(\xi, \eta) \in \left[(x, g(x)), (x+h, g(x+h)) \right]$.
 Si scriva il teorema di Lagrange per $F$.
 \begin{equation}
-    F(x+h, g(x+h))-F(x, g(x)) =\langle \nabla F (\xi, \eta), (h, (g(x+h)-g(x))) \rangle
+    F(x+h, g(x+h))-F(x, g(x)) =\langle \nabla F (\xi, \eta), (h, [g(x+h)-g(x)]) \rangle
 \end{equation}
 Svolgendo il prodotto scalare e sfruttando le ipotesi del Dini si ha che
 \begin{equation}
@@ -187,7 +187,7 @@ e quindi, esplicitando $g''$
     \end{enumerate}
 \end{example}
 \begin{theorem}[Ortogonalità del gradiente alle curve di livello] \label{Teo: Ortogonalità del gradiente alle curve di livello}
-    Sia $F: A \subseteq \mathbb{R}^2 \to \mathbb{R}$ tale che $F \in C^1(A)$ e $Z(F)= \left\{(x,y) \in A \mid F(x,y)=0\right\}$. Supponendo $(x_0,y_0) \in Z(F)$ e $\nabla F \neq (0,0)$ in $Z(F)$, si ottiene che $\nabla F(x_0,y_0) \perp Z(F)$ in $(x_0, y_0)$. Preso $\mathcal{L}_a$ insieme di livello $a$ e considerata $G(x,y)=F(x,y)-a$, il teorema vale sugli insiemi di livello in generale.
+    Sia $F: A \subseteq \mathbb{R}^2 \to \mathbb{R}$ tale che $F \in C^1(A)$. Supponendo $(x_0,y_0) \in Z(F)$ e $\nabla F \neq (0,0)$ in $Z(F)$, si ottiene che $\nabla F(x_0,y_0) \perp Z(F)$ in $(x_0, y_0)$.\\Preso $\mathcal{L}_a$ insieme di livello $a$ e considerata $G(x,y)=F(x,y)-a$, il teorema vale sugli insiemi di livello in generale.
 \end{theorem}
 \begin{proof}
     Per il teorema del Dini, $Z(F)$ in un intorno di $(x_0, y_0)$ è il grafico di una funzione implicita $g: (x_0- \delta, x_0+ \delta) \to \mathbb{R}$. In particolare esso è il sostegno della curva parametrica $\gamma = (x, g(x))$. Il versore tangente di $\gamma$ è dunque definito da
@@ -237,7 +237,7 @@ Tale nozione può essere potenziata definendo poi i diffeomorfismi locali.
     \end{equation}
 \end{theorem}
 \section{Ottimizzazione vincolata}
-Dopo aver descritto le funzioni implicite, può essere utile capire come queste possano essere massimizzate o minimizzate lungo un determinato vincolo. Si proceda allora ad introdurre e definire diversi concetti.
+Dopo aver descritto le funzioni implicite, può essere utile capire come queste possano essere massimizzate o minimizzate lungo un determinato vincolo.
 \begin{definition} \label{Def: Vincolo di uguaglianza}
 Sia F una funzione di classe $C^1$. Si dice \textbf{vincolo di uguaglianza} un insieme $V \subseteq \mathbb{R}^n$ della forma
 \begin{equation}
@@ -272,9 +272,9 @@ Inoltre, poiché $h'(t_0)= \langle \nabla f(x(t), y(t)), (x'(t), y'(t)) \rangle 
 \begin{theorem}[Moltiplicatore di Lagrange] \label{Teo: Moltiplicatore di Lagrange}
 Siano $A \subseteq \mathbb{R}^2$ aperto, $f: A \to \mathbb{R}$ e $F: A \to \mathbb{R}$ tali che entrambe siano di classe $C^1$. Siano poi $Z(F)= \left\{ (x,y) \in A \mid F(x,y)=0\right\}$ e $(x_0,y_0)$ un punto regolare di $Z(F)$. Allora se $(x_0, y_0)$ è un estremo relativo vincolato per $f$ su $Z(F)$, si ha che
 \begin{enumerate}
-    \item  $\exists\ \lambda_0 \in \mathbb{R}$, detta \textbf{moltiplicatore di Lagrange}, tale che $\nabla f(x_0, y_0)= \lambda_0 \nabla F(x_0, y_0)$;
-    \item $(x_0, y_0)$ è un punto critico vincolato per $f$ su $Z(F)$
-    \item $(x_0, y_0)$ è un punto critico libero della Lagrangiana $\mathcal{L}(x, y, \lambda)=f(x,y)- \lambda F(x, y)$
+    \item  $\exists\ \lambda_0 \in \mathbb{R}$, detta \textbf{moltiplicatore di Lagrange}, tale che $\nabla f(x_0, y_0)= \lambda_0 \nabla F(x_0, y_0)$.
+    \item $(x_0, y_0)$ è un punto critico vincolato per $f$ su $Z(F)$.
+    \item $(x_0, y_0)$ è un punto critico libero della Lagrangiana $\mathcal{L}(x, y, \lambda)=f(x,y)- \lambda F(x, y)$.
 \end{enumerate}
 \end{theorem}
 \begin{proof}
@@ -299,7 +299,7 @@ Siano $A \subseteq \mathbb{R}^2$ aperto, $f: A \to \mathbb{R}$ e $F: A \to \math
     \begin{equation}
         \mathcal{F}(x)=f(x, h(x)) \quad x \in U(x_0)
     \end{equation}
-    Poiché $x_0$ è interno a $U$ e, per ipotesi, $x_0$ è punto critico per $\mathcal{F}$ e $\mathcal{F}$ è derivabile in $x_0$, dal teorema di Fermat, si ha $\mathcal{F}'(x_0)=0$, cioè:
+    Poiché $x_0$ è interno a $U$ e, per ipotesi, $x_0$ è punto critico per $f$, $\mathcal{F}$ è derivabile in $x_0$. Quest'ultimo è per costruzione critico per $\mathcal{F}$ e, dal teorema di Fermat, si ha $\mathcal{F}'(x_0)=0$, cioè:
     \begin{equation}  \label{Eq: Fermat per teorema moltiplicatore}    0=\mathcal{F}'(x_0)=\frac{\partial{f}}{\partial{x}}(x_0, h(x_0))+ \frac{\partial{f}}{\partial{y}}(x_0, h(x_0))h'(x_0)
     \end{equation}
     Quindi sostituendo la \eqref{Eq: Derivata implicita per teorema moltiplicatore} nella \eqref{Eq: Fermat per teorema moltiplicatore} si ha che

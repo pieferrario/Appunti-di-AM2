@@ -1122,7 +1122,7 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
     La dimostrazione del caso in cui $x_0$ è minimo relativo per $f$ è del tutto analoga.
 \end{proof}
 \begin{lemma} \label{Lemma: FQ di matrice simmetrica è compresa tra i suoi autovalori max e min}
-        Se, presa $A \in \mathbb{M}_{n,n}$ simmetrica e detti $\lambda_1 \leq \lambda_2 \leq \lambda_n$ i suoi autovalori, si ha $\langle Ax, x \rangle$, allora $\lambda_1 |x|^2 \leq \langle Ax, x \rangle \leq \lambda_n |x|^2$
+        Se, presa $A \in \mathbb{M}_{n,n}$ simmetrica e detti $\lambda_1 \leq \lambda_2 \leq \dots \leq \lambda_n$ i suoi autovalori, si ha $\langle Ax, x \rangle$, allora $\lambda_1 |x|^2 \leq \langle Ax, x \rangle \leq \lambda_n |x|^2$
 \end{lemma}
 \begin{theorem}[Condizione sufficiente del II ordine] \label{Teo: Condizione sufficiente del secondo ordine}
     Sia $f:A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $f \in C^2(A)$. Sia poi $x_0$ un punto critico per $f$. Allora, 
@@ -1140,7 +1140,7 @@ Sia $f: A \subseteq \mathbb{R}^n \to \mathbb{R}$ e sia $x_0 \in A$ critico per $
         Si scriva quindi lo sviluppo di Taylor con resto di Peano al secondo ordine in $f(x_0)$.
         \begin{equation}
         \begin{aligned}
-            f(x_0+h)-f(x_0)&= \langle \nabla f(x_0), h \rangle + \frac{1}{2}\langle H_f(x_0h, h\rangle + o(|h|^2)=\\
+            f(x_0+h)-f(x_0)&= \langle \nabla f(x_0), h \rangle + \frac{1}{2}\langle H_f(x_0)h   , h\rangle + o(|h|^2)=\\
             &\overset{f'(x_0)=0}{=} \frac{1}{2}\langle H_f(x_0)h, h\rangle + o(|h|^2) \geq \\
             &\overset{\text{Lemma}\ \ref{Lemma: FQ di matrice simmetrica è compresa tra i suoi autovalori max e min}}{\geq} \frac{1}{2} \lambda_{min}|h|^2+o(|h|^2)
         \end{aligned}
