@@ -11,7 +11,7 @@ Il capitolo tratterà lo studio di successioni e serie di funzioni. I due argome
     Per questioni di praticità, laddove sia utilizzata una successione di funzioni, questa verrà indicata con $\fn$ anziché con $\{\fn\}_n\in \N$.
 \end{oss}
 Definito il concetto di successione di funzioni, si può iniziare a studiare la convergenza nelle sue diverse forme.\\
-Si può innanzitutto notare che, fissato $\overline{x}\in I$, 
+Innanzitutto, si noti che, fissato $\overline{x}\in I$, 
 allora $\{\fn(\overline{x})\}_{n \in \N}$ è una successione numerica.
 \begin{definition} \label{Def: Convergenza puntuale succ}
     Sia $\fn$ una successione di funzioni $I\to \R$. Allora si dice che $\fn$ \textbf{converge puntualmente} alla funzione $f: I \to \R$ se per ogni $\overline{x} \in I$ si ha che
@@ -33,7 +33,7 @@ allora $\{\fn(\overline{x})\}_{n \in \N}$ è una successione numerica.
         f(x) := \lim_{n \to +\infty} \fn(x)
     \end{equation}
 \end{definition}
-Occorre osservare che nel caso della convergenza puntuale, $N$ dipende e da $\varepsilon$ e da $x$, pertanto può essere utile dare una definizione più forte di convergenza che non dipenda da $x$.
+Nel caso della convergenza puntuale, $N$ dipende e da $\varepsilon$ e da $x$, pertanto può essere utile dare una definizione più forte di convergenza che non dipenda da $x$.
 \begin{definition} \label{Def: Convergenza uniforme succ}
     Si dice che $\fn$ \textbf{converge uniformemente} su $I$ a $f: I \to \R$ se
     \begin{equation}
@@ -51,13 +51,13 @@ Occorre osservare che nel caso della convergenza puntuale, $N$ dipende e da $\va
 \begin{figure}[H]
     Graficamente, la convergenza uniforme fa sì che si verifichi una situazione di questo tipo.
     \centering
-        \includegraphics[width=0.4\textwidth]{Capitoli/Capitolo7/Convergenza uniforme.png}
+        \includegraphics[width=0.39\textwidth]{Capitoli/Capitolo7/Convergenza uniforme.png}
 \end{figure}
 \begin{oss}
    Si può notare che la convergenza uniforme implica la convergenza puntuale, ma non è necessariamente vero il contrario.
     \end{oss}
 \begin{oss}
- Dal punto di vista operativo, per stabilire l'uniforme convergenza di una successione di funzioni, si può agire in due modi:
+ Per stabilire l'uniforme convergenza di una successione di funzioni, si può agire in due modi:
     \begin{itemize}
        \item Calcolare $\sup\limits_{x \in I} |\fn(x)-f(x)|$ ricercando massimi e minimi con gli strumenti del calcolo in una variabile.
        \item Maggiorare opportunamente $\sup\limits_{x \in I} |\fn(x)-f(x)|$.
@@ -68,9 +68,6 @@ Si studi ora la convergenza della seguente successione di funzioni, il cui grafi
 \begin{equation*}
     \fn= x^n, \qquad x \in [0,1]
 \end{equation*}
-\begin{figure}[H]
-    \centering
-\begin{minipage}{0.6\textwidth}
 Per quanto riguarda la convergenza puntuale si osserva che, fissato $x \in [0,1]$,
 \begin{equation*}
     \lim_{n \to +\infty}{\fn(x)}= \lim_{n \to + \infty}= f(x) = \begin{cases}
@@ -78,11 +75,6 @@ Per quanto riguarda la convergenza puntuale si osserva che, fissato $x \in [0,1]
         1 &\quad x=1
     \end{cases}
 \end{equation*}
-\end{minipage}
-    \begin{minipage}{0.38\textwidth}
-        \includegraphics[width=\textwidth]{Capitoli/Capitolo7/Convergenza puntuale.png}
-    \end{minipage}
-    \end{figure}
 Volendo poi studiare la convergenza uniforme, si ha che
 \begin{equation*}
     \sup_{x \in [0,1]}{\left|\fn(x)-f(x)\right|} = \sup_{x \in [0,1]} \left\{ \sup_{x \in [0,1)} \left|\fn(x)-f(x)\right|, \left|\fn(x)-f(x)\right|\right\} = \sup_{x \in [0,1)}{\left|x^n-0\right|} = 1 \neq 0
@@ -91,7 +83,12 @@ Dunque in $[0,1]$ $\fn$ non converge in modo uniforme. D'altra parte è anche ve
 \begin{equation*}
     \sup_{x \in [0,a]}{|\fn(x)-f(x)|}= x^n \big|_{[0,a]} = a^n \overset{n \to +\infty}{\to} 0
 \end{equation*}
-cioè $\fn$ uniformemente convergente a $0$ su ogni compatto $[0,a],\ a<1$.
+cioè $\fn$ uniformemente convergente a $0$ su ogni compatto $[0,a],\ a<1$.\\
+È possibile avere un riscontro grafico di tali affermazioni dalla figura di seguito.
+\begin{figure}[H]
+    \centering
+\includegraphics[width=0.55\textwidth]{Capitoli/Capitolo7/Convergenza puntuale.png}
+    \end{figure}
 \end{example}
 \begin{theorem}[Scambio di limiti] \label{Teo: Scambio di limiti}
 Sia $\fn: I \to \R$ tale che $\{\fn\}_n$ converge uniformemente in $I$ a $f: I \to \R$. Sia $x_0$ un punto di accumulazione per $I$ e si supponga che per ogni $n \in \N$ esista
@@ -117,15 +114,15 @@ Allora esistono i seguenti limiti e si ha
     Rimane da provare che $f(x) \overset{x \to x_0}{\to} \ell$, cioè che $|f(x)-\ell| \to 0$. Dunque,
     \begin{equation}
     \begin{aligned}
-        \left|f(x)-\ell\right| &= \left| f(x) - f_\nu(x)+ f_nu(x)- \ell_nu+ \ell_nu- \ell\right| =\\
-        &=\overset{\text{Triang.}}{\leq} \left| f(x) - f_\nu(x) \right| +\left| f_\nu(x)- \ell_\nu(x)\right|+\left|\ell_\nu-\ell\right|
+        \left|f(x)-\ell\right| &= \left| f(x) - f_\nu(x)+ f_\nu(x)- \ell_\nu+ \ell_\nu- \ell\right| \leq\\
+        &\overset{\text{Triang.}}{\leq} \left| f(x) - f_\nu(x) \right| +\left| f_\nu(x)- \ell_\nu(x)\right|+\left|\ell_\nu-\ell\right|
     \end{aligned}
     \end{equation}
     Si può notare che il primo termine è minore di $\varepsilon$ per ogni $\nu > N_\varepsilon$ per convergenza uniforme e che il terzo, essendo una successione numerica, è minore di $\varepsilon$ per un $\nu$ sufficientemente grande, poiché $\ell_n \to \ell$. Il secondo, fissato $\nu$ come sopra, soddisfa per ipotesi
     \begin{equation}
         \lim_{x \to x_0}{f_\nu(x)} = \ell_\nu
     \end{equation}
-    Dunque, esiste un intorno $\U(x_0)$ tale che per ogni $ \in \U(x_0)$, $\left| f_\nu(x)- \ell_nu \right| < \varepsilon$.\\
+    Dunque, esiste un intorno $\U(x_0)$ tale che per ogni $x \in \U(x_0)$, $\left| f_\nu(x)- \ell_\nu \right| < \varepsilon$.\\
     In conclusione, per $\nu$ fissato come sopra e $x \in \U(x_0)$ si ha che
     \begin{equation}
         \left|f(x)-\ell\right| < 3 \varepsilon
@@ -155,7 +152,7 @@ Da tale teorema discende come conseguenza immediata il seguente corollario
     \end{aligned}
     \end{equation}
 \end{proof}
-Si mostrino ora due importanti risultati rispetto alla derivazione e all'integrazione di successioni di funzioni.
+Vista tale proprietà dei limiti, può essere ragionevole porsi lo stesso dubbio per le derivate e gli integrali. A tal proposito, si mostrino ora due importanti risultati rispetto alla derivazione e all'integrazione di successioni di funzioni.
 \begin{theorem}[Teorema di passaggio al limite sotto al segno di derivata] \label{Teo: Passaggio al limite sotto al segno di derivata}
     Sia $\{\fn\}_{n\in\N}$ una successione di funzioni $C^1[a,b]$. Sia la successione di numeri reali $\{\fn(x_0)\}_n$ convergente e sia $\{\fn'\}_n$ uniformemente convergente. Allora $\{\fn\}_n$ converge uniformemente in $[a,b]$ ad una funzione $f \in C^1([a,b])$ e 
     \begin{equation}
@@ -193,14 +190,13 @@ Sia $\{\fn\}_{n_\in \N}$ una successione di funzioni continue in $[a,b]$ uniform
     poiché non uniformemente convergente.
 \end{example}
 \section{Serie di funzioni}
-Come già accennato all'inizio del capitolo, quando si parla di serie, ci si può in realtà rifare alle successioni. Perciò in questa sezione verranno rielaborate le informazioni del capitolo precedente adattandole alle serie di funzioni.
+Quando si parla di serie, ci si può rifare alle successioni. Perciò in questa sezione verranno rielaborate le informazioni del capitolo precedente adattandole alle serie di funzioni.
 \begin{definition}
     Sia $\{\fn\}_{n \in \N}$ una successione di funzioni, $\fn: I \subseteq \R \to \R$. Si dice \textbf{serie di funzioni} di termine generale $\fn$ la successione di funzioni delle somme parziali di $\{\fn\}_{n \in \N}$ data da
     \begin{equation}
         \sn(x)=\sum\limits_{n=1}^{N}{\fn(x)}
     \end{equation}
 \end{definition}
-Si passi alla convergenza.
 \begin{definition}
     Sia $\sum\limits_{n=1}^{\infty}{\fn(x)}$ una serie di funzioni. Allora si dice che la serie \textbf{converge puntualmente} in I se la successione $\{\sn\}_{n \in \N}$ converge puntualmente in I. In maniera equivalente, la serie converge se, detta
     \begin{equation}
@@ -233,12 +229,14 @@ Sia $\sum\limits_{n=1}^{\infty}{\fn(x)}$ una serie di funzioni. Allora si dice c
         \sum_{n}{|\fn(x)|}
     \end{equation}
     converge per ogni $x \in I$
-\end{definition}
-Si possono osservare le seguenti relazioni tra le varie nozioni di convergenza:
+\end{definition} 
+\begin{oss}
+Valgono le seguenti relazioni tra le varie nozioni di convergenza per le serie:
 \begin{itemize}
     \item Convergenza assoluta $\Rightarrow$ Convergenza puntuale.
     \item  Nessuna correlazione tra convergenza assoluta e convergenza uniforme.
 \end{itemize}
+\end{oss}
 \begin{example}
     La convergenza puntuale non implica la convergenza assoluta. Infatti, sia
     \begin{equation*}
@@ -253,7 +251,9 @@ Si possono osservare le seguenti relazioni tra le varie nozioni di convergenza:
         \item $\sum\limits_{n}{k_n}$ converge
     \end{enumerate}
 \end{definition}
-In particolare si può osservare che la convergenza totale implica la convergenza assoluta (e quindi anche quella puntuale). Segue la dimostrazione di tale fatto.
+\begin{proposition}
+    Una serie totalmente convergente è assolutamente convergente.
+\end{proposition}
 \begin{proof}
     Se $\sum\limits_{n}\fn$ converge totalmente, allora per definizione esiste una successione $k_n$ tale che $|\fn|<k_n$ e tale che la propria serie converga. Ma allora si ha che
     \begin{equation}
@@ -283,7 +283,15 @@ Una serie di funzioni $\sum\limits_{n=1}^{\infty}{\fn(x)}$ totalmente convergent
 \begin{oss}
     Il teorema offre una condizione sufficiente per la convergenza uniforme.
 \end{oss}
-Occorre ricordare che il teorema \ref{Teo: Scambio di limiti} sullo scambio dei limiti continua a valere anche quando si parla di serie dal momento che, come già accennato, ogni serie può essere interpretata come successione delle ridotte n-esime.
+\begin{oss}
+Per quanto visto, una serie $\sum\limits_{n}{\fn(x)}$ converge totalmente se e solo se $\sum\limits_{n}{\sup\limits_{x \in I}{|\fn(x)|}} < +\infty$. Infatti, se in tale contesto esiste una $k_n \geq |\fn(x)|$ per ogni $n$ la cui serie converge, allora è soddisfatta la definizione di convergenza totale.\\
+Anche qui si può operare in due modi:
+\begin{itemize}
+    \item Calcolare $\sup\limits_{x \in I}{|\fn(x)|}$.
+    \item Maggiorare opportunamente $\sup\limits_{x \in I}{|\fn|}$.
+\end{itemize}
+\end{oss}
+Con le dovute modifiche all'enunciato, valgono per le serie i teoremi \ref{Teo: Scambio di limiti}, \ref{Cor: Corollario a scambio limiti}, \ref{Teo: Passaggio al limite sotto al segno di derivata} e \ref{Teo: Passaggio al limite sotto al segno di integrale} mostrati nella sezione precedente.
 \begin{theorem}[Teorema di scambio dei limiti per le serie di funzioni]
     Sia $\fn: E \subseteq \R \to \R$ e sia $x_0$ di accumulazione per $E$. Se esiste finito
     \begin{equation}
@@ -294,11 +302,9 @@ Occorre ricordare che il teorema \ref{Teo: Scambio di limiti} sullo scambio dei 
         \lim_{x \to x_0}{S(x)= \sum\limits_{n=0}^{\infty}{\lim_{x \to x_0}{\fn(x)}}}
     \end{equation}
 \end{theorem}
-Seguendo lo stesso ragionamento, continua a valere in questo ambito il teorema sulla continuità della funzione somma.
 \begin{theorem}
     Siano $I \subseteq \R,\ \fn \in C^0(I)$ e sia $\sum\limits_{n=0}^{\infty}{\fn(x)}$ uniformemente convergente in $I$ a $s$. Allora la funzione somma $s(x)$ è continua in $I$.
 \end{theorem}
-Idem dicasi per i teoremi di derivazione e integrazione di serie di funzioni, che rappresentano un'estensione di quelli di derivazione e integrazione per le successioni di funzioni.
 \begin{theorem}
     Sia $\fn \in C^1([a,b])$ e si supponga $\sum\limits_{n=0}^{\infty}{\fn(x)}$ puntualmente convergente in $[a,b]$ a $s(x)$ e $\sum\limits_{n=0}^{\infty}{\fn'(x)}$ uniformemente convergente in $[a,b]$. Allora
     \begin{equation}
@@ -359,27 +365,27 @@ Il teorema dà un'ulteriore informazione: se $R= +\infty$, allora la serie di po
 \begin{theorem}[Criterio di Cauchy-Hadamard] \label{Teo: Criterio di Cauchy-Hadamard}
 Sia $\sum\limits_{n=0}^{\infty}{a_n x^n}$ una serie di potenze. Se esiste il limite
 \begin{equation}
-    \ell=\lim_{n \to \infty}{\sqrt[n]{|a_n|}}
+    \ell=\lim_{n \to +\infty}{\sqrt[n]{|a_n|}}
 \end{equation}
     allora il raggio di convergenza vale
     \begin{equation}
         R = \begin{cases}
             +\infty &\qquad \ell=0\\
             \frac{1}{\ell} &\qquad \ell \neq 0\\
-            0 &\qquad \ell = \infty
+            0 &\qquad \ell = +\infty
         \end{cases}
     \end{equation}
 \end{theorem}
 \begin{proof}
     Per ogni $x \neq 0$ risulta
     \begin{equation}
-        \lim_{n \to \infty}{\sqrt[n]{|a_n x^n|}} = \ell|x| := L
+        \lim_{n \to +\infty}{\sqrt[n]{|a_n x^n|}} = \ell|x| := L
     \end{equation}
-    Allora, dallo studio di $l$ si ha che
+    Allora, dallo studio di $\ell$ si ha che
     \begin{enumerate}
         \item $\ell=0 \Rightarrow L=0$, perciò, per criterio della radice delle serie numeriche, la serie converge assolutamente per ogni $x \neq 0$. Inoltre, poiché la serie converge anche con $x=0$, $R=+\infty$.
-        \item $\ell= \infty \Rightarrow L = \infty$, quindi, per ogni $x \neq 0$ la serie non converge assolutamente, cioè $R=0$.
-        \item $0< \ell<\infty$, per il criterio della radice delle serie numeriche, quando $L<1 \iff |x|< \tfrac{1}{\ell}$ la serie converge assolutamente. Invece, quando $L>1 \iff |x|>\tfrac{1}{\ell}$ la serie non converge assolutamente, quindi, $R= \tfrac{1}{\ell}$.
+        \item $\ell= +\infty \Rightarrow L =+ \infty$, quindi, per ogni $x \neq 0$ la serie non converge assolutamente, cioè $R=0$.
+        \item $0< \ell<+\infty$, per il criterio della radice delle serie numeriche, quando $L<1 \iff |x|< \tfrac{1}{\ell}$ la serie converge assolutamente. Invece, quando $L>1 \iff |x|>\tfrac{1}{\ell}$ la serie non converge assolutamente, quindi, $R= \tfrac{1}{\ell}$.
     \end{enumerate}
 \end{proof}
 Oltre al criterio della radice, vale anche il criterio del rapporto, di cui viene dato solo l'enunciato, dal momento che la sua dimostrazione è analoga a quella precedente con l'eccezione di applicare il criterio del rapporto per le serie numeriche anziché quello della radice.
@@ -485,7 +491,7 @@ cioè $a_n$ è il coefficiente di Taylor.
          0 &\qquad x=0
      \end{cases}
  \end{equation}
- cioè, $f \in C^\infty(\R)$. Tuttavia, $f^{(m)}(0)=0$. Pertanto la serie di Taylor dovrebbe essere la funzione nulla, ma $f \not\equiv 0\ \forall\ \dot{\U}(0)$, quindi non è analitica.
+ cioè, $f \in C^\infty(\R)$. Tuttavia, $f^{(m)}(0)=0$. Pertanto la serie di Taylor dovrebbe essere la funzione nulla, ma $f \not\equiv 0\ \forall\ x \in \dot{\U}(0)$, quindi non è analitica.
 \end{proof}
 Allora, per terminare, si dia ora un criterio per stabilire se una funzione sia sviluppabile come serie di potenze.
 \begin{theorem}[Criterio di sviluppabilità] \label{Teo: Criterio di sviluppabilità}
@@ -539,7 +545,7 @@ allora tale successione è detta \textbf{di Cauchy}.
     Uno spazio metrico non completo è invece $\mathbb{Q}^n$.
 \end{example}
 \begin{oss}
-    Uno spazio vettoriale normato ( $\Rightarrow$ metrico con $d(x, y)= |x-y|$) completo è detto spazio di \textbf{Banach}.\\
+    Uno spazio vettoriale normato ($\Rightarrow$ metrico con $d(x, y)= |x-y|$) completo è detto spazio di \textbf{Banach}.\\
     Se in aggiunta la norma di tale spazio discende da un prodotto scalare, esso è detto spazio di \textbf{Hilbert}.
 \end{oss}
 \begin{theorem}
@@ -554,7 +560,7 @@ allora tale successione è detta \textbf{di Cauchy}.
     \begin{equation}
      \sup\limits_{x \in [a,b]}{|\fn(x)-f_m(x)|}< \varepsilon
     \end{equation}
-    Ma allora $\fn$ soddisfa il criterio di Cauchy uniforme ed esiste una funzione limite $f$ cui $\fn$ converge uniformemente in $[a,b]$ per $n \to \infty$. Inoltre, $f \in C^0([a,b])$ poiché è il limite uniforme delle $\fn$, le quali sono continue per ipotesi. Perciò, sfruttando il corollario \ref{Cor: Corollario a scambio limiti} si ha la tesi.
+    Ma allora $\fn$ soddisfa il criterio di Cauchy uniforme ed esiste una funzione limite $f$ cui $\fn$ converge uniformemente in $[a,b]$ per $n \to \infty$. Poiché poi $\fn$ sono continue per ipotesi e convergono uniformemente ad $f$, sono soddisfatte le ipotesi del corollario \ref{Cor: Corollario a scambio limiti}, quindi $f \in C^0([a,b], d_\infty)$.
 \end{proof}
 \begin{oss}
     Si può notare che la definizione di completezza dipende dalla distanza. A tal proposito si consideri lo spazio metrico $(C^0([-1,1], d_p)$ con 

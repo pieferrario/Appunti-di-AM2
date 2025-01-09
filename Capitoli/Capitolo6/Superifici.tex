@@ -1,8 +1,8 @@
 \chapter{Superfici}
 \section{Introduzione alle superfici}
-D'ora in avanti nel corso del capitolo sia $D \subseteq \R^2$ un dominio connesso tale che il suo interno $\mathring{D}=A$ con $A$ aperto.
+Sia d'ora in poi $D \subseteq \R^2$ un dominio connesso tale che $\mathring{D}=A$, $A$ aperto.
 \begin{definition} \label{Def: Superficie parametrica}
-    Una \textbf{superficie parametrica} in $\R^3$ è un'applicazione continua $r: D \to \R^3$
+    Una \textbf{superficie parametrica} in $\R^3$ è una funzione continua $r: D \to \R^3$ 
     \begin{equation}
         r(u,v)=(x(u,v), y(u,v), z(u,v))
     \end{equation}
@@ -22,13 +22,13 @@ Una superficie parametrica è anche descritta tramite le proprie \textit{equazio
 In realtà una superficie propriamente detta è la coppia data da una sua parametrizzazione e il suo sostegno.\\
 Inoltre, come per le curve, è possibile parlare di riparametrizzazioni di una superficie. Tuttavia, tale discorso non verrà approfondito.
 \begin{definition} \label{Def: Superficie di classe C^k}
-    Una superficie $r$ è detta di classe $\mathbf{C^K}$ se $r \in C^k(D)$.
+    Una superficie $r$ è detta di classe $\mathbf{C^k}$ se $r \in C^k(D)$.
 \end{definition}
 \begin{definition} \label{Def: Superficie semplice}
     Una superficie $r$ si dice \textbf{semplice} se $r|_A$ è iniettiva e $r(A) \cap\ r(D)= \emptyset$
 \end{definition}
 \begin{definition} \label{Def: Superficie regolare}
-    Una superficie $r: D \to \R^3$ è detta \textbf{regolare} se essa è una superficie semplice di classe $C^1(D)$ tale che
+    Una superficie $r: D \to \R^3$ è detta \textbf{regolare} se $r \in C^1(D)$ è semplice e tale che
     \begin{equation}
         J_r(u,v)= \begin{pmatrix}
             \frac{\partial x}{\partial u}(u,v) & \frac{\partial x}{\partial v}(u,v)\\
@@ -69,7 +69,7 @@ Poiché $\gamma$ è regolare, anche $\Tilde{\gamma}$ è di classe $C^1$ su $[a,b
 \end{equation}
 si può dedurre che per ogni $t \in [a,b]$ $\Tilde{\gamma}'$ è combinazione lineare dei generatori linearmente indipendenti del piano tangente. Ciò significa che il piano tangente contiene tutte le tangenti in $r(u,v)$ a curve regolari con sostegno in $S$ passanti per $r(u,v)$.
 \begin{definition} \label{Def: Versore normale a una superficie}
-    Sia $S$ una superficie regolare in ogni punto $(u,v)\in \mathring{D}$ di parametrizzazione $r$. Allora su $S$ è ben definito il \textbf{versore normale} a $S$ in $P=(u_0,v_0) \in \mathring{D}$ ed è dato da
+    Sia $S$ una superficie regolare in ogni punto $(u,v)\in \mathring{D}$ di parametrizzazione $r$. Allora su $S$ è ben definito il \textbf{versore normale} a $S$ in $P=(u_0,v_0) \in \mathring{D}$, dato da
     \begin{equation}
         \nu(P)= \pm \frac{\frac{\partial r}{\partial u} \wedge \frac{\partial r}{\partial v}}{\left|\frac{\partial r}{\partial u} \wedge \frac{\partial r}{\partial v}\right|}
     \end{equation}
@@ -272,27 +272,25 @@ Se, parlando di curve, era necessario definire il concetto di lunghezza, ora, tr
          \qquad \varphi \in [0, 2\pi],\ t \in [0, 2]
      \end{equation*}
      e si consideri la frontiera del suo dominio.
-     La frontiera di $D$ è quella in figura. Si può osservare che
+     In nero si ha il bordo parametrico dato da
      \begin{align*}
-         \partial_r S = r(0,t) = r(2\pi, t) \cup r(\varphi, 0) \cup r(\varphi, 2)
+         \partial_r S = r(0,t) \cup r(2\pi, t) \cup r(\varphi, 0) \cup r(\varphi, 2)
      \end{align*}
      \begin{figure}[H]
      \begin{minipage}{0.4\textwidth}
-     \includegraphics[width=\textwidth]{Capitoli/Capitolo6/Frontiera D.png}
+     \includegraphics[width=0.9\textwidth]{Capitoli/Capitolo6/Frontiera D.png}
      \end{minipage}
      \centering
-     \begin{minipage}{0.5\textwidth}
-     \includegraphics[width=\textwidth]{Capitoli/Capitolo6/Bordo parametrico cilindro.png}
+     \begin{minipage}{0.5\textwidth}     \includegraphics[width=0.9\textwidth]{Capitoli/Capitolo6/Bordo parametrico cilindro.png}
      \end{minipage}
      \end{figure}
-     In nero è mostrato il bordo parametrico.
  \end{example}
  \begin{definition} \label{Def: Superficie regolare con bordo}
-     Sia $D \subseteq \R^2$ dominio regolare connesso tale che $D \subseteq A$ aperto. Allora si dice \textbf{superficie regolare con bordo} un'applicazione
+     Sia $D \subseteq \R^2$ un dominio regolare connesso. Si dice \textbf{superficie regolare con bordo} un'applicazione 
      \begin{equation}
-         r: A \to \R^3
+         r: A \supset D \to \R^3
      \end{equation}
-     di classe $C^1(A)$ tale che $r$ sia semplice e che la sua Jacobiana $J_r(u,v)$ abbia rango $2$ per ogni $(u,v) \in D$.
+        con $r \in C^1(A)$ dove $A$ è aperto, $r$ superficie semplice con $\rank(J_r(u,v))=2\ \forall\ (u,v) \in D$.
  \end{definition}
  \begin{oss}
      Il rango massimo della Jacobiana garantisce che se il bordo di $D$ è unione di curve regolari a tratti $\gamma_i$, allora
@@ -301,7 +299,7 @@ Se, parlando di curve, era necessario definire il concetto di lunghezza, ora, tr
      \end{equation}
  \end{oss}
  \begin{oss}
-     La parametrizzazione stessa della superficie offre un modo per orientare positivamente il bordo parametrico della stessa. In particolare si dice che $\partial_r S$ è \textbf{orientato positivamente} e lo si indica con $\ppartial_r S$ se
+     La parametrizzazione stessa della superficie offre un modo per orientarne positivamente il bordo parametrico. In particolare si dice che $\partial_r S$ è \textbf{orientato positivamente} e lo si indica con $\ppartial_r S$ se
      \begin{equation}
          \ppartial_r S = \ppartial r( \ppartial D)
      \end{equation}
@@ -343,7 +341,7 @@ Se, parlando di curve, era necessario definire il concetto di lunghezza, ora, tr
  \end{oss}
  L'utilità di questo secondo risultato è analoga a quella del primo. Così diviene possibile calcolare l'integrale della divergenza di un campo come il flusso dello stesso campo in direzione uscente, passando da un integrale superficiale di II specie a un integrale triplo.
  \begin{theorem}[Teorema della divergenza in $\R^2$]
-     Sia $D \subseteq \R^2$ un dominio regolare $F=(F_1, F_2) \in C^1(D)$ un campo vettoriale. Allora 
+     Sia $D \subseteq \R^2$ un dominio regolare e sia $F=(F_1, F_2) \in C^1(D)$ un campo vettoriale. Allora 
      \begin{equation}
          \iint\limits_{D} {\Div(F)}\,dx\,dy = \int\limits_{\ppartial D}{\langle F, \nu_e \rangle}\,ds
      \end{equation}
@@ -351,16 +349,16 @@ Se, parlando di curve, era necessario definire il concetto di lunghezza, ora, tr
  \begin{proof}
      Applicando Gauss-Green \eqref{Teo: Formule di Gauss Green} si ha
      \begin{equation}
-     \iint\limits_{D}{\Div(F)}\,dx\,dy=\iint\limits_{D}{\left(\frac{\partial F_1}{\partial x}+ \frac{\partial F_2}{\partial y}\right)}\,dx\,dy \overset{\text{G.G.}}{=} \int\limits_{\ppartial D}{F_1 dx - F_2 dy}
+     \iint\limits_{D}{\Div(F)}\,dx\,dy=\iint\limits_{D}{\left(\frac{\partial F_1}{\partial x}+ \frac{\partial F_2}{\partial y}\right)}\,dx\,dy \overset{\text{G.G.}}{=} \int\limits_{\ppartial D}{(-F_2 dx + F_1 dy)}
      \end{equation}
-     dove $\ppartial D$ è il sostegno di una curva di parametrizzazione $\varphi(t)= (x(t), y(t)$. Allora il versore tangente è parallelo a $(x'(t), y'(t))$ e il normale, per orientazione positiva è dato da 
+     dove $\ppartial D$ è il sostegno di una curva di parametrizzazione $\varphi(t)= (x(t), y(t))$. Allora il versore tangente è parallelo a $(x'(t), y'(t))$ e il normale, per orientazione positiva è dato da 
      \begin{equation}
          \nu_e(t)=\left(\frac{y'(t)}{\sqrt{x'(t)^2+y'(t)^2}}, -\frac{x'(t)}{\sqrt{x'(t)^2+y'(t)^2}} \right)
      \end{equation}
      Perciò
      \begin{equation}
          \begin{aligned}
-             \int\limits_{\ppartial D}{\langle F, \nu_e \rangle}\,ds &= \int\limits_{a}^{b}{\left(\frac{F_1y'(t)}{\sqrt{x'(t)^2+y'(t)^2}} -\frac{F_2x'(t)}{\sqrt{x'(t)^2+y'(t)^2}} \right)\sqrt{(x'(t)^2+y'(t)^2}}\, dt\\
+             \int\limits_{\ppartial D}{\langle F, \nu_e \rangle}\,ds &= \int\limits_{a}^{b}{\left(\frac{F_1y'(t)}{\sqrt{x'(t)^2+y'(t)^2}} -\frac{F_2x'(t)}{\sqrt{x'(t)^2+y'(t)^2}} \right)\sqrt{x'(t)^2+y'(t)^2}}\, dt\\
              &=\int\limits_{a}^{b}{(F_1 y'(t)- F_2 x'(t))}\, dt \overset{\text{G.G.}}{=} \int\limits_{\ppartial D}{F_1\,dy- F_2\,dx} = \iint\limits_{D}{\Div(F)}\,dx\,dy
          \end{aligned}
      \end{equation}

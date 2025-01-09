@@ -16,7 +16,7 @@ con $a_i$ detti \textbf{coefficienti} della forma differenziale $\omega$.
     \end{equation}
 \end{oss}
 \begin{oss}
-A tal proposito, si dice \textit{campo vettoriale} associato la funzione $F: A\subseteq \R^n \to \R^n$ data da
+Solitamente, soprattutto in ambito fisico, non si parla tanto di forme differenziali quanto più di campi vettoriali. Nello specifico, si dice \textit{campo vettoriale} associato alla forma differenziale $\omega$ la funzione $F: A\subseteq \R^n \to \R^n$ data da
 \begin{equation}
     F=F(x)=(a_1(x), \dots, a_n(x_n))
 \end{equation}
@@ -49,7 +49,7 @@ e in particolare vale:
 \end{equation}
 Inoltre, vale il seguente risultato.
 \begin{theorem}[Invarianza per equivalenza di curve] \label{Teo: Invarianza per equivalenza di curve dell'integrale curv di 2 specie}
-    Siano $\gamma,\ , \gamma'$ due curve equivalenti e sia $\omega$ una forma differenziale definita in $A$. Allora
+    Siano $\gamma,\ \gamma'$ due curve equivalenti e sia $\omega$ una forma differenziale definita in $A$. Allora
     \begin{equation}
         \int\limits_\gamma { \omega} = \int\limits_{\gamma'}{\omega}\quad \text{oppure} \quad \int\limits_\gamma { \omega} = -\int\limits_{\gamma'}{\omega}
     \end{equation}
@@ -124,7 +124,6 @@ Allora, derivando tale relazione, si ha che
         &= \langle F(x(t)), x'(t) \rangle - \langle F(x(t)), x'(t) \rangle =0
 \end{aligned}    
 \end{equation}
-
 Ciò significa che l'energia meccanica si \textit{conserva} lungo le traiettorie indotte dal campo $F$.
 \begin{theorem}[Caratterizzazione delle forme esatte] \label{Teo: Caratterizzazione forme esatte}
 Siano $A \subseteq \R^n$ aperto connesso, $\omega$ una forma differenziale in $A$ e $\gamma,\ \gamma_1,\ \gamma_2$ tre curve regolari a tratti con sostegno contenuto in $A$. Allora le seguenti affermazioni sono equivalenti:
@@ -187,44 +186,44 @@ $3 \Rightarrow 1$: Sia $x_0 \in A$ fissato. Dato $x \in A$, poiché $A$ è conne
 \end{equation}
 In particolare si può osservare che grazie a (3) tale funzione è sempre ben definita e il suo valore non dipende dalla curva scelta.\\
 L'obiettivo della dimostrazione è mostrare che $f \in C^1(A)$ e $df= \omega$.\\
-Siano dunque $x=(x_1, \dots, x_n) \in A$, $h \in \R$ tali che $x+he_i \in A$. Sia poi $\varphi$ la curva di sostegno $[x, x+he_i]$, cioè
+Siano dunque $x=(x_1, \dots, x_n) \in A$, $h \in \R$ tali che $x+he_i \in A$. Sia poi $\varphi$ la curva di sostegno $[x, x+he_1]$, cioè
 \begin{equation}
     \varphi= \begin{cases}
-        x_1(t)=x_1\\
-        \vdots\\
-        x_i(t)=x_i+ht\\
+        x_1(t)=x_1+t\\
+        x_2(t)=x_2\\
         \vdots\\
         x_n(t)=x_n
     \end{cases}
-    \qquad t \in [0,1]
+    \qquad t \in [0,h]
 \end{equation}
-Sia poi $\gamma_1= \gamma \cup \varphi$, che, per costruzione, è regolare a tratti e congiunge $x_0$ a $x_0+he_i$. Tramite la definizione di $f$ si ottiene che
+Sia poi $\gamma_1= \gamma \cup \varphi$, che, per costruzione, è regolare a tratti e congiunge $x_0$ a $x+he_1$. Tramite la definizione di $f$ si ottiene che
 \begin{equation}
 \begin{aligned}
-    f(x_0+he_i)-f(x)&=\int\limits_{\gamma_1}{\omega}- \int\limits_{\gamma}{\omega}= \int\limits_{\gamma}{\omega}+\int\limits_{\varphi}{\omega}-\int\limits_{\gamma}{\omega}= \int\limits_{\varphi}{\omega}=\\
-    &=\int\limits_{0}^{h}{\left[\sum\limits_{j=1}^{n}{a_j(\varphi(t))\varphi_j'(t)} \right] }\, dt=    \int\limits_{0}^{h}{a_i(\varphi(t))\cdot 1}\, dt =\\ 
-    &=\int\limits_{0}^{h}{a_i(x_1, \dots, x_i+ht, \dots x_n)}\, dt
+    f(x_0+he_1)-f(x)&=\int\limits_{\gamma_1}{\omega}- \int\limits_{\gamma}{\omega}= \int\limits_{\gamma}{\omega}+\int\limits_{\varphi}{\omega}-\int\limits_{\gamma}{\omega}= \int\limits_{\varphi}{\omega}=\\
+    &=\int\limits_{0}^{h}{\left[\sum\limits_{i=1}^{n}{a_i(\varphi(t))x_i'(t)} \right]}\, dt=    \int\limits_{0}^{h}{a_1(\varphi(t))\cdot 1}\, dt =\\ 
+    &=\int\limits_{0}^{h}{a_1(x_1+t,\ x_2,\ \dots,\  x_n)}\, dt
 \end{aligned}
 \end{equation}
-Di conseguenza, 
+Di conseguenza, per $h \to 0$ si ha  
 \begin{equation}
-\begin{aligned}
-    \frac{\partial{f}}{\partial x_i}{(x)}&= \lim_{h\to 0}{\frac{f(x+he_i)-f(x)}{h}}= \frac{1}{h}{\int\limits_{0}^{h}{a_i(x_1, \dots, x_i+ht, \dots x_n)}\, dt}=\\
-    &\overset{\text{TFC}}{=} a_i(x_1, \dots, x_i, \dots, x_n) = a_i (x)
-\end{aligned}
+    \frac{\partial{f}}{\partial x_1}{(x)}= \lim_{h\to 0}{\frac{f(x+he_1)-f(x)}{h}}= \lim_{h \to 0} \frac{1}{h}{\int\limits_{0}^{h}{a_1(x_1+t,\ \dots,\ x_n)}\, dt}
 \end{equation}
-Reiterando per ogni $i$ si ottiene che $\nabla f(x)= (a_1(x), \dots, a_n(x))$, cioè $\omega$ è una forma esatta. 
+con $t \in [0, h],\ a_1 \in C^0(A)$. Allora, applicandovi il teorema della media integrale si ha 
+\begin{equation}    
+     \frac{\partial{f}}{\partial x_1}=a_1(x)
+\end{equation}
+Reiterando per ogni $i$ si ottiene che $\nabla f(x)= (a_1(x), \dots, a_n(x))$, quindi $f \in C^1(A)$ è un potenziale di $\omega$. Allora $\omega$ è una forma esatta. 
 \end{proof}
 \section{Forme differenziali chiuse}
 \begin{definition} \label{Def: Forma differenziale chiusa}
     Sia $\omega$ una forma differenziale definita in $A$ aperto di $\R^n$. Si dice che $\omega$ è \textbf{chiusa} in $A$ se
     \begin{equation}
-        \frac{\partial a_i}{\partial x_j}(x)= \frac{\partial a_j}{\partial x_i} \qquad \forall\ x \in A,\ \forall\ i, j = 1, \dots, n
+        \frac{\partial a_i}{\partial x_j}(x)= \frac{\partial a_j}{\partial x_i}(x) \qquad \forall\ x \in A,\ \forall\ i, j = 1, \dots, n
     \end{equation}
 \end{definition}
 Dal punto di vista fisico, dato un campo vettoriale $F=F(x)=(a_1(x), \dots, a_n(x))$ definito in $A \subseteq \R^n$, lo si dice \textit{campo vettoriale irrotazionale} se vale (\theequation). 
 \begin{theorem} \label{Teo: Forma esatta => forma chiusa}
-    Sia $\omega: A \subseteq \R^n \to (\R)^*$ una forma differenziale esatta di classe $C^1(A)$. Allora $\omega$ è chiusa in $A$.
+    Sia $\omega: A \subseteq \R^n \to (\R^n)^*$ una forma differenziale esatta di classe $C^1(A)$. Allora $\omega$ è chiusa in $A$.
 \end{theorem}
 \begin{proof}
     Poiché $\omega$ è esatta, per definizione, ne esiste una primitiva $f$ tale che
@@ -233,7 +232,7 @@ Dal punto di vista fisico, dato un campo vettoriale $F=F(x)=(a_1(x), \dots, a_n(
     \end{equation}
     Poiché poi $a_i \in C^1(A)$, si ha che $f$ deve essere di classe $C^2(A)$. Pertanto, dal teorema di Schwarz (\ref{Teo: Schwarz}) si ottiene
     \begin{equation}
-        \frac{\partial a_i}{\partial x_j}(x)= \frac{\partial f}{\partial x_j \partial x_i}(x) = \frac{\partial f}{\partial x_i \partial x_j}(x) = \frac{\partial a_j}{\partial x_i}(x)= 
+        \frac{\partial a_i}{\partial x_j}(x)= \frac{\partial^2 f}{\partial x_j \partial x_i}(x) = \frac{\partial^2 f}{\partial x_i \partial x_j}(x) = \frac{\partial a_j}{\partial x_i}(x) 
     \end{equation}
     cioè la tesi.
 \end{proof}
@@ -289,7 +288,7 @@ Dato un campo $F= F(x,y,z)= (a_1(x,y,z), a_2(x,y,z), a_3(x,y,z)$ definito in $A 
         \langle \nabla, F \rangle = \frac{\partial a_1}{\partial x} + \frac{\partial a_2}{\partial y} + \frac{\partial a_3}{\partial z}
     \end{equation}
 \end{definition}
-L'obiettivo di quanto segue è trovare una condizione sufficiente che leghi forme chiuse e forme esatte. 
+Rimane ora da trovare una condizione sufficiente che leghi forme chiuse e forme esatte. 
 \begin{definition}
     Sia $A \subseteq \R^n$ aperto connesso. Si dice che $A$ è \textbf{semplicemente connesso} se ogni curva $\gamma:[a,b] \to A$ chiusa, regolare a tratti e semplice, con sostegno interamente contenuto in $A$ può essere contratta con continuità ad un punto $x_0 \in A$.
 \end{definition}
@@ -312,7 +311,7 @@ L'obiettivo di quanto segue è trovare una condizione sufficiente che leghi form
     Si può osservare che tale teorema offre una condizione sufficiente per identificare le forme esatte.
 \end{oss}
 \begin{oss}
-    Se è vero che, presa $f$ primitiva di $\omega$, $f+k$ con $k \in \R$ è ancora una primitiva di $\omega$, non è altrettanto vero che tutte le primitive di $\omega$ differiscano per una costante reale. Solitamente ciò accade in $A$ semplicemente connessi.
+    Se è vero che, presa $f$ primitiva di $\omega$, $f+k$ con $k \in \R$ è ancora una primitiva di $\omega$, non è altrettanto vero che tutte le primitive di $\omega$ differiscono per una costante reale. Solitamente ciò accade in $A$ semplicemente connessi.
 \end{oss}
 \begin{example}
     Si mostri ora come sia possibile procedere per riconoscere le forme esatte.
@@ -334,17 +333,16 @@ In un \textit{dominio normale} (\ref{Def: Dominio normale}) $D$ come un generico
  \end{equation}
  si dice che la sua frontiera è positivamente orientata se è percorsa in senso antiorario e lo si indica con $\ppartial D$.
  \paragraph{Dominio regolare}
- In un \textit{dominio regolare} (\ref{Def: Dominio regolare}) $D$, si ha che la sua frontiera $\partial D$ è unione di un numero finito di curve regolari a tratti, pertanto, a meno di un numero finito di punti, è ben definito il versore tangente $T$. Si definisce allora $N$ il versore normale esterno a $D$ laddove $T$ sia ben definito e si dice che la frontiera di $D$ è orientata positivamente se $\left\{N,T\right\}$ è equiversa a $\left\{i, j\right\}$ e lo si indica con $\ppartial D$.
+ In un \textit{dominio regolare} (\ref{Def: Dominio regolare}) $D$, la frontiera $\partial D$ è data dall'unione di un numero finito di curve regolari a tratti, pertanto, a meno di un numero finito di punti, è ben definito il versore tangente $T$.\\ 
+ Di conseguenza, si può definire il versore normale $N$ esterno a $D$, laddove $T$ sia ben definito. Allora, la frontiera di $D$ è orientata positivamente se $\left\{N,T\right\}$ è equiversa a $\left\{i, j\right\}$ e lo si indica con $\ppartial D$.\\
+ \begin{example}
  Si mostri ora un esempio di frontiera positivamente orientata.
  \begin{figure}[H]
      \centering
-     \begin{minipage}{0.5\textwidth}
-     \includegraphics[width=\textwidth]{Capitoli/Capitolo5/Bordo orientato.png}
-     \end{minipage}
-     \begin{minipage}{0.4\textwidth}
-         Affinché la frontiera della corona circolare sia orientata positivamente, occorre che la coppia di versori $N,\ T$ sia disposta come in figura. Da ciò si osserva che la circonferenza esterna deve essere percorsa in senso antiorario, quella interna nel senso opposto.
-     \end{minipage}
+\includegraphics[width=0.4\textwidth]{Capitoli/Capitolo5/Bordo orientato.png}
  \end{figure}
+Affinché la frontiera della corona circolare sia orientata positivamente, occorre che la coppia di versori $N,\ T$ sia disposta come in figura. Da ciò si osserva che la circonferenza esterna deve essere percorsa in senso antiorario, quella interna nel senso opposto.
+\end{example}
  \begin{theorem}[Formule di Gauss-Green per domini regolari] \label{Teo: Formule di Gauss Green}
  Sia $f: D\subseteq \R^2 \to \R$ di classe $C^1(D)$. Se $D$ è un dominio normale regolare rispetto a $x$ si ha che
  \begin{equation} \label{Eq: Gauss-Green per dimostrazione}
@@ -407,7 +405,7 @@ Inoltre,
     \int\limits_{a}^{b}{f(t, \alpha(t)) t'}\, dt+ \int\limits_{\alpha(b)}^{\beta(b)}{f(b,t)b'}\, dt +\\
     &+\int\limits_{a}^{b}{f(a+b-t, \beta(a+b-t))(a+b-t)'}\, dt + \int\limits_{\alpha(a)}^{\beta(a)}{f(a, \beta(a)+\alpha(a)-t) a'}\, dt=\\
     &= \int\limits_{a}^{b}{f(t, \alpha(t))}\, dt + \int\limits_{a}^{b}{-f(a+b-t, \beta(a+b-t))}\, dt =\\
-    &\overset{\substack{\text{Nel }\#2:\\ a+b-t=s\\ -dt=ds}}{=} \int\limits_a^b{f(t, \alpha(t))}\, dt + \int\limits_a^b{f(s, \beta(s))}\, ds = \int\limits_{a}^{b}{f(t, \alpha(t))- f(t, \beta(t))}\, dt=\\
+    &\overset{\substack{\text{Nel }\#2:\\ a+b-t=s\\ -dt=ds}}{=} \int\limits_a^b{f(t, \alpha(t))}\, dt + \int\limits_b^a{f(s, \beta(s))}\, ds = \int\limits_{a}^{b}{f(t, \alpha(t))- f(t, \beta(t))}\, dt=\\
     &=-\int\limits_{a}^{b}{ f(t, \beta(t))- f(t, \alpha(t))}\, dt
     \end{aligned}
 \end{equation}
@@ -458,7 +456,7 @@ Sia $D \subseteq \R^2$ un dominio regolare. Allora,
     \end{equation}
     Allora si ha che
     \begin{align}
-        &1= \frac{\partial f}{\partial y} \Rightarrow f(x,y)= y \Rightarrow \area(D)= \iint\limits_{D} \frac{\partial f}{\partial y} \overset{\text{G.G.}}{=}  -\int\limits_{\ppartial D}{y}\,dx\\
+        &1= \frac{\partial f}{\partial y} \Rightarrow f(x,y)= y \Rightarrow \area(D)= \iint\limits_{D} \frac{\partial f}{\partial y}\,dx\,dy \overset{\text{G.G.}}{=}  -\int\limits_{\ppartial D}{y}\,dx\\
       &  1=\frac{\partial f}{\partial x} \Rightarrow f(x,y)= x \Rightarrow \area(D)= \iint\limits_{D} \frac{\partial f}{\partial x} \overset{\text{G.G.}}{=}  \int\limits_{\ppartial D}{x}\,dy
     \end{align}
     Perciò, si ha che

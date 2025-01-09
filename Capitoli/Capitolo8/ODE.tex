@@ -63,24 +63,24 @@ con $Y: I \subseteq \R \to \R^n,\ Y=(y_1, \dots, y_n)$ e $G:I \times \R^n \to \R
 \begin{proof}
     Sia
     \begin{equation}
-  (E):\ y^{(n)}=f\left(x, y, y', \dots, y^{(n-1)}\right)
+  (E):\ y^{(n)}=f\left(x, y(x), y'(x), \dots, y^{(n-1)}(x)\right)
     \end{equation}
-    e si pongano
+    e si costruisca il vettore $Y=(Y_1, \dots, Y_n)$ come segue: 
     \begin{equation}
         \begin{aligned}
-            Y_1(x)&:=y(x)\\
-            Y_2(x)&:=y'(x)\\
+        Y_1(x)&:= \overline{y}(x)\\
+        Y_2(x)&:= \overline{y}'(x)\\
             &\vdots\\
-            Y_n(x)&:=y^{(n-1)}
+        Y_n(x)&:= \overline{y}^{(n-1)}(x)
         \end{aligned}
     \end{equation}
-    Si può osservare che, preso $Y=(Y_1, \dots, Y_n)$, si ha
+    Si può osservare che,
     \begin{equation}
       (S):\ Y'= \begin{cases}
-            Y_1'&= y_2\\
-            Y_2'&=y_3\\
+            Y_1'&= Y_2\\
+            Y_2'&=Y_3\\
             &\vdots\\
-            Y_n'&\overset{(E)}{=}f\left(x, y, y', \dots, y^{(n-1)}\right)
+            Y_n'&= \left(\overline{y}^{(n-1)}\right)'=\overline{y}^{(n)}
         \end{cases}
     \end{equation}
     Definendo poi
@@ -92,16 +92,8 @@ con $Y: I \subseteq \R \to \R^n,\ Y=(y_1, \dots, y_n)$ e $G:I \times \R^n \to \R
             f(x, y_1, \dots, y_n)
         \end{pmatrix}
     \end{equation}
-    Si ha che, se $y$ soddisfa $E$, allora 
-    \begin{equation}
-        Y(x)=\begin{pmatrix}
-            y_1(x)\\
-            y_2(x)\\
-            \vdots\\
-            y_n(x)
-        \end{pmatrix}
-    \end{equation}
-    soddisfa $Y'=G(x, Y)$. D'altra parte, se $Y$ soddisfa $Y'=G(x, Y)$, la sua prima componente $y_1(=y(x))$ soddisfa $E$.
+    Si ha che, se $\overline{y}$ soddisfa $E$, allora $Y(x)$
+    soddisfa $Y'=G(x, Y)$. D'altra parte, se $Y$ soddisfa $Y'=G(x, Y)$, la sua prima componente $y_1(=\overline{y}(x))$ soddisfa $E$.
 \end{proof}
 \begin{oss}
 Un'\ode ha generalmente infinite soluzioni. Infatti, dette $g, G$ rispettivamente una funzione generica e una sua primitiva, si ha che
@@ -120,11 +112,13 @@ Un'\ode ha generalmente infinite soluzioni. Infatti, dette $g, G$ rispettivament
     \end{equation}
     dove $Y(x_0)$ è detto \textbf{condizione iniziale}.
 \end{definition}
-Occorre osservare che in un problema del genere è necessario che $x_0 \in \R,\ y_0 \in \R^n$ siano noti.
+\begin{oss}
+In un problema del genere è necessario che $x_0 \in \R,\ y_0 \in \R^n$ siano noti.
+\end{oss}
 \begin{lemma}[Formulazione integrale del problema di Cauchy] \label{Lemma: Formulazione integrale del problema di Cauchy}
-    Sia $f: A \subseteq \R^{n+1} \to \R^n$ con $A$ aperto e $f$ continua. Siano poi $(x_0, y_0) \in A$ e $\delta>0$. Allora le seguenti affermazioni sono equivalenti
+    Sia $f: A \subseteq \R^{n+1} \to \R^n$, $A$ aperto, $f \in C^0(A)$. Sia $(x_0, y_0) \in A$. Allora le seguenti affermazioni sono equivalenti
     \begin{enumerate}
-        \item Esiste $y=y(x)$ derivabile in $[x_0-\delta, x_0+\delta]$ tale che 
+        \item Esiste $y=y(x)$ derivabile in $[x_0-\delta, x_0+\delta],\ \delta>0$ tale che 
         \begin{equation}
             (P): \begin{cases}
                 y'(x)=f(x, y(x)) \qquad (E)\\
@@ -132,7 +126,7 @@ Occorre osservare che in un problema del genere è necessario che $x_0 \in \R,\ 
             \end{cases}
             \qquad \forall\ x \in [x_0-\delta, x_0+\delta]
         \end{equation}
-        \item Esiste $y=y(x)$ continua in $[x_0-\delta, x_0+\delta]$ tale che 
+        \item Esiste $y=y(x)$ continua in $[x_0-\delta, x_0+\delta],\ \delta>0$ tale che 
         \begin{equation} \label{Eq: Equazione integrale di Volterra}
             y(x)= y_0 + \int\limits_{x_0}^{x}{f(s, y(s))}\, ds \qquad \forall\ x \in [x_0-\delta, x_0+\delta]
         \end{equation}
@@ -146,9 +140,9 @@ Occorre osservare che in un problema del genere è necessario che $x_0 \in \R,\ 
     e $y$ è continua e soddisfa $(2)$.\\
     $2 \Rightarrow 1$: Sia $y$ come nelle ipotesi di $(2)$. Allora si ha che
     \begin{equation}
-        y(x_0)=y(x)= y_0 + \int\limits_{x_0}^{x_0}{f(s, y(s))}\, ds= y_0
+        y(x_0)= y_0 + \int\limits_{x_0}^{x_0}{f(s, y(s))}\, ds= y_0
     \end{equation}
-    Poi, $f(s, y(s))$ è continua per composizione di funzioni continue. Quindi dal TFC si ha che $y(x)$ è derivabile e
+    Poi, $f(s, y(s))$ è continua per composizione di funzioni $C^0$. Quindi dal TFC, $y(x)$ è derivabile e
     \begin{equation}
         y'(x)= \left[y_0 + \int\limits_{x_0}^{x}{f(s, y(s))}\, ds\right]'= f(x, y(x)) \qquad \forall\ x \in [x_0-\delta, x_0+\delta]
     \end{equation}
@@ -193,7 +187,7 @@ Pertanto, le soluzioni del problema sono infinite e una loro rappresentazione gr
 \includegraphics[width=0.31\textwidth]{Capitoli/Capitolo8/Pennello di Peano.png}
 \end{figure}
 \end{example}
-D'altra parte, è anche vero che è possibile stabilire una condizione sufficiente per l'esistenza e unicità locale di un problema di Cauchy. Prima però bisogna definire il concetto di lipschitzianità locale (cfr. \ref{Def: Funzione lipschitziana}).
+È altresì possibile stabilire una condizione sufficiente per l'esistenza e unicità locale di un problema di Cauchy. Prima però bisogna definire il concetto di lipschitzianità locale (\ref{Def: Funzione lipschitziana}).
 \begin{definition}
     Si dice che una funzione $G: A\subseteq \R^{n+1} \to \R^n$ con $A$ aperto è \textbf{localmente Lipschitziana} nell'insieme $A$ in $y$ uniformemente rispetto a $x$ se in ogni compatto $K \subset A$ esiste una costante di Lipschitz $L_K$ tale che
     \begin{equation}
@@ -272,7 +266,7 @@ dove $\gamma<1$ poiché $\delta<\tfrac{1}{L}$. Dunque $H$ è una contrazione e, 
 che risolve il problema di Cauchy per il lemma \ref{Lemma: Formulazione integrale del problema di Cauchy}.
 \end{proof}
 \begin{oss}
-    Si noti che una funzione $C^1(A)$ è ivi localmente Lipschitziana, perciò  è sufficiente la regolarità del secondo membro per poter applicare il teorema di Peano.
+    Si noti che una funzione $C^1(A)$ è ivi localmente Lipschitziana, perciò  è sufficiente la regolarità del secondo membro per poter applicare il teorema di Cauchy.
 \end{oss}
 \begin{example}
     Si riprenda il problema di prima ma si modifichi la condizione iniziale.
@@ -355,7 +349,7 @@ con $a,f: I \to \R$ entrambe almeno di classe $C^0(I)$.\\
 \begin{theorem} \label{Teo: Integrale generale delle ode lineare del primo ordine}
     Tutte le soluzioni dell'equazione \eqref{Eq: Equazione lineare del primo ordine} sono date da
     \begin{equation}
-        y(x)=e^{-A(x)}\left(C+ \int{e^{A(x)}g(x)}\right)
+        y(x)=e^{-A(x)}\left(C+ \int{e^{A(x)}g(x)}\,dx\right)
     \end{equation}
     con $A(x)$ primitiva di $a(x)$ e $C \in \R$ costante.
 \end{theorem}
@@ -368,9 +362,9 @@ ad una derivata di prodotto. Per fare ciò, occorre moltiplicare ambo i membri p
 \begin{equation}
     e^{A(x)}(y'+a(x)y)= e^{A(x)}g(x)
 \end{equation}
-che a primo membro è la derivata di $z(x):=\left(e^{A(x)}y \right)$. Perciò, detta $B(x)$ una primitiva di $e^{A(x)}g(x)$,
+che a primo membro è la derivata di $z(x):=\left(e^{A(x)}y \right)$. Quindi
 \begin{equation}
-    z'(x)= e^{A(x)}g(x) \iff z(x)=\int e^{A(x)}g(x)
+    z'(x)= e^{A(x)}g(x) \iff z(x)=\int e^{A(x)}g(x)\,dx
 \end{equation}
 Dunque, detta $B(x)$ primitiva di $e^{A(x)}g(x)$, si ha
 \begin{equation}
@@ -378,17 +372,19 @@ Dunque, detta $B(x)$ primitiva di $e^{A(x)}g(x)$, si ha
  \end{equation}
  e, esplicitando $y(x)$,
  \begin{equation}
-    y(x)= B(x) e^{-A(x)} + C{e^{-A(x)}} = e^{-A(x)}\left( C + \int e^{-A(x)}g(x) \right)
+    y(x)= B(x) e^{-A(x)} + C{e^{-A(x)}} = e^{-A(x)}\left( C + \int e^{-A(x)}g(x)\,dx \right)
  \end{equation}
 \end{proof}
+\begin{oss}    
 Si può notare che tale integrale generale è dato dalla somma di una soluzione particolare e dell'integrale generale dell'equazione omogenea. La soluzione può pertanto essere vista come
 \begin{equation}
     y=y_0+ y_p
 \end{equation}
 dove
 \begin{equation}
-    y_0= C\, e^{-A(x)} \qquad y_p= \int C\, e^{-A(x)}g(x)
+    y_0= C\, e^{-A(x)} \qquad y_p= \int C\, e^{-A(x)}g(x)\,dx
 \end{equation}
+\end{oss}
 \subsubsection{Equazioni di Bernoulli}
 Rientrano in questa categoria le equazioni della forma
 \begin{equation} \label{Eq: Equazione di Bernoulli}
@@ -608,7 +604,7 @@ Fatta tale premessa, si può osservare anche che è ben posto un eventuale probl
 \end{equation}
 e che vale
 \begin{theorem}[Teorema di esistenza e unicità globale per sistemi differenziali lineari]
-    Siano $A(x) \in \mathbb{M}_{n,n}(\R)$ con $x \in I \subseteq \R$, $B(x) \in \R^n$ con $x \in I$ continui in $I$. Sia poi $(x_0, y_0) \in I \times \R^n$. Allora il problema di Cauchy
+    Siano $A(x) \in \mathbb{M}_{n,n}(\R)$ con $x \in I \subseteq \R$, $B(x) \in \R^n$ con $x \in I$ entrambe continue in $I$. Sia poi $(x_0, y_0) \in I \times \R^n$. Allora il problema di Cauchy
     \begin{equation}
     (P)=\begin{cases}
         Y'=A(x)Y+B(x)\\
@@ -618,11 +614,20 @@ e che vale
     ha una ed una sola soluzione $Y: I \to \R^n$.
 \end{theorem}
 \begin{proof}
-    Sia $f(x,y): A=I \times \R^n \to \R^n$ tale che $f(x,Y)=A(x)Y+B(x)$. Allora il sistema può essere visto come 
+    Sia $f(x,y): E=I \times \R^n \to \R^n$ aperto tale che $f(x,Y)=A(x)Y+B(x)$. Allora il sistema può essere visto come 
     \begin{equation}
         Y'=f(x, Y)
     \end{equation}
-    Tale funzione è continua in $A$, localmente Lipschitziana in $A$ in $Y$ uniformemente rispetto a $x$ ed ha una crescita al più lineare \eqref{Eq: Crescità sublineare}. Dunque la tesi discende dal teorema \ref{Teo: Esistenza e unicità globale}.
+    Tale funzione è continua in $E$, poiché $A(x),\ B(x)$ sono funzioni continue.
+    Inoltre è localmente Lipschitziana in $E$ in $Y$ uniformemente rispetto a $x$, infatti, prese $Y_1,\ Y_2 \in E$
+    \begin{equation}
+    |f(x, Y_1)- f(x, Y_2)|=|A(x)(Y_1-Y_2)|\leq |A(x)||Y_1-Y_2|
+    \end{equation}
+    Infine ha una crescita al più lineare \eqref{Eq: Crescità sublineare}. 
+    \begin{equation}
+        |f(x, Y)|=|A(x)Y+B(x)| \leq |A(x)Y|+|B(x)| \leq |A(X)||Y|+|B(x)|
+    \end{equation}
+    Dunque la tesi discende dal teorema \ref{Teo: Esistenza e unicità globale}.
 \end{proof}
 In ultima istanza, vale il seguente risultato, cui si era già fatto cenno nel caso delle equazioni lineari del primo ordine.
 \begin{theorem}[Teorema di struttura dell'integrale generale di sistemi differenziali lineari del primo ordine di $n$ equazioni] \label{Teo: Struttura dell'integrale generale per i sistemi}
