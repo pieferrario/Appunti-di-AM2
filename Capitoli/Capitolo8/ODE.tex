@@ -639,7 +639,7 @@ In ultima istanza, vale il seguente risultato, cui si era già fatto cenno nel c
     con $A, B$ continue su $I$.\\
     Allora,
     \begin{enumerate}
-        \item L'integrale generale di $(SO)$ è un sottospazio vettoriale $n$-dimensionale di $C^1(I; \R)$
+        \item L'integrale generale di $(SO)$ è un sottospazio vettoriale $n$-dimensionale di $C^1(I; \R^n)$
         \item L'integrale generale di $(SC)$ si ottiene sommando all'integrale generale di $(SO)$ una soluzione particolare di $(SC)$.
     \end{enumerate}
 \end{theorem}
@@ -656,7 +656,7 @@ In ultima istanza, vale il seguente risultato, cui si era già fatto cenno nel c
         z(x_0)= v
         \end{cases}
     \end{equation}
-    per un $x_0 \in I$ fissato. Per il teorema di esistenza e unicità globale $T$ è ben definita ed è lineare: infatti
+    per un $x_0 \in I$ fissato. Per il teorema di esistenza e unicità globale, $T$ è ben definita ed è lineare: infatti
     \begin{equation}
         T(\alpha v_1 + \beta v_2)= \alpha z_1 + \beta z_2 = \alpha T(v_1)+ \beta T(v_2)
     \end{equation}
@@ -957,7 +957,7 @@ Perciò, il suo polinomio caratteristico sarà
 e gli autovalori $\lambda_1, \lambda_2$ ne sono soluzione. Anche qui, il discorso si sviluppa in tre casi.
 \paragraph{Due autovalori reali distinti} In questo caso si hanno due autovalori $\lambda_1,\ \lambda_2 \in \R$ con $\lambda_1\neq \lambda_2$. Al primo è associato l'autovettore $U$ che risolve
 \begin{equation}
-    (A- \lambda_i I)U=0
+    (A- \lambda_1 I)U=0
 \end{equation}
 e in particolare dette $U_1,\ U_2$ le sue componenti si nota che
 \begin{equation}
@@ -1033,9 +1033,9 @@ Si ha un unico autovalore $\lambda \in \R$ con $m_a(\lambda)=2$ e $m_g(\lambda)<
 \end{equation}
 Come verificato nel caso 3 della sezione precedente, si può affermare che 
 \begin{align}
-    &\xi=e^{\lambda
+    &\xi(x)=e^{\lambda
     x}U\\
-    &\eta=e^{\lambda x}(V-xU)
+    &\eta(x)=e^{\lambda x}(V-xU)
 \end{align}
 sono soluzioni linearmente indipendenti del sistema associato, dove $V$ è l'autovettore generalizzato che risolve 
 \begin{equation}
