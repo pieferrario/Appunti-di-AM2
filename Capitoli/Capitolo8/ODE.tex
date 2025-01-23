@@ -372,7 +372,7 @@ Dunque, detta $B(x)$ primitiva di $e^{A(x)}g(x)$, si ha
  \end{equation}
  e, esplicitando $y(x)$,
  \begin{equation}
-    y(x)= B(x) e^{-A(x)} + C{e^{-A(x)}} = e^{-A(x)}\left( C + \int e^{-A(x)}g(x)\,dx \right)
+    y(x)= B(x) e^{-A(x)} + C{e^{-A(x)}} = e^{-A(x)}\left( C + \int e^{A(x)}g(x)\,dx \right)
  \end{equation}
 \end{proof}
 \begin{oss}    
@@ -382,7 +382,7 @@ Si può notare che tale integrale generale è dato dalla somma di una soluzione 
 \end{equation}
 dove
 \begin{equation}
-    y_0= C\, e^{-A(x)} \qquad y_p= \int C\, e^{-A(x)}g(x)\,dx
+    y_0= C\, e^{-A(x)} \qquad y_p= \int C\, e^{A(x)}g(x)\,dx
 \end{equation}
 \end{oss}
 \subsubsection{Equazioni di Bernoulli}
@@ -543,6 +543,7 @@ Occorre notare che l'insieme delle soluzioni del sistema omogeneo coincide con i
         \end{aligned}
     \end{equation}
 \end{proof}
+\begin{oss}    
 Come conseguenza rilevante si ha il \textbf{principio di sovrapposizione degli effetti}. Infatti, poste $L(Y_1)=B_1$ e $L(Y_2)=B_2$, si può affermare che
 $Z:=Y_1+Y_2$ risolve 
 \begin{equation}
@@ -552,6 +553,8 @@ infatti, si avrebbe che
 \begin{equation}
 L(Z)=L(Y_1+Y_2)=L(Y_1)+L(Y_2)=B_1+B_2
 \end{equation}
+\end{oss}
+\subsection{Equivalenza tra sistemi differenziali ed equazioni}
 Come già mostrato nel lemma \ref{Lemma: Equivalenza equazione-sistema}, esiste un legame tra equazioni e sistemi differenziali. In particolare, data un'equazione differenziale lineare di ordine $n$
 \begin{equation}
     y^{(n)}=a_1(x)y^{(n-1)}+a_2(x)y^{(n-2)}+ \dots+a_n(x)y+b(x)

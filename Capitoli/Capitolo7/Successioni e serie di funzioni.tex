@@ -265,10 +265,10 @@ Valgono le seguenti relazioni tra le varie nozioni di convergenza per le serie:
 Una serie di funzioni $\sum\limits_{n=1}^{\infty}{\fn(x)}$ totalmente convergente in $I$ è ivi uniformemente convergente.
 \end{theorem}
 \begin{proof}
-    Si sfrutti il criterio di Cauchy uniforme per le serie. L'obiettivo quindi è mostrare che esista un $N_\varepsilon$ tale che $|f_{n+1}+ \dots+ f_{n+p}|< \varepsilon,\ \forall\ n > N_\varepsilon,\ \forall\ P\in \N$.\\
+    Si sfrutti il criterio di Cauchy uniforme per le serie. L'obiettivo quindi è mostrare che esista un $N_\varepsilon$ tale che $|f_{n+1}+ \dots+ f_{n+p}|< \varepsilon,\ \forall\ n > N_\varepsilon,\ \forall\ p\in \N$.\\
     Dunque, si fissi $\varepsilon>0$. Per ipotesi di convergenza totale si ha che $\sum\limits_{n=1}^{\infty}{k_n}$ converge. Allora, esiste un $N_\varepsilon>0$ tale che per ogni $n>N_\varepsilon$ si ha che 
     \begin{equation}
-        |k_{n+1}+\dots+k_{n+p}|< \varepsilon\ \forall\ p \in \N
+        |k_{n+1}+\dots+k_{n+p}|< \varepsilon \qquad \forall\ p \in \N
     \end{equation}
    con $k_n>0\ \forall\ n$.\\
    D'altra parte, $|\fn|<k_n$ e, di conseguenza, a patto di prendere $n> N_\varepsilon$ si ha che, $\forall\ p \in \N,\ \forall x \in I$, vale
@@ -342,8 +342,8 @@ La caratterizzazione di $R$ si ha a partire dal seguente teorema.
     Sia $R$ raggio di convergenza della serie di potenze. Se $R=0$, allora la serie converge solo in $0$. Se $R>0$, la serie converge totalmente in ogni $[a,b] \subset (-R, R)$ e non converge per $|x|>R$.
 \end{theorem}
 \begin{proof}
- Si mostri che se $\sum\limits_{n=0}^{\infty}{a_n \xi^n}$ converge per un qualche $\xi \neq 0$ allora converge totalmente in ogni intervallo $[-\eta, \eta] \subset (|-\xi|, |\xi|)$.\\
- Per ipotesi di convergenza della serie, $|a_n \xi^n|$ deve essere una successione infinitesima (e perciò limitata) per $n\to \infty$, ovvero
+ Si mostri che se $\sum\limits_{n=0}^{\infty}{a_n \xi^n}$ converge per un qualche $\xi \neq 0$ allora converge totalmente in ogni intervallo $[-\eta, \eta] \subset (-|\xi|, |\xi|)$.\\
+ Per ipotesi di convergenza della serie, $|a_n \xi^n|$ deve essere una successione infinitesima (e perciò limitata) per $n\to +\infty$, ovvero
  \begin{equation}
      \exists\ M>0\ \text{tale che}\ |a_n\xi^n|\leq M
  \end{equation}
@@ -583,7 +583,7 @@ allora tale successione è detta \textbf{di Cauchy}.
             1 &\qquad x \in (0, 1]
         \end{cases}
     \end{equation*}
-    e $f\notin C^0([-1, 1]\ \forall\ x$
+    e $f\notin C^0([-1, 1])\ \forall\ x$
     benché $\fn$ sia di Cauchy. Infatti, 
     \begin{equation*}
         d_p(\fn, f)=  d_p=\left(\int\limits_{-1}^{1}{|\fn-f|^p\, dx}\right)^\frac{1}{p} \leq \left(\int\limits_{-\tfrac{1}{n}}^{\tfrac{1}{n}}{2^p\, dx}\right)^\frac{1}{p} \overset{n \to \infty}{\to }0
