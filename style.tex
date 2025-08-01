@@ -9,7 +9,14 @@
 \usepackage{graphicx, float}
 \usepackage{subcaption}
 \usepackage{caption}
-\usepackage{hyperref}
+\usepackage[hidelinks,bookmarksnumbered]{hyperref} % Pacchetto per riferimenti interattivi, configurazione per nascondere la cornice rossa
+% colora in blu i collegamenti web
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue
+}
 \usepackage{mdframed} % Pacchetto per le cornici
 \usepackage{xcolor}   % Pacchetto per la gestione dei colori
 % Colore per il background delle cornici
