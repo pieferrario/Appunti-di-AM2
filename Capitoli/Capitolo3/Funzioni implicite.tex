@@ -12,9 +12,9 @@ L'obiettivo del capitolo è quello di trovare le condizioni sotto le quali la \e
 Prima di procedere nella trattazione, si forniscano alcune definizioni di base utili nel corso del capitolo.
 \begin{definition} \label{Def: Funzione implicita}
     Siano $I \subseteq \mathbb{R}^2,\ J \subseteq \mathbb{R}$ tali che
-    \begin{equation}
+    \begin{equation*}
         \forall\ x\in I\ \exists!\ y \in J\ \text{tale che}\ F(x,y)=0
-    \end{equation}
+    \end{equation*}
     Allora si dice che l'equazione $F(x,y)=0$ \textbf{definisce implicitamente} una funzione $f: I \to J$.
 \end{definition}
 \begin{definition} \label{Def: Insieme degli zeri}
@@ -31,21 +31,21 @@ Il teorema del Dini, che verrà affrontato di seguito, fornisce le condizioni so
 \newpage
 \begin{theorem}[Teorema del Dini] \label{Teo: Teorema del Dini}
     Sia $F: A \subseteq \mathbb{R}^2 \to \mathbb{R}$, $A$ aperto, una funzione continua in A e tale che
-    \begin{equation}
+    \begin{equation*}
     \exists\ \frac{\partial{F}}{\partial{y}} \in A 
-    \end{equation}
+    \end{equation*}
     ed essa sia ivi continua. Inoltre, preso $(x_0, y_0) \in A$, se 
-    \begin{equation}
+    \begin{equation*}
     (x_0, y_0) \in Z(F) \quad \text{e} \quad \frac{\partial{F}}{\partial{y}}(x_0, y_0) \neq 0
-    \end{equation}
+    \end{equation*}
     Allora, l'equazione
-    \begin{equation}
+    \begin{equation*}
         F(x, y)=0
-    \end{equation}
+    \end{equation*}
     definisce implicitamente un'unica funzione
-    \begin{equation}
+    \begin{equation*}
         g: (x_0-\delta, x_0+\delta) \to (y_0 - \sigma, y_0+\sigma)
-    \end{equation}
+    \end{equation*}
     tale che 
     \begin{equation} \label{Eq: Tesi Dini}
      y=g(x) \iff
@@ -59,45 +59,45 @@ Il teorema del Dini, che verrà affrontato di seguito, fornisce le condizioni so
 \end{theorem}
 \begin{proof}
         Si supponga $\frac{\partial{F}}{\partial{y}}(x_0,y_0) > 0$. Poiché per ipotesi essa è anche continua, per permanenza del segno si ha che $\exists\ \sigma > 0$ tale che
-        \begin{equation}
+        \begin{equation*}
             \frac{\partial{F}}{\partial{y}}(x,y) > 0 \quad \forall\ (x,y) \in [x_0-\sigma, x_0+\sigma]\times [y_0 - \sigma, y_0+\sigma]
-        \end{equation}
+        \end{equation*}
        Sia $x_0$ fissato. Definita $\eta(y)=F(x_0, y)$ si ha che
-       \begin{equation}
+       \begin{equation*}
            \eta'(y)=\frac{\partial{F}}{\partial{y}}(x_0, y) >0 \quad \forall\ y \in [y_0 - \sigma, y_0+\sigma]
-       \end{equation}
+       \end{equation*}
        Pertanto $\eta(y)$ è continua, strettamente crescente e nulla in $y_0$. Quindi
-       \begin{equation}
+       \begin{equation*}
        \begin{aligned}
            &\eta(y_0-\sigma)=F(x_0, y_0-\sigma)<0\\
            &\eta(y_0+\sigma)=F(x_0, y_0+\sigma)>0
        \end{aligned}
-       \end{equation}
+       \end{equation*}
        Allora, per permanenza del segno su $F$, $\exists\ \delta>0,\ \delta \leq \sigma$ tale che 
-       \begin{equation}
+       \begin{equation*}
            F(x, y_0-\sigma) < 0 < F(x, y_0+\sigma) \quad \forall x \in [x_0-\delta, x_0+\delta]
-       \end{equation}
+       \end{equation*}
        Dunque, per ogni $\overline{x} \in [x_0-\delta, x_0+\delta]$ fissato, la funzione $\eta_{\overline{x}}(y)=F(\overline{x}, y)$ è monotona, strettamente crescente, di segno opposto agli estremi di $[y_0 - \sigma, y_0+\sigma]$. Quindi, per il teorema dei valori intermedi, si sa che $\forall \overline{x} \in [x_0-\delta, x_0+\delta]$ esiste un unico $\overline{y} \in [y_0-\sigma, y_0+\sigma]$ tale che 
-       \begin{equation}
+       \begin{equation*}
            F(\overline{x}, \overline{y})=0
-       \end{equation}
+       \end{equation*}
        Allora, definito $\overline{y}=g(\overline{x})$ si ha, per costruzione, la dimostrazione di \eqref{Eq: Tesi Dini} e di $g(x_0)=y_0$.\\
        Rimane da mostrare la continuità di $g$.
-       \begin{equation}
+       \begin{equation*}
            \forall\ \varepsilon > 0\ \exists\ \xi > 0\ \text{tale che, se}\ |x-\overline{x}|< \xi\ \text{allora}\ |g(x)-g(\overline{x})| < \varepsilon
-       \end{equation}
+       \end{equation*}
        Per quanto dedotto prima, cioè $F(\overline{x}, g(\overline{x}))=0$ e $\frac{\partial{F}}{\partial{y}}>0$, si sa che 
-       \begin{equation}
+       \begin{equation*}
            F(\overline{x}, g(\overline{x})-\varepsilon)<0<F(\overline{x}, g(\overline{x})+\varepsilon)
-       \end{equation}
+       \end{equation*}
        In maniera analoga, per permanenza del segno, si ha che per ogni $x \in (\overline{x}-\xi, \overline{x}+\xi)$ vale
-       \begin{equation}
+       \begin{equation*}
            F(x, g(\overline{x})-\varepsilon)<0<F(x, g(\overline{x})+\varepsilon)
-       \end{equation}
+       \end{equation*}
        Poiché infine $F(x, g(x))=0\ \forall\ x \in (\overline{x}-\xi, \overline{x}+\xi)$ e $F$ è crescente in tutti i punti considerati,
-       \begin{equation}
+       \begin{equation*}
            g(\overline{x})- \varepsilon < g(x) < g(\overline{x})+\varepsilon
-       \end{equation}
+       \end{equation*}
        cioè $g$ continua in $\overline{x}$.
        \end{proof}
 \begin{oss}
@@ -105,28 +105,28 @@ Il teorema del Dini, che verrà affrontato di seguito, fornisce le condizioni so
 \end{oss}
 \begin{theorem}[Derivata delle funzioni implicite]
 Siano le ipotesi del Dini con in aggiunta $F \in C^1(A)$, allora anche $g \in C^1(U)$ e la derivata $g'$ vale
-\begin{equation}
+\begin{equation*}
     g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \qquad \forall\ x \in U=[x_0-\delta, x_0+\delta]
-\end{equation}
+\end{equation*}
 \end{theorem}
 \begin{proof}
 Sia $(\xi, \eta) \in \left[(x, g(x)), (x+h, g(x+h)) \right]$.
 Si scriva il teorema di Lagrange per $F$.
-\begin{equation}
+\begin{equation*}
     F(x+h, g(x+h))-F(x, g(x)) =\langle \nabla F (\xi, \eta), (h, [g(x+h)-g(x)]) \rangle
-\end{equation}
+\end{equation*}
 Svolgendo il prodotto scalare e sfruttando le ipotesi del Dini si ha che
-\begin{equation}
+\begin{equation*}
     F(x+h, g(x+h))-F(x, g(x))= \frac{\partial {F}}{\partial{x}}(\xi, \eta) h + \frac{\partial {F}}{\partial{y}}(\xi, \eta) (g(x+h)-g(x))=0
-\end{equation}
+\end{equation*}
     Da ciò quindi si ottiene che
-    \begin{equation}
+    \begin{equation*}
         \lim_{h \to 0}{\frac{g(x+h)-g(x)}{h}}=\lim_{h \to 0}{-\frac{\frac{\partial {F}}{\partial{x}}(\xi, \eta)}{\frac{\partial {F}}{\partial{y}}(\xi, \eta)}}
-    \end{equation}
+    \end{equation*}
 Essendo $F \in C^1$ ne consegue che $g$ è derivabile in $U$ e, essendo continue per ipotesi le derivate parziali, si ha proprio che
-\begin{equation}
+\begin{equation*}
     g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \qquad \forall\ x \in U
-\end{equation}
+\end{equation*}
 \end{proof}
 \begin{corollary}
     Valgano le ipotesi del teorema del Dini con, in aggiunta, $F \in C^k(A),\ k \in \mathbb{N}$. Allora $g \in C^k(U)$.
@@ -135,43 +135,43 @@ Essendo $F \in C^1$ ne consegue che $g$ è derivabile in $U$ e, essendo continue
     Si svolga la dimostrazione per induzione.
     Nel caso base in cui $k=0$, ciò è vero per quanto visto. Stesso dicasi per $k=1$. Allora si supponga l'enunciato vero per $k-1$ e si provi che è vero per $k$, preso $k>2$.\\
     Se $F \in C^k(A)$, allora $F \in C^{k-1}$ e, per ipotesi induttiva, $g \in C^{k-1}(U)$. Allora, 
-    \begin{equation}
+    \begin{equation*}
          g'(x)=-\frac{\frac{\partial{F}}{\partial{x}}(x, g(x))}{\frac{\partial{F}}{\partial{y}}(x, g(x))} \in C^{k-1}
-    \end{equation}
+    \end{equation*}
     cioè, $g \in C^k(U)$
 \end{proof}
 È possibile, tali premesse calcolare anche la derivata seconda di $g$. Infatti gli ultimi due risultati permettono di calcolare la derivata prima di $g$ e garantiscono che se $F \in C^2(A)$, allora $g \in C^2(U)$, quindi si formalizzi il calcolo della derivata seconda di $g$.
 \begin{theorem}[Derivata seconda delle funzioni implicite]
 Sia $F \in C^2(A)$. Allora $g \in C^2(U)$ e
-\begin{equation}
+\begin{equation*}
     g''(x)= \left(\frac{-F_{xx}F_{y}^2+2F_{xy}F_xF_y-F_{yy}F_x^2}{F_y^3}\right)(x, g(x))
-\end{equation}
+\end{equation*}
 \end{theorem}
 \begin{proof}
 Essendo $F$ di classe $C^2$, e sapendo che $F(x,g(x))=0$, si derivi a destra e sinistra.
-\begin{equation}
+\begin{equation*}
     \frac{\partial{F}}{\partial{x}}(x, g(x))+\left(\frac{\partial{F}}{\partial{y}}(x, g(x)\right)g'(x)=0
-\end{equation}
+\end{equation*}
 Derivando un'altra volta si scopre che
-\begin{equation}
+\begin{equation*}
     \frac{\partial^2{F}}{\partial{x^2}}(x, g(x))+ 2 \frac{\partial^2{F}}{\partial{x}\partial{y}}(x, g(x))g'(x) + \frac{\partial^2{F}}{\partial{y^2}}(x, g(x))(g'(x))^2+ \frac{\partial{F}}{\partial{y}}g''(x) =0
-\end{equation}
+\end{equation*}
 e quindi, esplicitando $g''$
-\begin{equation}
+\begin{equation*}
 \begin{aligned}
     g''(x)&= \left(\frac{-F_{xx}-2F_{xy}g'(x)- F_{yy}g'(x)^2}{F_y}\right)(x, g(x))=\\
     &\overset{g'(x)=-\tfrac{F_x}{F_y}}{=} \left(\frac{-F_{xx}F_{y}^2+2F_{xy}F_xF_y-F_{yy}F_x^2}{F_y^3}\right)(x, g(x))
 \end{aligned}
-\end{equation}
+\end{equation*}
 \end{proof}
 \begin{oss}
     Se $F \in C^2(A)$ la condizione sufficiente affinché un punto $x_0$ sia massimo per $g$ è che
-    \begin{equation}
+    \begin{equation*}
         \begin{aligned}
             &g'(x_0)=0 \Rightarrow\ F_x(x_0, g(x_0))=0\\
             &g''(x_0)<0 \Rightarrow\ -\frac{F_{xx}(x_0, g(x_0))}{F_y} < 0
         \end{aligned}
-    \end{equation}
+    \end{equation*}
 \end{oss}
 \begin{example}
     Si mostri un esempio pratico sulle applicazioni dei teoremi visti.\\
@@ -191,36 +191,36 @@ e quindi, esplicitando $g''$
 \end{theorem}
 \begin{proof}
     Per il teorema del Dini, $Z(F)$ in un intorno di $(x_0, y_0)$ è il grafico di una funzione implicita $g: (x_0- \delta, x_0+ \delta) \to \mathbb{R}$. In particolare esso è il sostegno della curva parametrica $\gamma = (x, g(x))$. Il versore tangente di $\gamma$ è dunque definito da
-    \begin{equation}
+    \begin{equation*}
         T(x)= \frac{(1, g'(x))}{\sqrt{1+g'(x)^2}} \qquad x \in (x_0- \delta, x_0+ \delta)
-    \end{equation}
+    \end{equation*}
     Calcolando per tali valori di $x$ il prodotto scalare tra il gradiente ed il versore tangente si ha che
-    \begin{equation}
+    \begin{equation*}
         \langle \nabla F (x, g(x)), T(x) \rangle= \frac{F_x(x, g(x)) + F_y(x, g(x))g'(x)}{\sqrt{1+g'(x)^2}}=\frac{F'(x, g(x))}{\sqrt{1+g'(x)^2}}=0
-    \end{equation}
+    \end{equation*}
     cioè la tesi.
 \end{proof}
 
 Bisogna anche ricordare che il teorema del Dini può essere applicato anche in altri contesti oltre a quanto già visto. Infatti, esiste una versione del teorema applicata alle funzioni di più variabili ed un'altra applicata ai sistemi di equazioni, di cui si riporta solo l'enunciato.
 \begin{theorem}[Teorema del Dini per le funzioni in più variabili]
 Siano $x=(x_1, \dots, x_n) \in \mathbb{R}^n$, $y \in \mathbb{R}$ e sia $F(x, y)=F(x_1, \dots, x_n, y)$ una funzione continua nell'aperto $A \in \mathbb{R}^{n+1}$ insieme alla sua derivata parziale $F_y$ in $A$. Se $(x_0, y_0)=(x_{01}, \dots, x_{0n}, y_0)\in A$ è tale che
-\begin{equation}
+\begin{equation*}
     F(x_0, y_0)=0 \qquad F_y(x_0, y_0) \neq 0
-\end{equation}
+\end{equation*}
 allora esistono $\delta, \sigma>0$ ed un'unica funzione $f: B_\delta(x_0) \to (y_0-\sigma, y_0+ \sigma)$ tale che 
-\begin{equation}
+\begin{equation*}
     F(x, f(x))=0 \qquad \forall x \in B_\delta(x_0)
-\end{equation}
+\end{equation*}
 \end{theorem}
 \begin{theorem}[Teorema del Dini per i sistemi]
     Siano $A \in \mathbb{R}^{n+h}$ un aperto e $F=F(x,y): A \to \mathbb{R}^h$ di classe $C^1$. Sia poi $(x_0, y_0) \in A$ tale che
-    \begin{equation}
+    \begin{equation*}
         F(x_0, y_0)=0\quad \land \quad \det(J_f) \neq 0
-    \end{equation}
+    \end{equation*}
     allora esistono un intorno sferico $I$ di $x_0$, un intorno sferico $J$ di $y_0$ ed un'unica funzione $f: I \subset \mathbb{R}^n \to J \subset\mathbb{R}^h$. tale che $f(x_0)=y_0$
-    \begin{equation}
+    \begin{equation*}
         F(x, f(x))=0 \qquad \forall x \in I
-    \end{equation}
+    \end{equation*}
 \end{theorem}
 Si può inoltre notare che una conseguenza del teorema del Dini è il teorema delle funzioni inverse in una variabile reale. In realtà, tale risultato può essere ampliato alle funzioni di più variabili sfruttando il concetto di invertibilità locale.
 \begin{definition} \label{Def: Invertibilità locale}
@@ -232,30 +232,30 @@ Tale nozione può essere potenziata definendo poi i diffeomorfismi locali.
 \end{definition}
 \begin{theorem}[Invertibilità locale] \label{Teo: Invertibilità locale}
     Sia $A \subseteq \mathbb{R}^n$ e $f: A \to \mathbb{R}^n$ una funzione di classe $C^1(A)$. Allora se $x_0 \in A$ è tale che lo Jacobiano (\ref{Def: Jacobiano})in $x_0$ sia non nullo, cioè $\det(J_f(x_0) \neq 0$, esistono $B_\delta(x_0)$ aperto e $J$, intorno aperto di $f(x_0)$ tali che la funzione $f\big|_{B_\delta(x_0)}: B_\delta(x_0) \to J$ è invertibile con inversa $f^{-1}: J \to B_\delta(x_0)$ di classe $C^1$. Inoltre, 
-    \begin{equation}
+    \begin{equation*}
         J_{f^{-1}}(y)=(J_f(f^{-1}(y)))^{-1}
-    \end{equation}
+    \end{equation*}
 \end{theorem}
 \section{Ottimizzazione vincolata}
 Dopo aver descritto le funzioni implicite, può essere utile capire come queste possano essere massimizzate o minimizzate lungo un determinato vincolo.
 \begin{definition} \label{Def: Vincolo di uguaglianza}
 Sia F una funzione di classe $C^1$. Si dice \textbf{vincolo di uguaglianza} un insieme $V \subseteq \mathbb{R}^n$ della forma
-\begin{equation}
+\begin{equation*}
     V= \left\{(x_1, \dots, x_n) \in \mathbb{R}^n \mid F(x_1, \dots, x_n)=0 \right\}
-\end{equation}
+\end{equation*}
 \end{definition}
 Presa dunque una funzione $f:A\subseteq \mathbb{R}^n \to \mathbb{R}$ con $V \subseteq A$, occorre verificare l'esistenza ed eventualmente determinare $\min\limits_{V}{f}$ e $\max\limits_{V}{f}$.
 In particolare, si affronterà il caso con $n=2$.
 \begin{definition} \label{Def: Estremi vincolati}
     Un punto $(x_0, y_0) \in V= Z(F)$ con $F \in C^1$ è detto \textbf{punto di massimo (minimo) relativo vincolato} per $f$ su $Z(F)$ se esiste $\delta>0$ tale che 
-    \begin{equation}
+    \begin{equation*}
         f(x,y) \underset{(\geq)}{\leq} f(x_0, y_0) \qquad \forall\ (x, y) \in B_\delta(x_0, y_0) \cap Z(F)
-    \end{equation}
+    \end{equation*}
     In tal caso $(x_0, y_0)$ è detto \textbf{estremo relativo vincolato}.\\
     Poi, $(x_0, y_0)$ è detto \textbf{punto di massimo (minimo) assoluto} per $f$ su $Z(F)$ se vale
-    \begin{equation}
+    \begin{equation*}
         f(x, y) \underset{(\geq)}{\leq} f(x_0, y_0) \qquad \forall\ (x, y) \in Z(F)
-    \end{equation}
+    \end{equation*}
     Infine, i valori nei punti di massimo (minimo) sono detti \textbf{massimo (minimo)} della funzione.
 \end{definition}
 \begin{definition} \label{Punto critico vincolato}
@@ -279,60 +279,60 @@ Siano $A \subseteq \mathbb{R}^2$ aperto, $f: A \to \mathbb{R}$ e $F: A \to \math
 \end{theorem}
 \begin{proof}
     Poiché $(x_0, y_0) \in Z(F)$ è regolare in $Z$, cioè $\nabla F(x_0, y_0) \neq 0$, si ha 
-    \begin{equation}
+    \begin{equation*}
         F_x(x_0, y_0) \neq 0 \lor F_y(x_0, y_0) \neq 0
-    \end{equation}
+    \end{equation*}
     Si supponga allora, senza perdita di generalità, che la derivata parziale lungo $y$ sia non nulla. Allora, per il teorema del Dini, esistono $U(x_0)$, $V(y_0)$ tali che esista
-    \begin{equation}
+    \begin{equation*}
     h:U(x_0) \to V(y_0) \iff \begin{cases}
         F(x, y)=0\\
         x\in U(x_0)\\
         y \in V(y_0)
     \end{cases}
-    \end{equation}
+    \end{equation*}
     Inoltre, sempre per il teorema del Dini, è noto che
     \begin{equation} \label{Eq: Derivata implicita per teorema moltiplicatore}
         h'(x)=- \frac{F_x(x_0, y_0)}{F_y(x_0, y_0)} 
     \end{equation}
     Si dimostri quindi il punto 1.\\
     Sia $\mathcal{F}$ così definita:
-    \begin{equation}
+    \begin{equation*}
         \mathcal{F}(x)=f(x, h(x)) \quad x \in U(x_0)
-    \end{equation}
+    \end{equation*}
     Poiché $x_0$ è interno a $U$ e, per ipotesi, $x_0$ è punto critico per $f$, $\mathcal{F}$ è derivabile in $x_0$. Quest'ultimo è per costruzione critico per $\mathcal{F}$ e, dal teorema di Fermat, si ha $\mathcal{F}'(x_0)=0$, cioè:
     \begin{equation}  \label{Eq: Fermat per teorema moltiplicatore}    0=\mathcal{F}'(x_0)=\frac{\partial{f}}{\partial{x}}(x_0, h(x_0))+ \frac{\partial{f}}{\partial{y}}(x_0, h(x_0))h'(x_0)
     \end{equation}
     Quindi sostituendo la \eqref{Eq: Derivata implicita per teorema moltiplicatore} nella \eqref{Eq: Fermat per teorema moltiplicatore} si ha che
-    \begin{equation}
+    \begin{equation*}
         f_x(x_0, y_0)={f_y(x_0, y_0)} \frac{F_x(x_0, y_0)}{F_y(x_0, y_0)}
-    \end{equation}
+    \end{equation*}
     Quindi, posto
-    \begin{equation}
+    \begin{equation*}
         \lambda_0=\frac{f_y(x_0, y_0)}{F_y(x_0, y_0)}
-    \end{equation}
+    \end{equation*}
     si ha la tesi.\\
     Si dimostri ora il punto 2.\\
     Si scriva il vincolo in forma parametrica come
-    \begin{equation}
+    \begin{equation*}
         \varphi(t)=(t, h(t)) \quad t \in U(x_0)
-    \end{equation}
+    \end{equation*}
     allora, si hanno $(x_0, y_0)=(x_0, h(x_0))$ e il versore tangente $T(x_0)=\tfrac{(1, h'(x_0))}{\sqrt{1+h'(x_0)^2}}$.
     Perciò, per la formula del gradiente \eqref{Eq:Formula gradiente}
     e dalla \eqref{Eq: Fermat per teorema moltiplicatore}
     si ha che
-    \begin{equation}
+    \begin{equation*}
         \frac{\partial{f}}{\partial{T}}(x_0, y_0)= \langle \nabla f(x_0, y_0), T\rangle = 0
-    \end{equation}
+    \end{equation*}
     cioè $(x_0, y_0)$ è un punto critico vincolato per $f$ su $Z$.\\
     Infine si dimostri la 3.\\
     Si calcoli il gradiente di $\mathcal{L}(x, y, \lambda)=f(x, y)-\lambda F(x, y)$:
-    \begin{equation}
+    \begin{equation*}
         \nabla \mathcal{L}(x,y,\lambda)=\left(\frac{\partial{f}}{\partial{x}}(x, y)-\lambda \frac{\partial{F}}{\partial{x}}(x, y), \frac{\partial{f}}{\partial{y}}(x, y)-\lambda \frac{\partial{F}}{\partial{y}}(x, y), -F(x, y)\right)
-    \end{equation}
+    \end{equation*}
     Quindi,
-    \begin{equation}
+    \begin{equation*}
      \nabla \mathcal{L}(x_0, y_0, \lambda_0)=0   
-    \end{equation}
+    \end{equation*}
     cioè $(x_0, y_0, \lambda_0)$ è un punto critico per $\mathcal{L}$
 \end{proof}
 \paragraph{Ottimizzazione sui compatti}
