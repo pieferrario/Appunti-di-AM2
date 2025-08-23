@@ -81,7 +81,7 @@ Volendo poi studiare la convergenza uniforme, si ha che
 \end{equation*}
 Dunque in $[0,1]$ $\fn$ non converge in modo uniforme. D'altra parte è anche vero che la "patologia" si verifica in $x=1$, perciò valutando la convergenza uniforme in $[0,a],\ a < 1$, si ha che
 \begin{equation*}
-    \sup_{x \in [0,a]}{|\fn(x)-f(x)|}= x^n \big|_{[0,a]} = a^n \overset{n \to +\infty}{\to} 0
+    \sup_{x \in [0,a]}{|\fn(x)-f(x)|}= x^n \big|_{[0,a]} = a^n \xrightarrow{n \to +\infty} 0
 \end{equation*}
 cioè $\fn$ uniformemente convergente a $0$ su ogni compatto $[0,a],\ a<1$.\\
 È possibile avere un riscontro grafico di tali affermazioni dalla figura di seguito.
@@ -111,7 +111,7 @@ Allora esistono i seguenti limiti e si ha
         \left| \lim_{x \to x_0}{\fn(x)}-\lim_{x \to x_0}{f(x)}\right| = \left| \ell_n - \ell_m \right| \leq \varepsilon
     \end{equation*}
     cioè $\ell_n$ è di Cauchy. Inoltre, $\{\ell_n\}_n$ è una successione di numeri reali, dunque essa deve convergere ad un qualche $\ell \in \R$. Ciò dimostra la prima metà della tesi.\\
-    Rimane da provare che $f(x) \overset{x \to x_0}{\to} \ell$, cioè che $|f(x)-\ell| \to 0$. Dunque,
+    Rimane da provare che $f(x) \xrightarrow{x \to x_0} \ell$, cioè che $|f(x)-\ell| \to 0$. Dunque,
     \begin{equation*}
     \begin{aligned}
         \left|f(x)-\ell\right| &= \left| f(x) - f_\nu(x)+ f_\nu(x)- \ell_\nu+ \ell_\nu- \ell\right| \leq\\
@@ -525,7 +525,7 @@ Allora, per terminare, si dia ora un criterio per stabilire se una funzione sia 
 \begin{definition} \label{Def: Convergenza e convergenza di Cauchy}
 Una successione $\{x_n\}_n$ con $x_n \in (X, d)$ per ogni n e con $(X, d)$ spazio metrico \textbf{converge} a $x_0 \in X$ se
 \begin{equation*}
-    d(x_n, x_0) \overset{n \to +\infty}{\to} 0
+    d(x_n, x_0) \xrightarrow{n \to +\infty} 0
 \end{equation*}
 Inoltre, se 
 \begin{equation*}
@@ -586,7 +586,7 @@ allora tale successione è detta \textbf{di Cauchy}.
     e $f\notin C^0([-1, 1])\ \forall\ x$
     benché $\fn$ sia di Cauchy. Infatti, 
     \begin{equation*}
-        d_p(\fn, f)=  d_p=\left(\int\limits_{-1}^{1}{|\fn-f|^p\, dx}\right)^\frac{1}{p} \leq \left(\int\limits_{-\tfrac{1}{n}}^{\tfrac{1}{n}}{2^p\, dx}\right)^\frac{1}{p} \overset{n \to \infty}{\to }0
+        d_p(\fn, f)=  d_p=\left(\int\limits_{-1}^{1}{|\fn-f|^p\, dx}\right)^\frac{1}{p} \leq \left(\int\limits_{-\tfrac{1}{n}}^{\tfrac{1}{n}}{2^p\, dx}\right)^\frac{1}{p} \xrightarrow{n \to \infty}0
     \end{equation*}
 \end{oss}
 \begin{definition} \label{Def: Spazio chiuso}
@@ -603,7 +603,7 @@ allora tale successione è detta \textbf{di Cauchy}.
     D'altra parte $x_n$ è una successione di $C$, che è chiuso. Dunque, per definizione, $y \in C$, cioè $C$ è metrico completo.
 \end{proof}
 \begin{definition} \label{Def: Funzione sequenzialmente continua}
-    Siano $(X, d_x),\ (Y, d_y)$ spazi metrici. Allora $f: X \to Y$ è detta \textbf{sequenzialmente continua} in $x_0 \in X$ se per ogni successione $\{x_n\}_n \subset X$ tale che $x_n \overset{n\to +\infty}{\to} x_0$ rispetto a $d_x$, si ha che $f(x_n) \to f(x_0)$ rispetto a $d_y$.
+    Siano $(X, d_x),\ (Y, d_y)$ spazi metrici. Allora $f: X \to Y$ è detta \textbf{sequenzialmente continua} in $x_0 \in X$ se per ogni successione $\{x_n\}_n \subset X$ tale che $x_n \xrightarrow{n\to +\infty} x_0$ rispetto a $d_x$, si ha che $f(x_n) \to f(x_0)$ rispetto a $d_y$.
 \end{definition}
 \begin{definition} \label{Def: Lipschitziana}
      Siano $(X, d_x),\ (Y, d_y)$ spazi metrici. Allora $f: X \to Y$ è detta \textbf{Lipschitziana} con costante di Lipschitz $L>0$ se 
