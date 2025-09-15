@@ -4,22 +4,22 @@ Si passi ora alla trattazione delle forme differenziali.
 Per fare ciò, si consideri $A \subseteq \mathbb{R}^n$ aperto. Siano poi $a_1(x), \dots, a_n(x)$ con $x \in A$ funzioni continue in $A$ e siano $dx_1, \dots, dx_n$ funzioni lineari da $\R^n$ a $\R$ tali che $h \mapsto h_i$.
 \begin{definition} \label{Def: Forma differenziale}
 Si dice \textbf{forma differenziale} un'applicazione $\omega:\ x \in A \to  (\mathbb{R}^n)^*$, cioè il duale di $\mathbb{R}^n$, data dall'espressione:
-\begin{equation}
+\begin{equation*}
     \omega= \omega(x)= \sum\limits_{i=1}^{n}{a_i(x)dx_i}
-\end{equation}
+\end{equation*}
 con $a_i$ detti \textbf{coefficienti} della forma differenziale $\omega$.
 \end{definition}
 \begin{oss}
     Se $h$ è un vettore generico di $\R^n$, il valore assunto da $\omega(x)$ in $h$ è dato da:
-    \begin{equation}
+    \begin{equation*}
         \omega(x)(h)=\sum\limits_{i=1}^{n}{a_i(x)dx_i(h)}= \sum\limits_{i=1}^{n}{a_i(x)h_i}
-    \end{equation}
+    \end{equation*}
 \end{oss}
 \begin{oss}
 Solitamente, soprattutto in ambito fisico, non si parla tanto di forme differenziali quanto più di campi vettoriali. Nello specifico, si dice \textit{campo vettoriale} associato alla forma differenziale $\omega$ la funzione $F: A\subseteq \R^n \to \R^n$ data da
-\begin{equation}
+\begin{equation*}
     F=F(x)=(a_1(x), \dots, a_n(x_n))
-\end{equation}
+\end{equation*}
 Inoltre, si può notare che il legame tra i due è dato da:
 \begin{equation} \label{Eq: Campo vettoriale}
     \omega(x)= \langle F(x), dx \rangle
@@ -40,40 +40,40 @@ Presa $f$ differenziabile in $A$, si può osservare che il suo differenziale $df
     \end{equation}
 \end{definition}
 Per tale ragione, si può osservare che l'integrale curvilineo di seconda specie di un campo vettoriale $F$ associato ad una forma differenziale $\omega$ lungo una curva $\gamma$ è dato dall'integrale curvilineo di prima specie di 
-\begin{equation}
+\begin{equation*}
     \int\limits_{\gamma}{\langle F, T \rangle}\, ds
-\end{equation}
+\end{equation*}
 e in particolare vale:
-\begin{equation}
+\begin{equation*}
     \int\limits_{\gamma}{\omega}= \int\limits_{a}^{b} {\langle F(\gamma(t)), \gamma'(t)\rangle}\, dt = \int\limits_{a}^{b} {\langle F(\gamma(t)), T(\gamma(t))\rangle} |\gamma'(t)|\, dt = \int\limits_{\gamma}{\langle F, T \rangle}\, ds
-\end{equation}
+\end{equation*}
 Inoltre, vale il seguente risultato.
 \begin{theorem}[Invarianza per equivalenza di curve] \label{Teo: Invarianza per equivalenza di curve dell'integrale curv di 2 specie}
     Siano $\gamma,\ \gamma'$ due curve equivalenti e sia $\omega$ una forma differenziale definita in $A$. Allora
-    \begin{equation}
+    \begin{equation*}
         \int\limits_\gamma { \omega} = \int\limits_{\gamma'}{\omega}\quad \text{oppure} \quad \int\limits_\gamma { \omega} = -\int\limits_{\gamma'}{\omega}
-    \end{equation}
+    \end{equation*}
     se sono percorse nello stesso verso o in verso opposto, rispettivamente.
 \end{theorem}
 \begin{proof}
     Per definizione di equivalenza di curve, prese 
     $\varphi: [a, b] \to \R^n$ parametrizzazione di $\gamma$ e $\psi:[c,d] \to \R^n$ parametrizzazione di $\gamma'$,  esiste un cambio di parametro ammissibile $\eta$ tale che $\varphi(t)= \psi(\eta(t))$ per ogni $t \in [a,b]$. Allora, 
-    \begin{equation}
+    \begin{equation*}
         \int\limits_\gamma {\omega}= \int\limits_{a}^{b}{\langle F(\varphi(t)), \varphi'(t) \rangle}\, dt = \int\limits_{a}^{b}{ \langle F(\psi(\eta(t))), \psi(\eta(t))\eta'(t)\rangle}\, dt
-    \end{equation}
+    \end{equation*}
     dove $F$ è il campo vettoriale associato ad $\omega$.
     Perciò, mediante la sostituzione
-    \begin{equation}
+    \begin{equation*}
         \eta(t)=s \qquad \eta'(t)dt =ds
-    \end{equation}
+    \end{equation*}
     si ha che, se le due curve sono percorse nello stesso verso, $\eta'(t) >0 $ e $\eta(a)=c,\ \eta(b)=d$ e
-    \begin{equation}
+    \begin{equation*}
     \int\limits_{\eta(a)=c}^{\eta(b)=d}{ \langle F(\psi(s)), \psi'(s)\rangle}\, ds \overset{\text{Costr.}}{=} \int\limits_{\gamma'}{\omega} 
-    \end{equation}
+    \end{equation*}
     Altrimenti, se $\eta'(t) < 0 $,  $\eta(a)=d,\ \eta(b)=c$ e 
-    \begin{equation}
+    \begin{equation*}
      \int\limits_{\eta(a)=d}^{\eta(b)=c}{ \langle F(\psi(s)), \psi'(s)\rangle}\, ds = - \int\limits_{c}^{d}{\langle F(\psi(s)), \psi'(s)\rangle}\, ds\overset{\text{Costr.}}{=} -\int\limits_{\gamma'}{\omega} 
-    \end{equation}
+    \end{equation*}
 \end{proof}
 \begin{oss}
     Per come è definito, si può notare che $\int\limits_{\gamma}{\omega}$ è il lavoro del campo vettoriale $F$ lungo $\gamma$.
@@ -82,9 +82,9 @@ Inoltre, vale il seguente risultato.
 In continuità con l'ultima osservazione, può essere approfondito il tema del lavoro di una forma differenziale lungo una certa curva $\gamma$. In particolare, scopo del paragrafo è stabilire sotto quali circostanze una forma differenziale possa dirsi \textit{esatta} e come tale gruppo possa essere caratterizzato.
 \begin{definition} \label{Def: Forma differenziale esatta}
     Sia $\omega$ una forma differenziale su $A \subseteq \R^n$. Allora $\omega$ è detta \textbf{esatta} in $A$ se ammette primitiva $f$, cioè se essa è il differenziale di una certa $f \in C^1(A)$ tale che 
-    \begin{equation}
+    \begin{equation*}
         \omega = df
-    \end{equation}
+    \end{equation*}
     In maniera equivalente, una forma differenziale esatta è una forma differenziale tale che
     \begin{equation} \label{Eq: Forma differenziale esatta}
         \exists\ \mathcal{U} \in C^1(A) \ \text{tale che}\ F=\nabla\mathcal{U}
@@ -93,101 +93,101 @@ In continuità con l'ultima osservazione, può essere approfondito il tema del l
 In termini fisici, così come prima si definiva campo vettoriale la funzione $F$ associata a $\omega$, ora, si definisce \textit{potenziale} $\U$ ciò che in analisi matematica è detto primitiva. Inoltre, sempre nell'ambito del lessico fisico, si può creare un ulteriore ponte sottolineando che una forma differenziale esatta è talvolta chiamata \textit{campo vettoriale conservativo}. Infatti, si può dimostrare che il lavoro di una forma differenziale esatta è dato dalla differenza di primitive valutate all'istante iniziale e a quello finale.
 \begin{theorem} \label{Teo: Integrale di forme differenziali esatte}
     Sia $\omega$ una forma differenziale esatta e $\varphi: [a, b] \to \R^n$ una parametrizzazione della curva $\gamma$ regolare. Allora, detta $f$ primitiva di $\omega$, si ha che 
-    \begin{equation}
+    \begin{equation*}
         \int\limits_\gamma{\omega}= f(\varphi(b))-f(\varphi(a))
-    \end{equation}
+    \end{equation*}
 \end{theorem}
 \begin{proof}
     Si risolva tale integrale.
-    \begin{equation}
+    \begin{equation*}
     \begin{aligned}
         \int\limits_{\gamma}{\omega} &\overset{\text{Def}}{=}\int\limits_{a}^{b}{\langle F(\varphi(t)), \varphi'(t)\rangle}\, dt \overset{\eqref{Eq: Forma differenziale esatta}}{=} \int\limits_{a}^{b}{\langle \nabla f(\varphi(t)), \varphi'(t) \rangle}\, dt =\\
         &\overset{\eqref{Eq: Derivata composta 1}}{=}\int\limits_{a}^{b}\frac{d}{dt}{f(\varphi(t))} \overset{\text{TFC}}{=} f(\varphi(b))- f(\varphi(a))
     \end{aligned}
-    \end{equation}
+    \end{equation*}
 \end{proof}
 \paragraph{Giustificazione del termine \textit{conservativo}}
 Si pensi ad $F$ come un campo di forze che agisce su una massa di $m=1$ e si consideri una generica traiettoria data da una curva $x=x(t)$ almeno di classe $C^2$ che soddisfi l'equazione differenziale 
-\begin{equation}
+\begin{equation*}
     x''(t)=F(x(t)) \qquad \forall\ t \in \R
-\end{equation}
+\end{equation*}
 Si introduca poi l'energia meccanica 
-\begin{equation}
+\begin{equation*}
     E_m(t)= \frac{1}{2} |x'(t)|^2- f(x(t))
-\end{equation}
+\end{equation*}
 con $f$ potenziale di $F$.\\
 Allora, derivando tale relazione, si ha che
-\begin{equation}
+\begin{equation*}
 \begin{aligned}
         \frac{d}{dt}{E_m(t)}&=\frac{1}{2} \frac{d}{dt}{ \langle x'(t), x'(t) \rangle}- \frac{d}{dt}{f(x(t))}=\\
         &= \langle x''(t), x'(t) \rangle- \langle \nabla f(x(t)), x'(t) \rangle =\\
         &= \langle F(x(t)), x'(t) \rangle - \langle F(x(t)), x'(t) \rangle =0
 \end{aligned}    
-\end{equation}
+\end{equation*}
 Ciò significa che l'energia meccanica si \textit{conserva} lungo le traiettorie indotte dal campo $F$.
 \begin{theorem}[Caratterizzazione delle forme esatte] \label{Teo: Caratterizzazione forme esatte}
 Siano $A \subseteq \R^n$ aperto connesso, $\omega$ una forma differenziale in $A$ e $\gamma,\ \gamma_1,\ \gamma_2$ tre curve regolari a tratti con sostegno contenuto in $A$. Allora le seguenti affermazioni sono equivalenti:
 \begin{enumerate}
     \item $\omega$ è esatta in A
     \item se $\gamma$ è chiusa allora 
-    \begin{equation}
+    \begin{equation*}
         \int\limits_{\gamma}{\omega}=0
-    \end{equation}
+    \end{equation*}
     \item se $\gamma_1$, $\gamma_2$ hanno gli stessi estremi e lo stesso verso di percorrenza allora
-    \begin{equation}
+    \begin{equation*}
         \int\limits_{\gamma_1}{\omega} = \int\limits_{\gamma_2}{\omega}
-    \end{equation}
+    \end{equation*}
 \end{enumerate}
 \end{theorem}
 \begin{proof}
     Si dimostrino le tre affermazioni in questo ordine: $1 \Rightarrow 2 \Rightarrow 3 \Rightarrow 1$.\\
     $1 \Rightarrow 2$: Sia $\varphi: [a,b] \to A$ una parametrizzazione di $\gamma$. Poiché $\gamma$ è chiusa, si ha che $\varphi(a)=\varphi(b)$. Allora, siccome $\omega$ è esatta, vale 
-    \begin{equation}
+    \begin{equation*}
         \int\limits_{\gamma}{\omega} = f(\varphi(b))- f(\varphi(a)) = f(\varphi(a))-f(\varphi(a))=0
-    \end{equation}
+    \end{equation*}
     $2 \Rightarrow 3$: Si considerino $\gamma_1,\ \gamma_2$ definite come nelle ipotesi di $(3)$. Siano poi:
-    \begin{equation}
+    \begin{equation*}
         \begin{aligned}
             &\varphi: [a,b] \to A \ \text{parametrizzazione di } \gamma_1\\
             &\psi:[c, d] \to A \ \text{parametrizzazione di } \gamma_2
         \end{aligned}
-    \end{equation}
+    \end{equation*}
     Sia poi $\hat{\psi}$ la parametrizzazione che percorre $\psi$ in verso opposto, cioè
-    \begin{equation}
+    \begin{equation*}
         \hat{\psi}(t)= \psi(-t+b+d) \qquad t \in [b, b+d-c]
-    \end{equation}
+    \end{equation*}
 Si può verificare che: $\hat{\psi}(b)= \psi(d)$ e $\hat{\psi}(b+d-c)=\psi(c)$.\\
 Allora, definita $\xi: [a, b+d-c] \to A$ come
-\begin{equation}
+\begin{equation*}
     \xi(t)= \begin{cases}
         \varphi(t) \qquad & t \in [a,b]\\
         \hat{\psi}(t) \qquad & t \in [b, b+d-c]
     \end{cases}
-\end{equation}
+\end{equation*}
 Si ha che per costruzione essa è regolare a tratti. Inoltre, si ha che:
-\begin{equation}
+\begin{equation*}
 \begin{aligned}
     &\xi(a)= \varphi(a)\\
     &\xi(b+d-c)= (\hat{\psi}(b+d-c))=\psi(c)=\varphi(a)
 \end{aligned}
-\end{equation}
+\end{equation*}
 cioè $\xi(t)$ è una curva chiusa. Allora, detta $\hat{\gamma}$ la curva di parametrizzazione $\xi(t)$, per il punto (2) si ha che:
-\begin{equation}
+\begin{equation*}
 \begin{aligned}
 \int\limits_{\hat{{\gamma}}}{\omega} &= \int\limits_{a}^{b} \langle F(\varphi(t)), \varphi'(t)\rangle \, dt + \int\limits_{b}^{b+d-c}{\langle F(\hat{\psi}(t), \hat{\psi}(t) \rangle}\, dt=\\ 
 &= \int\limits_{a}^{b} \langle F(\varphi(t)), \varphi'(t)\rangle \, dt - \int\limits_{c}^{d}{\langle F(\psi(t)), \psi'(t) \rangle}\, dt =\\
 &= \int\limits_{\gamma_1}{\omega} - \int\limits_{\gamma_2}{\omega} = 0
 \end{aligned}
-\end{equation}
+\end{equation*}
 Da cui si ottiene la tesi.\\
 $3 \Rightarrow 1$: Sia $x_0 \in A$ fissato. Dato $x \in A$, poiché $A$ è connesso per archi, esiste una curva $\gamma$ regolare a tratti che congiunga $x_0$ a $x$ con sostegno in A. Sia inoltre $\gamma$ percorsa da $x_0$ a $x$. Allora, si ponga
-\begin{equation}
+\begin{equation*}
     f(x):=\int\limits_{\gamma}{\omega}
-\end{equation}
+\end{equation*}
 In particolare si può osservare che grazie a (3) tale funzione è sempre ben definita e il suo valore non dipende dalla curva scelta.\\
 L'obiettivo della dimostrazione è mostrare che $f \in C^1(A)$ e $df= \omega$.\\
 Siano dunque $x=(x_1, \dots, x_n) \in A$, $h \in \R$ tali che $x+he_i \in A$. Sia poi $\varphi$ la curva di sostegno $[x, x+he_1]$, cioè
-\begin{equation}
+\begin{equation*}
     \varphi= \begin{cases}
         x_1(t)=x_1+t\\
         x_2(t)=x_2\\
@@ -195,31 +195,31 @@ Siano dunque $x=(x_1, \dots, x_n) \in A$, $h \in \R$ tali che $x+he_i \in A$. Si
         x_n(t)=x_n
     \end{cases}
     \qquad t \in [0,h]
-\end{equation}
+\end{equation*}
 Sia poi $\gamma_1= \gamma \cup \varphi$, che, per costruzione, è regolare a tratti e congiunge $x_0$ a $x+he_1$. Tramite la definizione di $f$ si ottiene che
-\begin{equation}
+\begin{equation*}
 \begin{aligned}
     f(x_0+he_1)-f(x)&=\int\limits_{\gamma_1}{\omega}- \int\limits_{\gamma}{\omega}= \int\limits_{\gamma}{\omega}+\int\limits_{\varphi}{\omega}-\int\limits_{\gamma}{\omega}= \int\limits_{\varphi}{\omega}=\\
     &=\int\limits_{0}^{h}{\left[\sum\limits_{i=1}^{n}{a_i(\varphi(t))x_i'(t)} \right]}\, dt=    \int\limits_{0}^{h}{a_1(\varphi(t))\cdot 1}\, dt =\\ 
     &=\int\limits_{0}^{h}{a_1(x_1+t,\ x_2,\ \dots,\  x_n)}\, dt
 \end{aligned}
-\end{equation}
+\end{equation*}
 Di conseguenza, per $h \to 0$ si ha  
-\begin{equation}
+\begin{equation*}
     \frac{\partial{f}}{\partial x_1}{(x)}= \lim_{h\to 0}{\frac{f(x+he_1)-f(x)}{h}}= \lim_{h \to 0} \frac{1}{h}{\int\limits_{0}^{h}{a_1(x_1+t,\ \dots,\ x_n)}\, dt}
-\end{equation}
+\end{equation*}
 con $t \in [0, h],\ a_1 \in C^0(A)$. Allora, applicandovi il teorema della media integrale si ha 
-\begin{equation}    
+\begin{equation*}    
      \frac{\partial{f}}{\partial x_1}=a_1(x)
-\end{equation}
+\end{equation*}
 Reiterando per ogni $i$ si ottiene che $\nabla f(x)= (a_1(x), \dots, a_n(x))$, quindi $f \in C^1(A)$ è un potenziale di $\omega$. Allora $\omega$ è una forma esatta. 
 \end{proof}
 \section{Forme differenziali chiuse}
 \begin{definition} \label{Def: Forma differenziale chiusa}
     Sia $\omega$ una forma differenziale definita in $A$ aperto di $\R^n$. Si dice che $\omega$ è \textbf{chiusa} in $A$ se
-    \begin{equation}
+    \begin{equation*}
         \frac{\partial a_i}{\partial x_j}(x)= \frac{\partial a_j}{\partial x_i}(x) \qquad \forall\ x \in A,\ \forall\ i, j = 1, \dots, n
-    \end{equation}
+    \end{equation*}
 \end{definition}
 Dal punto di vista fisico, dato un campo vettoriale $F=F(x)=(a_1(x), \dots, a_n(x))$ definito in $A \subseteq \R^n$, lo si dice \textit{campo vettoriale irrotazionale} se vale (\theequation). 
 \begin{theorem} \label{Teo: Forma esatta => forma chiusa}
@@ -227,13 +227,13 @@ Dal punto di vista fisico, dato un campo vettoriale $F=F(x)=(a_1(x), \dots, a_n(
 \end{theorem}
 \begin{proof}
     Poiché $\omega$ è esatta, per definizione, ne esiste una primitiva $f$ tale che
-    \begin{equation}
+    \begin{equation*}
         \omega= df \iff a_i(x)=\frac{\partial f }{\partial x_i}(x) \qquad \forall\ x \in A,\ \forall\ i=1, \dots, n
-    \end{equation}
+    \end{equation*}
     Poiché poi $a_i \in C^1(A)$, si ha che $f$ deve essere di classe $C^2(A)$. Pertanto, dal teorema di Schwarz (\ref{Teo: Schwarz}) si ottiene
-    \begin{equation}
+    \begin{equation*}
         \frac{\partial a_i}{\partial x_j}(x)= \frac{\partial^2 f}{\partial x_j \partial x_i}(x) = \frac{\partial^2 f}{\partial x_i \partial x_j}(x) = \frac{\partial a_j}{\partial x_i}(x) 
-    \end{equation}
+    \end{equation*}
     cioè la tesi.
 \end{proof}
 In maniera analoga, si ha che un campo conservativo $F$ definito su un aperto $A$ di $\R^n$ di classe $C^1(A)$ è ivi irrotazionale.
@@ -266,7 +266,7 @@ In maniera analoga, si ha che un campo conservativo $F$ definito su un aperto $A
 \end{example}
 \begin{definition} \label{Def: Rotore}
 Dato un campo $F= F(x,y,z)= (a_1(x,y,z), a_2(x,y,z), a_3(x,y,z)$ definito in $A \subseteq \R^3$, si definisce \textbf{rotore} ($\Rot(F)$) l'operatore di $\R^3$ dato da
-\begin{equation}
+\begin{equation*}
 \nabla \wedge F = \left| \begin{matrix}
     i & j & k \\
     \partial x & \partial y & \partial z\\
@@ -274,19 +274,19 @@ Dato un campo $F= F(x,y,z)= (a_1(x,y,z), a_2(x,y,z), a_3(x,y,z)$ definito in $A 
 \end{matrix}
 \right|
 = \left( \frac{\partial a_3}{\partial y} - \frac{\partial a_2}{\partial z} \right)i - \left( \frac{\partial a_3}{\partial x} - \frac{\partial a_1}{\partial z} \right)j + \left( \frac{\partial a_2}{\partial x} - \frac{\partial a_1}{\partial y}\right)k 
-\end{equation}
+\end{equation*}
 \end{definition}
 \begin{definition} \label{Def: Campo irrotazionale}
     Sia $\omega$ una forma differenziale cui sia associato un campo $F$. Allora, $F$ si dice irrotazionale se e solo se $\omega$ è chiusa e se e solo se
-    \begin{equation}
+    \begin{equation*}
       \Rot(F) = \nabla \wedge F = 0  
-    \end{equation}
+    \end{equation*}
 \end{definition}
 \begin{definition} \label{Def: Divergenza}
     Dato un campo $F= F(x,y,z)= (a_1(x,y,z), a_2(x,y,z), a_3(x,y,z)$ definito in $A \subseteq \R^3$, si definisce \textbf{divergenza} di $F$ ($\Div(F)$) l'operatore di $\R^3$ dato da
-    \begin{equation}
+    \begin{equation*}
         \langle \nabla, F \rangle = \frac{\partial a_1}{\partial x} + \frac{\partial a_2}{\partial y} + \frac{\partial a_3}{\partial z}
-    \end{equation}
+    \end{equation*}
 \end{definition}
 Rimane ora da trovare una condizione sufficiente che leghi forme chiuse e forme esatte. 
 \begin{definition}
@@ -328,9 +328,9 @@ Rimane ora da trovare una condizione sufficiente che leghi forme chiuse e forme 
 Prima di affrontare le formule di Gauss-Green e le conseguenze che ne discendono, occorre fare prima un accenno su cosa si intenda per orientazione della frontiera di un dominio.
 \paragraph{Dominio normale}
 In un \textit{dominio normale} (\ref{Def: Dominio normale}) $D$ come un generico
- \begin{equation}
+ \begin{equation*}
  D=\left\{ (x,y) \in \R^2 \mid a<x<b,\ \alpha(x)<y<\beta(x)\right\}
- \end{equation}
+ \end{equation*}
  si dice che la sua frontiera è positivamente orientata se è percorsa in senso antiorario e lo si indica con $\ppartial D$.
  \paragraph{Dominio regolare}
  In un \textit{dominio regolare} (\ref{Def: Dominio regolare}) $D$, la frontiera $\partial D$ è data dall'unione di un numero finito di curve regolari a tratti, pertanto, a meno di un numero finito di punti, è ben definito il versore tangente $T$.\\ 
@@ -349,15 +349,15 @@ Affinché la frontiera della corona circolare sia orientata positivamente, occor
      \iint\limits_D{\frac{\partial f}{\partial y}(x,y)}\,dx\,dy= -\int\limits_{\ppartial D}{f(x,y)}\,dx
  \end{equation}
      Se invece $D$ è un dominio normale regolare rispetto a $y$, vale
-     \begin{equation}
+     \begin{equation*}
     \iint\limits_D{\frac{\partial f}{\partial x}(x,y)}\,dx\,dy= \int\limits_{\ppartial D}{f(x,y)}\,dy
-     \end{equation}
+     \end{equation*}
  \end{theorem}
  \begin{proof}
  Sia $D$ definito come segue:
-        \begin{equation}
+        \begin{equation*}
           D=  \left\{ (x,y) \in \R^2 \mid a \leq x \leq b,\ \alpha(x) \leq y \leq \beta(x)\right\}
-        \end{equation}
+        \end{equation*}
 Allora si ha che la frontiera di tale insieme può essere rappresentata come l'unione dei sostegni di quattro curve, come in figura.
  \begin{figure}[H]
      \centering
@@ -366,7 +366,7 @@ Allora si ha che la frontiera di tale insieme può essere rappresentata come l'u
      \end{minipage}
      \begin{minipage}{0.63\textwidth}
         Si parametrizzino i vari tratti di curva: 
-        \begin{equation}
+        \begin{equation*}
             \begin{aligned}
                 &\gamma_1:\ \varphi_1(t)= \begin{cases}
                     t\\
@@ -389,17 +389,17 @@ Allora si ha che la frontiera di tale insieme può essere rappresentata come l'u
                 \end{cases}
                 \quad t \in [\alpha(a), \beta(a)]
             \end{aligned}
-        \end{equation}
+        \end{equation*}
      \end{minipage}
  \end{figure}
  \flushleft Dunque, si mostri, senza perdita di generalità, l'equivalenza degli integrali nella \eqref{Eq: Gauss-Green per dimostrazione}.
- \begin{equation}
+ \begin{equation*}
     \begin{aligned}
      \iint\limits_D{\frac{\partial f}{\partial y}(x,y)}\,dx\,dy &\overset{\eqref{Eq: Formula di riduzione integrali doppi 1}}{=} \int\limits_{a}^{b}{\left( \int\limits_{\alpha(x)}^{\beta(x)}\frac{\partial f}{\partial y}(x,y)\,dy \right)}\, dx \overset{\text{TFC}}{=}\int\limits_{a}^{b}{ f(x, \beta(x))- f(x, \alpha(x))}\, dx
      \end{aligned}
- \end{equation}
+ \end{equation*}
 Inoltre, 
-\begin{equation}
+\begin{equation*}
 \begin{aligned}
     \int\limits_{\ppartial D}{f}\, dx &= \sum\limits_{i=1}^{4} \int\limits_{\gamma_i}{f}\,dx =
     \int\limits_{a}^{b}{f(t, \alpha(t)) t'}\, dt+ \int\limits_{\alpha(b)}^{\beta(b)}{f(b,t)b'}\, dt +\\
@@ -408,59 +408,59 @@ Inoltre,
     &\overset{\substack{\text{Nel }\#2:\\ a+b-t=s\\ -dt=ds}}{=} \int\limits_a^b{f(t, \alpha(t))}\, dt + \int\limits_b^a{f(s, \beta(s))}\, ds = \int\limits_{a}^{b}{f(t, \alpha(t))- f(t, \beta(t))}\, dt=\\
     &=-\int\limits_{a}^{b}{ f(t, \beta(t))- f(t, \alpha(t))}\, dt
     \end{aligned}
-\end{equation}
+\end{equation*}
 Cioè la tesi.\\
 Il ragionamento e la dimostrazione per la seconda parte della tesi sono analoghi.
  \end{proof}
  Dal teorema discende come corollario quanto segue.
  \begin{corollary}
      Sia $D$ un dominio normale regolare rispetto a entrambi gli assi e sia $\omega= P(x,y)dx+ Q(x,y)dy$ una forma differenziale di classe $C^1(D)$. Allora
-     \begin{equation}
+     \begin{equation*}
          \iint\limits_{D}{\left[\frac{\partial Q}{\partial x} (x,y)- \frac{\partial P}{\partial y}(x,y)\right]}\, dx\, dy = \int\limits_{\ppartial D} \omega
-     \end{equation}
+     \end{equation*}
 \end{corollary}
 \begin{proof}
     La dimostrazione discende dall'applicazione del teorema precedente. Infatti,
-    \begin{equation}
+    \begin{equation*}
         \begin{aligned}
             &\iint\limits_{D}{\frac{\partial Q}{\partial x} (x,y)}\,dx\,dy =  \int\limits_{\ppartial D}{Q(x,y)}\,dy\\
             &\iint\limits_{D}{\frac{\partial P}{\partial y} (x,y)}\,dx\,dy =  -\int\limits_{\ppartial D}{P(x,y)}\,dx
         \end{aligned}
-    \end{equation}
+    \end{equation*}
     Perciò, unendo tali risultati si ha che
-    \begin{equation}
+    \begin{equation*}
       \iint\limits_{D}{\left[\frac{\partial Q}{\partial x} (x,y)- \frac{\partial P}{\partial y}(x,y)\right]}\, dx\, dy = \int\limits_{\ppartial D}{Q(x,y)}\,dy - \left(  -\int\limits_{\ppartial D}{P(x,y)}\,dx\right)= \int\limits_{\ppartial D} \omega  
-    \end{equation}
+    \end{equation*}
 \end{proof}
 \begin{oss}
 A questo punto si può inoltre aggiungere che se $D$ è un dominio regolare qualsiasi definito come 
-\begin{equation}
+\begin{equation*}
     D = \bigcup_{j=1}^{N} D_j
-\end{equation}
+\end{equation*}
 allora continuano a valere le formule di Gauss-Green. Una dimostrazione di tale fatto si può avere sommando per additività gli integrali calcolati sui singoli tratti di frontiera. Infatti, laddove $\ppartial D_i$ e $\ppartial D_j$ coincidono, si ha che i versori normali hanno verso opposto e il loro contributo è nullo, lasciando come integrale risultante proprio
-\begin{equation}
+\begin{equation*}
     \int\limits_{\ppartial D}{\omega}
-\end{equation}
+\end{equation*}
 \end{oss}
 Le formule di Gauss-Green possono essere utilizzate per il calcolo di aree racchiuse da curve. Infatti vale il seguente corollario.
 \begin{corollary}[Gauss-Green per il calcolo di aree racchiuse da una curva]
 Sia $D \subseteq \R^2$ un dominio regolare. Allora,
-\begin{equation}
+\begin{equation*}
     \area(D)= \int\limits_{\ppartial D}{x}\, dy = -\int\limits_{\ppartial D}{y}\, dx = \frac{1}{\alpha+\beta}{\int\limits_{\ppartial D}{\alpha x dy - \beta y dx}} \qquad \forall\ \alpha, \beta \in \R,\ \alpha+\beta \neq 0
-\end{equation}
+\end{equation*}
 \end{corollary}
 \begin{proof}
     Per definizione 
-    \begin{equation}
+    \begin{equation*}
         \area(D)= \iint\limits_{D}{1}\,dx\, dy
-    \end{equation}
+    \end{equation*}
     Allora si ha che
     \begin{align}
         &1= \frac{\partial f}{\partial y} \Rightarrow f(x,y)= y \Rightarrow \area(D)= \iint\limits_{D} \frac{\partial f}{\partial y}\,dx\,dy \overset{\text{G.G.}}{=}  -\int\limits_{\ppartial D}{y}\,dx\\
       &  1=\frac{\partial f}{\partial x} \Rightarrow f(x,y)= x \Rightarrow \area(D)= \iint\limits_{D} \frac{\partial f}{\partial x} \overset{\text{G.G.}}{=}  \int\limits_{\ppartial D}{x}\,dy
     \end{align}
     Perciò, si ha che
-    \begin{equation}
+    \begin{equation*}
         (\alpha+\beta)\area(D)= \int\limits_{\ppartial D}{\alpha x dy - \beta y dx} \Rightarrow \area(D)=  \frac{1}{\alpha+\beta}{\int\limits_{\ppartial D}{\alpha x dy - \beta y dx}}
-    \end{equation}
+    \end{equation*}
 \end{proof}
